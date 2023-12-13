@@ -28,7 +28,7 @@ if ( ! class_exists( 'DRK_Field_select' ) ) {
 
       $this->value = ( is_array( $this->value ) ) ? $this->value : array_filter( (array) $this->value );
 
-      echo $this->field_before();
+      echo wp_kses_post($this->field_before());
 
       if ( isset( $this->field['options'] ) ) {
 
@@ -116,7 +116,7 @@ if ( ! class_exists( 'DRK_Field_select' ) ) {
 
       }
 
-      echo $this->field_after();
+      echo wp_kses_post($this->field_after());
 
     }
 

@@ -21,7 +21,7 @@ if ( ! class_exists( 'DRK_Field_switcher' ) ) {
       $text_off   = ( ! empty( $this->field['text_off'] ) ) ? $this->field['text_off'] : esc_html__( 'Off', 'darkify' );
       $text_width = ( ! empty( $this->field['text_width'] ) ) ? ' style="width: '. esc_attr( $this->field['text_width'] ) .'px;"': '';
 
-      echo $this->field_before();
+      echo wp_kses_post($this->field_before());
 
       echo '<div class="drk--switcher'. esc_attr( $active ) .'"'. $text_width .'>';
       echo '<span class="drk--on">'. esc_attr( $text_on ) .'</span>';
@@ -32,7 +32,7 @@ if ( ! class_exists( 'DRK_Field_switcher' ) ) {
 
       echo ( ! empty( $this->field['label'] ) ) ? '<span class="drk--label">'. esc_attr( $this->field['label'] ) . '</span>' : '';
 
-      echo $this->field_after();
+      echo wp_kses_post($this->field_after());
 
     }
 

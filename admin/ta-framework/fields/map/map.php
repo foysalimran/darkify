@@ -46,7 +46,7 @@ if ( ! class_exists( 'DRK_Field_map' ) ) {
       $style_attr  = ( ! empty( $args['height'] ) ) ? ' style="min-height:'. esc_attr( $args['height'] ) .';"' : '';
       $placeholder = ( ! empty( $args['placeholder'] ) ) ? array( 'placeholder' => $args['placeholder'] ) : '';
 
-      echo $this->field_before();
+      echo wp_kses_post($this->field_before());
 
       if ( empty( $args['address_field'] ) ) {
         echo '<div class="drk--map-search">';
@@ -74,7 +74,7 @@ if ( ! class_exists( 'DRK_Field_map' ) ) {
 
       echo '<input type="hidden" name="'. esc_attr( $this->field_name( '[zoom]' ) ) .'" value="'. esc_attr( $value['zoom'] ) .'" class="drk--zoom" />';
 
-      echo $this->field_after();
+      echo wp_kses_post($this->field_after());
 
     }
 

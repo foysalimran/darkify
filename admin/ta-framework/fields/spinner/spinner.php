@@ -23,11 +23,11 @@ if ( ! class_exists( 'DRK_Field_spinner' ) ) {
         'unit' => '',
       ) );
 
-      echo $this->field_before();
+      echo wp_kses_post($this->field_before());
 
       echo '<div class="drk--spin"><input type="number" name="'. esc_attr( $this->field_name() ) .'" value="'. esc_attr( $this->value ) .'"'. $this->field_attributes( array( 'class' => 'drk-input-number' ) ) .' data-min="'. esc_attr( $args['min'] ) .'" data-max="'. esc_attr( $args['max'] ) .'" data-step="'. esc_attr( $args['step'] ) .'" data-unit="'. esc_attr( $args['unit'] ) .'" step="any" /></div>';
 
-      echo $this->field_after();
+      echo wp_kses_post($this->field_after());
 
     }
 

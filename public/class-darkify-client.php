@@ -70,23 +70,27 @@ if (!class_exists('DarkifyClient')) {
     
         function darkify_is_dark_mode_allowed() {
             $options = get_option('darkify');
+            $disallowed_pages = isset($options["disallowed_pages"]) ? $options["disallowed_pages"] : "";
+            $allowed_pages = isset($options["allowed_pages"]) ? $options["allowed_pages"] : "";
+            $disallowed_posts = isset($options["disallowed_posts"]) ? $options["disallowed_posts"] : "";
+            $allowed_posts = isset($options["allowed_posts"]) ? $options["allowed_posts"] : "";
             /* Disable on Disallowed Page */
-            if($this->utils->isRestrictedByDisallowedPages($options["disallowed_pages"])){
+            if($this->utils->isRestrictedByDisallowedPages($disallowed_pages)){
                 return False;
             }
     
             /* Disable Except Allowed Page */
-            if($this->utils->isRestrictedByAllowedPages($options["allowed_pages"])){
+            if($this->utils->isRestrictedByAllowedPages($allowed_pages)){
                 return False;
             }
     
             /* Disable on Disallowed Post */
-            if($this->utils->isRestrictedByDisallowedPosts($options["disallowed_posts"])){
+            if($this->utils->isRestrictedByDisallowedPosts($disallowed_posts)){
                 return False;
             }
     
             /* Disable Except Allowed Post */
-            if($this->utils->isRestrictedByAllowedPosts($options["allowed_posts"])){
+            if($this->utils->isRestrictedByAllowedPosts($allowed_posts)){
                 return False;
             }
     

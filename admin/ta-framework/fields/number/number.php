@@ -23,12 +23,12 @@ if ( ! class_exists( 'DRK_Field_number' ) ) {
         'unit' => '',
       ) );
 
-      echo $this->field_before();
+      echo wp_kses_post($this->field_before());
       echo '<div class="drk--wrap">';
       echo '<input type="number" name="'. esc_attr( $this->field_name() ) .'" value="'. esc_attr( $this->value ) .'"'. $this->field_attributes() .' min="'. esc_attr( $args['min'] ) .'" max="'. esc_attr( $args['max'] ) .'" step="'. esc_attr( $args['step'] ) .'"/>';
       echo ( ! empty( $args['unit'] ) ) ? '<span class="drk--unit">'. esc_attr( $args['unit'] ) .'</span>' : '';
       echo '</div>';
-      echo $this->field_after();
+      echo wp_kses_post($this->field_after());
 
     }
 
