@@ -1,0 +1,36 @@
+/**
+ * All of the CSS for your admin-specific functionality should be
+ * included in this file.
+ */
+ .drk-field-image_select.icon_select img {
+    max-width: 175px;
+ }
+
+
+.switcher_shortcode_input {
+   padding: 4px 8px;
+   cursor: pointer;
+   width: 100%;
+}
+.switcher_shortcode_after_copy {
+   bottom: 0;
+   opacity: 0;
+   z-index: 9999999;
+   position: fixed;
+   width: 230px;
+   left: 50%;
+   transform: translateX(-50%);
+   text-align: center;
+   padding: 15px 15px;
+   line-height: 15px;
+   color: #fff;
+   border-radius: 3px;
+   background: #32373c;
+   border: 1px solid #32373c
+}
+
+.switcher_shortcode_after_copy .fa-check-circle {
+   font-size: 14px;
+   margin-right: 5px;
+   color: #5db62e
+}
