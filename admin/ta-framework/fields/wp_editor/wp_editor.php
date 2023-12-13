@@ -39,7 +39,7 @@ if ( ! class_exists( 'DRK_Field_wp_editor' ) ) {
         'wpautop'       => $args['wpautop'],
       );
 
-      echo $this->field_before();
+      echo wp_kses_post($this->field_before());
 
       echo ( drk_wp_editor_api() ) ? '<div class="drk-wp-editor" data-editor-settings="'. esc_attr( json_encode( $editor_settings ) ) .'">' : '';
 
@@ -47,7 +47,7 @@ if ( ! class_exists( 'DRK_Field_wp_editor' ) ) {
 
       echo ( drk_wp_editor_api() ) ? '</div>' : '';
 
-      echo $this->field_after();
+      echo wp_kses_post($this->field_after());
 
     }
 

@@ -34,7 +34,7 @@ if ( ! class_exists( 'DRK_Field_link' ) ) {
 
       $maybe_hidden = ( empty( $hidden ) ) ? ' hidden' : '';
 
-      echo $this->field_before();
+      echo wp_kses_post($this->field_before());
 
       echo '<textarea readonly="readonly" class="drk--link hidden"></textarea>';
 
@@ -48,7 +48,7 @@ if ( ! class_exists( 'DRK_Field_link' ) ) {
       echo '<a href="#" class="button drk--edit'. esc_attr( $maybe_hidden ) .'">'. $args['edit_title'] .'</a> ';
       echo '<a href="#" class="button drk-warning-primary drk--remove'. esc_attr( $maybe_hidden ) .'">'. $args['remove_title'] .'</a>';
 
-      echo $this->field_after();
+      echo wp_kses_post($this->field_after());
 
     }
 

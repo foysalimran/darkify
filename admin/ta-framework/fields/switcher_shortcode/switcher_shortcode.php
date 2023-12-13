@@ -21,7 +21,7 @@ if (!class_exists('DRK_Field_switcher_shortcode')) {
     public function render()
     {
 
-      echo $this->field_before();
+      echo wp_kses_post($this->field_before());
 
 ?>
       <textarea type='text' id='switcher_shortcode' class='switcher_shortcode_input' id='switcher_shortcode_after_copy' onClick='this.select();' readonly='readonly'>[darkify switch="1" width_height="60px" border_radius="7px" icon_size="40px" light_mode_bg="#121116" dark_mode_bg="#ffffff" light_mode_color="#ffffff" dark_mode_color="#121116"]</textarea>
@@ -34,7 +34,7 @@ if (!class_exists('DRK_Field_switcher_shortcode')) {
 
       echo (!empty($this->field['label'])) ? '<span class="drk--label">' . esc_attr($this->field['label']) . '</span>' : '';
 
-      echo $this->field_after();
+      echo wp_kses_post($this->field_after());
     }
   }
 }

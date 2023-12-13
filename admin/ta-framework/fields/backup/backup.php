@@ -20,7 +20,7 @@ if ( ! class_exists( 'DRK_Field_backup' ) ) {
       $nonce  = wp_create_nonce( 'drk_backup_nonce' );
       $export = add_query_arg( array( 'action' => 'drk-export', 'unique' => $unique, 'nonce' => $nonce ), admin_url( 'admin-ajax.php' ) );
 
-      echo $this->field_before();
+      echo wp_kses_post($this->field_before());
 
       echo '<textarea name="drk_import_data" class="drk-import-data"></textarea>';
       echo '<button type="submit" class="button button-primary drk-confirm drk-import" data-unique="'. esc_attr( $unique ) .'" data-nonce="'. esc_attr( $nonce ) .'">'. esc_html__( 'Import', 'darkify' ) .'</button>';
@@ -30,7 +30,7 @@ if ( ! class_exists( 'DRK_Field_backup' ) ) {
       echo '<hr />';
       echo '<button type="submit" name="drk_transient[reset]" value="reset" class="button drk-warning-primary drk-confirm drk-reset" data-unique="'. esc_attr( $unique ) .'" data-nonce="'. esc_attr( $nonce ) .'">'. esc_html__( 'Reset', 'darkify' ) .'</button>';
 
-      echo $this->field_after();
+      echo wp_kses_post($this->field_after());
 
     }
 

@@ -18,7 +18,7 @@ if ( ! class_exists( 'DRK_Field_tabbed' ) ) {
 
       $unallows = array( 'tabbed' );
 
-      echo $this->field_before();
+      echo wp_kses_post($this->field_before());
 
       echo '<div class="drk-tabbed-nav" data-depend-id="'. esc_attr( $this->field['id'] ) .'">';
       foreach ( $this->field['tabs'] as $key => $tab ) {
@@ -56,7 +56,7 @@ if ( ! class_exists( 'DRK_Field_tabbed' ) ) {
       }
       echo '</div>';
 
-      echo $this->field_after();
+      echo wp_kses_post($this->field_after());
 
     }
 

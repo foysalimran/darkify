@@ -16,10 +16,10 @@ if ( ! class_exists( 'DRK_Field_textarea' ) ) {
 
     public function render() {
 
-      echo $this->field_before();
+      echo wp_kses_post($this->field_before());
       echo $this->shortcoder();
       echo '<textarea name="'. esc_attr( $this->field_name() ) .'"'. $this->field_attributes() .'>'. $this->value .'</textarea>';
-      echo $this->field_after();
+      echo wp_kses_post($this->field_after());
 
     }
 
