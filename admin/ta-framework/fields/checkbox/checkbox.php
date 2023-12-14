@@ -25,7 +25,7 @@ if ( ! class_exists( 'DRK_Field_checkbox' ) ) {
 
       $inline_class = ( $args['inline'] ) ? ' class="drk--inline-list"' : '';
 
-      echo $this->field_before();
+      echo wp_kses_post($this->field_before());
 
       if ( isset( $this->field['options'] ) ) {
 
@@ -93,7 +93,7 @@ if ( ! class_exists( 'DRK_Field_checkbox' ) ) {
 
       }
 
-      echo $this->field_after();
+      echo wp_kses_post($this->field_after());
 
     }
 

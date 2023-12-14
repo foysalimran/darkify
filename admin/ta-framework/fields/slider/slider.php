@@ -25,7 +25,7 @@ if ( ! class_exists( 'DRK_Field_slider' ) ) {
 
       $is_unit = ( ! empty( $args['unit'] ) ) ? ' drk--is-unit' : '';
 
-      echo $this->field_before();
+      echo wp_kses_post($this->field_before());
 
       echo '<div class="drk--wrap">';
       echo '<div class="drk-slider-ui"></div>';
@@ -35,7 +35,7 @@ if ( ! class_exists( 'DRK_Field_slider' ) ) {
       echo '</div>';
       echo '</div>';
 
-      echo $this->field_after();
+      echo wp_kses_post($this->field_after());
 
     }
 

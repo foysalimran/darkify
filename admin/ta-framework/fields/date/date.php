@@ -23,7 +23,7 @@ if ( ! class_exists( 'DRK_Field_date' ) ) {
       $settings = ( ! empty( $this->field['settings'] ) ) ? $this->field['settings'] : array();
       $settings = wp_parse_args( $settings, $default_settings );
 
-      echo $this->field_before();
+      echo wp_kses_post($this->field_before());
 
       if ( ! empty( $this->field['from_to'] ) ) {
 
@@ -48,7 +48,7 @@ if ( ! class_exists( 'DRK_Field_date' ) ) {
 
       echo '<div class="drk-date-settings" data-settings="'. esc_attr( json_encode( $settings ) ) .'"></div>';
 
-      echo $this->field_after();
+      echo wp_kses_post($this->field_after());
 
     }
 

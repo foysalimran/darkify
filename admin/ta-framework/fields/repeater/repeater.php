@@ -28,7 +28,7 @@ if ( ! class_exists( 'DRK_Field_repeater' ) ) {
 
       } else {
 
-        echo $this->field_before();
+        echo wp_kses_post($this->field_before());
 
         echo '<div class="drk-repeater-item drk-repeater-hidden" data-depend-id="'. esc_attr( $this->field['id'] ) .'">';
         echo '<div class="drk-repeater-content">';
@@ -90,7 +90,7 @@ if ( ! class_exists( 'DRK_Field_repeater' ) ) {
         echo '<div class="drk-repeater-alert drk-repeater-min">'. esc_html__( 'You cannot remove more.', 'darkify' ) .'</div>';
         echo '<a href="#" class="button button-primary drk-repeater-add">'. $args['button_title'] .'</a>';
 
-        echo $this->field_after();
+        echo wp_kses_post($this->field_after());
 
       }
 
