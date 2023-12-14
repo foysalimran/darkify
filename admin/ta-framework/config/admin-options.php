@@ -228,6 +228,14 @@ DRK::createSection($prefix, array(
         'expand' => DRK_PLUGIN_DIR_URL . '/admin/image/icon-02.jpg',
         'inner-moon' => DRK_PLUGIN_DIR_URL . '/admin/image/icon-03.jpg',
         'within' => DRK_PLUGIN_DIR_URL . '/admin/image/icon-04.jpg',
+        // 'around' => DRK_PLUGIN_DIR_URL . '/admin/image/icon-05.jpg',
+        // 'dark-side' => DRK_PLUGIN_DIR_URL . '/admin/image/icon-06.jpg',
+        // 'horizon' => DRK_PLUGIN_DIR_URL . '/admin/image/icon-07.jpg',
+        // 'eclipse' => DRK_PLUGIN_DIR_URL . '/admin/image/icon-08.jpg',
+        // 'lightbulb' => DRK_PLUGIN_DIR_URL . '/admin/image/icon-09.jpg',
+        // 'dark-inner' => DRK_PLUGIN_DIR_URL . '/admin/image/icon-10.jpg',
+        // 'half-sun' => DRK_PLUGIN_DIR_URL . '/admin/image/icon-11.jpg',
+        // 'simple' => DRK_PLUGIN_DIR_URL . '/admin/image/icon-12.jpg',
       ),
       'default' => 'classic',
     ),
@@ -470,6 +478,15 @@ DRK::createSection($prefix, array(
       'text_width'  => '100',
       'desc'        => esc_html__('Enable to make the floating switch scroll from its position with page scrolling.', 'darkify'),
     ),
+    // array(
+    //   'id'          => 'enable_switch_dragging',
+    //   'type'        => 'switcher',
+    //   'title'       => esc_html__('Draggable Position Change', 'darkify'),
+    //   'text_on'     => esc_html__('Enabled', 'darkify'),
+    //   'text_off'    => esc_html__('Disabled', 'darkify'),
+    //   'text_width'  => '100',
+    //   'desc'        => esc_html__('Allow/Disallow users to change the floating switch position by dragging to where they want.', 'darkify'),
+    // ),
   )));
 
   DRK::createSection($prefix, array(
@@ -634,6 +651,8 @@ DRK::createSection( $prefix, array(
       'dependency' => array('color_pallets', '==', 'set1', 'all'),
       'options'   => array(
         'text' => esc_html__('Text Color', 'darkify'),
+        // 'color' => esc_html__('Link Color', 'darkify'),
+        // 'hover' => esc_html__('Link Hover Color', 'darkify'),
       ),
       'default' => array(
         'text' => '#BEBEBE',
@@ -641,6 +660,49 @@ DRK::createSection( $prefix, array(
         'hover' => '#CCCCCC',
       ),
     ),
+    // array(
+    //   'id'    => 'dark_mode_input_color_set1',
+    //   'type'    => 'color_group',
+    //   'title' => esc_html__('Input', 'darkify'),
+    //   'desc' => esc_html__('Set the input field color of your website when dark mode is enabled.', 'darkify'),
+    //   'dependency' => array('color_pallets', '==', 'set1', 'all'),
+    //   'options'   => array(
+    //     'background' => esc_html('Input Background', 'darkify'),
+    //     'color' => esc_html__('Input Text', 'darkify'),
+    //     'placeholder' => esc_html('Input Placeholder', 'darkify'),
+    //   ),
+    //   'default' => array(
+    //     'color' => '#2D2D2D',
+    //     'placeholder' => '#989898',
+    //     'background' => '#BEBEBE',
+    //   ),
+    // ),
+    
+    // array(
+    //   'id'    => 'dark_mode_border_color_set1',
+    //   'type'    => 'color',
+    //   'title' => esc_html__('Border', 'darkify'),
+    //   'desc' => esc_html__('Set the border color of your website when dark mode is enabled.', 'darkify'),
+    //   'dependency' => array('color_pallets', '==', 'set1', 'all'),
+    //   'default' => '#4A4A4A',
+    // ),
+    // array(
+    //   'id'    => 'dark_mode_btn_color_set1',
+    //   'type'    => 'color_group',
+    //   'title' => esc_html__('Button', 'darkify'),
+    //   'desc' => esc_html__('Set the color of buttons of your website when dark mode is enabled.', 'darkify'),
+    //   'dependency' => array('color_pallets', '==', 'set1', 'all'),
+    //   'options'   => array(
+    //     'background' => esc_html('Button Background', 'darkify'),
+    //     'color' => esc_html__('Button Text', 'darkify'),
+    //   ),
+    //   'default' => array(
+    //     'color' => '#2D2D2D',
+    //     'background' => '#BEBEBE',
+    //   ),
+    // ),
+
+    // color pallate set 2
 
     array(
       'id'    => 'dark_mode_color_set2',
@@ -1203,6 +1265,22 @@ DRK::createSection( $prefix, array(
       'desc' => esc_html__('Want to enable dark mode on the scrollbar of the website?', 'darkify'),
       'default' => true,
     ),
+    // array(
+    //   'id' => 'dark_mode_scrollbar_track_bg',
+    //   'type'  => 'color',
+    //   'title' => esc_html__('Scrollbar Track Background Color', 'darkify'),
+    //   'desc' => esc_html__('Set the background color of scrollbars track when dark mode is enabled.', 'darkify'),
+    //   'default' => '#29292a',
+    //   'dependency' => array( 'enable_scrollbar_dark', '==', 'true' ),
+    // ),
+    // array(
+    //   'id' => 'dark_mode_scrollbar_thumb_bg',
+    //   'type'  => 'color',
+    //   'title' => esc_html__('Scrollbar Thumb Background Color', 'darkify'),
+    //   'desc' => esc_html__('Set the background color of scrollbars thumb when dark mode is enabled.', 'darkify'),
+    //   'default' => '#52565a',
+    //   'dependency' => array( 'enable_scrollbar_dark', '==', 'true' ),
+    // ),
   ),
 
 ));
@@ -1251,6 +1329,15 @@ DRK::createSection($prefix, array(
           'default'     => '80',
           'dependency' => array('enable_low_image_brightness', '==', 'true', 'all'),
         ),
+
+        // array(
+        //   'id' => 'disallowed_low_brightness_images',
+        //   'type'  => 'textarea',
+        //   'title' => esc_html__('Allow Only Elements', 'darkify'),
+        //   'desc'  => esc_html__('Enter comma-separated image URLs where brightness will be normal.', 'darkify'),
+        //   'placeholder' => esc_html__('Exclude low brightness on specific images.', 'darkify'),
+        //   'dependency' => array('enable_low_image_brightness', '==', 'true', 'all'),
+        // ),
       ),
     ),
     // Grayscale Image
@@ -1345,6 +1432,75 @@ DRK::createSection($prefix, array(
       'desc'  => esc_html__('Turn On to automatically invert all inline SVG images in dark mode.', 'darkify'),
       'default' => false,
     ),
+
+    // // Image Inversion
+    // array(
+    //   'id'     => 'invert',
+    //   'type'   => 'fieldset',
+    //   'title'  => esc_html__('Image Inversion', 'darkify'),
+    //   'fields' => array(
+    //     array(
+    //       'id' => 'enable_invert_images',
+    //       'type'  => 'switcher',
+    //       'title' => esc_html__('Invert speceifc Images', 'darkify'),
+    //       'desc'  => esc_html__('Switch to invert specific images on dark mode.', 'darkify'),
+    //       'text_on' => esc_html__('Yes', 'darkify'),
+    //       'text_off' => esc_html__('No', 'darkify'),
+    //       'default' => false,
+    //     ),
+    //     array(
+    //       'id' => 'invert_images_allowed_urls',
+    //       'type'  => 'textarea',
+    //       'title' => esc_html__('Image URLs', 'darkify'),
+    //       'desc'  => esc_html__('Image "src", "srcset" or CSS backgroundImage URLs are supported to target for inversion.', 'darkify'),
+    //       'placeholder' => esc_html__('Enter comma-separated image URLs where inversion needed to apply.', 'darkify'),
+    //       'dependency' => array('enable_invert_images', '==', 'true', 'all'),
+    //     ),
+    //   ),
+    // ),
+
+    // // Image Replacement
+    // array(
+    //   'type'    => 'heading',
+    //   'content' => esc_html__('Image Replacement', 'darkify'),
+    // ),
+
+    // array(
+    //   'id'        => 'image_replacements',
+    //   'type'      => 'repeater',
+    //   'title'     => esc_html__('Replace images', 'darkify'),
+    //   'fields'    => array(
+
+    //     array(
+    //       'id'           => 'normal_image',
+    //       'type'         => 'upload',
+    //       'title'        => esc_html__('Normal Mode Image', 'darkify'),
+    //       'library'      => 'image',
+    //       'placeholder'  => esc_html__('Image URL', 'darkify'),
+    //       'button_title' => esc_html__('Add Image', 'darkify'),
+    //       'remove_title' => esc_html__('Remove Image', 'darkify'),
+    //     ),
+
+    //     array(
+    //       'id'           => 'dark_image',
+    //       'type'         => 'upload',
+    //       'title'        => esc_html__('Dark Mode Image', 'darkify'),
+    //       'library'      => 'image',
+    //       'placeholder'  =>   esc_html__('Image URL', 'darkify'),
+    //       'button_title' => esc_html__('Add Image', 'darkify'),
+    //       'remove_title' => esc_html__('Remove Image', 'darkify'),
+    //     ),
+
+    //   ),
+    //   'default'   => array(
+    //     array(
+    //       'normal_image' => '',
+    //       'dark_image' => '',
+    //     ),
+    //   )
+    // ),
+
+
   )
 ));
 DRK::createSection($prefix, array(
@@ -1435,9 +1591,219 @@ DRK::createSection($prefix, array(
       ),
     ),
 
+    // // Video Replacement
+    // array(
+    //   'type'    => 'heading',
+    //   'content' => esc_html__('Video Replacement', 'darkify'),
+    // ),
+
+    // array(
+    //   'id'        => 'video_replacements',
+    //   'type'      => 'repeater',
+    //   'title'     => esc_html__('Replace video', 'darkify'),
+    //   'fields'    => array(
+
+    //     array(
+    //       'id'           => 'normal_video',
+    //       'type'         => 'upload',
+    //       'title'        => esc_html__('Normal Mode Video', 'darkify'),
+    //       'library'      => 'video',
+    //       'placeholder'  => esc_html__('Video URL', 'darkify'),
+    //       'button_title' => esc_html__('Add Video', 'darkify'),
+    //       'remove_title' => esc_html__('Remove Video', 'darkify'),
+    //     ),
+
+    //     array(
+    //       'id'           => 'dark_video',
+    //       'type'         => 'upload',
+    //       'title'        => esc_html__('Dark Mode Video', 'darkify'),
+    //       'library'      => 'video',
+    //       'placeholder'  =>   esc_html__('Video URL', 'darkify'),
+    //       'button_title' => esc_html__('Add Video', 'darkify'),
+    //       'remove_title' => esc_html__('Remove Video', 'darkify'),
+    //     ),
+
+    //   ),
+    //   'default'   => array(
+    //     array(
+    //       'normal_video' => '',
+    //       'dark_video' => '',
+    //     ),
+    //   )
+    // ),
   )
 ));
+// DRK::createSection($prefix, array(
+//   'id'    => 'advanced_fields',
+//   'title'  => esc_html__('ADVANCED SETTINGS', 'darkify'),
+//   'icon'   => 'fas fa-tools',
 
+//   ) );
+
+//   DRK::createSection( $prefix, array(
+//     'parent'      => 'advanced_fields',
+//     'title'       => esc_html__('Restriction', 'darkify'),
+//     'icon'        => 'fas fa-eye-slash',
+   
+//   'fields' => array(
+
+//     // 'HTML/CSS Restriction
+
+//     array(
+//       'type'    => 'heading',
+//       'content' => esc_html__('HTML/CSS Restriction', 'darkify'),
+//     ),
+
+//     // ALLOWED ELEMENTS
+
+//     array(
+//       'id' => 'allowed_elements',
+//       'type'  => 'textarea',
+//       'title' => esc_html__('Allow Only Elements', 'darkify'),
+//       'desc'  => esc_html__('Dark mode will be applied only to these elements.', 'darkify'),
+//       'placeholder' => esc_html__('Enter comma separated HTML tags, CSS class or CSS ids. Example: div, #site-header, .my-footer', 'darkify'),
+//     ),
+
+//     array(
+//       'id' => 'allowed_elements_force_to_correct',
+//       'type'  => 'switcher',
+//       'title' => esc_html__('Force to correct', 'darkify'),
+//       'desc'  => esc_html__('Force to keep designs correct if background color or text color is changed on disallowed elements..', 'darkify'),
+//       'text_on' => esc_html__('Yes', 'darkify'),
+//       'text_off' => esc_html__('No', 'darkify'),
+//       'default' => true,
+//     ),
+
+//     // DISALLOWED ELEMENTS
+//     array(
+//       'id' => 'disallowed_elements',
+//       'type'  => 'textarea',
+//       'title' => esc_html__('Disallowed Elements', 'darkify'),
+//       'desc'  => esc_html__('Dark mode will be applied only to these elements.', 'darkify'),
+//       'placeholder' => esc_html__('Enter comma separated HTML tags, CSS class or CSS ids. Example: div, #site-header, .my-footer', 'darkify'),
+//     ),
+
+//     array(
+//       'id' => 'disallowed_elements_force_to_correct',
+//       'type'  => 'switcher',
+//       'title' => esc_html__('Force to correct', 'darkify'),
+//       'desc'  => esc_html__('Force to keep designs correct if background color or text color is not working properly for allowed elements.', 'darkify'),
+//       'text_on' => esc_html__('Yes', 'darkify'),
+//       'text_off' => esc_html__('No', 'darkify'),
+//       'default' => true,
+//     ),
+
+//     // Page Restriction
+
+//     array(
+//       'type'    => 'heading',
+//       'content' => esc_html__('Page Restriction', 'darkify'),
+//     ),
+
+//     array(
+//       'id' => 'allowed_pages',
+//       'type'  => 'select',
+//       'title' => esc_html__('Allow Only Pages', 'darkify'),
+//       'help'  => esc_html__('Dark mode will be applied only to these pages.', 'darkify'),
+//       'desc'  => esc_html__('Choose the pages only where dark mode and floating switch can work. No other pages will be able to process dark mode.', 'darkify'),
+//       'placeholder' => esc_html__('Select some pages', 'darkify'),
+//       'options'     => 'pages',
+//       'chosen'      => true,
+//       'multiple'    => true,
+//     ),
+
+//     array(
+//       'id' => 'disallowed_pages',
+//       'type'  => 'select',
+//       'title' => esc_html__('Disallowed Pages', 'darkify'),
+//       'help'  => esc_html__('Dark mode will not be applied to these pages.', 'darkify'),
+//       'desc'  => esc_html__('Choose the pages where dark mode and floating switch can not work. Other pages will be able to process dark mode.', 'darkify'),
+//       'placeholder' => esc_html__('Select some pages', 'darkify'),
+//       'options'     => 'pages',
+//       'chosen'      => true,
+//       'multiple'    => true,
+//     ),
+
+//     // Post Restriction
+
+//     array(
+//       'type'    => 'heading',
+//       'content' => esc_html__('Post Restriction', 'darkify'),
+//     ),
+
+//     array(
+//       'id' => 'allowed_posts',
+//       'type'  => 'select',
+//       'title' => esc_html__('Allow Only Posts', 'darkify'),
+//       'help'  => esc_html__('Dark mode will be applied only to these posts.', 'darkify'),
+//       'desc'  => esc_html__('Choose the posts only where dark mode and floating switch can work. No other pages will be able to process dark mode.', 'darkify'),
+//       'placeholder' => esc_html__('Select some posts', 'darkify'),
+//       'options'     => 'posts',
+//       'chosen'      => true,
+//       'multiple'    => true,
+//     ),
+
+//     array(
+//       'id' => 'disallowed_posts',
+//       'type'  => 'select',
+//       'title' => esc_html__('Disallowed Posts', 'darkify'),
+//       'help'  => esc_html__('Dark mode will not be applied to these posts.', 'darkify'),
+//       'desc'  => esc_html__('Choose the posts where dark mode and floating switch can not work. Other pages will be able to process dark mode.', 'darkify'),
+//       'placeholder' => esc_html__('Select some posts', 'darkify'),
+//       'options'     => 'posts',
+//       'chosen'      => true,
+//       'multiple'    => true,
+//     ),
+//   )));
+//     // Custom CSS
+//     DRK::createSection( $prefix, array(
+//       'parent'      => 'advanced_fields',
+//       'title'       => esc_html__('Custom CSS', 'darkify'),
+//       'icon'        => 'fab fa-css3',
+     
+//     'fields' => array(
+//     array(
+//       'type'    => 'heading',
+//       'content' => esc_html__('Custom CSS', 'darkify'),
+//     ),
+
+//     array(
+//       'id'       => 'custom_css',
+//       'type'     => 'code_editor',
+//       'title'    => esc_html__('Dark Mode CSS', 'darkify'),
+//       'desc'     => esc_html__('The CSS code will only be applied when dark mode is active.', 'darkify'),
+//       'settings' => array(
+//         'theme'  => 'mbo',
+//         'mode'   => 'css',
+//       ),
+//     ),
+
+//     array(
+//       'id' => 'disallowed_elements_force_to_correct',
+//       'type'  => 'switcher',
+//       'title' => esc_html__('CSS rules', 'darkify'),
+//       'help' => esc_html__('CSS rules should be applied to all children of the CSS selectors.', 'darkify'),
+//       'desc'  => esc_html__('Custom CSS selectors are automatically identified as Disallowed Elements, to ignore, use :not-disallowed pseudo class. i.e. body:not-disallowed{...}', 'darkify'),
+//       'text_on' => esc_html__('Yes', 'darkify'),
+//       'text_off' => esc_html__('No', 'darkify'),
+//       'default' => true,
+//     ),
+
+//     array(
+//       'id'       => 'normal_custom_css',
+//       'type'     => 'code_editor',
+//       'title'    => esc_html__('Normal Mode CSS', 'darkify'),
+//       'desc'     => esc_html__('The CSS code will be applied on both normal mode and dark mode.', 'darkify'),
+//       'settings' => array(
+//         'theme'  => 'mbo',
+//         'mode'   => 'css',
+//       ),
+//     ),
+
+
+
+//   )
+// ));
 DRK::createSection($prefix, array(
   'title'  => esc_html__('BACKUP', 'darkify'),
   'icon'   => 'fas fa-shield-alt',

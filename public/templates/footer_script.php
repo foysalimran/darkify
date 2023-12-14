@@ -24,7 +24,7 @@ $type_of_hide_by = isset($hide_on_mobile["type_of_hide_by"]) ? $hide_on_mobile["
 <?php if (!is_admin()) { ?>
     <script type="text/javascript" class="darkify_inline_js">
         document.addEventListener("DOMContentLoaded", function(event) {
-            // darkify_init_draggable_floating_switch();
+            darkify_init_draggable_floating_switch();
             darkify_init_alternative_dark_mode_switch();
         });
     </script>

@@ -204,10 +204,9 @@ if (!class_exists('DarkifyUtils')) {
 
         public function generateAllowedElementsStr($options)
         {
-            $allowed_elements = isset($options["allowed_elements"]) ? $options["allowed_elements"] : "";
             $allowed_elements = "";
-            if (strlen(trim($allowed_elements)) > 0) {
-                $allowed_elements_arr = explode(',', $allowed_elements);
+            if (strlen(trim($options["allowed_elements"])) > 0) {
+                $allowed_elements_arr = explode(',', $options["allowed_elements"]);
                 if (is_array($allowed_elements_arr)) {
                     if (sizeof($allowed_elements_arr) > 0) {
                         foreach ($allowed_elements_arr as $single_element) {
@@ -222,12 +221,9 @@ if (!class_exists('DarkifyUtils')) {
 
         public function generateDisallowedElementsStr($options, $external_support_class_obj)
         {
-            $disallowed_element = isset($options["disallowed_elements"]) ? $options["disallowed_elements"] : "";
-            $custom_css = isset($options["custom_css"]) ? $options["custom_css"] : "";
-            $disallowed_elements_force_to_correct = isset($options["disallowed_elements_force_to_correct"]) ? $options["disallowed_elements_force_to_correct"] : "";
             $disallowed_elements = "";
-            if (strlen(trim($disallowed_element)) > 0) {
-                $disallowed_elements_arr = explode(',', $disallowed_element);
+            if (strlen(trim($options["disallowed_elements"])) > 0) {
+                $disallowed_elements_arr = explode(',', $options["disallowed_elements"]);
                 if (is_array($disallowed_elements_arr)) {
                     if (sizeof($disallowed_elements_arr) > 0) {
                         foreach ($disallowed_elements_arr as $single_element) {
@@ -249,7 +245,7 @@ if (!class_exists('DarkifyUtils')) {
             }
 
             // Exclude selectors specified in Custom CSS
-            $custom_css_selectors = $this->extractCustomCssSelectorsForAutoExcluding($custom_css, $disallowed_elements_force_to_correct);
+            $custom_css_selectors = $this->extractCustomCssSelectorsForAutoExcluding($options["custom_css"], $options["disallowed_elements_force_to_correct"]);
             if (is_array($custom_css_selectors)) {
                 if (sizeof($custom_css_selectors) > 0) {
                     foreach ($custom_css_selectors as $single_element) {

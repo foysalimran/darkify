@@ -746,7 +746,7 @@ if ( ! class_exists( 'DRK_Setup' ) ) {
       }
 
       // These attributes has been sanitized above.
-      echo '<div class="drk-field drk-field-'. $field_type . $is_pseudo . $class . $visible .'"'. esc_attr($depend) .'>';
+      echo '<div class="drk-field drk-field-'. $field_type . $is_pseudo . $class . $visible .'"'. $depend .'>';
 
       if ( ! empty( $field_type ) ) {
 
