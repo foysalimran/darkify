@@ -490,7 +490,7 @@ if ( ! class_exists( 'DRK_Options' ) ) {
 
         echo '<input type="hidden" class="drk-section-id" name="drk_transient[section]" value="1">';
 
-        wp_nonce_field( 'drk_options_nonce', 'drk_options_nonce'. $this->unique );
+        wp_nonce_field( 'drk_options_nonce', 'drk_options_nonce'. esc_attr($this->unique) );
 
         echo '<div class="drk-header'. esc_attr( $sticky_class ) .'">';
         echo '<div class="drk-header-inner">';
@@ -504,7 +504,7 @@ if ( ! class_exists( 'DRK_Options' ) ) {
             $notice_class = ( ! empty( $this->notice ) ) ? 'drk-form-show' : '';
             $notice_text  = ( ! empty( $this->notice ) ) ? $this->notice : '';
 
-            echo '<div class="drk-form-result drk-form-success '. esc_attr( $notice_class ) .'">'. $notice_text .'</div>';
+            echo '<div class="drk-form-result drk-form-success '. esc_attr( $notice_class ) .'">'. esc_html($notice_text) .'</div>';
 
             echo ( $this->args['show_form_warning'] ) ? '<div class="drk-form-result drk-form-warning">'. esc_html__( 'You have unsaved changes, save your changes!', 'darkify' ) .'</div>' : '';
 
@@ -641,7 +641,7 @@ if ( ! class_exists( 'DRK_Options' ) ) {
           echo ( $this->args['show_reset_all'] ) ? '<input type="submit" name="drk_transient[reset]" class="button drk-warning-primary drk-reset-all drk-confirm" value="'. ( ( $this->args['show_reset_section'] ) ? esc_html__( 'Reset All', 'darkify' ) : esc_html__( 'Reset', 'darkify' ) ) .'" data-confirm="'. esc_html__( 'Are you sure you want to reset all settings to default values?', 'darkify' ) .'">' : '';
           echo '</div>';
 
-          echo ( ! empty( $this->args['footer_text'] ) ) ? '<div class="drk-copyright">'. $this->args['footer_text'] .'</div>' : '';
+          echo ( ! empty( $this->args['footer_text'] ) ) ? '<div class="drk-copyright">'. esc_html($this->args['footer_text']) .'</div>' : '';
 
           echo '<div class="clear"></div>';
           echo '</div>';
