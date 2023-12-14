@@ -94,7 +94,7 @@ if ( ! class_exists( 'DRK_Field_typography' ) ) {
           if ( ! empty( $args['font_family'] ) ) {
             echo '<div class="drk--block">';
             echo '<div class="drk--title">'. esc_html__( 'Font Family', 'darkify' ) .'</div>';
-            echo $this->create_select( array( $this->value['font-family'] => $this->value['font-family'] ), 'font-family', esc_html__( 'Select a font', 'darkify' ) );
+            echo $this->create_select( array( esc_attr($this->value['font-family']) => esc_html($this->value['font-family']) ), 'font-family', esc_html__( 'Select a font', 'darkify' ) );
             echo '</div>';
           }
 
@@ -283,7 +283,7 @@ if ( ! class_exists( 'DRK_Field_typography' ) ) {
           echo '<div class="drk--block drk--block-font-color">';
           echo '<div class="drk--title">'. esc_html__( 'Font Color', 'darkify' ) .'</div>';
           echo '<div class="drk-field-color">';
-          echo '<input type="text" name="'. esc_attr( $this->field_name( '[color]' ) ) .'" class="drk-color drk--color" value="'. esc_attr( $this->value['color'] ) .'"'. $default_color_attr .' />';
+          echo '<input type="text" name="'. esc_attr( $this->field_name( '[color]' ) ) .'" class="drk-color drk--color" value="'. esc_attr( $this->value['color'] ) .'"'. esc_attr($default_color_attr) .' />';
           echo '</div>';
           echo '</div>';
         }

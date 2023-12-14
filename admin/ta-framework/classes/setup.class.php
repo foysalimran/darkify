@@ -736,9 +736,9 @@ if ( ! class_exists( 'DRK_Setup' ) ) {
           $depend_visible  = ( ! empty( $dependency[4] ) ) ? $dependency[4] : '';
         }
 
-        $depend .= ' data-controller="'. esc_attr( $data_controller ) .'"';
-        $depend .= ' data-condition="'. esc_attr( $data_condition ) .'"';
-        $depend .= ' data-value="'. esc_attr( $data_value ) .'"';
+        $depend .= ' data-controller="'. esc_attr($data_controller) .'"';
+        $depend .= ' data-condition="'. esc_attr($data_condition) .'"';
+        $depend .= ' data-value="'. esc_attr( $data_value) .'"';
         $depend .= ( ! empty( $data_global ) ) ? ' data-depend-global="true"' : '';
 
         $visible = ( ! empty( $depend_visible ) ) ? ' drk-depend-visible' : ' drk-depend-hidden';
@@ -746,8 +746,8 @@ if ( ! class_exists( 'DRK_Setup' ) ) {
       }
 
       // These attributes has been sanitized above.
-      echo '<div class="drk-field drk-field-'. $field_type . $is_pseudo . $class . $visible .'"'. $depend .'>';
 
+      echo '<div class="drk-field drk-field-' . esc_attr($field_type . $is_pseudo . $class . $visible) . '"' . $depend . '>';
       if ( ! empty( $field_type ) ) {
 
         if ( ! empty( $field['title'] ) ) {

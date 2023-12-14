@@ -45,7 +45,7 @@ if ( ! class_exists( 'DRK_Field_link' ) ) {
       echo '<input type="hidden" name="'. esc_attr( $this->field_name( '[target]' ) ) .'" value="'. esc_attr( $value['target'] ) .'" class="drk--target" />';
 
       echo '<a href="#" class="button button-primary drk--add'. esc_attr( $hidden ) .'">'. $args['add_title'] .'</a> ';
-      echo '<a href="#" class="button drk--edit'. esc_attr( $maybe_hidden ) .'">'. $args['edit_title'] .'</a> ';
+      echo '<a href="#" class="button drk--edit'. esc_attr( $maybe_hidden ) .'">'. esc_html($args['edit_title']) .'</a> ';
       echo '<a href="#" class="button drk-warning-primary drk--remove'. esc_attr( $maybe_hidden ) .'">'. $args['remove_title'] .'</a>';
 
       echo wp_kses_post($this->field_after());

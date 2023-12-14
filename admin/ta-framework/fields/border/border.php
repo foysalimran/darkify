@@ -120,7 +120,7 @@ if ( ! class_exists( 'DRK_Field_border' ) ) {
         $default_color_attr = ( ! empty( $default_value['color'] ) ) ? ' data-default-color="'. esc_attr( $default_value['color'] ) .'"' : '';
         echo '<div class="drk--color">';
         echo '<div class="drk-field-color">';
-        echo '<input type="text" name="'. esc_attr( $this->field_name( '[color]' ) ) .'" value="'. esc_attr( $value['color'] ) .'" class="drk-color"'. $default_color_attr .' />';
+        echo '<input type="text" name="'. esc_attr( $this->field_name( '[color]' ) ) .'" value="'. esc_attr( $value['color'] ) .'" class="drk-color"'. esc_attr($default_color_attr) .' />';
         echo '</div>';
         echo '</div>';
       }
