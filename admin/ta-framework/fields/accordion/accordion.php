@@ -57,7 +57,6 @@ if ( ! class_exists( 'DRK_Field_accordion' ) ) {
       echo '</div>';
 
       echo wp_kses_post($this->field_after());
-
     }
 
   }

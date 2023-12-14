@@ -83,7 +83,7 @@ if ( ! class_exists( 'WP_Customize_Control_DRK' ) && class_exists( 'WP_Customize
       $id    = 'customize-control-' . str_replace( array( '[', ']' ), array( '-', '' ), $this->id );
       $class = 'customize-control customize-control-'. $this->type . $visible;
 
-      echo '<li id="'. esc_attr( $id ) .'" class="'. esc_attr( $class ) .'"'. esc_attr($depend) .'>';
+      echo '<li id="'. esc_attr( $id ) .'" class="'. esc_attr( $class ) .'"'. $depend .'>';
       $this->render_field_content();
       echo '</li>';
 
