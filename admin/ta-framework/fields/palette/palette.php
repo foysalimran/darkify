@@ -1,58 +1,58 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access directly.
+<?php if ( ! defined( 'ABSPATH' ) ) {
+	die;
+} // Cannot access directly.
 /**
  *
  * Field: palette
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if ( ! class_exists( 'DRK_Field_palette' ) ) {
-  class DRK_Field_palette extends DRK_Fields {
+if ( ! class_exists( 'DRK_LITE_Field_palette' ) ) {
+	class DRK_LITE_Field_palette extends DRK_LITE_Fields {
 
-    public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-      parent::__construct( $field, $value, $unique, $where, $parent );
-    }
 
-    public function render() {
+		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
 
-      $palette = ( ! empty( $this->field['options'] ) ) ? $this->field['options'] : array();
+			parent::__construct( $field, $value, $unique, $where, $parent );
+		}
 
-      echo wp_kses_post($this->field_before());
+		public function render() {
 
-      if ( ! empty( $palette ) ) {
+			$palette = ( ! empty( $this->field['options'] ) ) ? $this->field['options'] : array();
 
-        echo '<div class="drk-siblings drk--palettes">';
+			echo wp_kses_post( $this->field_before() );
 
-        foreach ( $palette as $key => $colors ) {
+			if ( ! empty( $palette ) ) {
 
-          $active  = ( $key === $this->value ) ? ' drk--active' : '';
-          $checked = ( $key === $this->value ) ? ' checked' : '';
+				echo '<div class="drk_lite-siblings drk_lite--palettes">';
 
-          echo '<div class="drk--sibling drk--palette'. esc_attr( $active ) .'">';
+				foreach ( $palette as $key => $colors ) {
 
-          if ( ! empty( $colors ) ) {
+					$active  = ( $key === $this->value ) ? ' drk_lite--active' : '';
+					$checked = ( $key === $this->value ) ? ' checked' : '';
 
-            foreach ( $colors as $color ) {
+					echo '<div class="drk_lite--sibling drk_lite--palette' . esc_attr( $active ) . '">';
 
-              echo '<span style="background-color: '. esc_attr( $color ) .';"></span>';
+					if ( ! empty( $colors ) ) {
 
-            }
+						foreach ( $colors as $color ) {
 
-          }
+							echo '<span style="background-color: ' . esc_attr( $color ) . ';"></span>';
 
-          echo '<input type="radio" name="'. esc_attr( $this->field_name() ) .'" value="'. esc_attr( $key ) .'"'. $this->field_attributes() . esc_attr( $checked ) .'/>';
-          echo '</div>';
+						}
+					}
 
-        }
+					echo '<input type="radio" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $key ) . '"' . wp_kses_data($this->field_attributes()) . esc_attr( $checked ) . '/>';
+					echo '</div>';
 
-        echo '</div>';
+				}
 
-      }
+				echo '</div>';
 
-      echo wp_kses_post($this->field_after());
+			}
 
-    }
-
-  }
+			echo wp_kses_post( $this->field_after() );
+		}
+	}
 }

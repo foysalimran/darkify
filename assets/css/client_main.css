@@ -88,7 +88,7 @@
     .darkify_switch *,
     .darkify_ignore,
     .darkify_ignore *,
-    .drk-nav ul li a
+    .drk_lite-nav ul li a
   ) {
   color: var(--darkify_dark_mode_link_color) !important;
 }

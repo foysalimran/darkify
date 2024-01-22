@@ -67,8 +67,8 @@ class Darkify {
 	 * @since    1.0.0
 	 */
 	public function __construct() {
-		if ( defined( 'DRK_VERSION' ) ) {
-			$this->version = DRK_VERSION;
+		if ( defined( 'DRK_LITE_VERSION' ) ) {
+			$this->version = DRK_LITE_VERSION;
 		} else {
 			$this->version = '1.0.0';
 		}

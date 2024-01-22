@@ -1,52 +1,52 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access directly.
+<?php if ( ! defined( 'ABSPATH' ) ) {
+	die;
+} // Cannot access directly.
 /**
  *
  * Field: color
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if ( ! class_exists( 'DRK_Field_color' ) ) {
-  class DRK_Field_color extends DRK_Fields {
+if ( ! class_exists( 'DRK_LITE_Field_color' ) ) {
+	class DRK_LITE_Field_color extends DRK_LITE_Fields {
 
-    public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-      parent::__construct( $field, $value, $unique, $where, $parent );
-    }
 
-    public function render() {
+		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
 
-      $default_attr = ( ! empty( $this->field['default'] ) ) ? ' data-default-color="'. esc_attr( $this->field['default'] ) .'"' : '';
+			parent::__construct( $field, $value, $unique, $where, $parent );
+		}
 
-      echo wp_kses_post($this->field_before());
-      echo '<input type="text" name="'. esc_attr( $this->field_name() ) .'" value="'. esc_attr( $this->value ) .'" class="drk-color"'. $default_attr . $this->field_attributes() .'/>';
-      echo wp_kses_post($this->field_after());
+		public function render() {
 
-    }
+			$default_attr = ( ! empty( $this->field['default'] ) ) ? ' data-default-color="' . esc_attr( $this->field['default'] ) . '"' : '';
 
-    public function output() {
+			echo wp_kses_post( $this->field_before() );
+			echo '<input type="text" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $this->value ) . '" class="drk_lite-color"' . esc_attr( $default_attr ) . wp_kses_data($this->field_attributes()) . '/>';
+			echo wp_kses_post( $this->field_after() );
+		}
 
-      $output    = '';
-      $elements  = ( is_array( $this->field['output'] ) ) ? $this->field['output'] : array_filter( (array) $this->field['output'] );
-      $important = ( ! empty( $this->field['output_important'] ) ) ? '!important' : '';
-      $mode      = ( ! empty( $this->field['output_mode'] ) ) ? $this->field['output_mode'] : 'color';
+		public function output() {
 
-      if ( ! empty( $elements ) && isset( $this->value ) && $this->value !== '' ) {
-        foreach ( $elements as $key_property => $element ) {
-          if ( is_numeric( $key_property ) ) {
-            $output = implode( ',', $elements ) .'{'. $mode .':'. $this->value . $important .';}';
-            break;
-          } else {
-            $output .= $element .'{'. $key_property .':'. $this->value . $important .'}';
-          }
-        }
-      }
+			$output    = '';
+			$elements  = ( is_array( $this->field['output'] ) ) ? $this->field['output'] : array_filter( (array) $this->field['output'] );
+			$important = ( ! empty( $this->field['output_important'] ) ) ? '!important' : '';
+			$mode      = ( ! empty( $this->field['output_mode'] ) ) ? $this->field['output_mode'] : 'color';
 
-      $this->parent->output_css .= $output;
+			if ( ! empty( $elements ) && isset( $this->value ) && $this->value !== '' ) {
+				foreach ( $elements as $key_property => $element ) {
+					if ( is_numeric( $key_property ) ) {
+						$output = implode( ',', $elements ) . '{' . $mode . ':' . esc_attr( $this->value ) . $important . ';}';
+						break;
+					} else {
+						$output .= $element . '{' . $key_property . ':' . esc_attr( $this->value ) . $important . '}';
+					}
+				}
+			}
 
-      return $output;
+			$this->parent->output_css .= $output;
 
-    }
-
-  }
+			return $output;
+		}
+	}
 }

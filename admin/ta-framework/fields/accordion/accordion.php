@@ -1,63 +1,67 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access directly.
+<?php if ( ! defined( 'ABSPATH' ) ) {
+	die;
+} // Cannot access directly.
 /**
  *
  * Field: accordion
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if ( ! class_exists( 'DRK_Field_accordion' ) ) {
-  class DRK_Field_accordion extends DRK_Fields {
+if ( ! class_exists( 'DRK_LITE_Field_accordion' ) ) {
+	class DRK_LITE_Field_accordion extends DRK_LITE_Fields {
 
-    public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-      parent::__construct( $field, $value, $unique, $where, $parent );
-    }
 
-    public function render() {
+		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
 
-      $unallows = array( 'accordion' );
+			parent::__construct( $field, $value, $unique, $where, $parent );
+		}
 
-      echo wp_kses_post($this->field_before());
+		public function render() {
 
-      echo '<div class="drk-accordion-items" data-depend-id="'. esc_attr( $this->field['id'] ) .'">';
+			$unallows = array( 'accordion' );
 
-      foreach ( $this->field['accordions'] as $key => $accordion ) {
+			echo wp_kses_post( $this->field_before() );
 
-        echo '<div class="drk-accordion-item">';
+			echo '<div class="drk_lite-accordion-items" data-depend-id="' . esc_attr( $this->field['id'] ) . '">';
 
-          $icon = ( ! empty( $accordion['icon'] ) ) ? 'drk--icon '. $accordion['icon'] : 'drk-accordion-icon fas fa-angle-right';
+			foreach ( $this->field['accordions'] as $key => $accordion ) {
 
-          echo '<h4 class="drk-accordion-title">';
-          echo '<i class="'. esc_attr( $icon ) .'"></i>';
-          echo esc_html( $accordion['title'] );
-          echo '</h4>';
+				echo '<div class="drk_lite-accordion-item">';
 
-          echo '<div class="drk-accordion-content">';
+					$icon = ( ! empty( $accordion['icon'] ) ) ? 'drk_lite--icon ' . $accordion['icon'] : 'drk_lite-accordion-icon fas fa-angle-right';
 
-          foreach ( $accordion['fields'] as $field ) {
+				echo '<h4 class="drk_lite-accordion-title">';
+				echo '<i class="' . esc_attr( $icon ) . '"></i>';
+				echo esc_html( $accordion['title'] );
+				echo '</h4>';
 
-            if ( in_array( $field['type'], $unallows ) ) { $field['_notice'] = true; }
+					echo '<div class="drk_lite-accordion-content">';
 
-            $field_id      = ( isset( $field['id'] ) ) ? $field['id'] : '';
-            $field_default = ( isset( $field['default'] ) ) ? $field['default'] : '';
-            $field_value   = ( isset( $this->value[$field_id] ) ) ? $this->value[$field_id] : $field_default;
-            $unique_id     = ( ! empty( $this->unique ) ) ? $this->unique .'['. $this->field['id'] .']' : $this->field['id'];
+				foreach ( $accordion['fields'] as $field ) {
 
-            DRK::field( $field, $field_value, $unique_id, 'field/accordion' );
+					if ( in_array( $field['type'], $unallows ) ) {
+						$field['_notice'] = true;
+					}
 
-          }
+					$field_id      = ( isset( $field['id'] ) ) ? $field['id'] : '';
+					$field_default = ( isset( $field['default'] ) ) ? $field['default'] : '';
+					$field_value   = ( isset( $this->value[ $field_id ] ) ) ? $this->value[ $field_id ] : $field_default;
+					$unique_id     = ( ! empty( $this->unique ) ) ? $this->unique . '[' . $this->field['id'] . ']' : $this->field['id'];
 
-          echo '</div>';
+					DRK_LITE::field( $field, $field_value, $unique_id, 'field/accordion' );
 
-        echo '</div>';
+				}
 
-      }
+					echo '</div>';
 
-      echo '</div>';
+					echo '</div>';
 
-      echo wp_kses_post($this->field_after());
-    }
+			}
 
-  }
+			echo '</div>';
+
+			echo wp_kses_post( $this->field_after() );
+		}
+	}
 }

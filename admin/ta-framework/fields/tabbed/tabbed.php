@@ -1,64 +1,67 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access directly.
+<?php if ( ! defined( 'ABSPATH' ) ) {
+	die;
+} // Cannot access directly.
 /**
  *
  * Field: tabbed
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if ( ! class_exists( 'DRK_Field_tabbed' ) ) {
-  class DRK_Field_tabbed extends DRK_Fields {
+if ( ! class_exists( 'DRK_LITE_Field_tabbed' ) ) {
+	class DRK_LITE_Field_tabbed extends DRK_LITE_Fields {
 
-    public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-      parent::__construct( $field, $value, $unique, $where, $parent );
-    }
 
-    public function render() {
+		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
 
-      $unallows = array( 'tabbed' );
+			parent::__construct( $field, $value, $unique, $where, $parent );
+		}
 
-      echo wp_kses_post($this->field_before());
+		public function render() {
 
-      echo '<div class="drk-tabbed-nav" data-depend-id="'. esc_attr( $this->field['id'] ) .'">';
-      foreach ( $this->field['tabs'] as $key => $tab ) {
+			$unallows = array( 'tabbed' );
 
-        $tabbed_icon   = ( ! empty( $tab['icon'] ) ) ? '<i class="drk--icon '. esc_attr( $tab['icon'] ) .'"></i>' : '';
-        $tabbed_active = ( empty( $key ) ) ? 'drk-tabbed-active' : '';
+			echo wp_kses_post( $this->field_before() );
 
-        echo '<a href="#" class="'. esc_attr( $tabbed_active ) .'"">'. $tabbed_icon . esc_attr( $tab['title'] ) .'</a>';
+			echo '<div class="drk_lite-tabbed-nav" data-depend-id="' . esc_attr( $this->field['id'] ) . '">';
+			foreach ( $this->field['tabs'] as $key => $tab ) {
 
-      }
-      echo '</div>';
+				$tabbed_icon   = ( ! empty( $tab['icon'] ) ) ? '<i class="drk_lite--icon ' . esc_attr( $tab['icon'] ) . '"></i>' : '';
+				$tabbed_active = ( empty( $key ) ) ? 'drk_lite-tabbed-active' : '';
 
-      echo '<div class="drk-tabbed-contents">';
-      foreach ( $this->field['tabs'] as $key => $tab ) {
+				echo '<a href="#" class="' . esc_attr( $tabbed_active ) . '"">' . esc_attr($tabbed_icon) . esc_html( $tab['title'] ) . '</a>';
 
-        $tabbed_hidden = ( ! empty( $key ) ) ? ' hidden' : '';
+			}
+			echo '</div>';
 
-        echo '<div class="drk-tabbed-content'. esc_attr( $tabbed_hidden ) .'">';
+			echo '<div class="drk_lite-tabbed-contents">';
+			foreach ( $this->field['tabs'] as $key => $tab ) {
 
-        foreach ( $tab['fields'] as $field ) {
+				$tabbed_hidden = ( ! empty( $key ) ) ? ' hidden' : '';
 
-          if ( in_array( $field['type'], $unallows ) ) { $field['_notice'] = true; }
+				echo '<div class="drk_lite-tabbed-content' . esc_attr( $tabbed_hidden ) . '">';
 
-          $field_id      = ( isset( $field['id'] ) ) ? $field['id'] : '';
-          $field_default = ( isset( $field['default'] ) ) ? $field['default'] : '';
-          $field_value   = ( isset( $this->value[$field_id] ) ) ? $this->value[$field_id] : $field_default;
-          $unique_id     = ( ! empty( $this->unique ) ) ? $this->unique .'['. $this->field['id'] .']' : $this->field['id'];
+				foreach ( $tab['fields'] as $field ) {
 
-          DRK::field( $field, $field_value, $unique_id, 'field/tabbed' );
+					if ( in_array( $field['type'], $unallows ) ) {
+						$field['_notice'] = true;
+					}
 
-        }
+					$field_id      = ( isset( $field['id'] ) ) ? $field['id'] : '';
+					$field_default = ( isset( $field['default'] ) ) ? $field['default'] : '';
+					$field_value   = ( isset( $this->value[ $field_id ] ) ) ? $this->value[ $field_id ] : $field_default;
+					$unique_id     = ( ! empty( $this->unique ) ) ? $this->unique . '[' . $this->field['id'] . ']' : $this->field['id'];
 
-        echo '</div>';
+					DRK_LITE::field( $field, $field_value, $unique_id, 'field/tabbed' );
 
-      }
-      echo '</div>';
+				}
 
-      echo wp_kses_post($this->field_after());
+				echo '</div>';
 
-    }
+			}
+			echo '</div>';
 
-  }
+			echo wp_kses_post( $this->field_after() );
+		}
+	}
 }

@@ -35,17 +35,17 @@ if ( ! defined( 'WPINC' ) ) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define( 'DRK_VERSION', '1.0.1' );
-define( 'DRK_PLUGIN_DIR_URL', plugin_dir_url( __FILE__ ) );
-define( 'DRK_BASENAME', plugin_basename(__FILE__) );
-define( 'DRK_PATH', plugin_dir_path( __FILE__ ) );
+define( 'DRK_LITE_VERSION', '1.0.1' );
+define( 'DRK_LITE_DIR_URL', plugin_dir_url( __FILE__ ) );
+define( 'DRK_LITE_BASENAME', plugin_basename(__FILE__) );
+define( 'DRK_LITE_PATH', plugin_dir_path( __FILE__ ) );
 
 /**
  * The code that runs during plugin activation.
  * This action is documented in includes/class-darkify-activator.php
  */
 function darkify_activate() {
-	require_once DRK_PATH . 'includes/class-darkify-activator.php';
+	require_once DRK_LITE_PATH . 'includes/class-darkify-activator.php';
 	Darkify_Activator::activate();
 }
 
@@ -54,14 +54,14 @@ function darkify_activate() {
  * This action is documented in includes/class-darkify-deactivator.php
  */
 function darkify_deactivate() {
-	require_once DRK_PATH . 'includes/class-darkify-deactivator.php';
+	require_once DRK_LITE_PATH . 'includes/class-darkify-deactivator.php';
 	Darkify_Deactivator::deactivate();
 }
 
 register_activation_hook( __FILE__, 'darkify_activate' );
 register_deactivation_hook( __FILE__, 'darkify_deactivate' );
 
-require DRK_PATH . 'includes/class-darkify.php';
+require DRK_LITE_PATH . 'includes/class-darkify.php';
 
 
 function darkify_run() {

@@ -1,93 +1,95 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access directly.
+<?php if ( ! defined( 'ABSPATH' ) ) {
+	die;
+} // Cannot access directly.
 /**
  *
  * Field: radio
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if ( ! class_exists( 'DRK_Field_radio' ) ) {
-  class DRK_Field_radio extends DRK_Fields {
+if ( ! class_exists( 'DRK_LITE_Field_radio' ) ) {
+	class DRK_LITE_Field_radio extends DRK_LITE_Fields {
 
-    public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-      parent::__construct( $field, $value, $unique, $where, $parent );
-    }
 
-    public function render() {
+		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
 
-      $args = wp_parse_args( $this->field, array(
-        'inline'     => false,
-        'query_args' => array(),
-      ) );
+			parent::__construct( $field, $value, $unique, $where, $parent );
+		}
 
-      $inline_class = ( $args['inline'] ) ? ' class="drk--inline-list"' : '';
+		public function render() {
 
-      echo wp_kses_post($this->field_before());
+			$args = wp_parse_args(
+				$this->field,
+				array(
+					'inline'     => false,
+					'query_args' => array(),
+				)
+			);
 
-      if ( isset( $this->field['options'] ) ) {
+			$inline_class = ( $args['inline'] ) ? ' class="drk_lite--inline-list"' : '';
 
-        $options = $this->field['options'];
-        $options = ( is_array( $options ) ) ? $options : array_filter( $this->field_data( $options, false, $args['query_args'] ) );
+			echo wp_kses_post( $this->field_before() );
 
-        if ( is_array( $options ) && ! empty( $options ) ) {
+			if ( isset( $this->field['options'] ) ) {
 
-          echo '<ul'. $inline_class .'>';
+				$options     = $this->field['options'];
+					$options = ( is_array( $options ) ) ? $options : array_filter( $this->field_data( $options, false, $args['query_args'] ) );
 
-          foreach ( $options as $option_key => $option_value ) {
+				if ( is_array( $options ) && ! empty( $options ) ) {
 
-            if ( is_array( $option_value ) && ! empty( $option_value ) ) {
+					echo '<ul' . esc_attr( $inline_class ) . '>';
 
-              echo '<li>';
-                echo '<ul>';
-                  echo '<li><strong>'. esc_attr( $option_key ) .'</strong></li>';
-                  foreach ( $option_value as $sub_key => $sub_value ) {
-                    $checked = ( $sub_key == $this->value ) ? ' checked' : '';
-                    echo '<li>';
-                    echo '<label>';
-                    echo '<input type="radio" name="'. esc_attr( $this->field_name() ) .'" value="'. esc_attr( $sub_key ) .'"'. $this->field_attributes() . esc_attr( $checked ) .'/>';
-                    echo '<span class="drk--text">'. esc_attr( $sub_value ) .'</span>';
-                    echo '</label>';
-                    echo '</li>';
-                  }
-                echo '</ul>';
-              echo '</li>';
+					foreach ( $options as $option_key => $option_value ) {
 
-            } else {
+						if ( is_array( $option_value ) && ! empty( $option_value ) ) {
 
-              $checked = ( $option_key == $this->value ) ? ' checked' : '';
+							echo '<li>';
+							echo '<ul>';
+							echo '<li><strong>' . esc_attr( $option_key ) . '</strong></li>';
+							foreach ( $option_value as $sub_key => $sub_value ) {
+								$checked = ( $sub_key == $this->value ) ? ' checked' : '';
+								echo '<li>';
+								echo '<label>';
+								echo '<input type="radio" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $sub_key ) . '"' . wp_kses_data($this->field_attributes()) . esc_attr( $checked ) . '/>';
+								echo '<span class="drk_lite--text">' . esc_attr( $sub_value ) . '</span>';
+								echo '</label>';
+								echo '</li>';
+							}
+								echo '</ul>';
+								echo '</li>';
 
-              echo '<li>';
-              echo '<label>';
-              echo '<input type="radio" name="'. esc_attr( $this->field_name() ) .'" value="'. esc_attr( $option_key ) .'"'. $this->field_attributes() . esc_attr( $checked ) .'/>';
-              echo '<span class="drk--text">'. esc_attr( $option_value ) .'</span>';
-              echo '</label>';
-              echo '</li>';
+						} else {
 
-            }
+								$checked = ( $option_key == $this->value ) ? ' checked' : '';
 
-          }
+								echo '<li>';
+									echo '<label>';
+							echo '<input type="radio" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $option_key ) . '"' . wp_kses_data($this->field_attributes()) . esc_attr( $checked ) . '/>';
+									echo '<span class="drk_lite--text">' . esc_attr( $option_value ) . '</span>';
+									echo '</label>';
+									echo '</li>';
 
-          echo '</ul>';
+						}
+					}
 
-        } else {
+					echo '</ul>';
 
-          echo ( ! empty( $this->field['empty_message'] ) ) ? esc_attr( $this->field['empty_message'] ) : esc_html__( 'No data available.', 'darkify' );
+				} else {
 
-        }
+					echo ( ! empty( $this->field['empty_message'] ) ) ? esc_attr( $this->field['empty_message'] ) : esc_html__( 'No data available.', 'chat-skype' );
 
-      } else {
+				}
+			} else {
 
-        $label = ( isset( $this->field['label'] ) ) ? $this->field['label'] : '';
-        echo '<label><input type="radio" name="'. esc_attr( $this->field_name() ) .'" value="1"'. $this->field_attributes() . esc_attr( checked( $this->value, 1, false ) ) .'/>';
-        echo ( ! empty( $this->field['label'] ) ) ? '<span class="drk--text">'. esc_attr( $this->field['label'] ) .'</span>' : '';
-        echo '</label>';
+					$label = ( isset( $this->field['label'] ) ) ? $this->field['label'] : '';
+					echo '<label><input type="radio" name="' . esc_attr( $this->field_name() ) . '" value="1"' . wp_kses_data($this->field_attributes()) . esc_attr( checked( $this->value, 1, false ) ) . '/>';
+					echo esc_attr( ( ! empty( $this->field['label'] ) ) ) ? '<span class="drk_lite--text">' . esc_attr( $this->field['label'] ) . '</span>' : '';
+				echo '</label>';
 
-      }
+			}
 
-      echo wp_kses_post($this->field_after());
-
-    }
-
-  }
+			echo wp_kses_post( $this->field_after() );
+		}
+	}
 }

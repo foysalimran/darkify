@@ -38,14 +38,14 @@ if ( ! class_exists( 'DarkifyExternalSupport' ) ) {
                 ".wp-core-ui .button-primary *",
                 ".post-com-count-approved",
                 ".post-com-count-approved *",
-                ".drk--switcher",
-                ".drk--switcher *",
+                ".drk_lite--switcher",
+                ".drk_lite--switcher *",
                 ".CodeMirror",
                 ".CodeMirror *",
                 ".wp-picker-container",
                 ".wp-picker-container *",
-                ".drk--sibling.drk--image",
-                ".drk--sibling.drk--image *",
+                ".drk_lite--sibling.drk_lite--image",
+                ".drk_lite--sibling.drk_lite--image *",
                 ".button",
             );
         }

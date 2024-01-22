@@ -1,53 +1,56 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access directly.
+<?php
+/**
+ * @actions
+ * Actions for DRK_LITE
+ */
+
+if ( ! defined( 'ABSPATH' ) ) {
+	die; } // Cannot access directly.
 /**
  *
  * Get icons from admin ajax
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if ( ! function_exists( 'drk_get_icons' ) ) {
-  function drk_get_icons() {
+if ( ! function_exists( 'drk_lite_get_icons' ) ) {
+	function drk_lite_get_icons() {
 
-    $nonce = ( ! empty( $_POST[ 'nonce' ] ) ) ? sanitize_text_field( wp_unslash( $_POST[ 'nonce' ] ) ) : '';
+		$nonce = ( ! empty( $_POST['nonce'] ) ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
 
-    if ( ! wp_verify_nonce( $nonce, 'drk_icon_nonce' ) ) {
-      wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'darkify' ) ) );
-    }
+		if ( ! wp_verify_nonce( $nonce, 'drk_lite_icon_nonce' ) ) {
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'chat-skype' ) ) );
+		}
 
-    ob_start();
+		ob_start();
 
-    $icon_library = ( apply_filters( 'drk_fa4', false ) ) ? 'fa4' : 'fa5';
+		$icon_library = ( apply_filters( 'drk_lite_fa4', false ) ) ? 'fa4' : 'fa5';
 
-    DRK::include_plugin_file( 'fields/icon/'. $icon_library .'-icons.php' );
+		DRK_LITE::include_plugin_file( 'fields/icon/' . $icon_library . '-icons.php' );
 
-    $icon_lists = apply_filters( 'drk_field_icon_add_icons', drk_get_default_icons() );
+		$icon_lists = apply_filters( 'drk_lite_field_icon_add_icons', drk_lite_get_default_icons() );
 
-    if ( ! empty( $icon_lists ) ) {
+		if ( ! empty( $icon_lists ) ) {
 
-      foreach ( $icon_lists as $list ) {
+			foreach ( $icon_lists as $list ) {
 
-        echo ( count( $icon_lists ) >= 2 ) ? '<div class="drk-icon-title">'. esc_attr( $list['title'] ) .'</div>' : '';
+				echo ( count( $icon_lists ) >= 2 ) ? '<div class="drk_lite-icon-title">' . esc_attr( $list['title'] ) . '</div>' : '';
 
-        foreach ( $list['icons'] as $icon ) {
-          echo '<i title="'. esc_attr( $icon ) .'" class="'. esc_attr( $icon ) .'"></i>';
-        }
+				foreach ( $list['icons'] as $icon ) {
+					echo '<i title="' . esc_attr( $icon ) . '" class="' . esc_attr( $icon ) . '"></i>';
+				}
+			}
+		} else {
 
-      }
+					echo '<div class="drk_lite-error-text">' . esc_html__( 'No data available.', 'chat-skype' ) . '</div>';
 
-    } else {
+		}
 
-      echo '<div class="drk-error-text">'. esc_html__( 'No data available.', 'darkify' ) .'</div>';
+		$content = ob_get_clean();
 
-    }
-
-    $content = ob_get_clean();
-
-    wp_send_json_success( array( 'content' => $content ) );
-
-  }
-  add_action( 'wp_ajax_drk-get-icons', 'drk_get_icons' );
+		wp_send_json_success( array( 'content' => $content ) );
+	}
+	add_action( 'wp_ajax_drk_lite-get-icons', 'drk_lite_get_icons' );
 }
 
 /**
@@ -56,35 +59,33 @@ if ( ! function_exists( 'drk_get_icons' ) ) {
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if ( ! function_exists( 'drk_export' ) ) {
-  function drk_export() {
+if ( ! function_exists( 'drk_lite_export' ) ) {
+	function drk_lite_export() {
 
-    $nonce  = ( ! empty( $_GET[ 'nonce' ] ) ) ? sanitize_text_field( wp_unslash( $_GET[ 'nonce' ] ) ) : '';
-    $unique = ( ! empty( $_GET[ 'unique' ] ) ) ? sanitize_text_field( wp_unslash( $_GET[ 'unique' ] ) ) : '';
+		$nonce  = ( ! empty( $_GET['nonce'] ) ) ? sanitize_text_field( wp_unslash( $_GET['nonce'] ) ) : '';
+		$unique = ( ! empty( $_GET['unique'] ) ) ? sanitize_text_field( wp_unslash( $_GET['unique'] ) ) : '';
 
-    if ( ! wp_verify_nonce( $nonce, 'drk_backup_nonce' ) ) {
-      die( esc_html__( 'Error: Invalid nonce verification.', 'darkify' ) );
-    }
+		if ( ! wp_verify_nonce( $nonce, 'drk_lite_backup_nonce' ) ) {
+			die( esc_html__( 'Error: Invalid nonce verification.', 'chat-skype' ) );
+		}
 
-    if ( empty( $unique ) ) {
-      die( esc_html__( 'Error: Invalid key.', 'darkify' ) );
-    }
+		if ( empty( $unique ) ) {
+			die( esc_html__( 'Error: Invalid key.', 'chat-skype' ) );
+		}
 
-    // Export
-    header('Content-Type: application/json');
-    header('Content-disposition: attachment; filename=backup-'. gmdate( 'd-m-Y' ) .'.json');
-    header('Content-Transfer-Encoding: binary');
-    header('Pragma: no-cache');
-    header('Expires: 0');
+		// Export
+		header( 'Content-Type: application/json' );
+		header( 'Content-disposition: attachment; filename=backup-' . gmdate( 'd-m-Y' ) . '.json' );
+		header( 'Content-Transfer-Encoding: binary' );
+		header( 'Pragma: no-cache' );
+		header( 'Expires: 0' );
 
-    echo json_encode( get_option( $unique ) );
+		echo wp_json_encode( get_option( $unique ) );
 
-    die();
-
-  }
-  add_action( 'wp_ajax_drk-export', 'drk_export' );
+		die();
+	}
+	add_action( 'wp_ajax_drk_lite-export', 'drk_lite_export' );
 }
 
 /**
@@ -93,34 +94,32 @@ if ( ! function_exists( 'drk_export' ) ) {
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if ( ! function_exists( 'drk_import_ajax' ) ) {
-  function drk_import_ajax() {
+if ( ! function_exists( 'drk_lite_import_ajax' ) ) {
+	function drk_lite_import_ajax() {
 
-    $nonce  = ( ! empty( $_POST[ 'nonce' ] ) ) ? sanitize_text_field( wp_unslash( $_POST[ 'nonce' ] ) ) : '';
-    $unique = ( ! empty( $_POST[ 'unique' ] ) ) ? sanitize_text_field( wp_unslash( $_POST[ 'unique' ] ) ) : '';
-    $data   = ( ! empty( $_POST[ 'data' ] ) ) ? wp_kses_post_deep( json_decode( wp_unslash( trim( $_POST[ 'data' ] ) ), true ) ) : array();
+		$nonce  = ( ! empty( $_POST['nonce'] ) ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
+		$unique = ( ! empty( $_POST['unique'] ) ) ? sanitize_text_field( wp_unslash( $_POST['unique'] ) ) : '';
+		$data   = ( ! empty( $_POST['data'] ) ) ? wp_kses_post_deep( json_decode( wp_unslash( trim( $_POST['data'] ) ), true ) ) : array();
 
-    if ( ! wp_verify_nonce( $nonce, 'drk_backup_nonce' ) ) {
-      wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'darkify' ) ) );
-    }
+		if ( ! wp_verify_nonce( $nonce, 'drk_lite_backup_nonce' ) ) {
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'chat-skype' ) ) );
+		}
 
-    if ( empty( $unique ) ) {
-      wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid key.', 'darkify' ) ) );
-    }
+		if ( empty( $unique ) ) {
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid key.', 'chat-skype' ) ) );
+		}
 
-    if ( empty( $data ) || ! is_array( $data ) ) {
-      wp_send_json_error( array( 'error' => esc_html__( 'Error: The response is not a valid JSON response.', 'darkify' ) ) );
-    }
+		if ( empty( $data ) || ! is_array( $data ) ) {
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: The response is not a valid JSON response.', 'chat-skype' ) ) );
+		}
 
-    // Success
-    update_option( $unique, $data );
+		// Success
+		update_option( $unique, $data );
 
-    wp_send_json_success();
-
-  }
-  add_action( 'wp_ajax_drk-import', 'drk_import_ajax' );
+		wp_send_json_success();
+	}
+	add_action( 'wp_ajax_drk_lite-import', 'drk_lite_import_ajax' );
 }
 
 /**
@@ -129,25 +128,23 @@ if ( ! function_exists( 'drk_import_ajax' ) ) {
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if ( ! function_exists( 'drk_reset_ajax' ) ) {
-  function drk_reset_ajax() {
+if ( ! function_exists( 'drk_lite_reset_ajax' ) ) {
+	function drk_lite_reset_ajax() {
 
-    $nonce  = ( ! empty( $_POST[ 'nonce' ] ) ) ? sanitize_text_field( wp_unslash( $_POST[ 'nonce' ] ) ) : '';
-    $unique = ( ! empty( $_POST[ 'unique' ] ) ) ? sanitize_text_field( wp_unslash( $_POST[ 'unique' ] ) ) : '';
+		$nonce  = ( ! empty( $_POST['nonce'] ) ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
+		$unique = ( ! empty( $_POST['unique'] ) ) ? sanitize_text_field( wp_unslash( $_POST['unique'] ) ) : '';
 
-    if ( ! wp_verify_nonce( $nonce, 'drk_backup_nonce' ) ) {
-      wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'darkify' ) ) );
-    }
+		if ( ! wp_verify_nonce( $nonce, 'drk_lite_backup_nonce' ) ) {
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'chat-skype' ) ) );
+		}
 
-    // Success
-    delete_option( $unique );
+		// Success
+		delete_option( $unique );
 
-    wp_send_json_success();
-
-  }
-  add_action( 'wp_ajax_drk-reset', 'drk_reset_ajax' );
+		wp_send_json_success();
+	}
+	add_action( 'wp_ajax_drk_lite-reset', 'drk_lite_reset_ajax' );
 }
 
 /**
@@ -156,35 +153,33 @@ if ( ! function_exists( 'drk_reset_ajax' ) ) {
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if ( ! function_exists( 'drk_chosen_ajax' ) ) {
-  function drk_chosen_ajax() {
+if ( ! function_exists( 'drk_lite_chosen_ajax' ) ) {
+	function drk_lite_chosen_ajax() {
 
-    $nonce = ( ! empty( $_POST[ 'nonce' ] ) ) ? sanitize_text_field( wp_unslash( $_POST[ 'nonce' ] ) ) : '';
-    $type  = ( ! empty( $_POST[ 'type' ] ) ) ? sanitize_text_field( wp_unslash( $_POST[ 'type' ] ) ) : '';
-    $term  = ( ! empty( $_POST[ 'term' ] ) ) ? sanitize_text_field( wp_unslash( $_POST[ 'term' ] ) ) : '';
-    $query = ( ! empty( $_POST[ 'query_args' ] ) ) ? wp_kses_post_deep( $_POST[ 'query_args' ] ) : array();
+		$nonce = ( ! empty( $_POST['nonce'] ) ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
+		$type  = ( ! empty( $_POST['type'] ) ) ? sanitize_text_field( wp_unslash( $_POST['type'] ) ) : '';
+		$term  = ( ! empty( $_POST['term'] ) ) ? sanitize_text_field( wp_unslash( $_POST['term'] ) ) : '';
+		$query = ( ! empty( $_POST['query_args'] ) ) ? wp_kses_post_deep( $_POST['query_args'] ) : array();
 
-    if ( ! wp_verify_nonce( $nonce, 'drk_chosen_ajax_nonce' ) ) {
-      wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'darkify' ) ) );
-    }
+		if ( ! wp_verify_nonce( $nonce, 'drk_lite_chosen_ajax_nonce' ) ) {
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'chat-skype' ) ) );
+		}
 
-    if ( empty( $type ) || empty( $term ) ) {
-      wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid term ID.', 'darkify' ) ) );
-    }
+		if ( empty( $type ) || empty( $term ) ) {
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid term ID.', 'chat-skype' ) ) );
+		}
 
-    $capability = apply_filters( 'drk_chosen_ajax_capability', 'manage_options' );
+		$capability = apply_filters( 'drk_lite_chosen_ajax_capability', 'manage_options' );
 
-    if ( ! current_user_can( $capability ) ) {
-      wp_send_json_error( array( 'error' => esc_html__( 'Error: You do not have permission to do that.', 'darkify' ) ) );
-    }
+		if ( ! current_user_can( $capability ) ) {
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: You do not have permission to do that.', 'chat-skype' ) ) );
+		}
 
-    // Success
-    $options = DRK_Fields::field_data( $type, $term, $query );
+		// Success
+		$options = DRK_LITE_Fields::field_data( $type, $term, $query );
 
-    wp_send_json_success( $options );
-
-  }
-  add_action( 'wp_ajax_drk-chosen', 'drk_chosen_ajax' );
+		wp_send_json_success( $options );
+	}
+	add_action( 'wp_ajax_drk_lite-chosen', 'drk_lite_chosen_ajax' );
 }

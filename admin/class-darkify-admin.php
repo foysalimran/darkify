@@ -37,7 +37,7 @@ class Darkify_Admin
 
 	public function enqueue_styles()
 	{
-		wp_enqueue_style($this->plugin_name, DRK_PLUGIN_DIR_URL . 'admin/css/darkify-admin.css', array(), $this->version, 'all');
+		wp_enqueue_style($this->plugin_name, DRK_LITE_DIR_URL . 'admin/css/darkify-admin.css', array(), $this->version, 'all');
 	}
 
 	public function enqueue_scripts()
@@ -46,7 +46,7 @@ class Darkify_Admin
 
 	public function add_plugin_action_links($links, $file)
 	{
-		if (DRK_BASENAME === $file) {
+		if (DRK_LITE_BASENAME === $file) {
 			$new_links       = array(
 				sprintf('<a href="%s">%s</a>', admin_url('admin.php?page=darkify#tab=control'), __('Settings', 'darkify')),
 			);
@@ -61,9 +61,9 @@ class Darkify_Admin
 		if ($options["enable_admin_panel_dark_mode"]) {
 			if ($this->darkify_is_dark_mode_allowed()) {
 				if (!wp_style_is('darkify-admin-switch', 'enqueued')) {
-					wp_enqueue_style('darkify-admin-switch', DRK_PLUGIN_DIR_URL . 'assets/css/client_main.css', array(), $this->version, 'all');
+					wp_enqueue_style('darkify-admin-switch', DRK_LITE_DIR_URL . 'assets/css/client_main.css', array(), $this->version, 'all');
 				}
-				wp_enqueue_script('darkify-admin-client-main', DRK_PLUGIN_DIR_URL . 'assets/js/client_main.js', array(), $this->version, true);
+				wp_enqueue_script('darkify-admin-client-main', DRK_LITE_DIR_URL . 'assets/js/client_main.js', array(), $this->version, true);
 			}
 		}
 	}
@@ -98,14 +98,14 @@ class Darkify_Admin
 	function darkify_admin_header_script()
 	{
 		if ($this->darkify_is_dark_mode_allowed()) {
-			include_once DRK_PATH . "public/templates/header_script.php";
+			include_once DRK_LITE_PATH . "public/templates/header_script.php";
 		}
 	}
 
 	function darkify_admin_footer_script()
 	{
 		if ($this->darkify_is_dark_mode_allowed()) {
-			include_once DRK_PATH . "public/templates/footer_script.php";
+			include_once DRK_LITE_PATH . "public/templates/footer_script.php";
 		}
 	}
 

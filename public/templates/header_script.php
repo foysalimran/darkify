@@ -139,7 +139,7 @@ $video_grayscale_label =  isset($video_grayscale['video_grayscale_label']) ? $vi
 <?php } ?>
 
 <?php if ($options["enable_scrollbar_dark"]) { ?>
-    <?php include DRK_PATH . "public/templates/views/scrollbar.php"; ?>
+    <?php include DRK_LITE_PATH . "public/templates/views/scrollbar.php"; ?>
 <?php } ?>
 
 <script type="text/javascript" class="darkify_inline_js">

@@ -8,7 +8,7 @@ $type_of_hide_by = isset($hide_on_mobile["type_of_hide_by"]) ? $hide_on_mobile["
 <?php if (!is_admin()) { ?>
     <?php if ($options["enable_dark_mode_switch"]) { ?>
         <?php if (!$this->utils->is_hidden_by_user_agent($hide_on_desktop, $hide_dark_mode_on_mobile, $type_of_hide_by)) { ?>
-            <?php include DRK_PATH . "public/templates/views/switch.php"; ?>
+            <?php include DRK_LITE_PATH . "public/templates/views/switch.php"; ?>
         <?php } ?>
     <?php } ?>
 <?php } ?>

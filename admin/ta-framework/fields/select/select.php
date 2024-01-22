@@ -1,137 +1,134 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access directly.
+<?php if ( ! defined( 'ABSPATH' ) ) {
+	die;
+} // Cannot access directly.
 /**
  *
  * Field: select
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if ( ! class_exists( 'DRK_Field_select' ) ) {
-  class DRK_Field_select extends DRK_Fields {
+if ( ! class_exists( 'DRK_LITE_Field_select' ) ) {
+	class DRK_LITE_Field_select extends DRK_LITE_Fields {
 
-    public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-      parent::__construct( $field, $value, $unique, $where, $parent );
-    }
 
-    public function render() {
+		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
 
-      $args = wp_parse_args( $this->field, array(
-        'placeholder' => '',
-        'chosen'      => false,
-        'multiple'    => false,
-        'sortable'    => false,
-        'ajax'        => false,
-        'settings'    => array(),
-        'query_args'  => array(),
-      ) );
+			parent::__construct( $field, $value, $unique, $where, $parent );
+		}
 
-      $this->value = ( is_array( $this->value ) ) ? $this->value : array_filter( (array) $this->value );
+		public function render() {
 
-      echo wp_kses_post($this->field_before());
+			$args = wp_parse_args(
+				$this->field,
+				array(
+					'placeholder' => '',
+					'chosen'      => false,
+					'multiple'    => false,
+					'sortable'    => false,
+					'ajax'        => false,
+					'settings'    => array(),
+					'query_args'  => array(),
+				)
+			);
 
-      if ( isset( $this->field['options'] ) ) {
+			$this->value = ( is_array( $this->value ) ) ? $this->value : array_filter( (array) $this->value );
 
-        if ( ! empty( $args['ajax'] ) ) {
-          $args['settings']['data']['type']  = $args['options'];
-          $args['settings']['data']['nonce'] = wp_create_nonce( 'drk_chosen_ajax_nonce' );
-          if ( ! empty( $args['query_args'] ) ) {
-            $args['settings']['data']['query_args'] = $args['query_args'];
-          }
-        }
+			echo wp_kses_post( $this->field_before() );
 
-        $chosen_rtl       = ( is_rtl() ) ? ' chosen-rtl' : '';
-        $multiple_name    = ( $args['multiple'] ) ? '[]' : '';
-        $multiple_attr    = ( $args['multiple'] ) ? ' multiple="multiple"' : '';
-        $chosen_sortable  = ( $args['chosen'] && $args['sortable'] ) ? ' drk-chosen-sortable' : '';
-        $chosen_ajax      = ( $args['chosen'] && $args['ajax'] ) ? ' drk-chosen-ajax' : '';
-        $placeholder_attr = ( $args['chosen'] && $args['placeholder'] ) ? ' data-placeholder="'. esc_attr( $args['placeholder'] ) .'"' : '';
-        $field_class      = ( $args['chosen'] ) ? ' class="drk-chosen'. esc_attr( $chosen_rtl . $chosen_sortable . $chosen_ajax ) .'"' : '';
-        $field_name       = $this->field_name( $multiple_name );
-        $field_attr       = $this->field_attributes();
-        $maybe_options    = $this->field['options'];
-        $chosen_data_attr = ( $args['chosen'] && ! empty( $args['settings'] ) ) ? ' data-chosen-settings="'. esc_attr( json_encode( $args['settings'] ) ) .'"' : '';
+			if ( isset( $this->field['options'] ) ) {
 
-        if ( is_string( $maybe_options ) && ! empty( $args['chosen'] ) && ! empty( $args['ajax'] ) ) {
-          $options = $this->field_wp_query_data_title( $maybe_options, $this->value );
-        } else if ( is_string( $maybe_options ) ) {
-          $options = $this->field_data( $maybe_options, false, $args['query_args'] );
-        } else {
-          $options = $maybe_options;
-        }
+				if ( ! empty( $args['ajax'] ) ) {
+					$args['settings']['data']['type']  = $args['options'];
+					$args['settings']['data']['nonce'] = wp_create_nonce( 'drk_lite_chosen_ajax_nonce' );
+					if ( ! empty( $args['query_args'] ) ) {
+						$args['settings']['data']['query_args'] = $args['query_args'];
+					}
+				}
 
-        if ( ( is_array( $options ) && ! empty( $options ) ) || ( ! empty( $args['chosen'] ) && ! empty( $args['ajax'] ) ) ) {
+				$chosen_rtl       = ( is_rtl() ) ? ' chosen-rtl' : '';
+				$multiple_name    = ( $args['multiple'] ) ? '[]' : '';
+				$multiple_attr    = ( $args['multiple'] ) ? ' multiple="multiple"' : '';
+				$chosen_sortable  = ( $args['chosen'] && $args['sortable'] ) ? ' drk_lite-chosen-sortable' : '';
+				$chosen_ajax      = ( $args['chosen'] && $args['ajax'] ) ? ' drk_lite-chosen-ajax' : '';
+				$placeholder_attr = ( $args['chosen'] && $args['placeholder'] ) ? ' data-placeholder="' . esc_attr( $args['placeholder'] ) . '"' : '';
+				$field_class      = ( $args['chosen'] ) ? ' class="drk_lite-chosen' . esc_attr( $chosen_rtl . $chosen_sortable . $chosen_ajax ) . '"' : '';
+				$field_name       = $this->field_name( $multiple_name );
+				$field_attr       = $this->field_attributes();
+				$maybe_options    = $this->field['options'];
+				$chosen_data_attr = ( $args['chosen'] && ! empty( $args['settings'] ) ) ? ' data-chosen-settings="' . esc_attr( wp_json_encode( $args['settings'] ) ) . '"' : '';
 
-          if ( ! empty( $args['chosen'] ) && ! empty( $args['multiple'] ) ) {
+				if ( is_string( $maybe_options ) && ! empty( $args['chosen'] ) && ! empty( $args['ajax'] ) ) {
+					$options = $this->field_wp_query_data_title( $maybe_options, $this->value );
+				} elseif ( is_string( $maybe_options ) ) {
+					$options = $this->field_data( $maybe_options, false, $args['query_args'] );
+				} else {
+					$options = $maybe_options;
+				}
 
-            echo '<select name="'. $field_name .'" class="drk-hide-select hidden"'. $multiple_attr . $field_attr .'>';
-            foreach ( $this->value as $option_key ) {
-              echo '<option value="'. esc_attr( $option_key ) .'" selected>'. esc_attr( $option_key ) .'</option>';
-            }
-            echo '</select>';
+				if ( ( is_array( $options ) && ! empty( $options ) ) || ( ! empty( $args['chosen'] ) && ! empty( $args['ajax'] ) ) ) {
 
-            $field_name = '_pseudo';
-            $field_attr = '';
+					if ( ! empty( $args['chosen'] ) && ! empty( $args['multiple'] ) ) {
 
-          }
+						echo '<select name="' . esc_attr( $field_name ) . '" class="drk_lite-hide-select hidden"' . esc_attr( $multiple_attr ) . wp_kses_data( $field_attr ) . '>';
 
-          // These attributes has been serialized above.
-          echo '<select name="' . esc_attr($field_name) . '"'
-          . esc_attr($field_class)
-          . esc_attr($multiple_attr)
-          . esc_attr($placeholder_attr)
-          . esc_attr($field_attr)
-          . esc_attr($chosen_data_attr) . '>';
+						foreach ( $this->value as $option_key ) {
+							echo '<option value="' . esc_attr( $option_key ) . '" selected>' . esc_attr( $option_key ) . '</option>';
+						}
+						echo '</select>';
 
-          if ( $args['placeholder'] && empty( $args['multiple'] ) ) {
-            if ( ! empty( $args['chosen'] ) ) {
-              echo '<option value=""></option>';
-            } else {
-              echo '<option value="">'. esc_attr( $args['placeholder'] ) .'</option>';
-            }
-          }
+						$field_name = '_pseudo';
+						$field_attr = '';
 
-          foreach ( $options as $option_key => $option ) {
+					}
 
-            if ( is_array( $option ) && ! empty( $option ) ) {
+					// These attributes has been serialized above.
+					echo '<select name="' . esc_attr( $field_name ) . '"' . esc_attr( $field_class ) . esc_attr( $multiple_attr ) . esc_attr( $placeholder_attr ) . esc_attr( $field_attr ) . esc_attr( $chosen_data_attr ) . '>';
 
-              echo '<optgroup label="'. esc_attr( $option_key ) .'">';
+					if ( $args['placeholder'] && empty( $args['multiple'] ) ) {
+						if ( ! empty( $args['chosen'] ) ) {
+							echo '<option value=""></option>';
+						} else {
+							echo '<option value="">' . esc_attr( $args['placeholder'] ) . '</option>';
+						}
+					}
 
-              foreach ( $option as $sub_key => $sub_value ) {
-                $selected = ( in_array( $sub_key, $this->value ) ) ? ' selected' : '';
-                echo '<option value="'. esc_attr( $sub_key ) .'" '. esc_attr( $selected ) .'>'. esc_attr( $sub_value ) .'</option>';
-              }
+					foreach ( $options as $option_key => $option ) {
 
-              echo '</optgroup>';
+						if ( is_array( $option ) && ! empty( $option ) ) {
 
-            } else {
-              $selected = ( in_array( $option_key, $this->value ) ) ? ' selected' : '';
-              echo '<option value="'. esc_attr( $option_key ) .'" '. esc_attr( $selected ) .'>'. esc_attr( $option ) .'</option>';
-            }
+							echo '<optgroup label="' . esc_attr( $option_key ) . '">';
 
-          }
+							foreach ( $option as $sub_key => $sub_value ) {
+								$selected = ( in_array( $sub_key, $this->value ) ) ? ' selected' : '';
+								echo '<option value="' . esc_attr( $sub_key ) . '" ' . esc_attr( $selected ) . '>' . esc_attr( $sub_value ) . '</option>';
+							}
 
-          echo '</select>';
+							echo '</optgroup>';
 
-        } else {
+						} else {
+							$selected = ( in_array( $option_key, $this->value ) ) ? ' selected' : '';
+							echo '<option value="' . esc_attr( $option_key ) . '" ' . esc_attr( $selected ) . '>' . esc_attr( $option ) . '</option>';
+						}
+					}
 
-          echo ( ! empty( $this->field['empty_message'] ) ) ? esc_attr( $this->field['empty_message'] ) : esc_html__( 'No data available.', 'darkify' );
+					echo '</select>';
 
-        }
+				} else {
 
-      }
+					echo ( ! empty( $this->field['empty_message'] ) ) ? esc_attr( $this->field['empty_message'] ) : esc_html__( 'No data available.', 'chat-skype' );
 
-      echo wp_kses_post($this->field_after());
+				}
+			}
 
-    }
+			echo wp_kses_post( $this->field_after() );
+		}
 
-    public function enqueue() {
+		public function enqueue() {
 
-      if ( ! wp_script_is( 'jquery-ui-sortable' ) ) {
-        wp_enqueue_script( 'jquery-ui-sortable' );
-      }
-
-    }
-
-  }
+			if ( ! wp_script_is( 'jquery-ui-sortable' ) ) {
+					wp_enqueue_script( 'jquery-ui-sortable' );
+			}
+		}
+	}
 }
