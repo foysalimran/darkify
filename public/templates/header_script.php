@@ -5,11 +5,9 @@ $enable_time = $options['enable_time'];
 $enable_time_based_dark = isset($enable_time['enable_time_based_dark']) ? $enable_time['enable_time_based_dark'] : "";
 $time_based_dark_start = isset($enable_time['time_based_dark_start']['from']) ? $enable_time['time_based_dark_start']['from'] : "";
 $time_based_dark_stop =  isset($enable_time['time_based_dark_start']['to'])  ?  $enable_time['time_based_dark_start']['to'] : "";
-$enable_switch_dragging =  isset($options["enable_switch_dragging"])  ?  $options["enable_switch_dragging"] : "";
 $grayscale =  $options['brightness'];
 $enable_low_image_brightness =  isset($grayscale['enable_low_image_brightness']) ? $grayscale['enable_low_image_brightness'] : "";
 $low_image_brightness_label =  isset($grayscale['low_image_brightness_label']) ? $grayscale['low_image_brightness_label'] : "";
-$disallowed_low_brightness_images =  isset($grayscale['disallowed_low_brightness_images']) ? $grayscale['disallowed_low_brightness_images'] : "[]";
 $grayscale =  isset($options['grayscale']);
 $enable_image_grayscale =  isset($grayscale['enable_image_grayscale']) ? $grayscale['enable_image_grayscale'] : "";
 $image_grayscale_label =  isset($grayscale['image_grayscale_label']) ? $grayscale['image_grayscale_label'] : "";
@@ -23,29 +21,7 @@ $low_video_brightness_label =  isset($video_brightness['low_video_brightness_lab
 $video_grayscale =  isset($options['video_grayscale']);
 $enable_video_grayscale =  isset($video_grayscale['enable_video_grayscale']) ? $video_grayscale['enable_video_grayscale'] : "";
 $video_grayscale_label =  isset($video_grayscale['video_grayscale_label']) ? $video_grayscale['video_grayscale_label']  : "";
-$invert =  isset($options['invert']) ? $options['invert'] : "";
-$enable_invert_images =  isset($invert['enable_invert_images']) ? $invert['enable_invert_images'] : "";
-$invert_images_allowed_urls =  isset($invert['invert_images_allowed_urls']) ? $invert['invert_images_allowed_urls'] : "[]";
-if($invert_images_allowed_urls !== "") {
-$invert_images_allowed_urls_explode = explode(',', $invert_images_allowed_urls);
-$invert_images_allowed_urls_arr  =  json_encode($invert_images_allowed_urls_explode); 
-}
 
-$normal_image_replacements = $options["image_replacements"][0]["normal_image"];
-$dark_image_replacements = $options["image_replacements"][0]["dark_image"];
-if($normal_image_replacements || $dark_image_replacements) {
-    $image_replacements = json_encode($options["image_replacements"]); 
-} else {
-    $image_replacements = "[]";
-}
-
-$normal_video_replacements = $options["video_replacements"][0]["normal_video"];
-$dark_video_replacements = $options["video_replacements"][0]["dark_video"];
-if($normal_video_replacements || $dark_video_replacements) {
-    $video_replacements = json_encode($options["video_replacements"]); 
-} else {
-    $video_replacements = "[]";
-}
 ?>
 
 <?php if (!is_admin()) { ?>
@@ -57,12 +33,6 @@ if($normal_video_replacements || $dark_video_replacements) {
                 --darkify_dark_mode_text_color: <?php echo esc_attr($options["dark_mode_link_color_set1"]['text']); ?>;
                 --darkify_dark_mode_link_color: <?php echo esc_attr($options["dark_mode_link_color_set1"]['color']); ?>;
                 --darkify_dark_mode_link_hover_color: <?php echo esc_attr($options["dark_mode_link_color_set1"]['hover']); ?>;
-                --darkify_dark_mode_input_bg: <?php echo esc_attr($options["dark_mode_input_color_set1"]['background']); ?>;
-                --darkify_dark_mode_input_text_color: <?php echo esc_attr($options["dark_mode_input_color_set1"]['color']); ?>;
-                --darkify_dark_mode_input_placeholder_color: <?php echo esc_attr($options["dark_mode_input_color_set1"]['placeholder']); ?>;
-                --darkify_dark_mode_border_color: <?php echo esc_attr($options["dark_mode_border_color_set1"]); ?>;
-                --darkify_dark_mode_btn_text_color: <?php echo esc_attr($options["dark_mode_btn_color_set1"]['color']); ?>;
-                --darkify_dark_mode_btn_bg: <?php echo esc_attr($options["dark_mode_btn_color_set1"]['background']); ?>;
             <?php elseif($options["color_pallets"] == 'set2'): ?>
                 --darkify_dark_mode_bg: <?php echo esc_attr($options["dark_mode_color_set2"]['background']); ?>;
                 --darkify_dark_mode_secondary_bg: <?php echo esc_attr($options["dark_mode_color_set2"]['secondary_background']); ?>;
@@ -181,31 +151,19 @@ if($normal_video_replacements || $dark_video_replacements) {
     var darkify_enable_time_based_dark = "<?php echo esc_attr($enable_time_based_dark); ?>";
     var darkify_time_based_dark_start = "<?php echo esc_attr($time_based_dark_start ? $time_based_dark_start : "19:00"); ?>";
     var darkify_time_based_dark_stop = "<?php echo esc_attr($time_based_dark_stop ? $time_based_dark_stop : "07:00"); ?>";
-    var darkify_enable_switch_dragging = "<?php echo esc_attr($enable_switch_dragging); ?>";
     var darkify_alternative_dark_mode_switch = "<?php echo esc_attr($options["alternative_dark_mode_switcher"]); ?>";
     var darkify_enable_low_image_brightness = "<?php echo esc_attr($enable_low_image_brightness); ?>";
     var darkify_image_brightness_to = "<?php echo esc_attr($low_image_brightness_label); ?>";
-    var darkify_disallowed_low_brightness_images = "<?php echo esc_attr($disallowed_low_brightness_images); ?>";
     var darkify_enable_image_grayscale = "<?php echo esc_attr($enable_image_grayscale); ?>";
     var darkify_image_grayscale_to = "<?php echo esc_attr($image_grayscale_label); ?>";
     var darkify_disallowed_grayscale_images = "<?php echo esc_attr($disallowed_low_grayscale_images); ?>";
     var darkify_enable_bg_image_darken = "<?php echo esc_attr($enable_low_image_darken); ?>";
     var darkify_bg_image_darken_to = "<?php echo esc_attr($low_image_darken_label); ?>";
     var darkify_enable_invert_inline_svg = "<?php echo esc_attr($options["enable_invert_inline_svg"]); ?>";
-    var darkify_enable_invert_images = "<?php echo esc_attr($enable_invert_images); ?>";
-    var darkify_invert_images_allowed_urls = "<?php echo esc_attr($invert_images_allowed_urls ? $invert_images_allowed_urls_arr : "[]"); ?>";
-    var darkify_image_replacements = "<?php echo esc_attr($image_replacements) ?>";
     var darkify_enable_low_video_brightness = "<?php echo esc_attr($enable_low_video_brightness); ?>";
     var darkify_video_brightness_to = "<?php echo esc_attr($low_video_brightness_label); ?>";
     var darkify_enable_video_grayscale = "<?php echo esc_attr($enable_video_grayscale); ?>";
     var darkify_video_grayscale_to = "<?php echo esc_attr($video_grayscale_label); ?>";
-    var darkify_video_replacements = "<?PHP echo esc_attr($video_replacements); ?>";
-    var darkify_allowed_elements = "<?php echo esc_attr($this->utils->generateAllowedElementsStr($options)); ?>";
-    var darkify_allowed_elements_raw = "<?php echo esc_attr($options["allowed_elements"]); ?>";
-    var darkify_allowed_elements_force_to_correct = "<?php echo esc_attr($options["allowed_elements_force_to_correct"]); ?>";
-    var darkify_disallowed_elements = "<?php echo esc_attr($this->utils->generateDisallowedElementsStr($options, $this->external_support)); ?>";
-    var darkify_disallowed_elements_raw = "<?php echo esc_attr($options["disallowed_elements"]); ?>";
-    var darkify_disallowed_elements_force_to_correct = "<?php echo esc_attr($options["disallowed_elements_force_to_correct"]); ?>";
 </script>
 <?php
 $output = ob_get_clean();

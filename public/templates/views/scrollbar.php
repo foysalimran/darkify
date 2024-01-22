@@ -1,16 +1,4 @@
 <style type="text/css" class="darkify_inline_css">
-    .darkify_dark_mode_enabled::-webkit-scrollbar {
-        background: <?php echo esc_attr(isset($options["dark_mode_scrollbar_track_bg"]) ? $options["dark_mode_scrollbar_track_bg"] : "#29292a"); ?> !important;
-    }
-    .darkify_dark_mode_enabled::-webkit-scrollbar-track {
-        background: <?php echo esc_attr(isset($options["dark_mode_scrollbar_track_bg"]) ? $options["dark_mode_scrollbar_track_bg"] : "##29292a"); ?> !important;
-    }
-    .darkify_dark_mode_enabled::-webkit-scrollbar-thumb {
-        background-color: <?php echo esc_attr(isset($options["dark_mode_scrollbar_thumb_bg"]) ? $options["dark_mode_scrollbar_thumb_bg"] : "#52565a"); ?> !important;
-    }
-    .darkify_dark_mode_enabled::-webkit-scrollbar-corner {
-        background-color: <?php echo esc_attr(isset($options["dark_mode_scrollbar_thumb_bg"]) ? $options["dark_mode_scrollbar_thumb_bg"] : "#52565a"); ?> !important;
-    }
     .darkify_dark_mode_enabled::-webkit-scrollbar-button {
         background-color: transparent !important;
         background-repeat: no-repeat !important;

@@ -72,7 +72,6 @@ if ( ! class_exists( 'DRK_Setup' ) ) {
       add_action( 'switch_theme', array( 'DRK', 'setup' ) );
       add_action( 'admin_enqueue_scripts', array( 'DRK', 'add_admin_enqueue_scripts' ) );
       add_action( 'wp_enqueue_scripts', array( 'DRK', 'add_typography_enqueue_styles' ), 80 );
-      add_action( 'wp_head', array( 'DRK', 'add_custom_css' ), 80 );
       add_filter( 'admin_body_class', array( 'DRK', 'add_admin_body_class' ) );
 
     }
@@ -679,15 +678,6 @@ if ( ! class_exists( 'DRK_Setup' ) ) {
       }
 
       return $classes;
-
-    }
-
-    // Add custom css to front page
-    public static function add_custom_css() {
-
-      if ( ! empty( self::$css ) ) {
-        echo '<style type="text/css">'. wp_strip_all_tags( self::$css ) .'</style>';
-      }
 
     }
 

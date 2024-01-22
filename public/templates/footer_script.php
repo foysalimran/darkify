@@ -13,18 +13,10 @@ $type_of_hide_by = isset($hide_on_mobile["type_of_hide_by"]) ? $hide_on_mobile["
     <?php } ?>
 <?php } ?>
 
-<style type="text/css" class="darkify_inline_css">
-    <?php echo esc_attr($this->utils->parseAndProcessNormalCustomCSS($options["normal_custom_css"])); ?>
-</style>
-
-<style type="text/css" class="darkify_inline_css">
-    <?php echo esc_attr($this->utils->parseAndProcessCustomCSS($options["custom_css"], $options["disallowed_elements_force_to_correct"])); ?>
-</style>
 
 <?php if (!is_admin()) { ?>
     <script type="text/javascript" class="darkify_inline_js">
         document.addEventListener("DOMContentLoaded", function(event) {
-            darkify_init_draggable_floating_switch();
             darkify_init_alternative_dark_mode_switch();
         });
     </script>

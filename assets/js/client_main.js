@@ -4,15 +4,11 @@ let has_process_run_at_least_once = false;
 let old_transition = "";
 let has_background_img_url = false;
 
-const darkify_disallowed_low_brightness_images_arr = darkify_disallowed_low_brightness_images.trim().length > 0 ? darkify_disallowed_low_brightness_images.split(",") : [];
+
 const darkify_disallowed_grayscale_images_arr = darkify_disallowed_grayscale_images.trim().length > 0 ? darkify_disallowed_grayscale_images.split(",") : [];
 
 let darken_level = parseInt(darkify_bg_image_darken_to) / 100;
 darken_level = darken_level.toFixed(1);
-
-const darkify_invert_images_allowed_urls_arr = JSON.parse(darkify_invert_images_allowed_urls.replaceAll("&amp;", "&").replaceAll("&quot;", "\""));
-const darkify_image_replacements_arr = JSON.parse(darkify_image_replacements.replaceAll("&amp;", "&").replaceAll("&quot;", "\""));
-const darkify_video_replacements_arr = JSON.parse(darkify_video_replacements.replaceAll("&amp;", "&").replaceAll("&quot;", "\""));
 
 let darkify_secondary_bg_color = "";
 
@@ -58,30 +54,14 @@ const dark_mode_status_changed = new MutationObserver(mutationsList => {
     if (mutation.type === "attributes" && mutation.attributeName === "class") {
       document.querySelectorAll("*:not(head, title, link, meta, script, style, defs, filter)").forEach(element => {
         if (element.classList.contains("darkifycessed")) {
-          if (darkify_allowed_elements_raw.length > 0 && element.matches(darkify_allowed_elements_raw) && darkify_allowed_elements_force_to_correct === "1") {
-            darkify_elements_force_to_correct(element);
-          }
-          if (darkify_disallowed_elements_raw.length > 0 && element.matches(darkify_disallowed_elements_raw) && darkify_disallowed_elements_force_to_correct === "1") {
-            darkify_elements_force_to_correct(element);
-          }
-          if (darkify_allowed_elements.length > 0 && !element.matches(darkify_allowed_elements)) {
-            return;
-          }
-          if (darkify_disallowed_elements.length > 0 && element.matches(darkify_disallowed_elements)) {
-            return;
-          }
+          
           if (darkify_enable_bg_image_darken === "1") {
             darkify_darken_bg_image(element, darken_level);
           }
           if ((darkify_enable_low_image_brightness === "1" || darkify_enable_image_grayscale === "1") && element.nodeName.toLowerCase() === "img") {
             darkify_img_brightness_and_grayscale(element);
           }
-          if (darkify_enable_invert_images === "1" && darkify_invert_images_allowed_urls_arr.length > 0) {
-            darkify_invert_image(element);
-          }
-          if (darkify_image_replacements_arr.length > 0) {
-            darkify_replace_image(element, darkify_image_replacements_arr);
-          }
+
           if (darkify_enable_invert_inline_svg === "1" && element.nodeName.toLowerCase() === "svg") {
             darkify_invert_inline_svg(element);
           }
@@ -96,17 +76,7 @@ const dark_mode_status_changed = new MutationObserver(mutationsList => {
               }
             }
           }
-          if (darkify_video_replacements_arr.length > 0) {
-            if (element.nodeName.toLowerCase() === "video") {
-              darkify_replace_video(element, darkify_video_replacements_arr);
-            }
-            if (element.nodeName.toLowerCase() === "iframe" && element.getAttribute("src") != null) {
-              const srcAttribute = element.getAttribute("src");
-              if (srcAttribute.includes("youtube") || srcAttribute.includes("vimeo") || srcAttribute.includes("dailymotion")) {
-                darkify_replace_video(element, darkify_video_replacements_arr);
-              }
-            }
-          }
+          
           if (element.hasAttribute("data-darkify_alpha_bg")) {
             darkify_fix_background_color_alpha(element);
           }
@@ -167,88 +137,6 @@ function darkify_init_os_mode_change_listener() {
   }
 }
 
-function darkify_init_draggable_floating_switch() {
-  if (darkify_enable_switch_dragging === "1") {
-    const switchElement = document.getElementById("darkify_switch_" + darkify_switch_unique_id);
-
-    let topPosition = localStorage.darkify_draggable_switch_top || "not_set";
-    let leftPosition = localStorage.darkify_draggable_switch_left || "not_set";
-
-    let windowHeight = document.documentElement.clientHeight - switchElement.clientHeight;
-    let windowWidth = document.documentElement.clientWidth - switchElement.clientWidth;
-
-    if (topPosition !== "not_set" && leftPosition !== "not_set") {
-      switchElement.style.bottom = "unset";
-      switchElement.style.right = "unset";
-      switchElement.style.top = topPosition + "px";
-      switchElement.style.left = leftPosition + "px";
-    }
-
-    window.addEventListener("resize", event => {
-      if (topPosition !== "not_set" && leftPosition !== "not_set") {
-        windowHeight = document.documentElement.clientHeight - switchElement.clientHeight;
-        windowWidth = document.documentElement.clientWidth - switchElement.clientWidth;
-
-        if (switchElement.offsetLeft > windowWidth) {
-          switchElement.style.left = windowWidth + "px";
-        }
-
-        if (switchElement.offsetTop > windowHeight) {
-          switchElement.style.top = windowHeight + "px";
-        }
-      }
-    });
-
-    switchElement.onmousedown = function (mouseEvent) {
-      mouseEvent = mouseEvent || window.event;
-      mouseEvent.preventDefault();
-
-      let startX = 0;
-      let startY = 0;
-      let offsetX = 0;
-      let offsetY = 0;
-      let newPositionTop = 0;
-      let newPositionLeft = 0;
-
-      startX = mouseEvent.clientX;
-      startY = mouseEvent.clientY;
-
-      document.onmouseup = function () {
-        document.onmouseup = null;
-        document.onmousemove = null;
-
-        localStorage.darkify_draggable_switch_top = switchElement.offsetTop;
-        localStorage.darkify_draggable_switch_left = switchElement.offsetLeft;
-      };
-
-      document.onmousemove = function (moveEvent) {
-        moveEvent = moveEvent || window.event;
-        moveEvent.preventDefault();
-
-        offsetX = startX - moveEvent.clientX;
-        offsetY = startY - moveEvent.clientY;
-
-        startX = moveEvent.clientX;
-        startY = moveEvent.clientY;
-
-        newPositionTop = switchElement.offsetTop - offsetY;
-        newPositionLeft = switchElement.offsetLeft - offsetX;
-
-        if (
-          newPositionTop <= windowHeight &&
-          newPositionLeft <= windowWidth &&
-          newPositionTop >= 0 &&
-          newPositionLeft >= 0
-        ) {
-          switchElement.style.bottom = "unset";
-          switchElement.style.right = "unset";
-          switchElement.style.top = newPositionTop + "px";
-          switchElement.style.left = newPositionLeft + "px";
-        }
-      };
-    };
-  }
-}
 function darkify_init_alternative_dark_mode_switch() {
   if (darkify_alternative_dark_mode_switch.length > 0) {
     const elements = document.querySelectorAll(darkify_alternative_dark_mode_switch);
@@ -333,27 +221,7 @@ function darkify_darken_bg_image(element, level) {
 }
 
 function darkify_img_is_disallowed_for_brightness_and_grayscale(element, type) {
-  if (type === "brightness") {
-    if (darkify_disallowed_low_brightness_images_arr.length > 0) {
-      for (let i = 0; i < darkify_disallowed_low_brightness_images_arr.length; i++) {
-        if (darkify_disallowed_low_brightness_images_arr[i].trim().length > 0) {
-          const url = darkify_disallowed_low_brightness_images_arr[i];
-          const pathname = new URL(url).pathname;
-
-          if (element.getAttribute("src") != null && element.getAttribute("src").includes(pathname)) {
-            return true;
-          }
-
-          if (
-            element.getAttribute("srcset") != null &&
-            element.getAttribute("srcset").includes(pathname)
-          ) {
-            return true;
-          }
-        }
-      }
-    }
-  } else if (type === "grayscale") {
+   if (type === "grayscale") {
     if (darkify_disallowed_grayscale_images_arr.length > 0) {
       for (let i = 0; i < darkify_disallowed_grayscale_images_arr.length; i++) {
         if (darkify_disallowed_grayscale_images_arr[i].trim().length > 0) {
@@ -415,97 +283,12 @@ function darkify_img_brightness_and_grayscale(element) {
 }
 
 function darkify_invert_image(element) {
-  if (document.getElementsByTagName("html")[0].classList.contains("darkify_dark_mode_enabled")) {
-    if (
-      element.getAttribute("src") != null ||
-      element.getAttribute("srcset") != null ||
-      window.getComputedStyle(element, null).backgroundImage != null
-    ) {
-      for (let i = 0; i < darkify_invert_images_allowed_urls_arr.length; i++) {
-        const url = new URL(darkify_invert_images_allowed_urls_arr[i]).pathname;
-        if (element.getAttribute("src") != null && element.getAttribute("src").includes(url)) {
-          element.style.filter = "invert(1)";
-          element.classList.add("darkify_inverted_image");
-        }
-        if (
-          element.getAttribute("srcset") != null &&
-          element.getAttribute("srcset").includes(url)
-        ) {
-          element.style.filter = "invert(1)";
-          element.classList.add("darkify_inverted_image");
-        }
-        if (
-          window.getComputedStyle(element, null).backgroundImage != null &&
-          window.getComputedStyle(element, null).backgroundImage.includes(url)
-        ) {
-          element.style.filter = "invert(1)";
-          element.classList.add("darkify_inverted_image");
-        }
-      }
-    }
-  } else if (element.classList.contains("darkify_inverted_image")) {
+ if (element.classList.contains("darkify_inverted_image")) {
     element.style.filter = element.style.filter.replace("invert(1)", "");
     element.classList.remove("darkify_inverted_image");
   }
 }
 
-function darkify_replace_image(element, images) {
-  if (document.getElementsByTagName("html")[0].classList.contains("darkify_dark_mode_enabled")) {
-    for (let i = 0; i < images.length; i++) {
-      const normalImage = images[i].normal_image;
-      const normalImagePath = new URL(normalImage).pathname;
-      const darkImage = images[i].dark_image;
-      const darkImagePath = new URL(darkImage).pathname;
-
-      if (element.getAttribute("src") != null && element.getAttribute("src").includes(normalImagePath)) {
-        element.src = darkImage;
-        element.classList.add("darkify_replaced_image");
-      }
-      if (
-        element.getAttribute("srcset") != null &&
-        element.getAttribute("srcset").includes(normalImagePath)
-      ) {
-        element.srcset = darkImage;
-        element.classList.add("darkify_replaced_image");
-      }
-      if (
-        window.getComputedStyle(element, null).backgroundImage != null &&
-        window.getComputedStyle(element, null).backgroundImage.includes(normalImagePath)
-      ) {
-        element.style.backgroundImage = "url('" + darkImage + "')";
-        element.classList.add("darkify_replaced_image");
-      }
-    }
-  } else {
-    if (element.classList.contains("darkify_replaced_image")) {
-      for (let i = 0; i < images.length; i++) {
-        const normalImage = images[i].normal_image;
-        const normalImagePath = new URL(normalImage).pathname;
-        const darkImage = images[i].dark_image;
-        const darkImagePath = new URL(darkImage).pathname;
-
-        if (element.getAttribute("src") != null && element.getAttribute("src").includes(darkImagePath)) {
-          element.src = normalImage;
-          element.classList.remove("darkify_replaced_image");
-        }
-        if (
-          element.getAttribute("srcset") != null &&
-          element.getAttribute("srcset").includes(darkImagePath)
-        ) {
-          element.srcset = normalImage;
-          element.classList.remove("darkify_replaced_image");
-        }
-        if (
-          window.getComputedStyle(element, null).backgroundImage != null &&
-          window.getComputedStyle(element, null).backgroundImage.includes(darkImagePath)
-        ) {
-          element.style.backgroundImage = "url('" + normalImage + "')";
-          element.classList.remove("darkify_replaced_image");
-        }
-      }
-    }
-  }
-}
 function darkify_invert_inline_svg(element) {
   if (document.getElementsByTagName("html")[0].classList.contains("darkify_dark_mode_enabled")) {
     element.style.filter = "invert(1)";
@@ -546,69 +329,6 @@ function darkify_video_brightness_and_grayscale(element) {
   }
 }
 
-function darkify_replace_video(videoElement, videos) {
-  if (document.getElementsByTagName("html")[0].classList.contains("darkify_dark_mode_enabled")) {
-    for (let i = 0; i < videos.length; i++) {
-      const normalVideo = videos[i].normal_video;
-      const normalVideoPath = new URL(normalVideo).pathname;
-      const darkVideo = videos[i].dark_video;
-      const darkVideoPath = new URL(darkVideo).pathname;
-
-      if (
-        videoElement.getAttribute("src") != null &&
-        videoElement.getAttribute("src").includes(normalVideoPath)
-      ) {
-        videoElement.src = darkVideo;
-        videoElement.classList.add("darkify_replaced_video");
-      }
-
-      if (videoElement.querySelectorAll("source") != null) {
-        let sources = videoElement.querySelectorAll("source");
-        for (let j = 0; j < sources.length; j++) {
-          if (
-            sources[j].getAttribute("src") != null &&
-            sources[j].getAttribute("src").includes(normalVideoPath)
-          ) {
-            sources[j].src = darkVideo + "?_=" + Date.now();
-            videoElement.classList.add("darkify_replaced_video");
-            videoElement.load();
-          }
-        }
-      }
-    }
-  } else {
-    if (videoElement.classList.contains("darkify_replaced_video")) {
-      for (let i = 0; i < videos.length; i++) {
-        const normalVideo = videos[i].normal_video;
-        const normalVideoPath = new URL(normalVideo).pathname;
-        const darkVideo = videos[i].dark_video;
-        const darkVideoPath = new URL(darkVideo).pathname;
-
-        if (
-          videoElement.getAttribute("src") != null &&
-          videoElement.getAttribute("src").includes(darkVideoPath)
-        ) {
-          videoElement.src = normalVideo;
-          videoElement.classList.remove("darkify_replaced_video");
-        }
-
-        if (videoElement.querySelectorAll("source") != null) {
-          let sources = videoElement.querySelectorAll("source");
-          for (let j = 0; j < sources.length; j++) {
-            if (
-              sources[j].getAttribute("src") != null &&
-              sources[j].getAttribute("src").includes(darkVideoPath)
-            ) {
-              sources[j].src = normalVideo + "?_=" + Date.now();
-              videoElement.classList.remove("darkify_replaced_video");
-              videoElement.load();
-            }
-          }
-        }
-      }
-    }
-  }
-}
 
 function darkify_fix_background_color_alpha(element) {
   if (document.getElementsByTagName("html")[0].classList.contains("darkify_dark_mode_enabled")) {
@@ -794,40 +514,6 @@ function darkifycess_element(element) {
     element.style.setProperty("background-color", "rgb(255, 255, 255)");
     backgroundColor = window.getComputedStyle(element, null).backgroundColor;
   }
-  if (darkify_disallowed_elements_force_to_correct === "1" || darkify_allowed_elements_force_to_correct === "1") {
-    if (typeof element.style !== "undefined") {
-      var preservedBackgroundColor = get_bg_color_to_preserve(element, true);
-      if (preservedBackgroundColor === "rgba(0, 0, 0, 0)" || preservedBackgroundColor === "rgba(255, 255, 255, 0)") {
-        preservedBackgroundColor = "rgb(255, 255, 255)";
-      }
-      element.dataset.darkify_preserved_bg = preservedBackgroundColor;
-      element.dataset.darkify_preserved_color = get_txt_color_to_preserve(element, true);
-      if (darkify_allowed_elements_raw.length > 0 && element.matches(darkify_allowed_elements_raw) && darkify_allowed_elements_force_to_correct === "1") {
-        darkify_elements_force_to_correct(element);
-      }
-      if (darkify_disallowed_elements_raw.length > 0 && element.matches(darkify_disallowed_elements_raw) && darkify_disallowed_elements_force_to_correct === "1") {
-        darkify_elements_force_to_correct(element);
-      }
-    }
-  }
-  if (darkify_allowed_elements.length > 0) {
-    if (!element.matches(darkify_allowed_elements)) {
-      if (old_transition !== "") {
-        element.style.setProperty("transition", old_transition);
-      }
-      element.classList.add("darkifycessed");
-      return;
-    }
-  }
-  if (darkify_disallowed_elements.length > 0) {
-    if (element.matches(darkify_disallowed_elements)) {
-      if (old_transition !== "") {
-        element.style.setProperty("transition", old_transition);
-      }
-      element.classList.add("darkifycessed");
-      return;
-    }
-  }
   var has_background_img_url = false;
   if (backgroundImage !== "none" && backgroundImage.includes("url")) {
     has_background_img_url = true;
@@ -892,14 +578,6 @@ function darkifycess_element(element) {
     darkify_img_brightness_and_grayscale(element);
   }
   
-  if (darkify_enable_invert_images === "1" && darkify_invert_images_allowed_urls_arr.length > 0) {
-    darkify_invert_image(element);
-  }
-  
-  if (darkify_image_replacements_arr.length > 0) {
-    darkify_replace_image(element, darkify_image_replacements_arr);
-  }
-  
   if (darkify_enable_invert_inline_svg === "1" && nodeName === "svg") {
     darkify_invert_inline_svg(element);
   }
@@ -919,20 +597,6 @@ function darkifycess_element(element) {
     }
   }
   
-  if (darkify_video_replacements_arr.length > 0) {
-    if (nodeName === "video") {
-      darkify_replace_video(element, darkify_video_replacements_arr);
-    }
-  
-    if (nodeName === "iframe") {
-      const srcAttribute = element.getAttribute("src");
-      if (srcAttribute !== null) {
-        if (srcAttribute.includes("youtube") || srcAttribute.includes("vimeo") || srcAttribute.includes("dailymotion")) {
-          darkify_replace_video(element, darkify_video_replacements_arr);
-        }
-      }
-    }
-  }
   
   if (backgroundColor.includes("rgba")) {
     element.dataset.darkify_alpha_bg = backgroundColor;

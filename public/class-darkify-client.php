@@ -65,31 +65,10 @@ if (!class_exists('DarkifyClient')) {
                 wp_enqueue_style('darkify-client-main', DRK_PLUGIN_DIR_URL . 'assets/css/client_main.css', array(), DRK_VERSION);
                 wp_enqueue_script( 'darkify-client-main', DRK_PLUGIN_DIR_URL . 'assets/js/client_main.js', array('jquery'), DRK_VERSION, true);
             }
-    
         }
     
         function darkify_is_dark_mode_allowed() {
             $options = get_option('darkify');
-            /* Disable on Disallowed Page */
-            if($this->utils->isRestrictedByDisallowedPages($options["disallowed_pages"])){
-                return False;
-            }
-    
-            /* Disable Except Allowed Page */
-            if($this->utils->isRestrictedByAllowedPages($options["allowed_pages"])){
-                return False;
-            }
-    
-            /* Disable on Disallowed Post */
-            if($this->utils->isRestrictedByDisallowedPosts($options["disallowed_posts"])){
-                return False;
-            }
-    
-            /* Disable Except Allowed Post */
-            if($this->utils->isRestrictedByAllowedPosts($options["allowed_posts"])){
-                return False;
-            }
-    
             /* Disable if Oxygen Builder is Opened */
             if (isset( $_GET['ct_builder'] )) {
                 if($_GET['ct_builder'] == "true"){
