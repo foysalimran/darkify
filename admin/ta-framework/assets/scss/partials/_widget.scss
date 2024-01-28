@@ -1,0 +1,67 @@
+/**
+ * 04. Widget
+ */
+.drk_lite-widgets{
+
+  > .drk_lite-field{
+    position: relative;
+    top: -1px;
+    margin-left: -15px;
+    margin-right: -15px;
+    padding: 12px 15px;
+
+    .drk_lite-title{
+      float: none;
+      width: 100%;
+      margin-bottom: 5px;
+    }
+
+    .drk_lite-fieldset{
+      float: none;
+      width: 100%;
+    }
+  }
+
+  .drk_lite-field-text input{
+    width: 100%;
+  }
+
+  .drk_lite-field-notice .drk_lite-notice{
+    padding: 15px;
+  }
+}
+
+.control-section{
+
+  .drk_lite-widgets{
+
+    > .drk_lite-field{
+      margin-left: -10px;
+      margin-right: -10px;
+      padding: 10px 12px;
+    }
+  }
+}
+
+.wp-block{
+
+  .drk_lite-widgets{
+    font-size: 13px;
+
+    > .drk_lite-field{
+      margin-left: -10px;
+      margin-right: -10px;
+
+      .button-primary{
+        color: #fff;
+      }
+
+      > .drk_lite-title{
+
+        > h4{
+          font-size: 13px;
+        }
+      }
+    }
+  }
+}

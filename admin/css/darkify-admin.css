@@ -2,7 +2,7 @@
  * All of the CSS for your admin-specific functionality should be
  * included in this file.
  */
- .drk-field-image_select.icon_select img {
+ .drk_lite-field-image_select.icon_select img {
     max-width: 175px;
  }
 

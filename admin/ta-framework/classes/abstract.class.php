@@ -7,8 +7,8 @@
  * @version 1.0.0
  *
  */
-if ( ! class_exists( 'DRK_Abstract' ) ) {
-  abstract class DRK_Abstract {
+if ( ! class_exists( 'DRK_LITE_Abstract' ) ) {
+  abstract class DRK_LITE_Abstract {
 
     public $abstract   = '';
     public $output_css = '';
@@ -18,7 +18,7 @@ if ( ! class_exists( 'DRK_Abstract' ) ) {
       // Collect output css and typography
       if ( ! empty( $this->args['output_css'] ) || ! empty( $this->args['enqueue_webfont'] ) ) {
         add_action( 'wp_enqueue_scripts', array( $this, 'collect_output_css_and_typography' ), 10 );
-        DRK::$css = apply_filters( "drk_{$this->unique}_output_css", DRK::$css, $this );
+        DRK_LITE::$css = apply_filters( "drk_lite_{$this->unique}_output_css", DRK_LITE::$css, $this );
       }
 
     }
@@ -37,7 +37,7 @@ if ( ! class_exists( 'DRK_Abstract' ) ) {
           $field_type   = ( ! empty( $field['type'] ) ) ? $field['type'] : '';
           $field_output = ( ! empty( $field['output'] ) ) ? $field['output'] : '';
           $field_check  = ( $field_type === 'typography' || $field_output ) ? true : false;
-          $field_class  = 'DRK_Field_' . $field_type;
+          $field_class  = 'DRK_LITE_Field_' . $field_type;
 
           if ( $field_type && $field_id ) {
 
@@ -111,7 +111,7 @@ if ( ! class_exists( 'DRK_Abstract' ) ) {
 
                 // output css
                 if ( $field_output && $this->args['output_css'] ) {
-                  DRK::$css .= $instance->output();
+                  DRK_LITE::$css .= $instance->output();
                 }
 
                 unset( $instance );

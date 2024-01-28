@@ -1,4 +1,7 @@
 <?php
+if (!defined('ABSPATH')) {
+    die;
+} // Cannot access directly.
 
 $hide_on_mobile = $options["hide_on_mobile"];
 $tooltip_on_floating_switch = $options["tooltip_on_floating_switch"];

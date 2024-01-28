@@ -1,164 +1,163 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access directly.
+<?php if ( ! defined( 'ABSPATH' ) ) {
+	die; } // Cannot access directly.
 /**
  *
  * Field: group
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if ( ! class_exists( 'DRK_Field_group' ) ) {
-  class DRK_Field_group extends DRK_Fields {
+if ( ! class_exists( 'DRK_LITE_Field_group' ) ) {
+	class DRK_LITE_Field_group extends DRK_LITE_Fields {
 
-    public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-      parent::__construct( $field, $value, $unique, $where, $parent );
-    }
+		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
+			parent::__construct( $field, $value, $unique, $where, $parent );
+		}
 
-    public function render() {
+		public function render() {
 
-      $args = wp_parse_args( $this->field, array(
-        'max'                       => 0,
-        'min'                       => 0,
-        'fields'                    => array(),
-        'button_title'              => esc_html__( 'Add New', 'darkify' ),
-        'accordion_title_prefix'    => '',
-        'accordion_title_number'    => false,
-        'accordion_title_auto'      => true,
-        'accordion_title_by'        => array(),
-        'accordion_title_by_prefix' => ' ',
-      ) );
+			$args = wp_parse_args(
+				$this->field,
+				array(
+					'max'                       => 0,
+					'min'                       => 0,
+					'fields'                    => array(),
+					'button_title'              => esc_html__( 'Add New', 'ta-framework' ),
+					'accordion_title_prefix'    => '',
+					'accordion_title_number'    => false,
+					'accordion_title_auto'      => true,
+					'accordion_title_by'        => array(),
+					'accordion_title_by_prefix' => ' ',
+				)
+			);
 
-      $title_prefix    = ( ! empty( $args['accordion_title_prefix'] ) ) ? $args['accordion_title_prefix'] : '';
-      $title_number    = ( ! empty( $args['accordion_title_number'] ) ) ? true : false;
-      $title_auto      = ( ! empty( $args['accordion_title_auto'] ) ) ? true : false;
-      $title_first     = ( isset( $this->field['fields'][0]['id'] ) ) ? $this->field['fields'][0]['id'] : $this->field['fields'][1]['id'];
-      $title_by        = ( is_array( $args['accordion_title_by'] ) ) ? $args['accordion_title_by'] : (array) $args['accordion_title_by'];
-      $title_by        = ( empty( $title_by ) ) ? array( $title_first ) : $title_by;
-      $title_by_prefix = ( ! empty( $args['accordion_title_by_prefix'] ) ) ? $args['accordion_title_by_prefix'] : '';
+			$title_prefix    = ( ! empty( $args['accordion_title_prefix'] ) ) ? $args['accordion_title_prefix'] : '';
+			$title_number    = ( ! empty( $args['accordion_title_number'] ) ) ? true : false;
+			$title_auto      = ( ! empty( $args['accordion_title_auto'] ) ) ? true : false;
+			$title_first     = ( isset( $this->field['fields'][0]['id'] ) ) ? $this->field['fields'][0]['id'] : $this->field['fields'][1]['id'];
+			$title_by        = ( is_array( $args['accordion_title_by'] ) ) ? $args['accordion_title_by'] : (array) $args['accordion_title_by'];
+			$title_by        = ( empty( $title_by ) ) ? array( $title_first ) : $title_by;
+			$title_by_prefix = ( ! empty( $args['accordion_title_by_prefix'] ) ) ? $args['accordion_title_by_prefix'] : '';
 
-      if ( preg_match( '/'. preg_quote( '['. $this->field['id'] .']' ) .'/', $this->unique ) ) {
+			if ( preg_match( '/' . preg_quote( '[' . $this->field['id'] . ']' ) . '/', $this->unique ) ) {
 
-        echo '<div class="drk-notice drk-notice-danger">'. esc_html__( 'Error: Field ID conflict.', 'darkify' ) .'</div>';
+				echo '<div class="drk_lite-notice drk_lite-notice-danger">' . esc_html__( 'Error: Field ID conflict.', 'ta-framework' ) . '</div>';
 
-      } else {
+			} else {
 
-        echo wp_kses_post($this->field_before());
+				echo wp_kses_post( $this->field_before() );
 
-        echo '<div class="drk-cloneable-item drk-cloneable-hidden" data-depend-id="'. esc_attr( $this->field['id'] ) .'">';
+				echo '<div class="drk_lite-cloneable-item drk_lite-cloneable-hidden" data-depend-id="' . esc_attr( $this->field['id'] ) . '">';
 
-          echo '<div class="drk-cloneable-helper">';
-          echo '<i class="drk-cloneable-sort fas fa-arrows-alt"></i>';
-          echo '<i class="drk-cloneable-clone far fa-clone"></i>';
-          echo '<i class="drk-cloneable-remove drk-confirm fas fa-times" data-confirm="'. esc_html__( 'Are you sure to delete this item?', 'darkify' ) .'"></i>';
-          echo '</div>';
+				echo '<div class="drk_lite-cloneable-helper">';
+				echo '<i class="drk_lite-cloneable-sort fas fa-arrows-alt"></i>';
+				echo '<i class="drk_lite-cloneable-clone far fa-clone"></i>';
+				echo '<i class="drk_lite-cloneable-remove drk_lite-confirm fas fa-times" data-confirm="' . esc_html__( 'Are you sure to delete this item?', 'ta-framework' ) . '"></i>';
+				echo '</div>';
 
-          echo '<h4 class="drk-cloneable-title">';
-          echo '<span class="drk-cloneable-text">';
-          echo ( $title_number ) ? '<span class="drk-cloneable-title-number"></span>' : '';
-          echo ( $title_prefix ) ? '<span class="drk-cloneable-title-prefix">'. esc_attr( $title_prefix ) .'</span>' : '';
-          echo ( $title_auto ) ? '<span class="drk-cloneable-value"><span class="drk-cloneable-placeholder"></span></span>' : '';
-          echo '</span>';
-          echo '</h4>';
+				echo '<h4 class="drk_lite-cloneable-title">';
+				echo '<span class="drk_lite-cloneable-text">';
+				echo ( $title_number ) ? '<span class="drk_lite-cloneable-title-number"></span>' : '';
+				echo ( $title_prefix ) ? '<span class="drk_lite-cloneable-title-prefix">' . esc_attr( $title_prefix ) . '</span>' : '';
+				echo ( $title_auto ) ? '<span class="drk_lite-cloneable-value"><span class="drk_lite-cloneable-placeholder"></span></span>' : '';
+				echo '</span>';
+				echo '</h4>';
 
-          echo '<div class="drk-cloneable-content">';
-          foreach ( $this->field['fields'] as $field ) {
+				echo '<div class="drk_lite-cloneable-content">';
+				foreach ( $this->field['fields'] as $field ) {
 
-            $field_default = ( isset( $field['default'] ) ) ? $field['default'] : '';
-            $field_unique  = ( ! empty( $this->unique ) ) ? $this->unique .'['. $this->field['id'] .'][0]' : $this->field['id'] .'[0]';
+					$field_default = ( isset( $field['default'] ) ) ? $field['default'] : '';
+					$field_unique  = ( ! empty( $this->unique ) ) ? $this->unique . '[' . $this->field['id'] . '][0]' : $this->field['id'] . '[0]';
 
-            DRK::field( $field, $field_default, '___'. $field_unique, 'field/group' );
+					DRK_LITE::field( $field, $field_default, '___' . $field_unique, 'field/group' );
 
-          }
-          echo '</div>';
+				}
+				echo '</div>';
 
-        echo '</div>';
+				echo '</div>';
 
-        echo '<div class="drk-cloneable-wrapper drk-data-wrapper" data-title-by="'. esc_attr( json_encode( $title_by ) ) .'" data-title-by-prefix="'. esc_attr( $title_by_prefix ) .'" data-title-number="'. esc_attr( $title_number ) .'" data-field-id="['. esc_attr( $this->field['id'] ) .']" data-max="'. esc_attr( $args['max'] ) .'" data-min="'. esc_attr( $args['min'] ) .'">';
+				echo '<div class="drk_lite-cloneable-wrapper drk_lite-data-wrapper" data-title-by="' . esc_attr( json_encode( $title_by ) ) . '" data-title-by-prefix="' . esc_attr( $title_by_prefix ) . '" data-title-number="' . esc_attr( $title_number ) . '" data-field-id="[' . esc_attr( $this->field['id'] ) . ']" data-max="' . esc_attr( $args['max'] ) . '" data-min="' . esc_attr( $args['min'] ) . '">';
 
-        if ( ! empty( $this->value ) ) {
+				if ( ! empty( $this->value ) ) {
 
-          $num = 0;
+					$num = 0;
 
-          foreach ( $this->value as $value ) {
+					foreach ( $this->value as $value ) {
 
-            $title = '';
+						$title = '';
 
-            if ( ! empty( $title_by ) ) {
+						if ( ! empty( $title_by ) ) {
 
-              $titles = array();
+							$titles = array();
 
-              foreach ( $title_by as $title_key ) {
-                if ( isset( $value[ $title_key ] ) ) {
-                  $titles[] = $value[ $title_key ];
-                }
-              }
+							foreach ( $title_by as $title_key ) {
+								if ( isset( $value[ $title_key ] ) ) {
+									$titles[] = $value[ $title_key ];
+								}
+							}
 
-              $title = join( $title_by_prefix, $titles );
+							$title = join( $title_by_prefix, $titles );
 
-            }
+						}
 
-            $title = ( is_array( $title ) ) ? reset( $title ) : $title;
+						$title = ( is_array( $title ) ) ? reset( $title ) : $title;
 
-            echo '<div class="drk-cloneable-item">';
+						echo '<div class="drk_lite-cloneable-item">';
 
-              echo '<div class="drk-cloneable-helper">';
-              echo '<i class="drk-cloneable-sort fas fa-arrows-alt"></i>';
-              echo '<i class="drk-cloneable-clone far fa-clone"></i>';
-              echo '<i class="drk-cloneable-remove drk-confirm fas fa-times" data-confirm="'. esc_html__( 'Are you sure to delete this item?', 'darkify' ) .'"></i>';
-              echo '</div>';
+						echo '<div class="drk_lite-cloneable-helper">';
+						echo '<i class="drk_lite-cloneable-sort fas fa-arrows-alt"></i>';
+						echo '<i class="drk_lite-cloneable-clone far fa-clone"></i>';
+						echo '<i class="drk_lite-cloneable-remove drk_lite-confirm fas fa-times" data-confirm="' . esc_html__( 'Are you sure to delete this item?', 'ta-framework' ) . '"></i>';
+						echo '</div>';
 
-              echo '<h4 class="drk-cloneable-title">';
-              echo '<span class="drk-cloneable-text">';
-              echo ( $title_number ) ? '<span class="drk-cloneable-title-number">'. esc_attr( $num+1 ) .'.</span>' : '';
-              echo ( $title_prefix ) ? '<span class="drk-cloneable-title-prefix">'. esc_attr( $title_prefix ) .'</span>' : '';
-              echo ( $title_auto ) ? '<span class="drk-cloneable-value">' . esc_attr( $title ) .'</span>' : '';
-              echo '</span>';
-              echo '</h4>';
+						echo '<h4 class="drk_lite-cloneable-title">';
+						echo '<span class="drk_lite-cloneable-text">';
+						echo ( $title_number ) ? '<span class="drk_lite-cloneable-title-number">' . esc_attr( $num + 1 ) . '.</span>' : '';
+						echo ( $title_prefix ) ? '<span class="drk_lite-cloneable-title-prefix">' . esc_attr( $title_prefix ) . '</span>' : '';
+						echo ( $title_auto ) ? '<span class="drk_lite-cloneable-value">' . esc_attr( $title ) . '</span>' : '';
+						echo '</span>';
+						echo '</h4>';
 
-              echo '<div class="drk-cloneable-content">';
+						echo '<div class="drk_lite-cloneable-content">';
 
-              foreach ( $this->field['fields'] as $field ) {
+						foreach ( $this->field['fields'] as $field ) {
 
-                $field_unique = ( ! empty( $this->unique ) ) ? $this->unique .'['. $this->field['id'] .']['. $num .']' : $this->field['id'] .'['. $num .']';
-                $field_value  = ( isset( $field['id'] ) && isset( $value[$field['id']] ) ) ? $value[$field['id']] : '';
+							$field_unique = ( ! empty( $this->unique ) ) ? $this->unique . '[' . $this->field['id'] . '][' . $num . ']' : $this->field['id'] . '[' . $num . ']';
+							$field_value  = ( isset( $field['id'] ) && isset( $value[ $field['id'] ] ) ) ? $value[ $field['id'] ] : '';
 
-                DRK::field( $field, $field_value, $field_unique, 'field/group' );
+							DRK_LITE::field( $field, $field_value, $field_unique, 'field/group' );
 
-              }
+						}
 
-              echo '</div>';
+						echo '</div>';
 
-            echo '</div>';
+						echo '</div>';
 
-            $num++;
+						++$num;
 
-          }
+					}
+				}
 
-        }
+				echo '</div>';
 
-        echo '</div>';
+				echo '<div class="drk_lite-cloneable-alert drk_lite-cloneable-max">' . esc_html__( 'You cannot add more.', 'ta-framework' ) . '</div>';
+				echo '<div class="drk_lite-cloneable-alert drk_lite-cloneable-min">' . esc_html__( 'You cannot remove more.', 'ta-framework' ) . '</div>';
+				echo '<a href="#" class="button button-primary drk_lite-cloneable-add">' . esc_html( $args['button_title'] ) . '</a>';
 
-        echo '<div class="drk-cloneable-alert drk-cloneable-max">'. esc_html__( 'You cannot add more.', 'darkify' ) .'</div>';
-        echo '<div class="drk-cloneable-alert drk-cloneable-min">'. esc_html__( 'You cannot remove more.', 'darkify' ) .'</div>';
-        echo '<a href="#" class="button button-primary drk-cloneable-add">'. $args['button_title'] .'</a>';
+				echo wp_kses_post( $this->field_after() );
 
-        echo wp_kses_post($this->field_after());
+			}
+		}
 
-      }
+		public function enqueue() {
 
-    }
+			if ( ! wp_script_is( 'jquery-ui-accordion' ) ) {
+				wp_enqueue_script( 'jquery-ui-accordion' );
+			}
 
-    public function enqueue() {
-
-      if ( ! wp_script_is( 'jquery-ui-accordion' ) ) {
-        wp_enqueue_script( 'jquery-ui-accordion' );
-      }
-
-      if ( ! wp_script_is( 'jquery-ui-sortable' ) ) {
-        wp_enqueue_script( 'jquery-ui-sortable' );
-      }
-
-    }
-
-  }
+			if ( ! wp_script_is( 'jquery-ui-sortable' ) ) {
+				wp_enqueue_script( 'jquery-ui-sortable' );
+			}
+		}
+	}
 }

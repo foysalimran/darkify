@@ -7,8 +7,8 @@
  * @version 1.0.0
  *
  */
-if ( ! class_exists( 'DRK_Options' ) ) {
-  class DRK_Options extends DRK_Abstract {
+if ( ! class_exists( 'DRK_LITE_Options' ) ) {
+  class DRK_LITE_Options extends DRK_LITE_Abstract {
 
     // constans
     public $unique       = '';
@@ -92,8 +92,8 @@ if ( ! class_exists( 'DRK_Options' ) ) {
     public function __construct( $key, $params = array() ) {
 
       $this->unique   = $key;
-      $this->args     = apply_filters( "drk_{$this->unique}_args", wp_parse_args( $params['args'], $this->args ), $this );
-      $this->sections = apply_filters( "drk_{$this->unique}_sections", $params['sections'], $this );
+      $this->args     = apply_filters( "drk_lite_{$this->unique}_args", wp_parse_args( $params['args'], $this->args ), $this );
+      $this->sections = apply_filters( "drk_lite_{$this->unique}_sections", $params['sections'], $this );
 
       // run only is admin panel options, avoid performance loss
       $this->pre_tabs     = $this->pre_tabs( $this->sections );
@@ -106,7 +106,7 @@ if ( ! class_exists( 'DRK_Options' ) ) {
 
       add_action( 'admin_menu', array( $this, 'add_admin_menu' ) );
       add_action( 'admin_bar_menu', array( $this, 'add_admin_bar_menu' ), $this->args['admin_bar_menu_priority'] );
-      add_action( 'wp_ajax_drk_'. $this->unique .'_ajax_save', array( $this, 'ajax_save' ) );
+      add_action( 'wp_ajax_drk_lite_'. $this->unique .'_ajax_save', array( $this, 'ajax_save' ) );
 
       if ( $this->args['database'] === 'network' && ! empty( $this->args['show_in_network'] ) ) {
         add_action( 'network_admin_menu', array( $this, 'add_admin_menu' ) );
@@ -138,7 +138,7 @@ if ( ! class_exists( 'DRK_Options' ) ) {
         global $submenu;
 
         $menu_slug = $this->args['menu_slug'];
-        $menu_icon = ( ! empty( $this->args['admin_bar_menu_icon'] ) ) ? '<span class="drk-ab-icon ab-icon '. esc_attr( $this->args['admin_bar_menu_icon'] ) .'"></span>' : '';
+        $menu_icon = ( ! empty( $this->args['admin_bar_menu_icon'] ) ) ? '<span class="drk_lite-ab-icon ab-icon '. esc_attr( $this->args['admin_bar_menu_icon'] ) .'"></span>' : '';
 
         $wp_admin_bar->add_node( array(
           'id'    => $menu_slug,
@@ -166,7 +166,7 @@ if ( ! class_exists( 'DRK_Options' ) ) {
       $result = $this->set_options( true );
 
       if ( ! $result ) {
-        wp_send_json_error( array( 'error' => esc_html__( 'Error while saving the changes.', 'darkify' ) ) );
+        wp_send_json_error( array( 'error' => esc_html__( 'Error while saving the changes.', 'ta-framework' ) ) );
       } else {
         wp_send_json_success( array( 'notice' => $this->notice, 'errors' => $this->errors ) );
       }
@@ -205,28 +205,28 @@ if ( ! class_exists( 'DRK_Options' ) ) {
 
       // XSS ok.
       // No worries, This "POST" requests is sanitizing in the below foreach. see #L337 - #L341
-      $response  = ( $ajax && ! empty( $_POST['data'] ) ) ? json_decode( wp_unslash( trim( $_POST['data'] ) ), true ) : $_POST;
+      $response  = ( $ajax && ! empty( $_POST['data'] ) ) ? wp_kses_post_deep(json_decode( wp_unslash( trim( $_POST['data'] ) ), true )) : wp_kses_post_deep(array());
 
       // Set variables.
       $data      = array();
-      $noncekey  = 'drk_options_nonce'. $this->unique;
+      $noncekey  = 'drk_lite_options_nonce'. $this->unique;
       $nonce     = ( ! empty( $response[$noncekey] ) ) ? $response[$noncekey] : '';
       $options   = ( ! empty( $response[$this->unique] ) ) ? $response[$this->unique] : array();
-      $transient = ( ! empty( $response['drk_transient'] ) ) ? $response['drk_transient'] : array();
+      $transient = ( ! empty( $response['drk_lite_transient'] ) ) ? $response['drk_lite_transient'] : array();
 
-      if ( wp_verify_nonce( $nonce, 'drk_options_nonce' ) ) {
+      if ( wp_verify_nonce( $nonce, 'drk_lite_options_nonce' ) ) {
 
         $importing  = false;
         $section_id = ( ! empty( $transient['section'] ) ) ? $transient['section'] : '';
 
-        if ( ! $ajax && ! empty( $response[ 'drk_import_data' ] ) ) {
+        if ( ! $ajax && ! empty( $response[ 'drk_lite_import_data' ] ) ) {
 
           // XSS ok.
           // No worries, This "POST" requests is sanitizing in the below foreach. see #L337 - #L341
-          $import_data  = json_decode( wp_unslash( trim( $response[ 'drk_import_data' ] ) ), true );
+          $import_data  = json_decode( wp_unslash( trim( $response[ 'drk_lite_import_data' ] ) ), true );
           $options      = ( is_array( $import_data ) && ! empty( $import_data ) ) ? $import_data : array();
           $importing    = true;
-          $this->notice = esc_html__( 'Settings successfully imported.', 'darkify' );
+          $this->notice = esc_html__( 'Settings successfully imported.', 'ta-framework' );
 
         }
 
@@ -238,7 +238,7 @@ if ( ! class_exists( 'DRK_Options' ) ) {
             }
           }
 
-          $this->notice = esc_html__( 'Default settings restored.', 'darkify' );
+          $this->notice = esc_html__( 'Default settings restored.', 'ta-framework' );
 
         } else if ( ! empty( $transient['reset_section'] ) && ! empty( $section_id ) ) {
 
@@ -254,7 +254,7 @@ if ( ! class_exists( 'DRK_Options' ) ) {
 
           $data = wp_parse_args( $data, $this->options );
 
-          $this->notice = esc_html__( 'Default settings restored.', 'darkify' );
+          $this->notice = esc_html__( 'Default settings restored.', 'ta-framework' );
 
         } else {
 
@@ -314,18 +314,18 @@ if ( ! class_exists( 'DRK_Options' ) ) {
 
         }
 
-        $data = apply_filters( "drk_{$this->unique}_save", $data, $this );
+        $data = apply_filters( "drk_lite_{$this->unique}_save", $data, $this );
 
-        do_action( "drk_{$this->unique}_save_before", $data, $this );
+        do_action( "drk_lite_{$this->unique}_save_before", $data, $this );
 
         $this->options = $data;
 
         $this->save_options( $data );
 
-        do_action( "drk_{$this->unique}_save_after", $data, $this );
+        do_action( "drk_lite_{$this->unique}_save_after", $data, $this );
 
         if ( empty( $this->notice ) ) {
-          $this->notice = esc_html__( 'Settings saved.', 'darkify' );
+          $this->notice = esc_html__( 'Settings saved.', 'ta-framework' );
         }
 
         return true;
@@ -349,7 +349,7 @@ if ( ! class_exists( 'DRK_Options' ) ) {
         update_option( $this->unique, $data );
       }
 
-      do_action( "drk_{$this->unique}_saved", $data, $this );
+      do_action( "drk_lite_{$this->unique}_saved", $data, $this );
 
     }
 
@@ -446,7 +446,7 @@ if ( ! class_exists( 'DRK_Options' ) ) {
           foreach ( $sections['fields'] as $field ) {
             if ( ! empty( $field['id'] ) ) {
               if ( array_key_exists( $field['id'], $this->errors ) ) {
-                $err = '<span class="drk-label-error">!</span>';
+                $err = '<span class="drk_lite-label-error">!</span>';
               }
             }
           }
@@ -471,51 +471,51 @@ if ( ! class_exists( 'DRK_Options' ) ) {
     public function add_options_html() {
 
       $has_nav       = ( count( $this->pre_tabs ) > 1 ) ? true : false;
-      $show_all      = ( ! $has_nav ) ? ' drk-show-all' : '';
-      $ajax_class    = ( $this->args['ajax_save'] ) ? ' drk-save-ajax' : '';
-      $sticky_class  = ( $this->args['sticky_header'] ) ? ' drk-sticky-header' : '';
+      $show_all      = ( ! $has_nav ) ? ' drk_lite-show-all' : '';
+      $ajax_class    = ( $this->args['ajax_save'] ) ? ' drk_lite-save-ajax' : '';
+      $sticky_class  = ( $this->args['sticky_header'] ) ? ' drk_lite-sticky-header' : '';
       $wrapper_class = ( $this->args['framework_class'] ) ? ' '. $this->args['framework_class'] : '';
-      $theme         = ( $this->args['theme'] ) ? ' drk-theme-'. $this->args['theme'] : '';
+      $theme         = ( $this->args['theme'] ) ? ' drk_lite-theme-'. $this->args['theme'] : '';
       $class         = ( $this->args['class'] ) ? ' '. $this->args['class'] : '';
       $nav_type      = ( $this->args['nav'] === 'inline' ) ? 'inline' : 'normal';
       $form_action   = ( $this->args['form_action'] ) ? $this->args['form_action'] : '';
 
-      do_action( 'drk_options_before' );
+      do_action( 'drk_lite_options_before' );
 
-      echo '<div class="drk drk-options'. esc_attr( $theme . $class . $wrapper_class ) .'" data-slug="'. esc_attr( $this->args['menu_slug'] ) .'" data-unique="'. esc_attr( $this->unique ) .'">';
+      echo '<div class="drk_lite drk_lite-options'. esc_attr( $theme . $class . $wrapper_class ) .'" data-slug="'. esc_attr( $this->args['menu_slug'] ) .'" data-unique="'. esc_attr( $this->unique ) .'">';
 
-        echo '<div class="drk-container">';
+        echo '<div class="drk_lite-container">';
 
-        echo '<form method="post" action="'. esc_attr( $form_action ) .'" enctype="multipart/form-data" id="drk-form" autocomplete="off" novalidate="novalidate">';
+        echo '<form method="post" action="'. esc_attr( $form_action ) .'" enctype="multipart/form-data" id="drk_lite-form" autocomplete="off" novalidate="novalidate">';
 
-        echo '<input type="hidden" class="drk-section-id" name="drk_transient[section]" value="1">';
+        echo '<input type="hidden" class="drk_lite-section-id" name="drk_lite_transient[section]" value="1">';
 
-        wp_nonce_field( 'drk_options_nonce', 'drk_options_nonce'. esc_attr($this->unique) );
+        wp_nonce_field( 'drk_lite_options_nonce', 'drk_lite_options_nonce'. $this->unique );
 
-        echo '<div class="drk-header'. esc_attr( $sticky_class ) .'">';
-        echo '<div class="drk-header-inner">';
+        echo '<div class="drk_lite-header'. esc_attr( $sticky_class ) .'">';
+        echo '<div class="drk_lite-header-inner">';
 
-          echo '<div class="drk-header-left">';
+          echo '<div class="drk_lite-header-left">';
           echo '<h1>'. $this->args['framework_title'] .'</h1>';
           echo '</div>';
 
-          echo '<div class="drk-header-right">';
+          echo '<div class="drk_lite-header-right">';
 
-            $notice_class = ( ! empty( $this->notice ) ) ? 'drk-form-show' : '';
+            $notice_class = ( ! empty( $this->notice ) ) ? 'drk_lite-form-show' : '';
             $notice_text  = ( ! empty( $this->notice ) ) ? $this->notice : '';
 
-            echo '<div class="drk-form-result drk-form-success '. esc_attr( $notice_class ) .'">'. esc_html($notice_text) .'</div>';
+            echo '<div class="drk_lite-form-result drk_lite-form-success '. esc_attr( $notice_class ) .'">'. wp_kses_post($notice_text) .'</div>';
 
-            echo ( $this->args['show_form_warning'] ) ? '<div class="drk-form-result drk-form-warning">'. esc_html__( 'You have unsaved changes, save your changes!', 'darkify' ) .'</div>' : '';
+            echo ( $this->args['show_form_warning'] ) ? '<div class="drk_lite-form-result drk_lite-form-warning">'. esc_html__( 'You have unsaved changes, save your changes!', 'ta-framework' ) .'</div>' : '';
 
-            echo ( $has_nav && $this->args['show_all_options'] ) ? '<div class="drk-expand-all" title="'. esc_html__( 'show all settings', 'darkify' ) .'"><i class="fas fa-outdent"></i></div>' : '';
+            echo ( $has_nav && $this->args['show_all_options'] ) ? '<div class="drk_lite-expand-all" title="'. esc_html__( 'show all settings', 'ta-framework' ) .'"><i class="fas fa-outdent"></i></div>' : '';
 
-            echo ( $this->args['show_search'] ) ? '<div class="drk-search"><input type="text" name="drk-search" placeholder="'. esc_html__( 'Search...', 'darkify' ) .'" autocomplete="off" /></div>' : '';
+            echo ( $this->args['show_search'] ) ? '<div class="drk_lite-search"><input type="text" name="drk_lite-search" placeholder="'. esc_html__( 'Search...', 'ta-framework' ) .'" autocomplete="off" /></div>' : '';
 
-            echo '<div class="drk-buttons">';
-            echo '<input type="submit" name="'. esc_attr( $this->unique ) .'[_nonce][save]" class="button button-primary drk-top-save drk-save'. esc_attr( $ajax_class ) .'" value="'. esc_html__( 'Save', 'darkify' ) .'" data-save="'. esc_html__( 'Saving...', 'darkify' ) .'">';
-            echo ( $this->args['show_reset_section'] ) ? '<input type="submit" name="drk_transient[reset_section]" class="button button-secondary drk-reset-section drk-confirm" value="'. esc_html__( 'Reset Section', 'darkify' ) .'" data-confirm="'. esc_html__( 'Are you sure to reset this section options?', 'darkify' ) .'">' : '';
-            echo ( $this->args['show_reset_all'] ) ? '<input type="submit" name="drk_transient[reset]" class="button drk-warning-primary drk-reset-all drk-confirm" value="'. ( ( $this->args['show_reset_section'] ) ? esc_html__( 'Reset All', 'darkify' ) : esc_html__( 'Reset', 'darkify' ) ) .'" data-confirm="'. esc_html__( 'Are you sure you want to reset all settings to default values?', 'darkify' ) .'">' : '';
+            echo '<div class="drk_lite-buttons">';
+            echo '<input type="submit" name="'. esc_attr( $this->unique ) .'[_nonce][save]" class="button button-primary drk_lite-top-save drk_lite-save'. esc_attr( $ajax_class ) .'" value="'. esc_html__( 'Save', 'ta-framework' ) .'" data-save="'. esc_html__( 'Saving...', 'ta-framework' ) .'">';
+            echo ( $this->args['show_reset_section'] ) ? '<input type="submit" name="drk_lite_transient[reset_section]" class="button button-secondary drk_lite-reset-section drk_lite-confirm" value="'. esc_html__( 'Reset Section', 'ta-framework' ) .'" data-confirm="'. esc_html__( 'Are you sure to reset this section options?', 'ta-framework' ) .'">' : '';
+            echo ( $this->args['show_reset_all'] ) ? '<input type="submit" name="drk_lite_transient[reset]" class="button drk_lite-warning-primary drk_lite-reset-all drk_lite-confirm" value="'. ( ( $this->args['show_reset_section'] ) ? esc_html__( 'Reset All', 'ta-framework' ) : esc_html__( 'Reset', 'ta-framework' ) ) .'" data-confirm="'. esc_html__( 'Are you sure you want to reset all settings to default values?', 'ta-framework' ) .'">' : '';
             echo '</div>';
 
           echo '</div>';
@@ -524,11 +524,11 @@ if ( ! class_exists( 'DRK_Options' ) ) {
           echo '</div>';
         echo '</div>';
 
-        echo '<div class="drk-wrapper'. esc_attr( $show_all ) .'">';
+        echo '<div class="drk_lite-wrapper'. esc_attr( $show_all ) .'">';
 
           if ( $has_nav ) {
 
-            echo '<div class="drk-nav drk-nav-'. esc_attr( $nav_type ) .' drk-nav-options">';
+            echo '<div class="drk_lite-nav drk_lite-nav-'. esc_attr( $nav_type ) .' drk_lite-nav-options">';
 
               echo '<ul>';
 
@@ -536,13 +536,13 @@ if ( ! class_exists( 'DRK_Options' ) ) {
 
                 $tab_id    = sanitize_title( $tab['title'] );
                 $tab_error = $this->error_check( $tab );
-                $tab_icon  = ( ! empty( $tab['icon'] ) ) ? '<i class="drk-tab-icon '. esc_attr( $tab['icon'] ) .'"></i>' : '';
+                $tab_icon  = ( ! empty( $tab['icon'] ) ) ? '<i class="drk_lite-tab-icon '. esc_attr( $tab['icon'] ) .'"></i>' : '';
 
                 if ( ! empty( $tab['subs'] ) ) {
 
-                  echo '<li class="drk-tab-item">';
+                  echo '<li class="drk_lite-tab-item">';
 
-                    echo '<a href="#tab='. esc_attr( $tab_id ) .'" data-tab-id="'. esc_attr( $tab_id ) .'" class="drk-arrow">'. $tab_icon . $tab['title'] . $tab_error .'</a>';
+                    echo '<a href="#tab='. esc_attr( $tab_id ) .'" data-tab-id="'. esc_attr( $tab_id ) .'" class="drk_lite-arrow">'. wp_kses_post($tab_icon) . esc_html($tab['title']) . esc_html($tab_error) .'</a>';
 
                     echo '<ul>';
 
@@ -550,7 +550,7 @@ if ( ! class_exists( 'DRK_Options' ) ) {
 
                       $sub_id    = $tab_id .'/'. sanitize_title( $sub['title'] );
                       $sub_error = $this->error_check( $sub );
-                      $sub_icon  = ( ! empty( $sub['icon'] ) ) ? '<i class="drk-tab-icon '. esc_attr( $sub['icon'] ) .'"></i>' : '';
+                      $sub_icon  = ( ! empty( $sub['icon'] ) ) ? '<i class="drk_lite-tab-icon '. esc_attr( $sub['icon'] ) .'"></i>' : '';
 
                       echo '<li><a href="#tab='. esc_attr( $sub_id ) .'" data-tab-id="'. esc_attr( $sub_id ) .'">'. $sub_icon . $sub['title'] . $sub_error .'</a></li>';
 
@@ -562,7 +562,7 @@ if ( ! class_exists( 'DRK_Options' ) ) {
 
                 } else {
 
-                  echo '<li class="drk-tab-item"><a href="#tab='. esc_attr( $tab_id ) .'" data-tab-id="'. esc_attr( $tab_id ) .'">'. $tab_icon . $tab['title'] . $tab_error .'</a></li>';
+                  echo '<li class="drk_lite-tab-item"><a href="#tab='. esc_attr( $tab_id ) .'" data-tab-id="'. esc_attr( $tab_id ) .'">'. wp_kses_post($tab_icon) . esc_html($tab['title']) . esc_html($tab_error) .'</a></li>';
 
                 }
 
@@ -574,22 +574,22 @@ if ( ! class_exists( 'DRK_Options' ) ) {
 
           }
 
-          echo '<div class="drk-content">';
+          echo '<div class="drk_lite-content">';
 
-            echo '<div class="drk-sections">';
+            echo '<div class="drk_lite-sections">';
 
             foreach ( $this->pre_sections as $section ) {
 
-              $section_onload = ( ! $has_nav ) ? ' drk-onload' : '';
+              $section_onload = ( ! $has_nav ) ? ' drk_lite-onload' : '';
               $section_class  = ( ! empty( $section['class'] ) ) ? ' '. $section['class'] : '';
-              $section_icon   = ( ! empty( $section['icon'] ) ) ? '<i class="drk-section-icon '. esc_attr( $section['icon'] ) .'"></i>' : '';
+              $section_icon   = ( ! empty( $section['icon'] ) ) ? '<i class="drk_lite-section-icon '. esc_attr( $section['icon'] ) .'"></i>' : '';
               $section_title  = ( ! empty( $section['title'] ) ) ? $section['title'] : '';
               $section_parent = ( ! empty( $section['ptitle'] ) ) ? sanitize_title( $section['ptitle'] ) .'/' : '';
               $section_slug   = ( ! empty( $section['title'] ) ) ? sanitize_title( $section_title ) : '';
 
-              echo '<div class="drk-section hidden'. esc_attr( $section_onload . $section_class ) .'" data-section-id="'. esc_attr( $section_parent . $section_slug ) .'">';
-              echo ( $has_nav ) ? '<div class="drk-section-title"><h3>'. $section_icon . $section_title .'</h3></div>' : '';
-              echo ( ! empty( $section['description'] ) ) ? '<div class="drk-field drk-section-description">'. $section['description'] .'</div>' : '';
+              echo '<div class="drk_lite-section hidden'. esc_attr( $section_onload . $section_class ) .'" data-section-id="'. esc_attr( $section_parent . $section_slug ) .'">';
+              echo ( $has_nav ) ? '<div class="drk_lite-section-title"><h3>'. wp_kses_post($section_icon) . esc_html($section_title) .'</h3></div>' : '';
+              echo ( ! empty( $section['description'] ) ) ? '<div class="drk_lite-field drk_lite-section-description">'. wp_kses_post($section['description']) .'</div>' : '';
 
               if ( ! empty( $section['fields'] ) ) {
 
@@ -607,13 +607,13 @@ if ( ! class_exists( 'DRK_Options' ) ) {
 
                   $value = ( ! empty( $field['id'] ) && isset( $this->options[$field['id']] ) ) ? $this->options[$field['id']] : '';
 
-                  DRK::field( $field, $value, $this->unique, 'options' );
+                  DRK_LITE::field( $field, $value, $this->unique, 'options' );
 
                 }
 
               } else {
 
-                echo '<div class="drk-no-option">'. esc_html__( 'No data available.', 'darkify' ) .'</div>';
+                echo '<div class="drk_lite-no-option">'. esc_html__( 'No data available.', 'ta-framework' ) .'</div>';
 
               }
 
@@ -627,21 +627,21 @@ if ( ! class_exists( 'DRK_Options' ) ) {
 
           echo '</div>';
 
-          echo ( $has_nav && $nav_type === 'normal' ) ? '<div class="drk-nav-background"></div>' : '';
+          echo ( $has_nav && $nav_type === 'normal' ) ? '<div class="drk_lite-nav-background"></div>' : '';
 
         echo '</div>';
 
         if ( ! empty( $this->args['show_footer'] ) ) {
 
-          echo '<div class="drk-footer">';
+          echo '<div class="drk_lite-footer">';
 
-          echo '<div class="drk-buttons">';
-          echo '<input type="submit" name="drk_transient[save]" class="button button-primary drk-save'. esc_attr( $ajax_class ) .'" value="'. esc_html__( 'Save', 'darkify' ) .'" data-save="'. esc_html__( 'Saving...', 'darkify' ) .'">';
-          echo ( $this->args['show_reset_section'] ) ? '<input type="submit" name="drk_transient[reset_section]" class="button button-secondary drk-reset-section drk-confirm" value="'. esc_html__( 'Reset Section', 'darkify' ) .'" data-confirm="'. esc_html__( 'Are you sure to reset this section options?', 'darkify' ) .'">' : '';
-          echo ( $this->args['show_reset_all'] ) ? '<input type="submit" name="drk_transient[reset]" class="button drk-warning-primary drk-reset-all drk-confirm" value="'. ( ( $this->args['show_reset_section'] ) ? esc_html__( 'Reset All', 'darkify' ) : esc_html__( 'Reset', 'darkify' ) ) .'" data-confirm="'. esc_html__( 'Are you sure you want to reset all settings to default values?', 'darkify' ) .'">' : '';
+          echo '<div class="drk_lite-buttons">';
+          echo '<input type="submit" name="drk_lite_transient[save]" class="button button-primary drk_lite-save'. esc_attr( $ajax_class ) .'" value="'. esc_html__( 'Save', 'ta-framework' ) .'" data-save="'. esc_html__( 'Saving...', 'ta-framework' ) .'">';
+          echo ( $this->args['show_reset_section'] ) ? '<input type="submit" name="drk_lite_transient[reset_section]" class="button button-secondary drk_lite-reset-section drk_lite-confirm" value="'. esc_html__( 'Reset Section', 'ta-framework' ) .'" data-confirm="'. esc_html__( 'Are you sure to reset this section options?', 'ta-framework' ) .'">' : '';
+          echo ( $this->args['show_reset_all'] ) ? '<input type="submit" name="drk_lite_transient[reset]" class="button drk_lite-warning-primary drk_lite-reset-all drk_lite-confirm" value="'. ( ( $this->args['show_reset_section'] ) ? esc_html__( 'Reset All', 'ta-framework' ) : esc_html__( 'Reset', 'ta-framework' ) ) .'" data-confirm="'. esc_html__( 'Are you sure you want to reset all settings to default values?', 'ta-framework' ) .'">' : '';
           echo '</div>';
 
-          echo ( ! empty( $this->args['footer_text'] ) ) ? '<div class="drk-copyright">'. esc_html($this->args['footer_text']) .'</div>' : '';
+          echo ( ! empty( $this->args['footer_text'] ) ) ? '<div class="drk_lite-copyright">'. wp_kses_post($this->args['footer_text']) .'</div>' : '';
 
           echo '<div class="clear"></div>';
           echo '</div>';
@@ -654,11 +654,11 @@ if ( ! class_exists( 'DRK_Options' ) ) {
 
         echo '<div class="clear"></div>';
 
-        echo ( ! empty( $this->args['footer_after'] ) ) ? $this->args['footer_after'] : '';
+        echo ( ! empty( $this->args['footer_after'] ) ) ? wp_kses_post($this->args['footer_after']) : '';
 
       echo '</div>';
 
-      do_action( 'drk_options_after' );
+      do_action( 'drk_lite_options_after' );
 
     }
   }

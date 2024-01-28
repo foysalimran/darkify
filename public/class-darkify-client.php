@@ -49,47 +49,26 @@ if (!class_exists('DarkifyClient')) {
                 $options = get_option('darkify');
                 $enable_dark_switcher = $options['enable_dark_switcher'];
         
-                wp_enqueue_style("theme-{$enable_dark_switcher}", DRK_PLUGIN_DIR_URL . "public/css/switcher/$enable_dark_switcher.css", array(), DRK_VERSION, 'all');
-                wp_register_style('theme-around',  DRK_PLUGIN_DIR_URL . "public/css/switcher/around.css", array(), DRK_VERSION, 'all');
-                wp_register_style('theme-classic',  DRK_PLUGIN_DIR_URL . "public/css/switcher/classic.css", array(), DRK_VERSION, 'all');
-                wp_register_style('theme-dark-inner',  DRK_PLUGIN_DIR_URL . "public/css/switcher/dark-inner.css", array(), DRK_VERSION, 'all');
-                wp_register_style('theme-dark-side',  DRK_PLUGIN_DIR_URL . "public/css/switcher/dark-side.css", array(), DRK_VERSION, 'all');
-                wp_register_style('theme-eclipse',  DRK_PLUGIN_DIR_URL . "public/css/switcher/eclipse.css", array(), DRK_VERSION, 'all');
-                wp_register_style('theme-expand',  DRK_PLUGIN_DIR_URL . "public/css/switcher/expand.css", array(), DRK_VERSION, 'all');
-                wp_register_style('theme-half-sun',  DRK_PLUGIN_DIR_URL . "public/css/switcher/half-sun.css", array(), DRK_VERSION, 'all');
-                wp_register_style('theme-horizon',  DRK_PLUGIN_DIR_URL . "public/css/switcher/horizon.css", array(), DRK_VERSION, 'all');
-                wp_register_style('theme-inner-moon',  DRK_PLUGIN_DIR_URL . "public/css/switcher/inner-moon.css", array(), DRK_VERSION, 'all');
-                wp_register_style('theme-lightbulb',  DRK_PLUGIN_DIR_URL . "public/css/switcher/lightbulb.css", array(), DRK_VERSION, 'all');
-                wp_register_style('theme-simple',  DRK_PLUGIN_DIR_URL . "public/css/switcher/simple.css", array(), DRK_VERSION, 'all');
-                wp_register_style('theme-within',  DRK_PLUGIN_DIR_URL . "public/css/switcher/within.css", array(), DRK_VERSION, 'all');
-                wp_enqueue_style('darkify-client-main', DRK_PLUGIN_DIR_URL . 'assets/css/client_main.css', array(), DRK_VERSION);
-                wp_enqueue_script( 'darkify-client-main', DRK_PLUGIN_DIR_URL . 'assets/js/client_main.js', array('jquery'), DRK_VERSION, true);
+                wp_enqueue_style("theme-{$enable_dark_switcher}", DRK_LITE_DIR_URL . "public/css/switcher/$enable_dark_switcher.css", array(), DRK_LITE_VERSION, 'all');
+                wp_register_style('theme-around',  DRK_LITE_DIR_URL . "public/css/switcher/around.css", array(), DRK_LITE_VERSION, 'all');
+                wp_register_style('theme-classic',  DRK_LITE_DIR_URL . "public/css/switcher/classic.css", array(), DRK_LITE_VERSION, 'all');
+                wp_register_style('theme-dark-inner',  DRK_LITE_DIR_URL . "public/css/switcher/dark-inner.css", array(), DRK_LITE_VERSION, 'all');
+                wp_register_style('theme-dark-side',  DRK_LITE_DIR_URL . "public/css/switcher/dark-side.css", array(), DRK_LITE_VERSION, 'all');
+                wp_register_style('theme-eclipse',  DRK_LITE_DIR_URL . "public/css/switcher/eclipse.css", array(), DRK_LITE_VERSION, 'all');
+                wp_register_style('theme-expand',  DRK_LITE_DIR_URL . "public/css/switcher/expand.css", array(), DRK_LITE_VERSION, 'all');
+                wp_register_style('theme-half-sun',  DRK_LITE_DIR_URL . "public/css/switcher/half-sun.css", array(), DRK_LITE_VERSION, 'all');
+                wp_register_style('theme-horizon',  DRK_LITE_DIR_URL . "public/css/switcher/horizon.css", array(), DRK_LITE_VERSION, 'all');
+                wp_register_style('theme-inner-moon',  DRK_LITE_DIR_URL . "public/css/switcher/inner-moon.css", array(), DRK_LITE_VERSION, 'all');
+                wp_register_style('theme-lightbulb',  DRK_LITE_DIR_URL . "public/css/switcher/lightbulb.css", array(), DRK_LITE_VERSION, 'all');
+                wp_register_style('theme-simple',  DRK_LITE_DIR_URL . "public/css/switcher/simple.css", array(), DRK_LITE_VERSION, 'all');
+                wp_register_style('theme-within',  DRK_LITE_DIR_URL . "public/css/switcher/within.css", array(), DRK_LITE_VERSION, 'all');
+                wp_enqueue_style('darkify-client-main', DRK_LITE_DIR_URL . 'assets/css/client_main.css', array(), DRK_LITE_VERSION);
+                wp_enqueue_script( 'darkify-client-main', DRK_LITE_DIR_URL . 'assets/js/client_main.js', array('jquery'), DRK_LITE_VERSION, true);
             }
-    
         }
     
         function darkify_is_dark_mode_allowed() {
             $options = get_option('darkify');
-            /* Disable on Disallowed Page */
-            if($this->utils->isRestrictedByDisallowedPages($options["disallowed_pages"])){
-                return False;
-            }
-    
-            /* Disable Except Allowed Page */
-            if($this->utils->isRestrictedByAllowedPages($options["allowed_pages"])){
-                return False;
-            }
-    
-            /* Disable on Disallowed Post */
-            if($this->utils->isRestrictedByDisallowedPosts($options["disallowed_posts"])){
-                return False;
-            }
-    
-            /* Disable Except Allowed Post */
-            if($this->utils->isRestrictedByAllowedPosts($options["allowed_posts"])){
-                return False;
-            }
-    
             /* Disable if Oxygen Builder is Opened */
             if (isset( $_GET['ct_builder'] )) {
                 if($_GET['ct_builder'] == "true"){
@@ -106,14 +85,14 @@ if (!class_exists('DarkifyClient')) {
         function darkify_client_header_script()
         {
             if($this->darkify_is_dark_mode_allowed()){
-                include_once DRK_PATH . "public/templates/header_script.php";
+                include_once DRK_LITE_PATH . "public/templates/header_script.php";
             }
         }
     
         function darkify_client_footer_script()
         {
             if($this->darkify_is_dark_mode_allowed()){
-                include_once DRK_PATH . "public/templates/footer_script.php";
+                include_once DRK_LITE_PATH . "public/templates/footer_script.php";
             }
         }
     

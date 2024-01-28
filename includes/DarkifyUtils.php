@@ -81,7 +81,7 @@ if (!class_exists('DarkifyUtils')) {
             return false;
         }
 
-        public function extractCustomCssSelectorsForAutoExcluding($css, $disallowed_elements_force_to_correct)
+        public function extractCustomCssSelectorsForAutoExcluding($css)
         {
             $pseudo_classes = array(":after", ":before", ":first-letter", ":first-line", ":selection", ":not-disallowed");
             $css = str_replace(array("\r", "\n"), "", $css);
@@ -104,16 +104,13 @@ if (!class_exists('DarkifyUtils')) {
                 for ($i = 0; $i < sizeof($single_selector_arr); $i++) {
                     if (!$this->string_contains_any(trim($single_selector_arr[$i]), $pseudo_classes, false)) {
                         $exclude_elements[] = trim($single_selector_arr[$i]);
-                        if ($disallowed_elements_force_to_correct) {
-                            $exclude_elements[] = trim($single_selector_arr[$i]) . " *";
-                        }
                     }
                 }
             }
             return $exclude_elements;
         }
 
-        public function parseAndProcessCustomCSS($css, $disallowed_elements_force_to_correct)
+        public function parseAndProcessCustomCSS($css)
         {
             /* Replace : on https:// or http:// for detecting as background:black type */
             $css = str_replace("://", "--colon--//", $css);
@@ -141,9 +138,6 @@ if (!class_exists('DarkifyUtils')) {
                         $updated_single_selector .= ", ";
                     }
                     $updated_single_selector .= ".darkify_dark_mode_enabled " . trim($single_selector_arr[$i]);
-                    if ($disallowed_elements_force_to_correct) {
-                        $updated_single_selector .= ", .darkify_dark_mode_enabled " . trim($single_selector_arr[$i]) . " *";
-                    }
                 }
 
                 $updated_single_selector = str_replace(":not-disallowed", "", $updated_single_selector);
@@ -199,61 +193,6 @@ if (!class_exists('DarkifyUtils')) {
             /* Replace --colon--// back to https:// or http:// format */
             $updated_css = str_replace("--colon--//", "://", $updated_css);
             return $updated_css;
-        }
-
-
-        public function generateAllowedElementsStr($options)
-        {
-            $allowed_elements = "";
-            if (strlen(trim($options["allowed_elements"])) > 0) {
-                $allowed_elements_arr = explode(',', $options["allowed_elements"]);
-                if (is_array($allowed_elements_arr)) {
-                    if (sizeof($allowed_elements_arr) > 0) {
-                        foreach ($allowed_elements_arr as $single_element) {
-                            $allowed_elements .= ($allowed_elements != "" ? ", " : "") . trim($single_element);
-                            $allowed_elements .= ($allowed_elements != "" ? ", " : "") . trim($single_element) . ' *';
-                        }
-                    }
-                }
-            }
-            return $allowed_elements;
-        }
-
-        public function generateDisallowedElementsStr($options, $external_support_class_obj)
-        {
-            $disallowed_elements = "";
-            if (strlen(trim($options["disallowed_elements"])) > 0) {
-                $disallowed_elements_arr = explode(',', $options["disallowed_elements"]);
-                if (is_array($disallowed_elements_arr)) {
-                    if (sizeof($disallowed_elements_arr) > 0) {
-                        foreach ($disallowed_elements_arr as $single_element) {
-                            $disallowed_elements .= ($disallowed_elements != "" ? ", " : "") . trim($single_element);
-                            $disallowed_elements .= ($disallowed_elements != "" ? ", " : "") . trim($single_element) . ' *';
-                        }
-                    }
-                }
-            }
-
-
-
-            // Get Disallowed Elements from External Plugins
-            $disallowed_from_external = $external_support_class_obj->getDisallowedElementsByAvailablePlugins();
-            if (sizeof($disallowed_from_external) > 0) {
-                foreach ($disallowed_from_external as $single_element) {
-                    $disallowed_elements .= ($disallowed_elements != "" ? ", " : "") . trim($single_element);
-                }
-            }
-
-            // Exclude selectors specified in Custom CSS
-            $custom_css_selectors = $this->extractCustomCssSelectorsForAutoExcluding($options["custom_css"], $options["disallowed_elements_force_to_correct"]);
-            if (is_array($custom_css_selectors)) {
-                if (sizeof($custom_css_selectors) > 0) {
-                    foreach ($custom_css_selectors as $single_element) {
-                        $disallowed_elements .= ($disallowed_elements != "" ? ", " : "") . trim($single_element);
-                    }
-                }
-            }
-            return $disallowed_elements;
         }
 
 
@@ -353,113 +292,6 @@ if (!class_exists('DarkifyUtils')) {
             }
             return False;
         }
-
-
-        public function isRestrictedByDisallowedPages($disallowed_pages)
-        {
-            if (is_array($disallowed_pages)) {
-                if (sizeof($disallowed_pages) > 0) {
-                    if (function_exists("is_page") && function_exists("get_the_ID")) {
-                        if (is_page() || is_front_page()) {
-                            $current_page_id = is_front_page() ? "0" : get_the_ID();
-                            if (in_array($current_page_id, $disallowed_pages)) {
-                                return True;
-                            }
-                        }
-                    }
-                    if (class_exists('WooCommerce')) {
-                        if (function_exists("is_shop") && function_exists("wc_get_page_id")) {
-                            if (is_shop()) {
-                                $current_page_id = wc_get_page_id('shop');
-                                if (in_array($current_page_id, $disallowed_pages)) {
-                                    return True;
-                                }
-                            }
-                        }
-                    }
-                    if (isset($GLOBALS['pagenow'])) {
-                        if (in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php'))) {
-                            $current_page_id = "lr";
-                            if (in_array($current_page_id, $disallowed_pages)) {
-                                return True;
-                            }
-                        }
-                    }
-                }
-            }
-            return False;
-        }
-
-        public function isRestrictedByAllowedPages($allowed_pages)
-        {
-            if (is_array($allowed_pages)) {
-                if (sizeof($allowed_pages) > 0) {
-                    if (function_exists("is_page") && function_exists("get_the_ID")) {
-                        if (is_page() || is_front_page()) {
-                            $current_page_id = is_front_page() ? "0" : get_the_ID();
-                            if (!in_array($current_page_id, $allowed_pages)) {
-                                return True;
-                            }
-                        }
-                    }
-                    if (class_exists('WooCommerce')) {
-                        if (function_exists("is_shop") && function_exists("wc_get_page_id")) {
-                            if (is_shop()) {
-                                $current_page_id = wc_get_page_id('shop');
-                                if (!in_array($current_page_id, $allowed_pages)) {
-                                    return True;
-                                }
-                            }
-                        }
-                    }
-                    if (isset($GLOBALS['pagenow'])) {
-                        if (in_array($GLOBALS['pagenow'], array('wp-login.php', 'wp-register.php'))) {
-                            $current_page_id = "lr";
-                            if (!in_array($current_page_id, $allowed_pages)) {
-                                return True;
-                            }
-                        }
-                    }
-                }
-            }
-            return False;
-        }
-
-
-        public function isRestrictedByDisallowedPosts($disallowed_posts)
-        {
-            if (is_array($disallowed_posts)) {
-                if (sizeof($disallowed_posts) > 0) {
-                    if (function_exists("is_singular") && function_exists("get_the_ID")) {
-                        if (is_singular("post")) {
-                            $current_post_id = get_the_ID();
-                            if (in_array($current_post_id, $disallowed_posts)) {
-                                return True;
-                            }
-                        }
-                    }
-                }
-            }
-            return False;
-        }
-
-
-        public function isRestrictedByAllowedPosts($allowed_posts)
-        {
-            if (is_array($allowed_posts)) {
-                if (sizeof($allowed_posts) > 0) {
-                    if (function_exists("is_singular") && function_exists("get_the_ID")) {
-                        if (is_singular("post")) {
-                            $current_post_id = get_the_ID();
-                            if (!in_array($current_post_id, $allowed_posts)) {
-                                return True;
-                            }
-                        }
-                    }
-                }
-            }
-            return False;
-        }
-
+        
     }
 }

@@ -1,20 +1,19 @@
-<?php if ( ! defined( 'ABSPATH' ) ) { die; } // Cannot access directly.
+<?php if ( ! defined( 'ABSPATH' ) ) {
+	die; } // Cannot access directly.
 /**
  *
  * Email validate
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if ( ! function_exists( 'drk_validate_email' ) ) {
-  function drk_validate_email( $value ) {
+if ( ! function_exists( 'drk_lite_validate_email' ) ) {
+	function drk_lite_validate_email( $value ) {
 
-    if ( ! filter_var( $value, FILTER_VALIDATE_EMAIL ) ) {
-      return esc_html__( 'Please enter a valid email address.', 'darkify' );
-    }
-
-  }
+		if ( ! filter_var( $value, FILTER_VALIDATE_EMAIL ) ) {
+			return esc_html__( 'Please enter a valid email address.', 'ta-framework' );
+		}
+	}
 }
 
 /**
@@ -23,16 +22,14 @@ if ( ! function_exists( 'drk_validate_email' ) ) {
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if ( ! function_exists( 'drk_validate_numeric' ) ) {
-  function drk_validate_numeric( $value ) {
+if ( ! function_exists( 'drk_lite_validate_numeric' ) ) {
+	function drk_lite_validate_numeric( $value ) {
 
-    if ( ! is_numeric( $value ) ) {
-      return esc_html__( 'Please enter a valid number.', 'darkify' );
-    }
-
-  }
+		if ( ! is_numeric( $value ) ) {
+			return esc_html__( 'Please enter a valid number.', 'ta-framework' );
+		}
+	}
 }
 
 /**
@@ -41,16 +38,14 @@ if ( ! function_exists( 'drk_validate_numeric' ) ) {
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if ( ! function_exists( 'drk_validate_required' ) ) {
-  function drk_validate_required( $value ) {
+if ( ! function_exists( 'drk_lite_validate_required' ) ) {
+	function drk_lite_validate_required( $value ) {
 
-    if ( empty( $value ) ) {
-      return esc_html__( 'This field is required.', 'darkify' );
-    }
-
-  }
+		if ( empty( $value ) ) {
+			return esc_html__( 'This field is required.', 'ta-framework' );
+		}
+	}
 }
 
 /**
@@ -59,16 +54,14 @@ if ( ! function_exists( 'drk_validate_required' ) ) {
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if ( ! function_exists( 'drk_validate_url' ) ) {
-  function drk_validate_url( $value ) {
+if ( ! function_exists( 'drk_lite_validate_url' ) ) {
+	function drk_lite_validate_url( $value ) {
 
-    if ( ! filter_var( $value, FILTER_VALIDATE_URL ) ) {
-      return esc_html__( 'Please enter a valid URL.', 'darkify' );
-    }
-
-  }
+		if ( ! filter_var( $value, FILTER_VALIDATE_URL ) ) {
+			return esc_html__( 'Please enter a valid URL.', 'ta-framework' );
+		}
+	}
 }
 
 /**
@@ -77,18 +70,16 @@ if ( ! function_exists( 'drk_validate_url' ) ) {
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if ( ! function_exists( 'drk_customize_validate_email' ) ) {
-  function drk_customize_validate_email( $validity, $value, $wp_customize ) {
+if ( ! function_exists( 'drk_lite_customize_validate_email' ) ) {
+	function drk_lite_customize_validate_email( $validity, $value, $wp_customize ) {
 
-    if ( ! sanitize_email( $value ) ) {
-      $validity->add( 'required', esc_html__( 'Please enter a valid email address.', 'darkify' ) );
-    }
+		if ( ! sanitize_email( $value ) ) {
+			$validity->add( 'required', esc_html__( 'Please enter a valid email address.', 'ta-framework' ) );
+		}
 
-    return $validity;
-
-  }
+		return $validity;
+	}
 }
 
 /**
@@ -97,18 +88,16 @@ if ( ! function_exists( 'drk_customize_validate_email' ) ) {
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if ( ! function_exists( 'drk_customize_validate_numeric' ) ) {
-  function drk_customize_validate_numeric( $validity, $value, $wp_customize ) {
+if ( ! function_exists( 'drk_lite_customize_validate_numeric' ) ) {
+	function drk_lite_customize_validate_numeric( $validity, $value, $wp_customize ) {
 
-    if ( ! is_numeric( $value ) ) {
-      $validity->add( 'required', esc_html__( 'Please enter a valid number.', 'darkify' ) );
-    }
+		if ( ! is_numeric( $value ) ) {
+			$validity->add( 'required', esc_html__( 'Please enter a valid number.', 'ta-framework' ) );
+		}
 
-    return $validity;
-
-  }
+		return $validity;
+	}
 }
 
 /**
@@ -117,18 +106,16 @@ if ( ! function_exists( 'drk_customize_validate_numeric' ) ) {
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if ( ! function_exists( 'drk_customize_validate_required' ) ) {
-  function drk_customize_validate_required( $validity, $value, $wp_customize ) {
+if ( ! function_exists( 'drk_lite_customize_validate_required' ) ) {
+	function drk_lite_customize_validate_required( $validity, $value, $wp_customize ) {
 
-    if ( empty( $value ) ) {
-      $validity->add( 'required', esc_html__( 'This field is required.', 'darkify' ) );
-    }
+		if ( empty( $value ) ) {
+			$validity->add( 'required', esc_html__( 'This field is required.', 'ta-framework' ) );
+		}
 
-    return $validity;
-
-  }
+		return $validity;
+	}
 }
 
 /**
@@ -137,16 +124,14 @@ if ( ! function_exists( 'drk_customize_validate_required' ) ) {
  *
  * @since 1.0.0
  * @version 1.0.0
- *
  */
-if ( ! function_exists( 'drk_customize_validate_url' ) ) {
-  function drk_customize_validate_url( $validity, $value, $wp_customize ) {
+if ( ! function_exists( 'drk_lite_customize_validate_url' ) ) {
+	function drk_lite_customize_validate_url( $validity, $value, $wp_customize ) {
 
-    if ( ! filter_var( $value, FILTER_VALIDATE_URL ) ) {
-      $validity->add( 'required', esc_html__( 'Please enter a valid URL.', 'darkify' ) );
-    }
+		if ( ! filter_var( $value, FILTER_VALIDATE_URL ) ) {
+			$validity->add( 'required', esc_html__( 'Please enter a valid URL.', 'ta-framework' ) );
+		}
 
-    return $validity;
-
-  }
+		return $validity;
+	}
 }

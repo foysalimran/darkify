@@ -11,63 +11,6 @@ if ( ! class_exists( 'DarkifyExternalSupport' ) ) {
             $this->base_admin = $base_admin;
         }
 
-        public function getDisallowedElementsByAvailablePlugins(){
-            $disallowed_elements = array();
-
-            /* =============== Default Darkify Ignore =============== */
-            $disallowed_elements = array_merge($disallowed_elements, $this->getDisallowedElementsByDarkify());
-
-            /* =============== Logged-in as Admin =============== */
-            if(function_exists("is_admin_bar_showing")){
-                if(is_admin_bar_showing()){
-                    $disallowed_elements = array_merge($disallowed_elements, $this->getDisallowedElementsByAdminLogin());
-                }
-            }
-
-            /* =============== Is in Admin Panel =============== */
-            if(function_exists("is_admin")){
-                if(is_admin()){
-                    $disallowed_elements = array_merge($disallowed_elements, $this->getDisallowedElementsByAdminPanel());
-                }
-            }
-
-            /* =============== Elementor =============== */
-            if(function_exists("is_plugin_active")){
-                if (is_plugin_active( 'elementor/elementor.php' )) {
-                    $disallowed_elements = array_merge($disallowed_elements, $this->getDisallowedElementsByElementor());
-                }
-            }
-
-            /* =============== Beaver Builder =============== */
-            if ( class_exists( 'FLBuilder' ) ) {
-                $disallowed_elements = array_merge($disallowed_elements, $this->getDisallowedElementsByBeaver());
-            }
-
-            /* =============== Block Editor =============== */
-            if(function_exists("has_blocks")){
-                $disallowed_elements = array_merge($disallowed_elements, $this->getDisallowedElementsByBlockEditor());
-            }
-
-            /* =============== Slider Revolution =============== */
-            if(class_exists('RevSliderFront')){
-                $disallowed_elements = array_merge($disallowed_elements, $this->getDisallowedElementsByRevSlider());
-            }
-
-            /* =============== OneSignal Push Notifications =============== */
-            if(class_exists('OneSignal_Public')){
-                $disallowed_elements = array_merge($disallowed_elements, $this->getDisallowedElementsByOneSignal());
-            }
-
-            /* =============== Read Meter =============== */
-            if(class_exists('BSFRT_Loader')){
-                $disallowed_elements = array_merge($disallowed_elements, $this->getDisallowedElementsByReadMeter());
-            }
-
-
-            return $disallowed_elements;
-        }
-
-
         /* =============== Default Darkify Ignore =============== */
         public function getDisallowedElementsByDarkify(){
             return array(
@@ -95,14 +38,14 @@ if ( ! class_exists( 'DarkifyExternalSupport' ) ) {
                 ".wp-core-ui .button-primary *",
                 ".post-com-count-approved",
                 ".post-com-count-approved *",
-                ".drk--switcher",
-                ".drk--switcher *",
+                ".drk_lite--switcher",
+                ".drk_lite--switcher *",
                 ".CodeMirror",
                 ".CodeMirror *",
                 ".wp-picker-container",
                 ".wp-picker-container *",
-                ".drk--sibling.drk--image",
-                ".drk--sibling.drk--image *",
+                ".drk_lite--sibling.drk_lite--image",
+                ".drk_lite--sibling.drk_lite--image *",
                 ".button",
             );
         }

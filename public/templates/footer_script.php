@@ -1,4 +1,7 @@
 <?php
+if (!defined('ABSPATH')) {
+    die;
+} // Cannot access directly.
 $options = get_option('darkify');
 $hide_on_desktop = $options["hide_on_desktop"];
 $hide_on_mobile = $options["hide_on_mobile"];
@@ -8,23 +11,15 @@ $type_of_hide_by = isset($hide_on_mobile["type_of_hide_by"]) ? $hide_on_mobile["
 <?php if (!is_admin()) { ?>
     <?php if ($options["enable_dark_mode_switch"]) { ?>
         <?php if (!$this->utils->is_hidden_by_user_agent($hide_on_desktop, $hide_dark_mode_on_mobile, $type_of_hide_by)) { ?>
-            <?php include DRK_PATH . "public/templates/views/switch.php"; ?>
+            <?php include DRK_LITE_PATH . "public/templates/views/switch.php"; ?>
         <?php } ?>
     <?php } ?>
 <?php } ?>
 
-<style type="text/css" class="darkify_inline_css">
-    <?php echo esc_attr($this->utils->parseAndProcessNormalCustomCSS($options["normal_custom_css"])); ?>
-</style>
-
-<style type="text/css" class="darkify_inline_css">
-    <?php echo esc_attr($this->utils->parseAndProcessCustomCSS($options["custom_css"], $options["disallowed_elements_force_to_correct"])); ?>
-</style>
 
 <?php if (!is_admin()) { ?>
     <script type="text/javascript" class="darkify_inline_js">
         document.addEventListener("DOMContentLoaded", function(event) {
-            darkify_init_draggable_floating_switch();
             darkify_init_alternative_dark_mode_switch();
         });
     </script>
