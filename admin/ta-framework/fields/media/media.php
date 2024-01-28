@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: media
@@ -11,9 +10,7 @@
 if ( ! class_exists( 'DRK_LITE_Field_media' ) ) {
 	class DRK_LITE_Field_media extends DRK_LITE_Fields {
 
-
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -27,8 +24,8 @@ if ( ! class_exists( 'DRK_LITE_Field_media' ) ) {
 					'preview_width'  => '',
 					'preview_height' => '',
 					'library'        => array(),
-					'button_title'   => esc_html__( 'Upload', 'chat-skype' ),
-					'remove_title'   => esc_html__( 'Remove', 'chat-skype' ),
+					'button_title'   => esc_html__( 'Upload', 'ta-framework' ),
+					'remove_title'   => esc_html__( 'Remove', 'ta-framework' ),
 					'preview_size'   => 'thumbnail',
 				)
 			);
@@ -62,7 +59,7 @@ if ( ! class_exists( 'DRK_LITE_Field_media' ) ) {
 			$preview_src = ( $args['preview_size'] !== 'thumbnail' ) ? $this->value['url'] : $this->value['thumbnail'];
 			$hidden_url  = ( empty( $args['url'] ) ) ? ' hidden' : '';
 			$hidden_auto = ( empty( $this->value['url'] ) ) ? ' hidden' : '';
-			$placeholder = ( empty( $this->field['placeholder'] ) ) ? ' placeholder="' . esc_html__( 'Not selected', 'chat-skype' ) . '"' : '';
+			$placeholder = ( empty( $this->field['placeholder'] ) ) ? ' placeholder="' . esc_html__( 'Not selected', 'ta-framework' ) . '"' : '';
 
 			echo wp_kses_post( $this->field_before() );
 
@@ -73,7 +70,7 @@ if ( ! class_exists( 'DRK_LITE_Field_media' ) ) {
 				$preview_style  = ( ! empty( $preview_width ) || ! empty( $preview_height ) ) ? ' style="' . esc_attr( $preview_width . $preview_height ) . '"' : '';
 
 				echo '<div class="drk_lite--preview' . esc_attr( $hidden_auto ) . '">';
-				echo '<div class="drk_lite-image-preview"' . $preview_style . '>';
+				echo '<div class="drk_lite-image-preview"' . wp_kses_post($preview_style) . '>';
 				echo '<i class="drk_lite--remove fas fa-times"></i><span><img src="' . esc_url( $preview_src ) . '" class="drk_lite--src" /></span>';
 				echo '</div>';
 				echo '</div>';
@@ -81,7 +78,7 @@ if ( ! class_exists( 'DRK_LITE_Field_media' ) ) {
 			}
 
 			echo '<div class="drk_lite--placeholder">';
-			echo '<input type="text" name="' . esc_attr( $this->field_name( '[url]' ) ) . '" value="' . esc_attr( $this->value['url'] ) . '" class="drk_lite--url' . esc_attr( $hidden_url ) . '" readonly="readonly"' . wp_kses_data($this->field_attributes()) . esc_attr( $placeholder ) . ' />';
+			echo '<input type="text" name="' . esc_attr( $this->field_name( '[url]' ) ) . '" value="' . esc_attr( $this->value['url'] ) . '" class="drk_lite--url' . esc_attr( $hidden_url ) . '" readonly="readonly"' . wp_kses_post( $this->field_attributes() ) . wp_kses_post($placeholder) . ' />';
 			echo '<a href="#" class="button button-primary drk_lite--button" data-library="' . esc_attr( $library ) . '" data-preview-size="' . esc_attr( $args['preview_size'] ) . '">' . esc_html( $args['button_title'] ) . '</a>';
 			echo ( empty( $args['preview'] ) ) ? '<a href="#" class="button button-secondary drk_lite-warning-primary drk_lite--remove' . esc_attr( $hidden_auto ) . '">' . esc_html( $args['remove_title'] ) . '</a>' : '';
 			echo '</div>';

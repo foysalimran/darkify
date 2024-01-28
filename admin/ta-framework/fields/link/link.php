@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: link
@@ -11,9 +10,7 @@
 if ( ! class_exists( 'DRK_LITE_Field_link' ) ) {
 	class DRK_LITE_Field_link extends DRK_LITE_Fields {
 
-
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -22,9 +19,9 @@ if ( ! class_exists( 'DRK_LITE_Field_link' ) ) {
 			$args = wp_parse_args(
 				$this->field,
 				array(
-					'add_title'    => esc_html__( 'Add Link', 'chat-skype' ),
-					'edit_title'   => esc_html__( 'Edit Link', 'chat-skype' ),
-					'remove_title' => esc_html__( 'Remove Link', 'chat-skype' ),
+					'add_title'    => esc_html__( 'Add Link', 'ta-framework' ),
+					'edit_title'   => esc_html__( 'Edit Link', 'ta-framework' ),
+					'remove_title' => esc_html__( 'Remove Link', 'ta-framework' ),
 				)
 			);
 
@@ -44,14 +41,14 @@ if ( ! class_exists( 'DRK_LITE_Field_link' ) ) {
 
 			echo '<textarea readonly="readonly" class="drk_lite--link hidden"></textarea>';
 
-			echo '<div class="' . esc_attr( $maybe_hidden ) . '"><div class="drk_lite--result">' . sprintf( '{url:"%s", text:"%s", target:"%s"}', esc_url( $value['url'] ), esc_html( $value['text'] ), esc_attr( $value['target'] ) ) . '</div></div>';
+			echo '<div class="' . esc_attr( $maybe_hidden ) . '"><div class="drk_lite--result">' . sprintf( '{url:"%s", text:"%s", target:"%s"}', esc_url($value['url']), esc_html($value['text']), esc_attr($value['target']) ) . '</div></div>';
 
-			echo '<input type="hidden" name="' . esc_attr( $this->field_name( '[url]' ) ) . '" value="' . esc_attr( $value['url'] ) . '"' . $this->field_attributes( array( 'class' => 'drk_lite--url' ) ) . ' />';
+			echo '<input type="hidden" name="' . esc_attr( $this->field_name( '[url]' ) ) . '" value="' . esc_attr( $value['url'] ) . '"' . wp_kses_post($this->field_attributes( array( 'class' => 'drk_lite--url' ) )) . ' />';
 			echo '<input type="hidden" name="' . esc_attr( $this->field_name( '[text]' ) ) . '" value="' . esc_attr( $value['text'] ) . '" class="drk_lite--text" />';
 			echo '<input type="hidden" name="' . esc_attr( $this->field_name( '[target]' ) ) . '" value="' . esc_attr( $value['target'] ) . '" class="drk_lite--target" />';
 
-			echo '<a href="#" class="button button-primary drk_lite--add' . esc_attr( $hidden ) . '">' . $args['add_title'] . '</a> ';
-			echo '<a href="#" class="button drk_lite--edit' . esc_attr( $maybe_hidden ) . '">' . esc_html( $args['edit_title'] ) . '</a> ';
+			echo '<a href="#" class="button button-primary drk_lite--add' . esc_attr( $hidden ) . '">' . esc_html($args['add_title']) . '</a> ';
+			echo '<a href="#" class="button drk_lite--edit' . esc_attr( $maybe_hidden ) . '">' . esc_html($args['edit_title']) . '</a> ';
 			echo '<a href="#" class="button drk_lite-warning-primary drk_lite--remove' . esc_attr( $maybe_hidden ) . '">' . esc_html( $args['remove_title'] ) . '</a>';
 
 			echo wp_kses_post( $this->field_after() );
@@ -60,7 +57,7 @@ if ( ! class_exists( 'DRK_LITE_Field_link' ) ) {
 		public function enqueue() {
 
 			if ( ! wp_script_is( 'wplink' ) ) {
-					wp_enqueue_script( 'wplink' );
+				wp_enqueue_script( 'wplink' );
 			}
 
 			if ( ! wp_script_is( 'jquery-ui-autocomplete' ) ) {

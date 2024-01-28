@@ -1,9 +1,10 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
 	die; } // Cannot access directly.
+//
 // Font Awesome 4 Icons
+//
 if ( ! function_exists( 'drk_lite_get_default_icons' ) ) {
 	function drk_lite_get_default_icons() {
-
 		return array(
 			array(
 				'title' => 'Font Awesome',

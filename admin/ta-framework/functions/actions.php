@@ -1,10 +1,4 @@
-<?php
-/**
- * @actions
- * Actions for DRK_LITE
- */
-
-if ( ! defined( 'ABSPATH' ) ) {
+<?php if ( ! defined( 'ABSPATH' ) ) {
 	die; } // Cannot access directly.
 /**
  *
@@ -19,7 +13,7 @@ if ( ! function_exists( 'drk_lite_get_icons' ) ) {
 		$nonce = ( ! empty( $_POST['nonce'] ) ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
 
 		if ( ! wp_verify_nonce( $nonce, 'drk_lite_icon_nonce' ) ) {
-			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'chat-skype' ) ) );
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'ta-framework' ) ) );
 		}
 
 		ob_start();
@@ -42,7 +36,7 @@ if ( ! function_exists( 'drk_lite_get_icons' ) ) {
 			}
 		} else {
 
-					echo '<div class="drk_lite-error-text">' . esc_html__( 'No data available.', 'chat-skype' ) . '</div>';
+				echo '<div class="drk_lite-error-text">' . esc_html__( 'No data available.', 'ta-framework' ) . '</div>';
 
 		}
 
@@ -67,11 +61,11 @@ if ( ! function_exists( 'drk_lite_export' ) ) {
 		$unique = ( ! empty( $_GET['unique'] ) ) ? sanitize_text_field( wp_unslash( $_GET['unique'] ) ) : '';
 
 		if ( ! wp_verify_nonce( $nonce, 'drk_lite_backup_nonce' ) ) {
-			die( esc_html__( 'Error: Invalid nonce verification.', 'chat-skype' ) );
+			die( esc_html__( 'Error: Invalid nonce verification.', 'ta-framework' ) );
 		}
 
 		if ( empty( $unique ) ) {
-			die( esc_html__( 'Error: Invalid key.', 'chat-skype' ) );
+			die( esc_html__( 'Error: Invalid key.', 'ta-framework' ) );
 		}
 
 		// Export
@@ -81,7 +75,7 @@ if ( ! function_exists( 'drk_lite_export' ) ) {
 		header( 'Pragma: no-cache' );
 		header( 'Expires: 0' );
 
-		echo wp_json_encode( get_option( $unique ) );
+		echo json_encode( get_option( $unique ) );
 
 		die();
 	}
@@ -103,15 +97,15 @@ if ( ! function_exists( 'drk_lite_import_ajax' ) ) {
 		$data   = ( ! empty( $_POST['data'] ) ) ? wp_kses_post_deep( json_decode( wp_unslash( trim( $_POST['data'] ) ), true ) ) : array();
 
 		if ( ! wp_verify_nonce( $nonce, 'drk_lite_backup_nonce' ) ) {
-			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'chat-skype' ) ) );
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'ta-framework' ) ) );
 		}
 
 		if ( empty( $unique ) ) {
-			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid key.', 'chat-skype' ) ) );
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid key.', 'ta-framework' ) ) );
 		}
 
 		if ( empty( $data ) || ! is_array( $data ) ) {
-			wp_send_json_error( array( 'error' => esc_html__( 'Error: The response is not a valid JSON response.', 'chat-skype' ) ) );
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: The response is not a valid JSON response.', 'ta-framework' ) ) );
 		}
 
 		// Success
@@ -136,7 +130,7 @@ if ( ! function_exists( 'drk_lite_reset_ajax' ) ) {
 		$unique = ( ! empty( $_POST['unique'] ) ) ? sanitize_text_field( wp_unslash( $_POST['unique'] ) ) : '';
 
 		if ( ! wp_verify_nonce( $nonce, 'drk_lite_backup_nonce' ) ) {
-			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'chat-skype' ) ) );
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'ta-framework' ) ) );
 		}
 
 		// Success
@@ -163,17 +157,17 @@ if ( ! function_exists( 'drk_lite_chosen_ajax' ) ) {
 		$query = ( ! empty( $_POST['query_args'] ) ) ? wp_kses_post_deep( $_POST['query_args'] ) : array();
 
 		if ( ! wp_verify_nonce( $nonce, 'drk_lite_chosen_ajax_nonce' ) ) {
-			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'chat-skype' ) ) );
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'ta-framework' ) ) );
 		}
 
 		if ( empty( $type ) || empty( $term ) ) {
-			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid term ID.', 'chat-skype' ) ) );
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid term ID.', 'ta-framework' ) ) );
 		}
 
 		$capability = apply_filters( 'drk_lite_chosen_ajax_capability', 'manage_options' );
 
 		if ( ! current_user_can( $capability ) ) {
-			wp_send_json_error( array( 'error' => esc_html__( 'Error: You do not have permission to do that.', 'chat-skype' ) ) );
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: You do not have permission to do that.', 'ta-framework' ) ) );
 		}
 
 		// Success

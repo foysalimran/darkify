@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: link_color
@@ -11,9 +10,7 @@
 if ( ! class_exists( 'DRK_LITE_Field_link_color' ) ) {
 	class DRK_LITE_Field_link_color extends DRK_LITE_Fields {
 
-
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -39,11 +36,11 @@ if ( ! class_exists( 'DRK_LITE_Field_link_color' ) ) {
 			);
 
 			$color_props = array(
-				'color'   => esc_html__( 'Normal', 'chat-skype' ),
-				'hover'   => esc_html__( 'Hover', 'chat-skype' ),
-				'active'  => esc_html__( 'Active', 'chat-skype' ),
-				'visited' => esc_html__( 'Visited', 'chat-skype' ),
-				'focus'   => esc_html__( 'Focus', 'chat-skype' ),
+				'color'   => esc_html__( 'Normal', 'ta-framework' ),
+				'hover'   => esc_html__( 'Hover', 'ta-framework' ),
+				'active'  => esc_html__( 'Active', 'ta-framework' ),
+				'visited' => esc_html__( 'Visited', 'ta-framework' ),
+				'focus'   => esc_html__( 'Focus', 'ta-framework' ),
 			);
 
 			$value = wp_parse_args( $this->value, $default_values );
@@ -54,11 +51,11 @@ if ( ! class_exists( 'DRK_LITE_Field_link_color' ) ) {
 
 				if ( ! empty( $args[ $color_prop_key ] ) ) {
 
-						$default_attr = ( ! empty( $this->field['default'][ $color_prop_key ] ) ) ? ' data-default-color="' . esc_attr( $this->field['default'][ $color_prop_key ] ) . '"' : '';
+					$default_attr = ( ! empty( $this->field['default'][ $color_prop_key ] ) ) ? ' data-default-color="' . esc_attr( $this->field['default'][ $color_prop_key ] ) . '"' : '';
 
 					echo '<div class="drk_lite--left drk_lite-field-color">';
-						echo '<div class="drk_lite--title">' . esc_attr( $color_prop_value ) . '</div>';
-						echo '<input type="text" name="' . esc_attr( $this->field_name( '[' . $color_prop_key . ']' ) ) . '" value="' . esc_attr( $value[ $color_prop_key ] ) . '" class="drk_lite-color"' . esc_attr( $default_attr ) . wp_kses_data($this->field_attributes()) . '/>';
+					echo '<div class="drk_lite--title">' . esc_attr( $color_prop_value ) . '</div>';
+					echo '<input type="text" name="' . esc_attr( $this->field_name( '[' . $color_prop_key . ']' ) ) . '" value="' . esc_attr( $value[ $color_prop_key ] ) . '" class="drk_lite-color"' . wp_kses_post($default_attr) . wp_kses_post( $this->field_attributes() ) . '/>';
 					echo '</div>';
 
 				}
@@ -81,12 +78,11 @@ if ( ! class_exists( 'DRK_LITE_Field_link_color' ) ) {
 					if ( isset( $this->value['hover'] ) && $this->value['hover'] !== '' ) {
 						$output .= $element . ':hover{color:' . $this->value['hover'] . $important . ';}'; }
 					if ( isset( $this->value['active'] ) && $this->value['active'] !== '' ) {
-						$output .= $element . ':active{color:' . $this->value['active'] . $important . ';}'; }
+							$output .= $element . ':active{color:' . $this->value['active'] . $important . ';}'; }
 					if ( isset( $this->value['visited'] ) && $this->value['visited'] !== '' ) {
-						$output .= $element . ':visited{color:' . $this->value['visited'] . $important . ';}'; }
+							$output .= $element . ':visited{color:' . $this->value['visited'] . $important . ';}'; }
 					if ( isset( $this->value['focus'] ) && $this->value['focus'] !== '' ) {
-						$output .= $element . ':focus{color:' . $this->value['focus'] . $important . ';}';
-					}
+						$output .= $element . ':focus{color:' . $this->value['focus'] . $important . ';}'; }
 				}
 			}
 

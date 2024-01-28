@@ -1,0 +1,185 @@
+/**
+ * 05. Widget
+ */
+.control-section{
+
+  .drk_lite-field{
+    padding: 0;
+
+    .drk_lite-title{
+      float: none;
+      width: 100%;
+      margin-bottom: 6px;
+
+      h4{
+        display: block;
+        font-size: 13px;
+        line-height: 1;
+        font-weight: 600;
+        color: inherit;
+      }
+    }
+
+    .drk_lite-fieldset{
+      float: none;
+      width: 100%;
+    }
+  }
+
+  .drk_lite-help{
+    top: -5px;
+    right: -5px;
+  }
+
+  .drk_lite-field-select select{
+    width: 100%;
+  }
+
+  .drk_lite-field-heading{
+    color: inherit;
+    font-size: 14px;
+    line-height: 1em;
+    margin-right: -15px;
+    margin-left: -15px;
+    padding: 15px;
+  }
+
+  .drk_lite-field-subheading{
+    color: inherit;
+    font-size: 11px;
+    margin-right: -15px;
+    margin-left: -15px;
+    padding: 10px 15px;
+  }
+
+  .drk_lite-subtitle-text{
+    margin-top: 4px;
+    font-size: 12px;
+  }
+
+  .drk_lite-field-submessage .drk_lite-submessage{
+    margin-right: -15px;
+    margin-left: -15px;
+    padding: 15px;
+  }
+
+  .drk_lite-fieldset{
+
+    .drk_lite-field-submessage .drk_lite-submessage,
+    .drk_lite-field-heading,
+    .drk_lite-field-subheading{
+      margin-left: 0;
+      margin-right: 0;
+    }
+  }
+
+  .drk_lite-field-date,
+  .drk_lite-field-datetime{
+
+    label{
+      display: block;
+    }
+
+    .drk_lite--to{
+      margin-top: 4px;
+      margin-left: 0;
+    }
+  }
+
+  .drk_lite-field-sorter{
+
+    ul li{
+      padding: 5px;
+    }
+
+    .drk_lite-modules{
+      float: none;
+      width: 100%;
+    }
+
+    .drk_lite-modules:first-child{
+      padding-right: 0;
+      padding-bottom: 15px;
+    }
+  }
+
+  .drk_lite-field-background{
+
+    .drk_lite--background-attributes{
+      flex-direction: column;
+    }
+  }
+
+  .drk_lite-field-spacing{
+    input{
+      width: 90px;
+    }
+  }
+
+  .drk_lite-field-border{
+
+    .drk_lite--input{
+      flex: 1 50%;
+    }
+
+    input,
+    select{
+      width: 100%;
+    }
+  }
+
+  .drk_lite-field-spinner{
+    input{
+      width: 50px;
+    }
+  }
+
+  .drk_lite-field-number{
+
+    .drk_lite--wrap{
+      width: 100%;
+    }
+  }
+
+  .drk_lite-field-backup{
+
+    .drk_lite-export-data{
+      display: none;
+    }
+  }
+
+  .drk_lite-field-fieldset{
+
+    .drk_lite-fieldset-content{
+      border-color: #e5e5e5;
+    }
+  }
+
+  .drk_lite-tabbed-content,
+  .drk_lite-sortable-content,
+  .drk_lite-repeater-content,
+  .drk_lite-fieldset-content,
+  .drk_lite-cloneable-content,
+  .drk_lite-accordion-content{
+
+    > .drk_lite-field{
+      padding: 10px;
+
+      .drk_lite-title{
+        margin-bottom: 5px;
+      }
+
+      h4{
+        font-size: 12px;
+      }
+    }
+  }
+
+  .drk_lite-depend-hidden.drk_lite-depend-on{
+    display: none !important;
+  }
+
+  .drk_lite-depend-visible.drk_lite-depend-on{
+    border-top: 0 !important;
+  }
+}

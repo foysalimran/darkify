@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: accordion
@@ -11,9 +10,7 @@
 if ( ! class_exists( 'DRK_LITE_Field_accordion' ) ) {
 	class DRK_LITE_Field_accordion extends DRK_LITE_Fields {
 
-
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -29,20 +26,19 @@ if ( ! class_exists( 'DRK_LITE_Field_accordion' ) ) {
 
 				echo '<div class="drk_lite-accordion-item">';
 
-					$icon = ( ! empty( $accordion['icon'] ) ) ? 'drk_lite--icon ' . $accordion['icon'] : 'drk_lite-accordion-icon fas fa-angle-right';
+				$icon = ( ! empty( $accordion['icon'] ) ) ? 'drk_lite--icon ' . $accordion['icon'] : 'drk_lite-accordion-icon fas fa-angle-right';
 
 				echo '<h4 class="drk_lite-accordion-title">';
 				echo '<i class="' . esc_attr( $icon ) . '"></i>';
 				echo esc_html( $accordion['title'] );
 				echo '</h4>';
 
-					echo '<div class="drk_lite-accordion-content">';
+				echo '<div class="drk_lite-accordion-content">';
 
 				foreach ( $accordion['fields'] as $field ) {
 
 					if ( in_array( $field['type'], $unallows ) ) {
-						$field['_notice'] = true;
-					}
+						$field['_notice'] = true; }
 
 					$field_id      = ( isset( $field['id'] ) ) ? $field['id'] : '';
 					$field_default = ( isset( $field['default'] ) ) ? $field['default'] : '';
@@ -53,9 +49,9 @@ if ( ! class_exists( 'DRK_LITE_Field_accordion' ) ) {
 
 				}
 
-					echo '</div>';
+				echo '</div>';
 
-					echo '</div>';
+				echo '</div>';
 
 			}
 

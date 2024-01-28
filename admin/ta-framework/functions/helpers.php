@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Array search key & value
@@ -36,7 +35,6 @@ if ( ! function_exists( 'drk_lite_array_search' ) ) {
  */
 if ( ! function_exists( 'drk_lite_timeout' ) ) {
 	function drk_lite_timeout( $timenow, $starttime, $timeout = 30 ) {
-
 		return ( ( $timenow - $starttime ) < $timeout ) ? true : false;
 	}
 }
@@ -50,7 +48,6 @@ if ( ! function_exists( 'drk_lite_timeout' ) ) {
  */
 if ( ! function_exists( 'drk_lite_wp_editor_api' ) ) {
 	function drk_lite_wp_editor_api() {
-
 		global $wp_version;
 		return version_compare( $wp_version, '4.8', '>=' );
 	}

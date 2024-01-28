@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: sortable
@@ -11,9 +10,7 @@
 if ( ! class_exists( 'DRK_LITE_Field_sortable' ) ) {
 	class DRK_LITE_Field_sortable extends DRK_LITE_Fields {
 
-
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -52,21 +49,21 @@ if ( ! class_exists( 'DRK_LITE_Field_sortable' ) ) {
 
 			foreach ( $pre_sortby as $key => $field ) {
 
-					echo '<div class="drk_lite-sortable-item">';
+				echo '<div class="drk_lite-sortable-item">';
 
-					echo '<div class="drk_lite-sortable-content">';
+				echo '<div class="drk_lite-sortable-content">';
 
-						$field_default = ( isset( $this->field['default'][ $key ] ) ) ? $this->field['default'][ $key ] : '';
-					$field_value       = ( isset( $this->value[ $key ] ) ) ? $this->value[ $key ] : $field_default;
-						$unique_id     = ( ! empty( $this->unique ) ) ? $this->unique . '[' . $this->field['id'] . ']' : $this->field['id'];
+				$field_default = ( isset( $this->field['default'][ $key ] ) ) ? $this->field['default'][ $key ] : '';
+				$field_value   = ( isset( $this->value[ $key ] ) ) ? $this->value[ $key ] : $field_default;
+				$unique_id     = ( ! empty( $this->unique ) ) ? $this->unique . '[' . $this->field['id'] . ']' : $this->field['id'];
 
-					DRK_LITE::field( $field, $field_value, $unique_id, 'field/sortable' );
+				DRK_LITE::field( $field, $field_value, $unique_id, 'field/sortable' );
 
-					echo '</div>';
+				echo '</div>';
 
-						echo '<div class="drk_lite-sortable-helper"><i class="fas fa-arrows-alt"></i></div>';
+				echo '<div class="drk_lite-sortable-helper"><i class="fas fa-arrows-alt"></i></div>';
 
-					echo '</div>';
+				echo '</div>';
 
 			}
 
@@ -78,7 +75,7 @@ if ( ! class_exists( 'DRK_LITE_Field_sortable' ) ) {
 		public function enqueue() {
 
 			if ( ! wp_script_is( 'jquery-ui-sortable' ) ) {
-					wp_enqueue_script( 'jquery-ui-sortable' );
+				wp_enqueue_script( 'jquery-ui-sortable' );
 			}
 		}
 	}

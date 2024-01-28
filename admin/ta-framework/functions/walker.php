@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Custom Walker for Nav Menu Edit
@@ -10,7 +9,6 @@
  */
 if ( ! class_exists( 'DRK_LITE_Walker_Nav_Menu_Edit' ) && class_exists( 'Walker_Nav_Menu_Edit' ) ) {
 	class DRK_LITE_Walker_Nav_Menu_Edit extends Walker_Nav_Menu_Edit {
-
 
 		public function start_el( &$output, $item, $depth = 0, $args = array(), $id = 0 ) {
 

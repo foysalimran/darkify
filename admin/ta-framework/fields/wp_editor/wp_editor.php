@@ -47,9 +47,9 @@ if ( ! class_exists( 'DRK_LITE_Field_wp_editor' ) ) {
 
 			echo wp_kses_post( $this->field_before() );
 
-			echo ( drk_lite_wp_editor_api() ) ? '<div class="drk_lite-wp-editor" data-editor-settings="' . esc_attr( wp_json_encode( $editor_settings ) ) . '">' : '';
+			echo ( drk_lite_wp_editor_api() ) ? '<div class="drk_lite-wp-editor" data-editor-settings="' . esc_attr( json_encode( $editor_settings ) ) . '">' : '';
 
-			echo '<textarea name="' . esc_attr( $this->field_name() ) . '"' . esc_attr( $this->field_attributes( $attributes ) ) . esc_attr( $editor_height ) . '>' . esc_attr( $this->value ) . '</textarea>';
+			echo '<textarea name="' . esc_attr( $this->field_name() ) . '"' . wp_kses_post( $this->field_attributes( $attributes ) ) . wp_kses_post( $editor_height ) . '>' . wp_kses_post( $this->value ) . '</textarea>';
 
 			echo ( drk_lite_wp_editor_api() ) ? '</div>' : '';
 
@@ -83,7 +83,7 @@ if ( ! class_exists( 'DRK_LITE_Field_wp_editor' ) ) {
 			$media_buttons = ob_get_clean();
 
 			echo '<script type="text/javascript">';
-			echo 'var drk_lite_media_buttons = ' . wp_json_encode( $media_buttons ) . ';';
+			echo 'var drk_lite_media_buttons = ' . json_encode( $media_buttons ) . ';';
 			echo '</script>';
 		}
 

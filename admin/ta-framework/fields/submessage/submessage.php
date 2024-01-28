@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: submessage
@@ -11,9 +10,7 @@
 if ( ! class_exists( 'DRK_LITE_Field_submessage' ) ) {
 	class DRK_LITE_Field_submessage extends DRK_LITE_Fields {
 
-
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -21,7 +18,7 @@ if ( ! class_exists( 'DRK_LITE_Field_submessage' ) ) {
 
 			$style = ( ! empty( $this->field['style'] ) ) ? $this->field['style'] : 'normal';
 
-			echo '<div class="drk_lite-submessage drk_lite-submessage-' . esc_attr( $style ) . '">' . wp_kses_post( $this->field['content'] ) . '</div>';
+			echo '<div class="drk_lite-submessage drk_lite-submessage-' . esc_attr( $style ) . '">' . wp_kses_post($this->field['content']) . '</div>';
 		}
 	}
 }

@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: date
@@ -10,7 +9,6 @@
  */
 if ( ! class_exists( 'DRK_LITE_Field_date' ) ) {
 	class DRK_LITE_Field_date extends DRK_LITE_Fields {
-
 
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
 			parent::__construct( $field, $value, $unique, $where, $parent );
@@ -32,8 +30,8 @@ if ( ! class_exists( 'DRK_LITE_Field_date' ) ) {
 				$args = wp_parse_args(
 					$this->field,
 					array(
-						'text_from' => esc_html__( 'From', 'chat-skype' ),
-						'text_to'   => esc_html__( 'To', 'chat-skype' ),
+						'text_from' => esc_html__( 'From', 'ta-framework' ),
+						'text_to'   => esc_html__( 'To', 'ta-framework' ),
 					)
 				);
 
@@ -45,14 +43,16 @@ if ( ! class_exists( 'DRK_LITE_Field_date' ) ) {
 					)
 				);
 
-				echo '<label class="drk_lite--from">' . esc_attr( $args['text_from'] ) . ' <input type="text" name="' . esc_attr( $this->field_name( '[from]' ) ) . '" value="' . esc_attr( $value['from'] ) . '"' . wp_kses_data($this->field_attributes()) . '/></label>';
-				echo '<label class="drk_lite--to">' . esc_attr( $args['text_to'] ) . ' <input type="text" name="' . esc_attr( $this->field_name( '[to]' ) ) . '" value="' . esc_attr( $value['to'] ) . '"' . wp_kses_data($this->field_attributes()) . '/></label>';
+				echo '<label class="drk_lite--from">' . esc_attr( $args['text_from'] ) . ' <input type="text" name="' . esc_attr( $this->field_name( '[from]' ) ) . '" value="' . esc_attr( $value['from'] ) . '"' . wp_kses_post( $this->field_attributes() ) . '/></label>';
+				echo '<label class="drk_lite--to">' . esc_attr( $args['text_to'] ) . ' <input type="text" name="' . esc_attr( $this->field_name( '[to]' ) ) . '" value="' . esc_attr( $value['to'] ) . '"' . wp_kses_post( $this->field_attributes() ) . '/></label>';
+
 			} else {
 
-				echo '<input type="text" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $this->value ) . '"' . wp_kses_data($this->field_attributes()) . '/>';
+				echo '<input type="text" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $this->value ) . '"' . wp_kses_post( $this->field_attributes() ) . '/>';
+
 			}
 
-			echo '<div class="drk_lite-date-settings" data-settings="' . esc_attr( wp_json_encode( $settings ) ) . '"></div>';
+			echo '<div class="drk_lite-date-settings" data-settings="' . esc_attr( json_encode( $settings ) ) . '"></div>';
 
 			echo wp_kses_post( $this->field_after() );
 		}

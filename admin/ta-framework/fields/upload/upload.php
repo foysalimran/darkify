@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: upload
@@ -11,9 +10,7 @@
 if ( ! class_exists( 'DRK_LITE_Field_upload' ) ) {
 	class DRK_LITE_Field_upload extends DRK_LITE_Fields {
 
-
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -26,8 +23,8 @@ if ( ! class_exists( 'DRK_LITE_Field_upload' ) ) {
 					'preview'        => false,
 					'preview_width'  => '',
 					'preview_height' => '',
-					'button_title'   => esc_html__( 'Upload', 'chat-skype' ),
-					'remove_title'   => esc_html__( 'Remove', 'chat-skype' ),
+					'button_title'   => esc_html__( 'Upload', 'ta-framework' ),
+					'remove_title'   => esc_html__( 'Remove', 'ta-framework' ),
 				)
 			);
 
@@ -47,7 +44,7 @@ if ( ! class_exists( 'DRK_LITE_Field_upload' ) ) {
 				$preview_hidden = ( empty( $preview_src ) ) ? ' hidden' : '';
 
 				echo '<div class="drk_lite--preview' . esc_attr( $preview_hidden ) . '">';
-				echo '<div class="drk_lite-image-preview"' . esc_attr($preview_style) . '>';
+				echo '<div class="drk_lite-image-preview"' . wp_kses_post( $preview_style ) . '>';
 				echo '<i class="drk_lite--remove fas fa-times"></i><span><img src="' . esc_url( $preview_src ) . '" class="drk_lite--src" /></span>';
 				echo '</div>';
 				echo '</div>';
@@ -55,7 +52,7 @@ if ( ! class_exists( 'DRK_LITE_Field_upload' ) ) {
 			}
 
 			echo '<div class="drk_lite--wrap">';
-			echo '<input type="text" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $this->value ) . '"' . wp_kses_data($this->field_attributes()) . '/>';
+			echo '<input type="text" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $this->value ) . '"' . wp_kses_post( $this->field_attributes() ) . '/>';
 			echo '<a href="#" class="button button-primary drk_lite--button" data-library="' . esc_attr( $library ) . '">' . esc_html( $args['button_title'] ) . '</a>';
 			echo '<a href="#" class="button button-secondary drk_lite-warning-primary drk_lite--remove' . esc_attr( $hidden ) . '">' . esc_html( $args['remove_title'] ) . '</a>';
 			echo '</div>';

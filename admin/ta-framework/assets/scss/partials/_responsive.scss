@@ -1,0 +1,157 @@
+/**
+ * 12. Responsive
+ */
+@media only screen and (max-width:1200px){
+
+  .drk_lite-metabox{
+
+    .drk_lite-field{
+
+      .drk_lite-title{
+        float: none;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      .drk_lite-fieldset{
+        float: none;
+        width: 100%;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width:782px){
+
+  .drk_lite-header-inner{
+    text-align: center;
+
+    h1{
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  }
+
+  .drk_lite-form-result{
+    float: none;
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  .drk_lite-search,
+  .drk_lite-header-right,
+  .drk_lite-header-left{
+    width: 100%;
+  }
+
+  .drk_lite-search{
+    text-align: center;
+    margin-bottom: 15px;
+  }
+
+  .drk_lite-footer{
+    text-align: center;
+  }
+
+  .drk_lite-buttons{
+    float: none;
+  }
+
+  .drk_lite-copyright{
+    float: none;
+    margin-top: 10px;
+  }
+
+  .drk_lite-nav,
+  .drk_lite-expand-all,
+  .drk_lite-reset-section,
+  .drk_lite-nav-background{
+    display: none !important;
+  }
+
+  .drk_lite-nav-normal + .drk_lite-content{
+    margin-left: 0;
+  }
+
+  .drk_lite-section-title,
+  .drk_lite-section{
+    display: block !important;
+  }
+
+  .drk_lite-field{
+
+    .drk_lite-title{
+      float: none;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+
+    .drk_lite-fieldset{
+      float: none;
+      width: 100%;
+    }
+  }
+
+  .drk_lite-field-color{
+
+    .button.wp-picker-clear{
+      padding: 0 8px;
+      line-height: 2.14285714;
+      min-height: 32px;
+    }
+  }
+
+  .drk_lite-profile-options,
+  .drk_lite-taxonomy-edit-fields{
+
+    > .drk_lite-field{
+
+      > .drk_lite-title{
+        float: none;
+        width: 100%;
+        margin-bottom: 10px;
+      }
+
+      > .drk_lite-fieldset{
+        float: none;
+        width: 100%;
+      }
+    }
+  }
+
+  .drk_lite-nav-menu-options{
+
+    > .drk_lite-fields{
+      margin-left: -10px;
+      margin-right: -10px;
+
+      > .drk_lite-field{
+        padding: 10px;
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: 782px) {
+
+  .drk_lite-modal{
+
+    .drk_lite-modal-inner{
+      width: 90%;
+    }
+  }
+}
+
+@media only screen and (max-height: 750px) {
+
+  .drk_lite-modal{
+
+    .drk_lite-modal-inner{
+      height: auto;
+    }
+
+    .drk_lite-modal-content{
+      height: calc(100vh - 200px);
+    }
+  }
+}

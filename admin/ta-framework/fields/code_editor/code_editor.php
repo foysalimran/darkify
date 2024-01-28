@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: code_editor
@@ -10,7 +9,6 @@
  */
 if ( ! class_exists( 'DRK_LITE_Field_code_editor' ) ) {
 	class DRK_LITE_Field_code_editor extends DRK_LITE_Fields {
-
 
 		public $version = '6.65.7';
 
@@ -31,7 +29,7 @@ if ( ! class_exists( 'DRK_LITE_Field_code_editor' ) ) {
 			$settings = wp_parse_args( $settings, $default_settings );
 
 			echo wp_kses_post( $this->field_before() );
-			echo '<textarea name="' . esc_attr( $this->field_name() ) . '"' . wp_kses_data($this->field_attributes()) . ' data-editor="' . esc_attr( wp_json_encode( $settings ) ) . '">' . esc_attr( $this->value ) . '</textarea>';
+			echo '<textarea name="' . esc_attr( $this->field_name() ) . '"' . wp_kses_post( $this->field_attributes() ) . ' data-editor="' . esc_attr( json_encode( $settings ) ) . '">' . wp_kses_post($this->value) . '</textarea>';
 			echo wp_kses_post( $this->field_after() );
 		}
 
@@ -41,16 +39,15 @@ if ( ! class_exists( 'DRK_LITE_Field_code_editor' ) ) {
 
 			// Do not loads CodeMirror in revslider page.
 			if ( in_array( $page, array( 'revslider' ) ) ) {
-				return;
-			}
+				return; }
 
 			if ( ! wp_script_is( 'drk_lite-codemirror' ) ) {
-				wp_enqueue_script( 'drk_lite-codemirror', DRK_LITE_DIR_URL . 'admin/assets/js/codemirror.min.js', array( 'jquery' ), $this->version, true );
-				wp_enqueue_script( 'drk_lite-codemirror-loadmode', DRK_LITE_DIR_URL . 'admin/assets/js/loadmode.min.js', array( 'drk_lite-codemirror' ), $this->version, true );
+				wp_enqueue_script( 'codemirror', DRK_LITE_DIR_URL . 'admin/ta-framework/assets/js/codemirror.min.js', array( 'ta-framework' ), $this->version, true );
+				wp_enqueue_script( 'loadmode', DRK_LITE_DIR_URL . 'admin/ta-framework/assets/js/loadmode.min.js', array( 'drk_lite-codemirror' ), $this->version, true );
 			}
 
 			if ( ! wp_style_is( 'drk_lite-codemirror' ) ) {
-				wp_enqueue_style( 'drk_lite-codemirror', DRK_LITE_DIR_URL . 'admin/assets/css/codemirror.min.css', array(), $this->version );
+				wp_enqueue_style( 'codemirror', DRK_LITE_DIR_URL . 'admin/ta-framework/assets/css/codemirror.min.css', array(), $this->version );
 			}
 		}
 	}

@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: slider
@@ -11,9 +10,7 @@
 if ( ! class_exists( 'DRK_LITE_Field_slider' ) ) {
 	class DRK_LITE_Field_slider extends DRK_LITE_Fields {
 
-
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -36,10 +33,7 @@ if ( ! class_exists( 'DRK_LITE_Field_slider' ) ) {
 			echo '<div class="drk_lite--wrap">';
 			echo '<div class="drk_lite-slider-ui"></div>';
 			echo '<div class="drk_lite--input">';
-			echo '<input type="number" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $this->value ) . '"'
-			. esc_attr( $this->field_attributes( array( 'class' => 'drk_lite-input-number' . esc_attr( $is_unit ) ) ) )
-			. ' data-min="' . esc_attr( $args['min'] ) . '" data-max="' . esc_attr( $args['max'] ) . '" data-step="' . esc_attr( $args['step'] ) . '" step="any" />';
-
+			echo '<input type="number" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $this->value ) . '"' . wp_kses_post($this->field_attributes( array( 'class' => 'drk_lite-input-number' . esc_attr( $is_unit ) ) )) . ' data-min="' . esc_attr( $args['min'] ) . '" data-max="' . esc_attr( $args['max'] ) . '" data-step="' . esc_attr( $args['step'] ) . '" step="any" />';
 			echo ( ! empty( $args['unit'] ) ) ? '<span class="drk_lite--unit">' . esc_attr( $args['unit'] ) . '</span>' : '';
 			echo '</div>';
 			echo '</div>';
@@ -66,11 +60,11 @@ if ( ! class_exists( 'DRK_LITE_Field_slider' ) ) {
 				foreach ( $elements as $key_property => $element ) {
 					if ( is_numeric( $key_property ) ) {
 						if ( $mode ) {
-								$output = implode( ',', $elements ) . '{' . $mode . ':' . esc_attr( $this->value ) . $unit . $important . ';}';
+								$output = implode( ',', $elements ) . '{' . $mode . ':' . $this->value . $unit . $important . ';}';
 						}
 						break;
 					} else {
-						$output .= $element . '{' . $key_property . ':' . esc_attr( $this->value ) . $unit . $important . '}';
+						$output .= $element . '{' . $key_property . ':' . $this->value . $unit . $important . '}';
 					}
 				}
 			}

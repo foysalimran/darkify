@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: map
@@ -11,11 +10,9 @@
 if ( ! class_exists( 'DRK_LITE_Field_map' ) ) {
 	class DRK_LITE_Field_map extends DRK_LITE_Fields {
 
-
 		public $version = '1.9.2';
 
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -24,9 +21,9 @@ if ( ! class_exists( 'DRK_LITE_Field_map' ) ) {
 			$args = wp_parse_args(
 				$this->field,
 				array(
-					'placeholder'    => esc_html__( 'Search...', 'chat-skype' ),
-					'latitude_text'  => esc_html__( 'Latitude', 'chat-skype' ),
-					'longitude_text' => esc_html__( 'Longitude', 'chat-skype' ),
+					'placeholder'    => esc_html__( 'Search...', 'ta-framework' ),
+					'latitude_text'  => esc_html__( 'Latitude', 'ta-framework' ),
+					'longitude_text' => esc_html__( 'Longitude', 'ta-framework' ),
 					'address_field'  => '',
 					'height'         => '',
 				)
@@ -58,13 +55,13 @@ if ( ! class_exists( 'DRK_LITE_Field_map' ) ) {
 
 			if ( empty( $args['address_field'] ) ) {
 				echo '<div class="drk_lite--map-search">';
-				echo '<input type="text" name="' . esc_attr( $this->field_name( '[address]' ) ) . '" value="' . esc_attr( $value['address'] ) . '"' . $this->field_attributes( $placeholder ) . ' />';
+				echo '<input type="text" name="' . esc_attr( $this->field_name( '[address]' ) ) . '" value="' . esc_attr( $value['address'] ) . '"' . wp_kses_post($this->field_attributes( $placeholder )) . ' />';
 				echo '</div>';
 			} else {
 				echo '<div class="drk_lite--address-field" data-address-field="' . esc_attr( $args['address_field'] ) . '"></div>';
 			}
 
-			echo '<div class="drk_lite--map-osm-wrap"><div class="drk_lite--map-osm" data-map="' . esc_attr( wp_json_encode( $settings ) ) . '"' . esc_attr( $style_attr ) . '></div></div>';
+			echo '<div class="drk_lite--map-osm-wrap"><div class="drk_lite--map-osm" data-map="' . esc_attr( json_encode( $settings ) ) . '"' . wp_kses_post($style_attr) . '></div></div>';
 
 			echo '<div class="drk_lite--map-inputs">';
 
@@ -88,11 +85,11 @@ if ( ! class_exists( 'DRK_LITE_Field_map' ) ) {
 		public function enqueue() {
 
 			if ( ! wp_script_is( 'drk_lite-leaflet' ) ) {
-				wp_enqueue_script( 'drk_lite-leaflet', DRK_LITE_DIR_URL . 'admin/assets/js/leaflet.js', array( 'chat-skype' ), $this->version, true );
+				wp_enqueue_script( 'leaflet', DRK_LITE_DIR_URL . 'admin/ta-framework/assets/js/leaflet.js', array( 'ta-framework' ), $this->version, true );
 			}
 
 			if ( ! wp_style_is( 'drk_lite-leaflet' ) ) {
-				wp_enqueue_style( 'drk_lite-leaflet', DRK_LITE_DIR_URL . $this->version . 'admin/assets/css/leaflet.css', array(), $this->version );
+				wp_enqueue_style( 'leaflet', DRK_LITE_DIR_URL . 'admin/ta-framework/assets/css/leaflet.css', array(), $this->version );
 			}
 
 			if ( ! wp_script_is( 'jquery-ui-autocomplete' ) ) {

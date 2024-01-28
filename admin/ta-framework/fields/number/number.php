@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: number
@@ -11,9 +10,7 @@
 if ( ! class_exists( 'DRK_LITE_Field_number' ) ) {
 	class DRK_LITE_Field_number extends DRK_LITE_Fields {
 
-
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -31,7 +28,7 @@ if ( ! class_exists( 'DRK_LITE_Field_number' ) ) {
 
 			echo wp_kses_post( $this->field_before() );
 			echo '<div class="drk_lite--wrap">';
-			echo '<input type="number" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $this->value ) . '"' . wp_kses_data($this->field_attributes()) . ' min="' . esc_attr( $args['min'] ) . '" max="' . esc_attr( $args['max'] ) . '" step="' . esc_attr( $args['step'] ) . '"/>';
+			echo '<input type="number" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $this->value ) . '"' . wp_kses_post( $this->field_attributes() ) . ' min="' . esc_attr( $args['min'] ) . '" max="' . esc_attr( $args['max'] ) . '" step="' . esc_attr( $args['step'] ) . '"/>';
 			echo ( ! empty( $args['unit'] ) ) ? '<span class="drk_lite--unit">' . esc_attr( $args['unit'] ) . '</span>' : '';
 			echo '</div>';
 			echo wp_kses_post( $this->field_after() );
@@ -49,11 +46,11 @@ if ( ! class_exists( 'DRK_LITE_Field_number' ) ) {
 				foreach ( $elements as $key_property => $element ) {
 					if ( is_numeric( $key_property ) ) {
 						if ( $mode ) {
-								$output = implode( ',', $elements ) . '{' . $mode . ':' . esc_attr( $this->value ) . $unit . $important . ';}';
+								$output = implode( ',', $elements ) . '{' . $mode . ':' . $this->value . $unit . $important . ';}';
 						}
 						break;
 					} else {
-						$output .= $element . '{' . $key_property . ':' . esc_attr( $this->value ) . $unit . $important . '}';
+						$output .= $element . '{' . $key_property . ':' . $this->value . $unit . $important . '}';
 					}
 				}
 			}

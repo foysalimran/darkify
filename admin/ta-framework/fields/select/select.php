@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: select
@@ -11,9 +10,7 @@
 if ( ! class_exists( 'DRK_LITE_Field_select' ) ) {
 	class DRK_LITE_Field_select extends DRK_LITE_Fields {
 
-
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -56,7 +53,7 @@ if ( ! class_exists( 'DRK_LITE_Field_select' ) ) {
 				$field_name       = $this->field_name( $multiple_name );
 				$field_attr       = $this->field_attributes();
 				$maybe_options    = $this->field['options'];
-				$chosen_data_attr = ( $args['chosen'] && ! empty( $args['settings'] ) ) ? ' data-chosen-settings="' . esc_attr( wp_json_encode( $args['settings'] ) ) . '"' : '';
+				$chosen_data_attr = ( $args['chosen'] && ! empty( $args['settings'] ) ) ? ' data-chosen-settings="' . esc_attr( json_encode( $args['settings'] ) ) . '"' : '';
 
 				if ( is_string( $maybe_options ) && ! empty( $args['chosen'] ) && ! empty( $args['ajax'] ) ) {
 					$options = $this->field_wp_query_data_title( $maybe_options, $this->value );
@@ -70,10 +67,9 @@ if ( ! class_exists( 'DRK_LITE_Field_select' ) ) {
 
 					if ( ! empty( $args['chosen'] ) && ! empty( $args['multiple'] ) ) {
 
-						echo '<select name="' . esc_attr( $field_name ) . '" class="drk_lite-hide-select hidden"' . esc_attr( $multiple_attr ) . wp_kses_data( $field_attr ) . '>';
-
+						echo '<select name="' . esc_attr($field_name) . '" class="drk_lite-hide-select hidden"' . wp_kses_post($multiple_attr . $field_attr) . '>';
 						foreach ( $this->value as $option_key ) {
-							echo '<option value="' . esc_attr( $option_key ) . '" selected>' . esc_attr( $option_key ) . '</option>';
+								echo '<option value="' . esc_attr( $option_key ) . '" selected>' . esc_attr( $option_key ) . '</option>';
 						}
 						echo '</select>';
 
@@ -83,7 +79,7 @@ if ( ! class_exists( 'DRK_LITE_Field_select' ) ) {
 					}
 
 					// These attributes has been serialized above.
-					echo '<select name="' . esc_attr( $field_name ) . '"' . esc_attr( $field_class ) . esc_attr( $multiple_attr ) . esc_attr( $placeholder_attr ) . esc_attr( $field_attr ) . esc_attr( $chosen_data_attr ) . '>';
+					echo '<select name="' . esc_attr( $field_name ) . '"' . wp_kses_post($field_class . $multiple_attr . $placeholder_attr . $field_attr . $chosen_data_attr) . '>';
 
 					if ( $args['placeholder'] && empty( $args['multiple'] ) ) {
 						if ( ! empty( $args['chosen'] ) ) {
@@ -116,7 +112,7 @@ if ( ! class_exists( 'DRK_LITE_Field_select' ) ) {
 
 				} else {
 
-					echo ( ! empty( $this->field['empty_message'] ) ) ? esc_attr( $this->field['empty_message'] ) : esc_html__( 'No data available.', 'chat-skype' );
+					echo ( ! empty( $this->field['empty_message'] ) ) ? esc_attr( $this->field['empty_message'] ) : esc_html__( 'No data available.', 'ta-framework' );
 
 				}
 			}
@@ -127,7 +123,7 @@ if ( ! class_exists( 'DRK_LITE_Field_select' ) ) {
 		public function enqueue() {
 
 			if ( ! wp_script_is( 'jquery-ui-sortable' ) ) {
-					wp_enqueue_script( 'jquery-ui-sortable' );
+				wp_enqueue_script( 'jquery-ui-sortable' );
 			}
 		}
 	}

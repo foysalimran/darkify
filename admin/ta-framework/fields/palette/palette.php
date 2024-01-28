@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: palette
@@ -11,9 +10,7 @@
 if ( ! class_exists( 'DRK_LITE_Field_palette' ) ) {
 	class DRK_LITE_Field_palette extends DRK_LITE_Fields {
 
-
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -38,12 +35,12 @@ if ( ! class_exists( 'DRK_LITE_Field_palette' ) ) {
 
 						foreach ( $colors as $color ) {
 
-							echo '<span style="background-color: ' . esc_attr( $color ) . ';"></span>';
+								echo '<span style="background-color: ' . esc_attr( $color ) . ';"></span>';
 
 						}
 					}
 
-					echo '<input type="radio" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $key ) . '"' . wp_kses_data($this->field_attributes()) . esc_attr( $checked ) . '/>';
+					echo '<input type="radio" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $key ) . '"' . wp_kses_post( $this->field_attributes() ) . esc_attr( $checked ) . '/>';
 					echo '</div>';
 
 				}

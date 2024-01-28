@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: image_select
@@ -11,9 +10,7 @@
 if ( ! class_exists( 'DRK_LITE_Field_image_select' ) ) {
 	class DRK_LITE_Field_image_select extends DRK_LITE_Fields {
 
-
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -42,15 +39,15 @@ if ( ! class_exists( 'DRK_LITE_Field_image_select' ) ) {
 
 				foreach ( $args['options'] as $key => $option ) {
 
-					$type       = ( $args['multiple'] ) ? 'checkbox' : 'radio';
-						$extra  = ( $args['multiple'] ) ? '[]' : '';
-						$active = ( in_array( $key, $value ) ) ? ' drk_lite--active' : '';
-					$checked    = ( in_array( $key, $value ) ) ? ' checked' : '';
+					$type    = ( $args['multiple'] ) ? 'checkbox' : 'radio';
+					$extra   = ( $args['multiple'] ) ? '[]' : '';
+					$active  = ( in_array( $key, $value ) ) ? ' drk_lite--active' : '';
+					$checked = ( in_array( $key, $value ) ) ? ' checked' : '';
 
 					echo '<div class="drk_lite--sibling drk_lite--image' . esc_attr( $active ) . '">';
 					echo '<figure>';
 						echo '<img src="' . esc_url( $option ) . '" alt="img-' . esc_attr( $num++ ) . '" />';
-						echo '<input type="' . esc_attr( $type ) . '" name="' . esc_attr( $this->field_name( $extra ) ) . '" value="' . esc_attr( $key ) . '"' . wp_kses_data($this->field_attributes()) . esc_attr( $checked ) . '/>';
+						echo '<input type="' . esc_attr( $type ) . '" name="' . esc_attr( $this->field_name( $extra ) ) . '" value="' . esc_attr( $key ) . '"' . wp_kses_post( $this->field_attributes() ) . esc_attr( $checked ) . '/>';
 					echo '</figure>';
 					echo '</div>';
 

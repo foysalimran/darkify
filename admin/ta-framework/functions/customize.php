@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * WP Customize custom panel
@@ -10,8 +9,7 @@
  */
 if ( ! class_exists( 'WP_Customize_Panel_DRK_LITE' ) && class_exists( 'WP_Customize_Panel' ) ) {
 	class WP_Customize_Panel_DRK_LITE extends WP_Customize_Panel {
-
-		public $type = 'chat-skype';
+		public $type = 'drk_lite';
 	}
 }
 
@@ -24,8 +22,7 @@ if ( ! class_exists( 'WP_Customize_Panel_DRK_LITE' ) && class_exists( 'WP_Custom
  */
 if ( ! class_exists( 'WP_Customize_Section_DRK_LITE' ) && class_exists( 'WP_Customize_Section' ) ) {
 	class WP_Customize_Section_DRK_LITE extends WP_Customize_Section {
-
-		public $type = 'chat-skype';
+		public $type = 'drk_lite';
 	}
 }
 
@@ -39,8 +36,7 @@ if ( ! class_exists( 'WP_Customize_Section_DRK_LITE' ) && class_exists( 'WP_Cust
 if ( ! class_exists( 'WP_Customize_Control_DRK_LITE' ) && class_exists( 'WP_Customize_Control' ) ) {
 	class WP_Customize_Control_DRK_LITE extends WP_Customize_Control {
 
-
-		public $type   = 'chat-skype';
+		public $type   = 'drk_lite';
 		public $field  = '';
 		public $unique = '';
 
@@ -85,7 +81,7 @@ if ( ! class_exists( 'WP_Customize_Control_DRK_LITE' ) && class_exists( 'WP_Cust
 			$id    = 'customize-control-' . str_replace( array( '[', ']' ), array( '-', '' ), $this->id );
 			$class = 'customize-control customize-control-' . $this->type . $visible;
 
-			echo '<li id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . '"' . wp_kses_data( $depend ) . '>';
+			echo '<li id="' . esc_attr( $id ) . '" class="' . esc_attr( $class ) . '"' . $depend . '>';
 			$this->render_field_content();
 			echo '</li>';
 		}
@@ -134,7 +130,7 @@ if ( ! class_exists( 'WP_Customize_Control_DRK_LITE' ) && class_exists( 'WP_Cust
 
 			$this->field['dependency'] = array();
 
-			echo '<div class="drk_lite-customize-field' . esc_attr( $class ) . '"' . esc_attr( $atts ) . '>';
+			echo '<div class="drk_lite-customize-field' . esc_attr( $class ) . '"' . wp_kses_post( $atts ) . '>';
 
 			DRK_LITE::field( $this->field, $this->value(), $this->unique, 'customize' );
 

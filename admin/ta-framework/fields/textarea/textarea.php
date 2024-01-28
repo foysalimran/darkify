@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: textarea
@@ -11,17 +10,15 @@
 if ( ! class_exists( 'DRK_LITE_Field_textarea' ) ) {
 	class DRK_LITE_Field_textarea extends DRK_LITE_Fields {
 
-
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
 		public function render() {
 
 			echo wp_kses_post( $this->field_before() );
-			echo esc_attr( $this->shortcoder() );
-			echo '<textarea name="' . esc_attr( $this->field_name() ) . '"' . wp_kses_data($this->field_attributes()) . '>' . esc_attr( $this->value ) . '</textarea>';
+			echo wp_kses_post($this->shortcoder());
+			echo '<textarea name="' . esc_attr( $this->field_name() ) . '"' . wp_kses_post( $this->field_attributes() ) . '>' . wp_kses_post($this->value) . '</textarea>';
 			echo wp_kses_post( $this->field_after() );
 		}
 

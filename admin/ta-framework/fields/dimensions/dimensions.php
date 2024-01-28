@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: dimensions
@@ -11,9 +10,7 @@
 if ( ! class_exists( 'DRK_LITE_Field_dimensions' ) ) {
 	class DRK_LITE_Field_dimensions extends DRK_LITE_Fields {
 
-
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -24,8 +21,8 @@ if ( ! class_exists( 'DRK_LITE_Field_dimensions' ) ) {
 				array(
 					'width_icon'         => '<i class="fas fa-arrows-alt-h"></i>',
 					'height_icon'        => '<i class="fas fa-arrows-alt-v"></i>',
-					'width_placeholder'  => esc_html__( 'width', 'chat-skype' ),
-					'height_placeholder' => esc_html__( 'height', 'chat-skype' ),
+					'width_placeholder'  => esc_html__( 'width', 'ta-framework' ),
+					'height_placeholder' => esc_html__( 'height', 'ta-framework' ),
 					'width'              => true,
 					'height'             => true,
 					'unit'               => true,
@@ -51,8 +48,8 @@ if ( ! class_exists( 'DRK_LITE_Field_dimensions' ) ) {
 			if ( ! empty( $args['width'] ) ) {
 				$placeholder = ( ! empty( $args['width_placeholder'] ) ) ? ' placeholder="' . esc_attr( $args['width_placeholder'] ) . '"' : '';
 				echo '<div class="drk_lite--input">';
-				echo ( ! empty( $args['width_icon'] ) ) ? '<span class="drk_lite--label drk_lite--icon">' . wp_kses_post( $args['width_icon'] ) . '</span>' : '';
-				echo '<input type="number" name="' . esc_attr( $this->field_name( '[width]' ) ) . '" value="' . esc_attr( $value['width'] ) . '"' . esc_attr( $placeholder ) . ' class="drk_lite-input-number' . esc_attr( $is_unit ) . '" step="any" />';
+				echo ( ! empty( $args['width_icon'] ) ) ? '<span class="drk_lite--label drk_lite--icon">' . wp_kses_post($args['width_icon']) . '</span>' : '';
+				echo '<input type="number" name="' . esc_attr( $this->field_name( '[width]' ) ) . '" value="' . esc_attr( $value['width'] ) . '"' . wp_kses_post($placeholder) . ' class="drk_lite-input-number' . esc_attr( $is_unit ) . '" step="any" />';
 				echo ( ! empty( $unit ) ) ? '<span class="drk_lite--label drk_lite--unit">' . esc_attr( $args['units'][0] ) . '</span>' : '';
 				echo '</div>';
 			}
@@ -61,14 +58,14 @@ if ( ! class_exists( 'DRK_LITE_Field_dimensions' ) ) {
 				$placeholder = ( ! empty( $args['height_placeholder'] ) ) ? ' placeholder="' . esc_attr( $args['height_placeholder'] ) . '"' : '';
 				echo '<div class="drk_lite--input">';
 				echo ( ! empty( $args['height_icon'] ) ) ? '<span class="drk_lite--label drk_lite--icon">' . wp_kses_post($args['height_icon']) . '</span>' : '';
-				echo '<input type="number" name="' . esc_attr( $this->field_name( '[height]' ) ) . '" value="' . esc_attr( $value['height'] ) . '"' . esc_attr( $placeholder ) . ' class="drk_lite-input-number' . esc_attr( $is_unit ) . '" step="any" />';
+				echo '<input type="number" name="' . esc_attr( $this->field_name( '[height]' ) ) . '" value="' . esc_attr( $value['height'] ) . '"' . wp_kses_post($placeholder) . ' class="drk_lite-input-number' . esc_attr( $is_unit ) . '" step="any" />';
 				echo ( ! empty( $unit ) ) ? '<span class="drk_lite--label drk_lite--unit">' . esc_attr( $args['units'][0] ) . '</span>' : '';
 				echo '</div>';
 			}
 
 			if ( ! empty( $args['unit'] ) && ! empty( $args['show_units'] ) && count( $args['units'] ) > 1 ) {
-					echo '<div class="drk_lite--input">';
-					echo '<select name="' . esc_attr( $this->field_name( '[unit]' ) ) . '">';
+				echo '<div class="drk_lite--input">';
+				echo '<select name="' . esc_attr( $this->field_name( '[unit]' ) ) . '">';
 				foreach ( $args['units'] as $unit ) {
 					$selected = ( $value['unit'] === $unit ) ? ' selected' : '';
 					echo '<option value="' . esc_attr( $unit ) . '"' . esc_attr( $selected ) . '>' . esc_attr( $unit ) . '</option>';

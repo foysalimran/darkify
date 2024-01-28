@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: color
@@ -11,9 +10,7 @@
 if ( ! class_exists( 'DRK_LITE_Field_color' ) ) {
 	class DRK_LITE_Field_color extends DRK_LITE_Fields {
 
-
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -22,7 +19,7 @@ if ( ! class_exists( 'DRK_LITE_Field_color' ) ) {
 			$default_attr = ( ! empty( $this->field['default'] ) ) ? ' data-default-color="' . esc_attr( $this->field['default'] ) . '"' : '';
 
 			echo wp_kses_post( $this->field_before() );
-			echo '<input type="text" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $this->value ) . '" class="drk_lite-color"' . esc_attr( $default_attr ) . wp_kses_data($this->field_attributes()) . '/>';
+			echo '<input type="text" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $this->value ) . '" class="drk_lite-color"' . wp_kses_post($default_attr) . wp_kses_post( $this->field_attributes() ) . '/>';
 			echo wp_kses_post( $this->field_after() );
 		}
 
@@ -36,10 +33,10 @@ if ( ! class_exists( 'DRK_LITE_Field_color' ) ) {
 			if ( ! empty( $elements ) && isset( $this->value ) && $this->value !== '' ) {
 				foreach ( $elements as $key_property => $element ) {
 					if ( is_numeric( $key_property ) ) {
-						$output = implode( ',', $elements ) . '{' . $mode . ':' . esc_attr( $this->value ) . $important . ';}';
+						$output = implode( ',', $elements ) . '{' . $mode . ':' . $this->value . $important . ';}';
 						break;
 					} else {
-						$output .= $element . '{' . $key_property . ':' . esc_attr( $this->value ) . $important . '}';
+						$output .= $element . '{' . $key_property . ':' . $this->value . $important . '}';
 					}
 				}
 			}

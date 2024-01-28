@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: spinner
@@ -11,9 +10,7 @@
 if ( ! class_exists( 'DRK_LITE_Field_spinner' ) ) {
 	class DRK_LITE_Field_spinner extends DRK_LITE_Fields {
 
-
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -31,7 +28,7 @@ if ( ! class_exists( 'DRK_LITE_Field_spinner' ) ) {
 
 			echo wp_kses_post( $this->field_before() );
 
-			echo '<div class="drk_lite--spin"><input type="number" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $this->value ) . '"' . $this->field_attributes( array( 'class' => 'drk_lite-input-number' ) ) . ' data-min="' . esc_attr( $args['min'] ) . '" data-max="' . esc_attr( $args['max'] ) . '" data-step="' . esc_attr( $args['step'] ) . '" data-unit="' . esc_attr( $args['unit'] ) . '" step="any" /></div>';
+			echo '<div class="drk_lite--spin"><input type="number" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $this->value ) . '"' . wp_kses_post($this->field_attributes( array( 'class' => 'drk_lite-input-number' ) )) . ' data-min="' . esc_attr( $args['min'] ) . '" data-max="' . esc_attr( $args['max'] ) . '" data-step="' . esc_attr( $args['step'] ) . '" data-unit="' . esc_attr( $args['unit'] ) . '" step="any" /></div>';
 
 			echo wp_kses_post( $this->field_after() );
 		}
@@ -55,11 +52,11 @@ if ( ! class_exists( 'DRK_LITE_Field_spinner' ) ) {
 				foreach ( $elements as $key_property => $element ) {
 					if ( is_numeric( $key_property ) ) {
 						if ( $mode ) {
-							$output = implode( ',', $elements ) . '{' . $mode . ':' . esc_attr( $this->value ) . $unit . $important . ';}';
+								$output = implode( ',', $elements ) . '{' . $mode . ':' . $this->value . $unit . $important . ';}';
 						}
 						break;
 					} else {
-						$output .= $element . '{' . $key_property . ':' . esc_attr( $this->value ) . $unit . $important . '}';
+						$output .= $element . '{' . $key_property . ':' . $this->value . $unit . $important . '}';
 					}
 				}
 			}

@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: group
@@ -11,9 +10,7 @@
 if ( ! class_exists( 'DRK_LITE_Field_group' ) ) {
 	class DRK_LITE_Field_group extends DRK_LITE_Fields {
 
-
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -25,7 +22,7 @@ if ( ! class_exists( 'DRK_LITE_Field_group' ) ) {
 					'max'                       => 0,
 					'min'                       => 0,
 					'fields'                    => array(),
-					'button_title'              => esc_html__( 'Add New', 'chat-skype' ),
+					'button_title'              => esc_html__( 'Add New', 'ta-framework' ),
 					'accordion_title_prefix'    => '',
 					'accordion_title_number'    => false,
 					'accordion_title_auto'      => true,
@@ -44,7 +41,7 @@ if ( ! class_exists( 'DRK_LITE_Field_group' ) ) {
 
 			if ( preg_match( '/' . preg_quote( '[' . $this->field['id'] . ']' ) . '/', $this->unique ) ) {
 
-				echo '<div class="drk_lite-notice drk_lite-notice-danger">' . esc_html__( 'Error: Field ID conflict.', 'chat-skype' ) . '</div>';
+				echo '<div class="drk_lite-notice drk_lite-notice-danger">' . esc_html__( 'Error: Field ID conflict.', 'ta-framework' ) . '</div>';
 
 			} else {
 
@@ -53,20 +50,20 @@ if ( ! class_exists( 'DRK_LITE_Field_group' ) ) {
 				echo '<div class="drk_lite-cloneable-item drk_lite-cloneable-hidden" data-depend-id="' . esc_attr( $this->field['id'] ) . '">';
 
 				echo '<div class="drk_lite-cloneable-helper">';
-					echo '<i class="drk_lite-cloneable-sort fas fa-arrows-alt"></i>';
+				echo '<i class="drk_lite-cloneable-sort fas fa-arrows-alt"></i>';
 				echo '<i class="drk_lite-cloneable-clone far fa-clone"></i>';
-				echo '<i class="drk_lite-cloneable-remove drk_lite-confirm fas fa-times" data-confirm="' . esc_html__( 'Are you sure to delete this item?', 'chat-skype' ) . '"></i>';
+				echo '<i class="drk_lite-cloneable-remove drk_lite-confirm fas fa-times" data-confirm="' . esc_html__( 'Are you sure to delete this item?', 'ta-framework' ) . '"></i>';
 				echo '</div>';
 
 				echo '<h4 class="drk_lite-cloneable-title">';
 				echo '<span class="drk_lite-cloneable-text">';
 				echo ( $title_number ) ? '<span class="drk_lite-cloneable-title-number"></span>' : '';
 				echo ( $title_prefix ) ? '<span class="drk_lite-cloneable-title-prefix">' . esc_attr( $title_prefix ) . '</span>' : '';
-					echo ( $title_auto ) ? '<span class="drk_lite-cloneable-value"><span class="drk_lite-cloneable-placeholder"></span></span>' : '';
+				echo ( $title_auto ) ? '<span class="drk_lite-cloneable-value"><span class="drk_lite-cloneable-placeholder"></span></span>' : '';
 				echo '</span>';
 				echo '</h4>';
 
-					echo '<div class="drk_lite-cloneable-content">';
+				echo '<div class="drk_lite-cloneable-content">';
 				foreach ( $this->field['fields'] as $field ) {
 
 					$field_default = ( isset( $field['default'] ) ) ? $field['default'] : '';
@@ -79,7 +76,7 @@ if ( ! class_exists( 'DRK_LITE_Field_group' ) ) {
 
 				echo '</div>';
 
-				echo '<div class="drk_lite-cloneable-wrapper drk_lite-data-wrapper" data-title-by="' . esc_attr( wp_json_encode( $title_by ) ) . '" data-title-by-prefix="' . esc_attr( $title_by_prefix ) . '" data-title-number="' . esc_attr( $title_number ) . '" data-field-id="[' . esc_attr( $this->field['id'] ) . ']" data-max="' . esc_attr( $args['max'] ) . '" data-min="' . esc_attr( $args['min'] ) . '">';
+				echo '<div class="drk_lite-cloneable-wrapper drk_lite-data-wrapper" data-title-by="' . esc_attr( json_encode( $title_by ) ) . '" data-title-by-prefix="' . esc_attr( $title_by_prefix ) . '" data-title-number="' . esc_attr( $title_number ) . '" data-field-id="[' . esc_attr( $this->field['id'] ) . ']" data-max="' . esc_attr( $args['max'] ) . '" data-min="' . esc_attr( $args['min'] ) . '">';
 
 				if ( ! empty( $this->value ) ) {
 
@@ -110,7 +107,7 @@ if ( ! class_exists( 'DRK_LITE_Field_group' ) ) {
 						echo '<div class="drk_lite-cloneable-helper">';
 						echo '<i class="drk_lite-cloneable-sort fas fa-arrows-alt"></i>';
 						echo '<i class="drk_lite-cloneable-clone far fa-clone"></i>';
-						echo '<i class="drk_lite-cloneable-remove drk_lite-confirm fas fa-times" data-confirm="' . esc_html__( 'Are you sure to delete this item?', 'chat-skype' ) . '"></i>';
+						echo '<i class="drk_lite-cloneable-remove drk_lite-confirm fas fa-times" data-confirm="' . esc_html__( 'Are you sure to delete this item?', 'ta-framework' ) . '"></i>';
 						echo '</div>';
 
 						echo '<h4 class="drk_lite-cloneable-title">';
@@ -143,8 +140,8 @@ if ( ! class_exists( 'DRK_LITE_Field_group' ) ) {
 
 				echo '</div>';
 
-				echo '<div class="drk_lite-cloneable-alert drk_lite-cloneable-max">' . esc_html__( 'You cannot add more.', 'chat-skype' ) . '</div>';
-				echo '<div class="drk_lite-cloneable-alert drk_lite-cloneable-min">' . esc_html__( 'You cannot remove more.', 'chat-skype' ) . '</div>';
+				echo '<div class="drk_lite-cloneable-alert drk_lite-cloneable-max">' . esc_html__( 'You cannot add more.', 'ta-framework' ) . '</div>';
+				echo '<div class="drk_lite-cloneable-alert drk_lite-cloneable-min">' . esc_html__( 'You cannot remove more.', 'ta-framework' ) . '</div>';
 				echo '<a href="#" class="button button-primary drk_lite-cloneable-add">' . esc_html( $args['button_title'] ) . '</a>';
 
 				echo wp_kses_post( $this->field_after() );

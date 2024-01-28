@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: border
@@ -11,9 +10,7 @@
 if ( ! class_exists( 'DRK_LITE_Field_border' ) ) {
 	class DRK_LITE_Field_border extends DRK_LITE_Fields {
 
-
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -27,11 +24,11 @@ if ( ! class_exists( 'DRK_LITE_Field_border' ) ) {
 					'bottom_icon'        => '<i class="fas fa-long-arrow-alt-down"></i>',
 					'right_icon'         => '<i class="fas fa-long-arrow-alt-right"></i>',
 					'all_icon'           => '<i class="fas fa-arrows-alt"></i>',
-					'top_placeholder'    => esc_html__( 'top', 'chat-skype' ),
-					'right_placeholder'  => esc_html__( 'right', 'chat-skype' ),
-					'bottom_placeholder' => esc_html__( 'bottom', 'chat-skype' ),
-					'left_placeholder'   => esc_html__( 'left', 'chat-skype' ),
-					'all_placeholder'    => esc_html__( 'all', 'chat-skype' ),
+					'top_placeholder'    => esc_html__( 'top', 'ta-framework' ),
+					'right_placeholder'  => esc_html__( 'right', 'ta-framework' ),
+					'bottom_placeholder' => esc_html__( 'bottom', 'ta-framework' ),
+					'left_placeholder'   => esc_html__( 'left', 'ta-framework' ),
+					'all_placeholder'    => esc_html__( 'all', 'ta-framework' ),
 					'top'                => true,
 					'left'               => true,
 					'bottom'             => true,
@@ -54,15 +51,15 @@ if ( ! class_exists( 'DRK_LITE_Field_border' ) ) {
 			);
 
 			$border_props = array(
-				'solid'  => esc_html__( 'Solid', 'chat-skype' ),
-				'dashed' => esc_html__( 'Dashed', 'chat-skype' ),
-				'dotted' => esc_html__( 'Dotted', 'chat-skype' ),
-				'double' => esc_html__( 'Double', 'chat-skype' ),
-				'inset'  => esc_html__( 'Inset', 'chat-skype' ),
-				'outset' => esc_html__( 'Outset', 'chat-skype' ),
-				'groove' => esc_html__( 'Groove', 'chat-skype' ),
-				'ridge'  => esc_html__( 'ridge', 'chat-skype' ),
-				'none'   => esc_html__( 'None', 'chat-skype' ),
+				'solid'  => esc_html__( 'Solid', 'ta-framework' ),
+				'dashed' => esc_html__( 'Dashed', 'ta-framework' ),
+				'dotted' => esc_html__( 'Dotted', 'ta-framework' ),
+				'double' => esc_html__( 'Double', 'ta-framework' ),
+				'inset'  => esc_html__( 'Inset', 'ta-framework' ),
+				'outset' => esc_html__( 'Outset', 'ta-framework' ),
+				'groove' => esc_html__( 'Groove', 'ta-framework' ),
+				'ridge'  => esc_html__( 'ridge', 'ta-framework' ),
+				'none'   => esc_html__( 'None', 'ta-framework' ),
 			);
 
 			$default_value = ( ! empty( $this->field['default'] ) ) ? wp_parse_args( $this->field['default'], $default_value ) : $default_value;
@@ -78,8 +75,8 @@ if ( ! class_exists( 'DRK_LITE_Field_border' ) ) {
 				$placeholder = ( ! empty( $args['all_placeholder'] ) ) ? ' placeholder="' . esc_attr( $args['all_placeholder'] ) . '"' : '';
 
 				echo '<div class="drk_lite--input">';
-				echo ( ! empty( $args['all_icon'] ) ) ? '<span class="drk_lite--label drk_lite--icon">' . wp_kses_post( $args['all_icon'] ) . '</span>' : '';
-				echo '<input type="number" name="' . esc_attr( $this->field_name( '[all]' ) ) . '" value="' . esc_attr( $value['all'] ) . '"' . esc_attr( $placeholder ) . ' class="drk_lite-input-number drk_lite--is-unit" step="any" />';
+				echo ( ! empty( $args['all_icon'] ) ) ? '<span class="drk_lite--label drk_lite--icon">' . wp_kses_post($args['all_icon']) . '</span>' : '';
+				echo '<input type="number" name="' . esc_attr( $this->field_name( '[all]' ) ) . '" value="' . esc_attr( $value['all'] ) . '"' . wp_kses_post($placeholder) . ' class="drk_lite-input-number drk_lite--is-unit" step="any" />';
 				echo ( ! empty( $args['unit'] ) ) ? '<span class="drk_lite--label drk_lite--unit">' . esc_attr( $args['unit'] ) . '</span>' : '';
 				echo '</div>';
 
@@ -89,7 +86,7 @@ if ( ! class_exists( 'DRK_LITE_Field_border' ) ) {
 
 				foreach ( array( 'top', 'right', 'bottom', 'left' ) as $prop ) {
 					if ( ! empty( $args[ $prop ] ) ) {
-							$properties[] = $prop;
+						$properties[] = $prop;
 					}
 				}
 
@@ -100,8 +97,8 @@ if ( ! class_exists( 'DRK_LITE_Field_border' ) ) {
 					$placeholder = ( ! empty( $args[ $property . '_placeholder' ] ) ) ? ' placeholder="' . esc_attr( $args[ $property . '_placeholder' ] ) . '"' : '';
 
 					echo '<div class="drk_lite--input">';
-					echo ( ! empty( $args[ $property . '_icon' ] ) ) ? '<span class="drk_lite--label drk_lite--icon">' . wp_kses_post( $args[ $property . '_icon' ] ) . '</span>' : '';
-					echo '<input type="number" name="' . esc_attr( $this->field_name( '[' . $property . ']' ) ) . '" value="' . esc_attr( $value[ $property ] ) . '"' . esc_attr( $placeholder ) . ' class="drk_lite-input-number drk_lite--is-unit" step="any" />';
+					echo ( ! empty( $args[ $property . '_icon' ] ) ) ? '<span class="drk_lite--label drk_lite--icon">' . wp_kses_post($args[ $property . '_icon' ]) . '</span>' : '';
+					echo '<input type="number" name="' . esc_attr( $this->field_name( '[' . $property . ']' ) ) . '" value="' . esc_attr( $value[ $property ] ) . '"' . wp_kses_post($placeholder) . ' class="drk_lite-input-number drk_lite--is-unit" step="any" />';
 					echo ( ! empty( $args['unit'] ) ) ? '<span class="drk_lite--label drk_lite--unit">' . esc_attr( $args['unit'] ) . '</span>' : '';
 					echo '</div>';
 
@@ -125,7 +122,7 @@ if ( ! class_exists( 'DRK_LITE_Field_border' ) ) {
 				$default_color_attr = ( ! empty( $default_value['color'] ) ) ? ' data-default-color="' . esc_attr( $default_value['color'] ) . '"' : '';
 				echo '<div class="drk_lite--color">';
 				echo '<div class="drk_lite-field-color">';
-				echo '<input type="text" name="' . esc_attr( $this->field_name( '[color]' ) ) . '" value="' . esc_attr( $value['color'] ) . '" class="drk_lite-color"' . $default_color_attr . ' />';
+				echo '<input type="text" name="' . esc_attr( $this->field_name( '[color]' ) ) . '" value="' . esc_attr( $value['color'] ) . '" class="drk_lite-color"' . wp_kses_post($default_color_attr) . ' />';
 				echo '</div>';
 				echo '</div>';
 			}

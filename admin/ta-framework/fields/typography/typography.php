@@ -1,11 +1,5 @@
-<?php
-/**
- * @typography
- */
-
-if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+<?php if ( ! defined( 'ABSPATH' ) ) {
+	die; } // Cannot access directly.
 /**
  *
  * Field: typography
@@ -16,13 +10,11 @@ if ( ! defined( 'ABSPATH' ) ) {
 if ( ! class_exists( 'DRK_LITE_Field_typography' ) ) {
 	class DRK_LITE_Field_typography extends DRK_LITE_Fields {
 
-
 		public $chosen = false;
 
 		public $value = array();
 
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -101,26 +93,19 @@ if ( ! class_exists( 'DRK_LITE_Field_typography' ) ) {
 			echo '<div class="drk_lite--blocks drk_lite--blocks-selects">';
 
 			//
-			// Font Family.
-			if ( ! empty( $args['font_family'] ) ) {
+			// Font Family
+			if ( ! empty( $args['font_family'] ) ) {	
 				echo '<div class="drk_lite--block">';
-				echo '<div class="drk_lite--title">' . esc_html__( 'Font Family', 'chat-skype' ) . '</div>';
-				echo $this->create_select(
-					array(
-						esc_attr( $this->value['font-family'] ) => esc_html( $this->value['font-family'] ),
-					),
-					'font-family',
-					esc_html__( 'Select a font', 'chat-skype' )
-				);
-				
+				echo '<div class="drk_lite--title">' . esc_html__( 'Font Family', 'ta-framework' ) . '</div>';
+				echo $this->create_select( array( $this->value['font-family'] => $this->value['font-family'] ), 'font-family', esc_html__( 'Select a font', 'ta-framework' ) );
 				echo '</div>';
 			}
 
 			//
-			// Backup Font Family.
+			// Backup Font Family
 			if ( ! empty( $args['backup_font_family'] ) ) {
 				echo '<div class="drk_lite--block drk_lite--block-backup-font-family hidden">';
-				echo '<div class="drk_lite--title">' . esc_html__( 'Backup Font Family', 'chat-skype' ) . '</div>';
+				echo '<div class="drk_lite--title">' . esc_html__( 'Backup Font Family', 'ta-framework' ) . '</div>';
 				echo $this->create_select(
 					apply_filters(
 						'drk_lite_field_typography_backup_font_family',
@@ -140,21 +125,21 @@ if ( ! class_exists( 'DRK_LITE_Field_typography' ) ) {
 						)
 					),
 					'backup-font-family',
-					esc_html__( 'Default', 'chat-skype' )
+					esc_html__( 'Default', 'ta-framework' )
 				);
 				echo '</div>';
 			}
 
 			//
-			// Font Style and Extra Style Select.
+			// Font Style and Extra Style Select
 			if ( ! empty( $args['font_weight'] ) || ! empty( $args['font_style'] ) ) {
 
 				//
-				// Font Style Select.
+				// Font Style Select
 				echo '<div class="drk_lite--block drk_lite--block-font-style hidden">';
-				echo '<div class="drk_lite--title">' . esc_html__( 'Font Style', 'chat-skype' ) . '</div>';
+				echo '<div class="drk_lite--title">' . esc_html__( 'Font Style', 'ta-framework' ) . '</div>';
 				echo '<select class="drk_lite--font-style-select" data-placeholder="Default">';
-				echo '<option value="">' . ( ! $this->chosen ? esc_html__( 'Default', 'chat-skype' ) : '' ) . '</option>';
+				echo '<option value="">' . ( ! $this->chosen ? esc_html__( 'Default', 'ta-framework' ) : '' ) . '</option>';
 				if ( ! empty( $this->value['font-weight'] ) || ! empty( $this->value['font-style'] ) ) {
 					echo '<option value="' . esc_attr( strtolower( $this->value['font-weight'] . $this->value['font-style'] ) ) . '" selected></option>';
 				}
@@ -163,12 +148,12 @@ if ( ! class_exists( 'DRK_LITE_Field_typography' ) ) {
 				echo '<input type="hidden" name="' . esc_attr( $this->field_name( '[font-style]' ) ) . '" class="drk_lite--font-style" value="' . esc_attr( $this->value['font-style'] ) . '" />';
 
 				//
-				// Extra Font Style Select.
+				// Extra Font Style Select
 				if ( ! empty( $args['extra_styles'] ) ) {
 					echo '<div class="drk_lite--block-extra-styles hidden">';
-					echo ( ! $this->chosen ) ? '<div class="drk_lite--title">' . esc_html__( 'Load Extra Styles', 'chat-skype' ) . '</div>' : '';
-					$placeholder = ( $this->chosen ) ? esc_html__( 'Load Extra Styles', 'chat-skype' ) : esc_html__( 'Default', 'chat-skype' );
-					echo $this->create_select( $this->value['extra-styles'], 'extra-styles', esc_attr( $placeholder ), true );
+					echo ( ! $this->chosen ) ? '<div class="drk_lite--title">' . esc_html__( 'Load Extra Styles', 'ta-framework' ) . '</div>' : '';
+					$placeholder = ( $this->chosen ) ? esc_html__( 'Load Extra Styles', 'ta-framework' ) : esc_html__( 'Default', 'ta-framework' );
+					echo $this->create_select( $this->value['extra-styles'], 'extra-styles', $placeholder, true );
 					echo '</div>';
 				}
 
@@ -177,89 +162,89 @@ if ( ! class_exists( 'DRK_LITE_Field_typography' ) ) {
 			}
 
 			//
-			// Subset.
+			// Subset
 			if ( ! empty( $args['subset'] ) ) {
-					echo '<div class="drk_lite--block drk_lite--block-subset hidden">';
-				echo '<div class="drk_lite--title">' . esc_html__( 'Subset', 'chat-skype' ) . '</div>';
+				echo '<div class="drk_lite--block drk_lite--block-subset hidden">';
+				echo '<div class="drk_lite--title">' . esc_html__( 'Subset', 'ta-framework' ) . '</div>';
 				$subset = ( is_array( $this->value['subset'] ) ) ? $this->value['subset'] : array_filter( (array) $this->value['subset'] );
-					echo $this->create_select( $subset, 'subset', esc_html__( 'Default', 'chat-skype' ), esc_attr($args['multi_subset']) );
+				echo $this->create_select( $subset, 'subset', esc_html__( 'Default', 'ta-framework' ), $args['multi_subset'] );
 				echo '</div>';
 			}
 
 			//
-			// Text Align.
+			// Text Align
 			if ( ! empty( $args['text_align'] ) ) {
-					echo '<div class="drk_lite--block">';
-					echo '<div class="drk_lite--title">' . esc_html__( 'Text Align', 'chat-skype' ) . '</div>';
+				echo '<div class="drk_lite--block">';
+				echo '<div class="drk_lite--title">' . esc_html__( 'Text Align', 'ta-framework' ) . '</div>';
 				echo $this->create_select(
 					array(
-						'inherit' => esc_html__( 'Inherit', 'chat-skype' ),
-						'left'    => esc_html__( 'Left', 'chat-skype' ),
-						'center'  => esc_html__( 'Center', 'chat-skype' ),
-						'right'   => esc_html__( 'Right', 'chat-skype' ),
-						'justify' => esc_html__( 'Justify', 'chat-skype' ),
-						'initial' => esc_html__( 'Initial', 'chat-skype' ),
+						'inherit' => esc_html__( 'Inherit', 'ta-framework' ),
+						'left'    => esc_html__( 'Left', 'ta-framework' ),
+						'center'  => esc_html__( 'Center', 'ta-framework' ),
+						'right'   => esc_html__( 'Right', 'ta-framework' ),
+						'justify' => esc_html__( 'Justify', 'ta-framework' ),
+						'initial' => esc_html__( 'Initial', 'ta-framework' ),
 					),
 					'text-align',
-					esc_html__( 'Default', 'chat-skype' )
+					esc_html__( 'Default', 'ta-framework' )
 				);
 				echo '</div>';
 			}
 
 			//
-			// Font Variant.
+			// Font Variant
 			if ( ! empty( $args['font_variant'] ) ) {
-					echo '<div class="drk_lite--block">';
-					echo '<div class="drk_lite--title">' . esc_html__( 'Font Variant', 'chat-skype' ) . '</div>';
-					echo $this->create_select(
-						array(
-							'normal'         => esc_html__( 'Normal', 'chat-skype' ),
-							'small-caps'     => esc_html__( 'Small Caps', 'chat-skype' ),
-							'all-small-caps' => esc_html__( 'All Small Caps', 'chat-skype' ),
-						),
-						'font-variant',
-						esc_html__( 'Default', 'chat-skype' )
-					);
-				echo '</div>';
-			}
-
-			//
-			// Text Transform.
-			if ( ! empty( $args['text_transform'] ) ) {
-					echo '<div class="drk_lite--block">';
-					echo '<div class="drk_lite--title">' . esc_html__( 'Text Transform', 'chat-skype' ) . '</div>';
+				echo '<div class="drk_lite--block">';
+				echo '<div class="drk_lite--title">' . esc_html__( 'Font Variant', 'ta-framework' ) . '</div>';
 				echo $this->create_select(
 					array(
-						'none'       => esc_html__( 'None', 'chat-skype' ),
-						'capitalize' => esc_html__( 'Capitalize', 'chat-skype' ),
-						'uppercase'  => esc_html__( 'Uppercase', 'chat-skype' ),
-						'lowercase'  => esc_html__( 'Lowercase', 'chat-skype' ),
+						'normal'         => esc_html__( 'Normal', 'ta-framework' ),
+						'small-caps'     => esc_html__( 'Small Caps', 'ta-framework' ),
+						'all-small-caps' => esc_html__( 'All Small Caps', 'ta-framework' ),
 					),
-					'text-transform',
-					esc_html__( 'Default', 'chat-skype' )
+					'font-variant',
+					esc_html__( 'Default', 'ta-framework' )
 				);
 				echo '</div>';
 			}
 
 			//
-			// Text Decoration.
+			// Text Transform
+			if ( ! empty( $args['text_transform'] ) ) {
+				echo '<div class="drk_lite--block">';
+				echo '<div class="drk_lite--title">' . esc_html__( 'Text Transform', 'ta-framework' ) . '</div>';
+				echo $this->create_select(
+					array(
+						'none'       => esc_html__( 'None', 'ta-framework' ),
+						'capitalize' => esc_html__( 'Capitalize', 'ta-framework' ),
+						'uppercase'  => esc_html__( 'Uppercase', 'ta-framework' ),
+						'lowercase'  => esc_html__( 'Lowercase', 'ta-framework' ),
+					),
+					'text-transform',
+					esc_html__( 'Default', 'ta-framework' )
+				);
+				echo '</div>';
+			}
+
+			//
+			// Text Decoration
 			if ( ! empty( $args['text_decoration'] ) ) {
-					echo '<div class="drk_lite--block">';
-					echo '<div class="drk_lite--title">' . esc_html__( 'Text Decoration', 'chat-skype' ) . '</div>';
-					echo $this->create_select(
-						array(
-							'none'               => esc_html__( 'None', 'chat-skype' ),
-							'underline'          => esc_html__( 'Solid', 'chat-skype' ),
-							'underline double'   => esc_html__( 'Double', 'chat-skype' ),
-							'underline dotted'   => esc_html__( 'Dotted', 'chat-skype' ),
-							'underline dashed'   => esc_html__( 'Dashed', 'chat-skype' ),
-							'underline wavy'     => esc_html__( 'Wavy', 'chat-skype' ),
-							'underline overline' => esc_html__( 'Overline', 'chat-skype' ),
-							'line-through'       => esc_html__( 'Line-through', 'chat-skype' ),
-						),
-						'text-decoration',
-						esc_html__( 'Default', 'chat-skype' )
-					);
+				echo '<div class="drk_lite--block">';
+				echo '<div class="drk_lite--title">' . esc_html__( 'Text Decoration', 'ta-framework' ) . '</div>';
+				echo $this->create_select(
+					array(
+						'none'               => esc_html__( 'None', 'ta-framework' ),
+						'underline'          => esc_html__( 'Solid', 'ta-framework' ),
+						'underline double'   => esc_html__( 'Double', 'ta-framework' ),
+						'underline dotted'   => esc_html__( 'Dotted', 'ta-framework' ),
+						'underline dashed'   => esc_html__( 'Dashed', 'ta-framework' ),
+						'underline wavy'     => esc_html__( 'Wavy', 'ta-framework' ),
+						'underline overline' => esc_html__( 'Overline', 'ta-framework' ),
+						'line-through'       => esc_html__( 'Line-through', 'ta-framework' ),
+					),
+					'text-decoration',
+					esc_html__( 'Default', 'ta-framework' )
+				);
 				echo '</div>';
 			}
 
@@ -268,85 +253,85 @@ if ( ! class_exists( 'DRK_LITE_Field_typography' ) ) {
 			echo '<div class="drk_lite--blocks drk_lite--blocks-inputs">';
 
 			//
-			// Font Size.
+			// Font Size
 			if ( ! empty( $args['font_size'] ) ) {
-					echo '<div class="drk_lite--block">';
-					echo '<div class="drk_lite--title">' . esc_html__( 'Font Size', 'chat-skype' ) . '</div>';
-					echo '<div class="drk_lite--input-wrap">';
-					echo '<input type="number" name="' . esc_attr( $this->field_name( '[font-size]' ) ) . '" class="drk_lite--font-size drk_lite--input drk_lite-input-number" value="' . esc_attr( $this->value['font-size'] ) . '" step="any" />';
-					echo '<span class="drk_lite--unit">' . esc_attr( $args['unit'] ) . '</span>';
-					echo '</div>';
-					echo '</div>';
-			}
-
-			//
-			// Line Height.
-			if ( ! empty( $args['line_height'] ) ) {
-					echo '<div class="drk_lite--block">';
-					echo '<div class="drk_lite--title">' . esc_html__( 'Line Height', 'chat-skype' ) . '</div>';
-					echo '<div class="drk_lite--input-wrap">';
-					echo '<input type="number" name="' . esc_attr( $this->field_name( '[line-height]' ) ) . '" class="drk_lite--line-height drk_lite--input drk_lite-input-number" value="' . esc_attr( $this->value['line-height'] ) . '" step="any" />';
-					echo '<span class="drk_lite--unit">' . esc_attr( $line_height_unit ) . '</span>';
-					echo '</div>';
+				echo '<div class="drk_lite--block">';
+				echo '<div class="drk_lite--title">' . esc_html__( 'Font Size', 'ta-framework' ) . '</div>';
+				echo '<div class="drk_lite--input-wrap">';
+				echo '<input type="number" name="' . esc_attr( $this->field_name( '[font-size]' ) ) . '" class="drk_lite--font-size drk_lite--input drk_lite-input-number" value="' . esc_attr( $this->value['font-size'] ) . '" step="any" />';
+				echo '<span class="drk_lite--unit">' . esc_attr( $args['unit'] ) . '</span>';
+				echo '</div>';
 				echo '</div>';
 			}
 
 			//
-			// Letter Spacing.
+			// Line Height
+			if ( ! empty( $args['line_height'] ) ) {
+				echo '<div class="drk_lite--block">';
+				echo '<div class="drk_lite--title">' . esc_html__( 'Line Height', 'ta-framework' ) . '</div>';
+				echo '<div class="drk_lite--input-wrap">';
+				echo '<input type="number" name="' . esc_attr( $this->field_name( '[line-height]' ) ) . '" class="drk_lite--line-height drk_lite--input drk_lite-input-number" value="' . esc_attr( $this->value['line-height'] ) . '" step="any" />';
+				echo '<span class="drk_lite--unit">' . esc_attr( $line_height_unit ) . '</span>';
+				echo '</div>';
+				echo '</div>';
+			}
+
+			//
+			// Letter Spacing
 			if ( ! empty( $args['letter_spacing'] ) ) {
-					echo '<div class="drk_lite--block">';
-					echo '<div class="drk_lite--title">' . esc_html__( 'Letter Spacing', 'chat-skype' ) . '</div>';
+				echo '<div class="drk_lite--block">';
+				echo '<div class="drk_lite--title">' . esc_html__( 'Letter Spacing', 'ta-framework' ) . '</div>';
 				echo '<div class="drk_lite--input-wrap">';
 				echo '<input type="number" name="' . esc_attr( $this->field_name( '[letter-spacing]' ) ) . '" class="drk_lite--letter-spacing drk_lite--input drk_lite-input-number" value="' . esc_attr( $this->value['letter-spacing'] ) . '" step="any" />';
-					echo '<span class="drk_lite--unit">' . esc_attr( $args['unit'] ) . '</span>';
-					echo '</div>';
+				echo '<span class="drk_lite--unit">' . esc_attr( $args['unit'] ) . '</span>';
+				echo '</div>';
 				echo '</div>';
 			}
 
 			//
-			// Word Spacing.
+			// Word Spacing
 			if ( ! empty( $args['word_spacing'] ) ) {
-					echo '<div class="drk_lite--block">';
-					echo '<div class="drk_lite--title">' . esc_html__( 'Word Spacing', 'chat-skype' ) . '</div>';
-					echo '<div class="drk_lite--input-wrap">';
-					echo '<input type="number" name="' . esc_attr( $this->field_name( '[word-spacing]' ) ) . '" class="drk_lite--word-spacing drk_lite--input drk_lite-input-number" value="' . esc_attr( $this->value['word-spacing'] ) . '" step="any" />';
-					echo '<span class="drk_lite--unit">' . esc_attr( $args['unit'] ) . '</span>';
-					echo '</div>';
-					echo '</div>';
+				echo '<div class="drk_lite--block">';
+				echo '<div class="drk_lite--title">' . esc_html__( 'Word Spacing', 'ta-framework' ) . '</div>';
+				echo '<div class="drk_lite--input-wrap">';
+				echo '<input type="number" name="' . esc_attr( $this->field_name( '[word-spacing]' ) ) . '" class="drk_lite--word-spacing drk_lite--input drk_lite-input-number" value="' . esc_attr( $this->value['word-spacing'] ) . '" step="any" />';
+				echo '<span class="drk_lite--unit">' . esc_attr( $args['unit'] ) . '</span>';
+				echo '</div>';
+				echo '</div>';
 			}
 
 			echo '</div>';
 
 			//
-			// Font Color.
+			// Font Color
 			if ( ! empty( $args['color'] ) ) {
-					$default_color_attr = ( ! empty( $default_value['color'] ) ) ? ' data-default-color="' . esc_attr( $default_value['color'] ) . '"' : '';
-					echo '<div class="drk_lite--block drk_lite--block-font-color">';
-					echo '<div class="drk_lite--title">' . esc_html__( 'Font Color', 'chat-skype' ) . '</div>';
-					echo '<div class="drk_lite-field-color">';
-					echo '<input type="text" name="' . esc_attr( $this->field_name( '[color]' ) ) . '" class="drk_lite-color drk_lite--color" value="' . esc_attr( $this->value['color'] ) . '"' . esc_attr( $default_color_attr ) . ' />';
-					echo '</div>';
-					echo '</div>';
+				$default_color_attr = ( ! empty( $default_value['color'] ) ) ? ' data-default-color="' . esc_attr( $default_value['color'] ) . '"' : '';
+				echo '<div class="drk_lite--block drk_lite--block-font-color">';
+				echo '<div class="drk_lite--title">' . esc_html__( 'Font Color', 'ta-framework' ) . '</div>';
+				echo '<div class="drk_lite-field-color">';
+				echo '<input type="text" name="' . esc_attr( $this->field_name( '[color]' ) ) . '" class="drk_lite-color drk_lite--color" value="' . esc_attr( $this->value['color'] ) . '"' . wp_kses_post($default_color_attr) . ' />';
+				echo '</div>';
+				echo '</div>';
 			}
 
 			//
 			// Custom style
 			if ( ! empty( $args['custom_style'] ) ) {
 				echo '<div class="drk_lite--block drk_lite--block-custom-style">';
-					echo '<div class="drk_lite--title">' . esc_html__( 'Custom Style', 'chat-skype' ) . '</div>';
-					echo '<textarea name="' . esc_attr( $this->field_name( '[custom-style]' ) ) . '" class="drk_lite--custom-style">' . esc_attr( $this->value['custom-style'] ) . '</textarea>';
-					echo '</div>';
+				echo '<div class="drk_lite--title">' . esc_html__( 'Custom Style', 'ta-framework' ) . '</div>';
+				echo '<textarea name="' . esc_attr( $this->field_name( '[custom-style]' ) ) . '" class="drk_lite--custom-style">' . esc_attr( $this->value['custom-style'] ) . '</textarea>';
+				echo '</div>';
 			}
 
 			//
-			// Preview.
+			// Preview
 			$always_preview = ( $args['preview'] !== 'always' ) ? ' hidden' : '';
 
 			if ( ! empty( $args['preview'] ) ) {
-					echo '<div class="drk_lite--block drk_lite--block-preview' . esc_attr( $always_preview ) . '">';
-					echo '<div class="drk_lite--toggle fas fa-toggle-off"></div>';
-					echo '<div class="drk_lite--preview">' . esc_attr( $args['preview_text'] ) . '</div>';
-					echo '</div>';
+				echo '<div class="drk_lite--block drk_lite--block-preview' . esc_attr( $always_preview ) . '">';
+				echo '<div class="drk_lite--toggle fas fa-toggle-off"></div>';
+				echo '<div class="drk_lite--preview">' . esc_attr( $args['preview_text'] ) . '</div>';
+				echo '</div>';
 			}
 
 			echo '<input type="hidden" name="' . esc_attr( $this->field_name( '[type]' ) ) . '" class="drk_lite--type" value="' . esc_attr( $this->value['type'] ) . '" />';
@@ -363,8 +348,8 @@ if ( ! class_exists( 'DRK_LITE_Field_typography' ) ) {
 			$multiple_attr = ( $is_multiple ) ? ' multiple data-multiple="true"' : '';
 			$chosen_rtl    = ( $this->chosen && is_rtl() ) ? ' chosen-rtl' : '';
 
-			$output  = '<select name="' . esc_attr( $this->field_name( '[' . $name . ']' . $multiple_name ) ) . '" class="drk_lite--' . esc_attr( $name ) . esc_attr( $chosen_rtl ) . '" data-placeholder="' . esc_attr( $placeholder ) . '"' . essc_attr( $multiple_attr ) . '>';
-			$output .= ( ! empty( $placeholder ) ) ? '<option value="">' . esc_attr( ( ! $this->chosen ) ? esc_attr( $placeholder ) : '' ) . '</option>' : '';
+			$output  = '<select name="' . esc_attr( $this->field_name( '[' . $name . ']' . $multiple_name ) ) . '" class="drk_lite--' . esc_attr( $name ) . esc_attr( $chosen_rtl ) . '" data-placeholder="' . esc_attr( $placeholder ) . '"' . wp_kses_post($multiple_attr) . '>';
+			$output .= ( ! empty( $placeholder ) ) ? '<option value="">' . esc_attr( ( ! $this->chosen ) ? $placeholder : '' ) . '</option>' : '';
 
 			if ( ! empty( $options ) ) {
 				foreach ( $options as $option_key => $option_value ) {
@@ -388,23 +373,23 @@ if ( ! class_exists( 'DRK_LITE_Field_typography' ) ) {
 
 			if ( ! wp_script_is( 'drk_lite-webfontloader' ) ) {
 
-					DRK_LITE::include_plugin_file( 'fields/typography/google-fonts.php' );
+				DRK_LITE::include_plugin_file( 'fields/typography/google-fonts.php' );
 
-				wp_enqueue_script( 'drk_lite-webfontloader', DRK_LITE_DIR_URL . 'admin/assets/js/webfontloader.min.js', array( 'chat-skype' ), '1.6.28', true );
+				wp_enqueue_script( 'webfontloader', DRK_LITE_DIR_URL . 'admin/ta-framework/assets/js/webfontloader.min.js', array( 'ta-framework' ), '1.6.28', true );
 
 				$webfonts = array();
 
-					$customwebfonts = apply_filters( 'drk_lite_field_typography_customwebfonts', array() );
+				$customwebfonts = apply_filters( 'drk_lite_field_typography_customwebfonts', array() );
 
 				if ( ! empty( $customwebfonts ) ) {
 					$webfonts['custom'] = array(
-						'label' => esc_html__( 'Custom Web Fonts', 'chat-skype' ),
+						'label' => esc_html__( 'Custom Web Fonts', 'ta-framework' ),
 						'fonts' => $customwebfonts,
 					);
 				}
 
 				$webfonts['safe'] = array(
-					'label' => esc_html__( 'Safe Web Fonts', 'chat-skype' ),
+					'label' => esc_html__( 'Safe Web Fonts', 'ta-framework' ),
 					'fonts' => apply_filters(
 						'drk_lite_field_typography_safewebfonts',
 						array(
@@ -426,51 +411,51 @@ if ( ! class_exists( 'DRK_LITE_Field_typography' ) ) {
 					),
 				);
 
-					$webfonts['google'] = array(
-						'label' => esc_html__( 'Google Web Fonts', 'chat-skype' ),
-						'fonts' => apply_filters(
-							'drk_lite_field_typography_googlewebfonts',
-							drk_lite_get_google_fonts()
-						),
-					);
+				$webfonts['google'] = array(
+					'label' => esc_html__( 'Google Web Fonts', 'ta-framework' ),
+					'fonts' => apply_filters(
+						'drk_lite_field_typography_googlewebfonts',
+						drk_lite_get_google_fonts()
+					),
+				);
 
-					$defaultstyles = apply_filters( 'drk_lite_field_typography_defaultstyles', array( 'normal', 'italic', '700', '700italic' ) );
+				$defaultstyles = apply_filters( 'drk_lite_field_typography_defaultstyles', array( 'normal', 'italic', '700', '700italic' ) );
 
-					$googlestyles = apply_filters(
-						'drk_lite_field_typography_googlestyles',
-						array(
-							'100'       => 'Thin 100',
-							'100italic' => 'Thin 100 Italic',
-							'200'       => 'Extra-Light 200',
-							'200italic' => 'Extra-Light 200 Italic',
-							'300'       => 'Light 300',
-							'300italic' => 'Light 300 Italic',
-							'normal'    => 'Normal 400',
-							'italic'    => 'Normal 400 Italic',
-							'500'       => 'Medium 500',
-							'500italic' => 'Medium 500 Italic',
-							'600'       => 'Semi-Bold 600',
-							'600italic' => 'Semi-Bold 600 Italic',
-							'700'       => 'Bold 700',
-							'700italic' => 'Bold 700 Italic',
-							'800'       => 'Extra-Bold 800',
-							'800italic' => 'Extra-Bold 800 Italic',
-							'900'       => 'Black 900',
-							'900italic' => 'Black 900 Italic',
-						)
-					);
+				$googlestyles = apply_filters(
+					'drk_lite_field_typography_googlestyles',
+					array(
+						'100'       => __('Thin 100', 'ta-framework'),
+						'100italic' => __('Thin 100 Italic', 'ta-framework'),
+						'200'       => __('Extra-Light 200', 'ta-framework'),
+						'200italic' => __('Extra-Light 200 Italic', 'ta-framework'),
+						'300'       => __('Light 300', 'ta-framework'),
+						'300italic' => __('Light 300 Italic', 'ta-framework'),
+						'normal'    => __('Normal 400', 'ta-framework'),
+						'italic'    => __('Normal 400 Italic', 'ta-framework'),
+						'500'       => __('Medium 500', 'ta-framework'),
+						'500italic' => __('Medium 500 Italic', 'ta-framework'),
+						'600'       => __('Semi-Bold 600', 'ta-framework'),
+						'600italic' => __('Semi-Bold 600 Italic', 'ta-framework'),
+						'700'       => __('Bold 700', 'ta-framework'),
+						'700italic' => __('Bold 700 Italic', 'ta-framework'),
+						'800'       => __('Extra-Bold 800', 'ta-framework'),
+						'800italic' => __('Extra-Bold 800 Italic', 'ta-framework'),
+						'900'       => __('Black 900', 'ta-framework'),
+						'900italic' => __('Black 900 Italic', 'ta-framework'),
+					)
+				);
 
-					$webfonts = apply_filters( 'drk_lite_field_typography_webfonts', $webfonts );
+				$webfonts = apply_filters( 'drk_lite_field_typography_webfonts', $webfonts );
 
-					wp_localize_script(
-						'chat-skype',
-						'drk_lite_typography_json',
-						array(
-							'webfonts'      => $webfonts,
-							'defaultstyles' => $defaultstyles,
-							'googlestyles'  => $googlestyles,
-						)
-					);
+				wp_localize_script(
+					'drk_lite',
+					'drk_lite_typography_json',
+					array(
+						'webfonts'      => $webfonts,
+						'defaultstyles' => $defaultstyles,
+						'googlestyles'  => $googlestyles,
+					)
+				);
 
 			}
 		}
@@ -488,8 +473,8 @@ if ( ! class_exists( 'DRK_LITE_Field_typography' ) ) {
 
 			if ( $is_google ) {
 
-				// set style.
-				$font_family = ( ! empty( $this->value['font-family'] ) ) ? esc_attr( $this->value['font-family'] ) : '';
+				// set style
+				$font_family = ( ! empty( $this->value['font-family'] ) ) ? $this->value['font-family'] : '';
 				$font_weight = ( ! empty( $this->value['font-weight'] ) ) ? $this->value['font-weight'] : '';
 				$font_style  = ( ! empty( $this->value['font-style'] ) ) ? $this->value['font-style'] : '';
 
@@ -503,22 +488,22 @@ if ( ! class_exists( 'DRK_LITE_Field_typography' ) ) {
 					DRK_LITE::$webfonts[ $method ][ $font_family ] = array();
 				}
 
-				// set extra styles.
+				// set extra styles
 				if ( ! empty( $this->value['extra-styles'] ) ) {
 					foreach ( $this->value['extra-styles'] as $extra_style ) {
 						if ( ! empty( $extra_style ) ) {
-							$extra_style = ( $extra_style === 'normal' ) ? '400' : $extra_style;
-							DRK_LITE::$webfonts[ $method ][ $font_family ][ $extra_style ] = $extra_style;
+								$extra_style = ( $extra_style === 'normal' ) ? '400' : $extra_style;
+								DRK_LITE::$webfonts[ $method ][ $font_family ][ $extra_style ] = $extra_style;
 						}
 					}
 				}
 
-				// set subsets.
+				// set subsets
 				if ( ! empty( $this->value['subset'] ) ) {
 					$this->value['subset'] = ( is_array( $this->value['subset'] ) ) ? $this->value['subset'] : array_filter( (array) $this->value['subset'] );
 					foreach ( $this->value['subset'] as $subset ) {
 						if ( ! empty( $subset ) ) {
-							DRK_LITE::$subsets[ $subset ] = $subset;
+								DRK_LITE::$subsets[ $subset ] = $subset;
 						}
 					}
 				}
@@ -537,14 +522,14 @@ if ( ! class_exists( 'DRK_LITE_Field_typography' ) ) {
 			$important = ( ! empty( $this->field['output_important'] ) ) ? '!important' : '';
 			$element   = ( is_array( $this->field['output'] ) ) ? join( ',', $this->field['output'] ) : $this->field['output'];
 
-			$font_family   = ! empty( $this->value['font-family'] ) ? esc_attr( $this->value['font-family'] ) : '';
-			$backup_family = ! empty( $this->value['backup-font-family'] ) ? ', ' . esc_attr( $this->value['backup-font-family'] ) : '';
+			$font_family   = ( ! empty( $this->value['font-family'] ) ) ? $this->value['font-family'] : '';
+			$backup_family = ( ! empty( $this->value['backup-font-family'] ) ) ? ', ' . $this->value['backup-font-family'] : '';
 
 			if ( $font_family ) {
 				$output .= 'font-family:"' . $font_family . '"' . $backup_family . $important . ';';
 			}
 
-			// Common font properties.
+			// Common font properties
 			$properties = array(
 				'color',
 				'font-weight',

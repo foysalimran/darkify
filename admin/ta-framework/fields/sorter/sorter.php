@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: sorter
@@ -11,9 +10,7 @@
 if ( ! class_exists( 'DRK_LITE_Field_sorter' ) ) {
 	class DRK_LITE_Field_sorter extends DRK_LITE_Fields {
 
-
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -23,8 +20,8 @@ if ( ! class_exists( 'DRK_LITE_Field_sorter' ) ) {
 				$this->field,
 				array(
 					'disabled'       => true,
-					'enabled_title'  => esc_html__( 'Enabled', 'chat-skype' ),
-					'disabled_title' => esc_html__( 'Disabled', 'chat-skype' ),
+					'enabled_title'  => esc_html__( 'Enabled', 'ta-framework' ),
+					'disabled_title' => esc_html__( 'Disabled', 'ta-framework' ),
 				)
 			);
 
@@ -42,7 +39,7 @@ if ( ! class_exists( 'DRK_LITE_Field_sorter' ) ) {
 			echo '<ul class="drk_lite-enabled">';
 			if ( ! empty( $enabled_options ) ) {
 				foreach ( $enabled_options as $key => $value ) {
-						echo '<li><input type="hidden" name="' . esc_attr( $this->field_name( '[enabled][' . $key . ']' ) ) . '" value="' . esc_attr( $value ) . '"/><label>' . esc_attr( $value ) . '</label></li>';
+					echo '<li><input type="hidden" name="' . esc_attr( $this->field_name( '[enabled][' . $key . ']' ) ) . '" value="' . esc_attr( $value ) . '"/><label>' . esc_attr( $value ) . '</label></li>';
 				}
 			}
 			echo '</ul>';
@@ -71,7 +68,7 @@ if ( ! class_exists( 'DRK_LITE_Field_sorter' ) ) {
 		public function enqueue() {
 
 			if ( ! wp_script_is( 'jquery-ui-sortable' ) ) {
-					wp_enqueue_script( 'jquery-ui-sortable' );
+				wp_enqueue_script( 'jquery-ui-sortable' );
 			}
 		}
 	}

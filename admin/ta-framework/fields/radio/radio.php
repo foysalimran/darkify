@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: radio
@@ -11,9 +10,7 @@
 if ( ! class_exists( 'DRK_LITE_Field_radio' ) ) {
 	class DRK_LITE_Field_radio extends DRK_LITE_Fields {
 
-
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -33,42 +30,42 @@ if ( ! class_exists( 'DRK_LITE_Field_radio' ) ) {
 
 			if ( isset( $this->field['options'] ) ) {
 
-				$options     = $this->field['options'];
-					$options = ( is_array( $options ) ) ? $options : array_filter( $this->field_data( $options, false, $args['query_args'] ) );
+				$options = $this->field['options'];
+				$options = ( is_array( $options ) ) ? $options : array_filter( $this->field_data( $options, false, $args['query_args'] ) );
 
 				if ( is_array( $options ) && ! empty( $options ) ) {
 
-					echo '<ul' . esc_attr( $inline_class ) . '>';
+					echo '<ul' . wp_kses_post($inline_class) . '>';
 
 					foreach ( $options as $option_key => $option_value ) {
 
 						if ( is_array( $option_value ) && ! empty( $option_value ) ) {
 
-							echo '<li>';
+								echo '<li>';
 							echo '<ul>';
-							echo '<li><strong>' . esc_attr( $option_key ) . '</strong></li>';
+								echo '<li><strong>' . esc_attr( $option_key ) . '</strong></li>';
 							foreach ( $option_value as $sub_key => $sub_value ) {
 								$checked = ( $sub_key == $this->value ) ? ' checked' : '';
 								echo '<li>';
 								echo '<label>';
-								echo '<input type="radio" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $sub_key ) . '"' . wp_kses_data($this->field_attributes()) . esc_attr( $checked ) . '/>';
+								echo '<input type="radio" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $sub_key ) . '"' . wp_kses_post( $this->field_attributes() ) . esc_attr( $checked ) . '/>';
 								echo '<span class="drk_lite--text">' . esc_attr( $sub_value ) . '</span>';
 								echo '</label>';
 								echo '</li>';
 							}
-								echo '</ul>';
+							echo '</ul>';
 								echo '</li>';
 
 						} else {
 
-								$checked = ( $option_key == $this->value ) ? ' checked' : '';
+							$checked = ( $option_key == $this->value ) ? ' checked' : '';
 
-								echo '<li>';
-									echo '<label>';
-							echo '<input type="radio" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $option_key ) . '"' . wp_kses_data($this->field_attributes()) . esc_attr( $checked ) . '/>';
-									echo '<span class="drk_lite--text">' . esc_attr( $option_value ) . '</span>';
-									echo '</label>';
-									echo '</li>';
+							echo '<li>';
+							echo '<label>';
+							echo '<input type="radio" name="' . esc_attr( $this->field_name() ) . '" value="' . esc_attr( $option_key ) . '"' . wp_kses_post( $this->field_attributes() ) . esc_attr( $checked ) . '/>';
+							echo '<span class="drk_lite--text">' . esc_attr( $option_value ) . '</span>';
+							echo '</label>';
+							echo '</li>';
 
 						}
 					}
@@ -77,15 +74,15 @@ if ( ! class_exists( 'DRK_LITE_Field_radio' ) ) {
 
 				} else {
 
-					echo ( ! empty( $this->field['empty_message'] ) ) ? esc_attr( $this->field['empty_message'] ) : esc_html__( 'No data available.', 'chat-skype' );
+					echo ( ! empty( $this->field['empty_message'] ) ) ? esc_attr( $this->field['empty_message'] ) : esc_html__( 'No data available.', 'ta-framework' );
 
 				}
 			} else {
 
 					$label = ( isset( $this->field['label'] ) ) ? $this->field['label'] : '';
-					echo '<label><input type="radio" name="' . esc_attr( $this->field_name() ) . '" value="1"' . wp_kses_data($this->field_attributes()) . esc_attr( checked( $this->value, 1, false ) ) . '/>';
-					echo esc_attr( ( ! empty( $this->field['label'] ) ) ) ? '<span class="drk_lite--text">' . esc_attr( $this->field['label'] ) . '</span>' : '';
-				echo '</label>';
+					echo '<label><input type="radio" name="' . esc_attr( $this->field_name() ) . '" value="1"' . wp_kses_post( $this->field_attributes() ) . esc_attr( checked( $this->value, 1, false ) ) . '/>';
+					echo ( ! empty( $this->field['label'] ) ) ? '<span class="drk_lite--text">' . esc_attr( $this->field['label'] ) . '</span>' : '';
+					echo '</label>';
 
 			}
 

@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: spacing
@@ -10,7 +9,6 @@
  */
 if ( ! class_exists( 'DRK_LITE_Field_spacing' ) ) {
 	class DRK_LITE_Field_spacing extends DRK_LITE_Fields {
-
 
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
 			parent::__construct( $field, $value, $unique, $where, $parent );
@@ -26,11 +24,11 @@ if ( ! class_exists( 'DRK_LITE_Field_spacing' ) ) {
 					'bottom_icon'        => '<i class="fas fa-long-arrow-alt-down"></i>',
 					'left_icon'          => '<i class="fas fa-long-arrow-alt-left"></i>',
 					'all_icon'           => '<i class="fas fa-arrows-alt"></i>',
-					'top_placeholder'    => esc_html__( 'top', 'chat-skype' ),
-					'right_placeholder'  => esc_html__( 'right', 'chat-skype' ),
-					'bottom_placeholder' => esc_html__( 'bottom', 'chat-skype' ),
-					'left_placeholder'   => esc_html__( 'left', 'chat-skype' ),
-					'all_placeholder'    => esc_html__( 'all', 'chat-skype' ),
+					'top_placeholder'    => esc_html__( 'top', 'ta-framework' ),
+					'right_placeholder'  => esc_html__( 'right', 'ta-framework' ),
+					'bottom_placeholder' => esc_html__( 'bottom', 'ta-framework' ),
+					'left_placeholder'   => esc_html__( 'left', 'ta-framework' ),
+					'all_placeholder'    => esc_html__( 'all', 'ta-framework' ),
 					'top'                => true,
 					'left'               => true,
 					'bottom'             => true,
@@ -64,10 +62,11 @@ if ( ! class_exists( 'DRK_LITE_Field_spacing' ) ) {
 				$placeholder = ( ! empty( $args['all_placeholder'] ) ) ? ' placeholder="' . esc_attr( $args['all_placeholder'] ) . '"' : '';
 
 				echo '<div class="drk_lite--input">';
-				echo ( ! empty( $args['all_icon'] ) ) ? '<span class="drk_lite--label drk_lite--icon">' . wp_kses_post( $args['all_icon'] ) . '</span>' : '';
-				echo '<input type="number" name="' . esc_attr( $this->field_name( '[all]' ) ) . '" value="' . esc_attr( $value['all'] ) . '"' . esc_attr( $placeholder ) . ' class="drk_lite-input-number' . esc_attr( $is_unit ) . '" step="any" />';
+				echo ( ! empty( $args['all_icon'] ) ) ? '<span class="drk_lite--label drk_lite--icon">' . wp_kses_post($args['all_icon']) . '</span>' : '';
+				echo '<input type="number" name="' . esc_attr( $this->field_name( '[all]' ) ) . '" value="' . esc_attr( $value['all'] ) . '"' . wp_kses_post($placeholder) . ' class="drk_lite-input-number' . esc_attr( $is_unit ) . '" step="any" />';
 				echo ( $unit ) ? '<span class="drk_lite--label drk_lite--unit">' . esc_attr( $args['units'][0] ) . '</span>' : '';
 				echo '</div>';
+
 			} else {
 
 				$properties = array();
@@ -85,10 +84,11 @@ if ( ! class_exists( 'DRK_LITE_Field_spacing' ) ) {
 					$placeholder = ( ! empty( $args[ $property . '_placeholder' ] ) ) ? ' placeholder="' . esc_attr( $args[ $property . '_placeholder' ] ) . '"' : '';
 
 					echo '<div class="drk_lite--input">';
-					echo ( ! empty( $args[ $property . '_icon' ] ) ) ? '<span class="drk_lite--label drk_lite--icon">' . wp_kses_post( $args[ $property . '_icon' ] ) . '</span>' : '';
-					echo '<input type="number" name="' . esc_attr( $this->field_name( '[' . $property . ']' ) ) . '" value="' . esc_attr( $value[ $property ] ) . '"' . esc_attr( $placeholder ) . ' class="drk_lite-input-number' . esc_attr( $is_unit ) . '" step="any" />';
+					echo ( ! empty( $args[ $property . '_icon' ] ) ) ? '<span class="drk_lite--label drk_lite--icon">' . wp_kses_post($args[ $property . '_icon' ]) . '</span>' : '';
+					echo '<input type="number" name="' . esc_attr( $this->field_name( '[' . $property . ']' ) ) . '" value="' . esc_attr( $value[ $property ] ) . '"' . wp_kses_post($placeholder) . ' class="drk_lite-input-number' . esc_attr( $is_unit ) . '" step="any" />';
 					echo ( $unit ) ? '<span class="drk_lite--label drk_lite--unit">' . esc_attr( $args['units'][0] ) . '</span>' : '';
 					echo '</div>';
+
 				}
 			}
 
@@ -123,18 +123,21 @@ if ( ! class_exists( 'DRK_LITE_Field_spacing' ) ) {
 				$right  = 'border-top-right-radius';
 				$bottom = 'border-bottom-right-radius';
 				$left   = 'border-bottom-left-radius';
+
 			} elseif ( $mode === 'relative' || $mode === 'absolute' || $mode === 'none' ) {
 
 				$top    = 'top';
 				$right  = 'right';
 				$bottom = 'bottom';
 				$left   = 'left';
+
 			} else {
 
 				$top    = $mode . '-top';
 				$right  = $mode . '-right';
 				$bottom = $mode . '-bottom';
 				$left   = $mode . '-left';
+
 			}
 
 			if ( ! empty( $this->field['all'] ) && isset( $this->value['all'] ) && $this->value['all'] !== '' ) {
@@ -145,6 +148,7 @@ if ( ! class_exists( 'DRK_LITE_Field_spacing' ) ) {
 				$output .= $bottom . ':' . $this->value['all'] . $unit . $important . ';';
 				$output .= $left . ':' . $this->value['all'] . $unit . $important . ';';
 				$output .= '}';
+
 			} else {
 
 				$top    = ( isset( $this->value['top'] ) && $this->value['top'] !== '' ) ? $top . ':' . $this->value['top'] . $unit . $important . ';' : '';

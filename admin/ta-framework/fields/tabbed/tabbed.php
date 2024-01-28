@@ -1,6 +1,5 @@
 <?php if ( ! defined( 'ABSPATH' ) ) {
-	die;
-} // Cannot access directly.
+	die; } // Cannot access directly.
 /**
  *
  * Field: tabbed
@@ -11,9 +10,7 @@
 if ( ! class_exists( 'DRK_LITE_Field_tabbed' ) ) {
 	class DRK_LITE_Field_tabbed extends DRK_LITE_Fields {
 
-
 		public function __construct( $field, $value = '', $unique = '', $where = '', $parent = '' ) {
-
 			parent::__construct( $field, $value, $unique, $where, $parent );
 		}
 
@@ -29,7 +26,7 @@ if ( ! class_exists( 'DRK_LITE_Field_tabbed' ) ) {
 				$tabbed_icon   = ( ! empty( $tab['icon'] ) ) ? '<i class="drk_lite--icon ' . esc_attr( $tab['icon'] ) . '"></i>' : '';
 				$tabbed_active = ( empty( $key ) ) ? 'drk_lite-tabbed-active' : '';
 
-				echo '<a href="#" class="' . esc_attr( $tabbed_active ) . '"">' . esc_attr($tabbed_icon) . esc_html( $tab['title'] ) . '</a>';
+				echo '<a href="#" class="' . esc_attr( $tabbed_active ) . '"">' . $tabbed_icon . esc_attr( $tab['title'] ) . '</a>';
 
 			}
 			echo '</div>';
@@ -44,8 +41,7 @@ if ( ! class_exists( 'DRK_LITE_Field_tabbed' ) ) {
 				foreach ( $tab['fields'] as $field ) {
 
 					if ( in_array( $field['type'], $unallows ) ) {
-						$field['_notice'] = true;
-					}
+						$field['_notice'] = true; }
 
 					$field_id      = ( isset( $field['id'] ) ) ? $field['id'] : '';
 					$field_default = ( isset( $field['default'] ) ) ? $field['default'] : '';
