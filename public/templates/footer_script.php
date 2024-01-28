@@ -1,4 +1,7 @@
 <?php
+if (!defined('ABSPATH')) {
+    die;
+} // Cannot access directly.
 $options = get_option('darkify');
 $hide_on_desktop = $options["hide_on_desktop"];
 $hide_on_mobile = $options["hide_on_mobile"];

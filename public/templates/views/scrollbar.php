@@ -1,3 +1,9 @@
+<?php
+if (!defined('ABSPATH')) {
+    die;
+} // Cannot access directly.
+?>
+
 <style type="text/css" class="darkify_inline_css">
     .darkify_dark_mode_enabled::-webkit-scrollbar-button {
         background-color: transparent !important;

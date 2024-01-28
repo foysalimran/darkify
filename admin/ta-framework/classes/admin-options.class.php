@@ -205,7 +205,7 @@ if ( ! class_exists( 'DRK_LITE_Options' ) ) {
 
       // XSS ok.
       // No worries, This "POST" requests is sanitizing in the below foreach. see #L337 - #L341
-      $response  = ( $ajax && ! empty( $_POST['data'] ) ) ? json_decode( wp_unslash( trim( $_POST['data'] ) ), true ) : $_POST;
+      $response  = ( $ajax && ! empty( $_POST['data'] ) ) ? wp_kses_post_deep(json_decode( wp_unslash( trim( $_POST['data'] ) ), true )) : wp_kses_post_deep(array());
 
       // Set variables.
       $data      = array();

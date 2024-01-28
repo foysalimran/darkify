@@ -1,4 +1,9 @@
-<?php ob_start();
+<?php
+if (!defined('ABSPATH')) {
+    die;
+} // Cannot access directly.
+
+ob_start();
 $options = get_option('darkify');
 $enable_default_dark_mode = $options['enable_default_dark_mode'];
 $enable_time = $options['enable_time'];

@@ -443,7 +443,6 @@ if ( ! class_exists( 'DRK_LITE_Setup' ) ) {
         'tabbed',
         'text',
         'textarea',
-        'typography',
         'upload',
         'wp_editor',
       ) );

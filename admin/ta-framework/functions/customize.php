@@ -7,8 +7,8 @@
  * @since 1.0.0
  * @version 1.0.0
  */
-if ( ! class_exists( 'WP_Customize_Panel_DRK_LITE' ) && class_exists( 'WP_Customize_Panel' ) ) {
-	class WP_Customize_Panel_DRK_LITE extends WP_Customize_Panel {
+if ( ! class_exists( 'DRK_LITE_Customize_Panel' ) && class_exists( 'WP_Customize_Panel' ) ) {
+	class DRK_LITE_Customize_Panel extends WP_Customize_Panel {
 		public $type = 'drk_lite';
 	}
 }
@@ -20,8 +20,8 @@ if ( ! class_exists( 'WP_Customize_Panel_DRK_LITE' ) && class_exists( 'WP_Custom
  * @since 1.0.0
  * @version 1.0.0
  */
-if ( ! class_exists( 'WP_Customize_Section_DRK_LITE' ) && class_exists( 'WP_Customize_Section' ) ) {
-	class WP_Customize_Section_DRK_LITE extends WP_Customize_Section {
+if ( ! class_exists( 'DRK_LITE_Customize_Section' ) && class_exists( 'WP_Customize_Section' ) ) {
+	class DRK_LITE_Customize_Section extends WP_Customize_Section {
 		public $type = 'drk_lite';
 	}
 }
@@ -33,8 +33,8 @@ if ( ! class_exists( 'WP_Customize_Section_DRK_LITE' ) && class_exists( 'WP_Cust
  * @since 1.0.0
  * @version 1.0.0
  */
-if ( ! class_exists( 'WP_Customize_Control_DRK_LITE' ) && class_exists( 'WP_Customize_Control' ) ) {
-	class WP_Customize_Control_DRK_LITE extends WP_Customize_Control {
+if ( ! class_exists( 'DRK_LITE_Customize_Control' ) && class_exists( 'WP_Customize_Control' ) ) {
+	class DRK_LITE_Customize_Control extends WP_Customize_Control {
 
 		public $type   = 'drk_lite';
 		public $field  = '';
