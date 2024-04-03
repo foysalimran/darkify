@@ -21,7 +21,10 @@ if (!class_exists('DarkifyUtils')) {
             if (function_exists("wp_is_mobile")) {
                 return wp_is_mobile();
             } else {
-                return preg_match("/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i", $_SERVER["HTTP_USER_AGENT"]);
+                $user_agent = $_SERVER["HTTP_USER_AGENT"];
+                $pattern = "/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i";
+                $escaped_pattern = preg_quote($pattern, '/');
+                return preg_match(esc_attr($escaped_pattern), esc_attr($user_agent));
             }
         }
         public function is_hidden_by_user_agent($hide_on_desktop, $hide_dark_mode_on_mobile, $type_of_hide_by)
@@ -292,6 +295,5 @@ if (!class_exists('DarkifyUtils')) {
             }
             return False;
         }
-        
     }
 }

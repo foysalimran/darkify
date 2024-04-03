@@ -570,10 +570,11 @@ if ( ! class_exists( 'DRK_LITE_Setup' ) ) {
       // Font awesome 4 and 5 loader
       if ( apply_filters( 'drk_lite_fa4', false ) ) {
         wp_enqueue_style( 'font-awesome_v4-fa', DRK_LITE_DIR_URL . 'admin/ta-framework/assets/css/font-awesome_v4.min.css', array(), '4.7.0', 'all' );
-      } else {
+      } 
+      // else {
         wp_enqueue_style( 'font-awesome_v5-fa5', DRK_LITE_DIR_URL .'admin/ta-framework/assets/css/font-awesome_v5.min.css', array(), '5.15.5', 'all' );
         wp_enqueue_style( 'font-awesome_v4-v4-shims', DRK_LITE_DIR_URL .'admin/ta-framework/assets/css/font-awesome_v4-shims.min.css', array(), '5.15.5', 'all' );
-      }
+      // }
 
       // Check for developer mode
       $min = ( self::$premium && SCRIPT_DEBUG ) ? '' : '.min';
@@ -658,9 +659,7 @@ if ( ! class_exists( 'DRK_LITE_Setup' ) ) {
           foreach ( self::$webfonts['async'] as $family => $styles ) {
             $fonts[] = $family . ( ( ! empty( $styles ) ) ? ':'. implode( ',', $styles ) : '' );
           }
-
-          wp_enqueue_script( 'drk_lite-google-web-fonts', esc_url( '//ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js' ), array(), null );
-
+          wp_enqueue_script( 'drk_lite-google-web-fonts', self::include_plugin_url( 'assets/js/webfont.js' ), array(), self::$version, true );
           wp_localize_script( 'drk_lite-google-web-fonts', 'WebFontConfig', array( 'google' => array( 'families' => $fonts ) ) );
 
         }

@@ -83,7 +83,7 @@ if ( ! class_exists( 'DRK_LITE_Field_wp_editor' ) ) {
 			$media_buttons = ob_get_clean();
 
 			echo '<script type="text/javascript">';
-			echo 'var drk_lite_media_buttons = ' . json_encode( $media_buttons ) . ';';
+			echo 'var drk_lite_media_buttons = ' . esc_js(json_encode( $media_buttons )) . ';';
 			echo '</script>';
 		}
 

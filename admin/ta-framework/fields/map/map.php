@@ -85,11 +85,11 @@ if ( ! class_exists( 'DRK_LITE_Field_map' ) ) {
 		public function enqueue() {
 
 			if ( ! wp_script_is( 'drk_lite-leaflet' ) ) {
-				wp_enqueue_script( 'leaflet', DRK_LITE_DIR_URL . 'admin/ta-framework/assets/js/leaflet.js', array( 'ta-framework' ), $this->version, true );
+				wp_enqueue_script( 'leaflet', DRK_LITE_DIR_URL . 'admin/ta-framework/assets/js/leaflet.js', array( 'ta-framework' ), '1.9.4', true );
 			}
 
 			if ( ! wp_style_is( 'drk_lite-leaflet' ) ) {
-				wp_enqueue_style( 'leaflet', DRK_LITE_DIR_URL . 'admin/ta-framework/assets/css/leaflet.css', array(), $this->version );
+				wp_enqueue_style( 'leaflet', DRK_LITE_DIR_URL . 'admin/ta-framework/assets/css/leaflet.css', array(), '1.9.4' );
 			}
 
 			if ( ! wp_script_is( 'jquery-ui-autocomplete' ) ) {

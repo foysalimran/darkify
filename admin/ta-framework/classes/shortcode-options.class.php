@@ -98,7 +98,7 @@ if ( ! class_exists( 'DRK_LITE_Shortcoder' ) ) {
             <div class="drk_lite-modal-overlay"></div>
             <div class="drk_lite-modal-inner">
               <div class="drk_lite-modal-title">
-                <?php echo $this->args['button_title']; ?>
+                <?php echo wp_kses_post($this->args['button_title']); ?>
                 <div class="drk_lite-modal-close"></div>
               </div>
               <?php
@@ -121,7 +121,7 @@ if ( ! class_exists( 'DRK_LITE_Shortcoder' ) ) {
                       $shortcode = ( ! empty( $sub['shortcode'] ) ) ? ' data-shortcode="'. esc_attr( $sub['shortcode'] ) .'"' : '';
                       $group     = ( ! empty( $sub['group_shortcode'] ) ) ? ' data-group="'. esc_attr( $sub['group_shortcode'] ) .'"' : '';
 
-                      echo '<option value="'. esc_attr( $tab_key ) .'"'. $view . $shortcode . $group .'>'. esc_attr( $sub['title'] ) .'</option>';
+                      echo '<option value="'. esc_attr( $tab_key ) .'"'. wp_kses_post($view) . wp_kses_post($shortcode) . wp__kses_post($group) .'>'. esc_attr( $sub['title'] ) .'</option>';
 
                       $tab_key++;
 
@@ -151,7 +151,7 @@ if ( ! class_exists( 'DRK_LITE_Shortcoder' ) ) {
                 <div class="drk_lite-modal-loading"><div class="drk_lite-loading"></div></div>
                 <div class="drk_lite-modal-load"></div>
               </div>
-              <div class="drk_lite-modal-insert-wrapper hidden"><a href="#" class="button button-primary drk_lite-modal-insert"><?php echo $this->args['insert_title']; ?></a></div>
+              <div class="drk_lite-modal-insert-wrapper hidden"><a href="#" class="button button-primary drk_lite-modal-insert"><?php echo esc_html($this->args['insert_title']); ?></a></div>
             </div>
           </div>
         </div>
@@ -237,7 +237,7 @@ if ( ! class_exists( 'DRK_LITE_Shortcoder' ) ) {
 
             echo '</div>';
 
-            echo '<div class="drk_lite--repeat-button-block"><a class="button drk_lite--repeat-button" href="#"><i class="fas fa-plus-circle"></i> '. $button_title .'</a></div>';
+            echo '<div class="drk_lite--repeat-button-block"><a class="button drk_lite--repeat-button" href="#"><i class="fas fa-plus-circle"></i> '. esc_html($button_title) .'</a></div>';
 
           }
 

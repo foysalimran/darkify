@@ -205,7 +205,7 @@ if ( ! class_exists( 'DRK_LITE_Options' ) ) {
 
       // XSS ok.
       // No worries, This "POST" requests is sanitizing in the below foreach. see #L337 - #L341
-      $response  = ( $ajax && ! empty( $_POST['data'] ) ) ? wp_kses_post_deep(json_decode( wp_unslash( trim( $_POST['data'] ) ), true )) : wp_kses_post_deep(array());
+      $response  = ( $ajax && ! empty( $_POST['data'] ) ) ? wp_kses_post_deep(json_decode( wp_unslash( trim( wp_kses_post($_POST['data'] )) ), true )) : wp_kses_post_deep(array());
 
       // Set variables.
       $data      = array();
@@ -552,7 +552,7 @@ if ( ! class_exists( 'DRK_LITE_Options' ) ) {
                       $sub_error = $this->error_check( $sub );
                       $sub_icon  = ( ! empty( $sub['icon'] ) ) ? '<i class="drk_lite-tab-icon '. esc_attr( $sub['icon'] ) .'"></i>' : '';
 
-                      echo '<li><a href="#tab='. esc_attr( $sub_id ) .'" data-tab-id="'. esc_attr( $sub_id ) .'">'. $sub_icon . $sub['title'] . $sub_error .'</a></li>';
+                      echo '<li><a href="#tab='. esc_attr( $sub_id ) .'" data-tab-id="'. esc_attr( $sub_id ) .'">'. wp_kses_post($sub_icon) . esc_html($sub['title']).  wp_kses_post($sub_error ).'</a></li>';
 
                     }
 
