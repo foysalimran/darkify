@@ -22,7 +22,9 @@ if (!class_exists('DarkifyClient')) {
             
             new DarkifyShortcodeParser($this);
             
-            $this->unique_id = rand();
+            if ( function_exists( 'wp_rand' ) ) {
+                $this->unique_id = wp_rand();
+            }
 
             $options = get_option('darkify');
             $show_in_menu = isset($options['show_in_menu']) ? $options['show_in_menu'] : "";

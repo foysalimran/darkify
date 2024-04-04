@@ -75,7 +75,7 @@ if ( ! function_exists( 'drk_lite_export' ) ) {
 		header( 'Pragma: no-cache' );
 		header( 'Expires: 0' );
 
-		echo esc_html(json_encode( get_option( $unique ) ));
+		echo esc_html(wp_json_encode( get_option( $unique ) ));
 
 		die();
 	}

@@ -121,7 +121,7 @@ if ( ! class_exists( 'DRK_LITE_Shortcoder' ) ) {
                       $shortcode = ( ! empty( $sub['shortcode'] ) ) ? ' data-shortcode="'. esc_attr( $sub['shortcode'] ) .'"' : '';
                       $group     = ( ! empty( $sub['group_shortcode'] ) ) ? ' data-group="'. esc_attr( $sub['group_shortcode'] ) .'"' : '';
 
-                      echo '<option value="'. esc_attr( $tab_key ) .'"'. wp_kses_post($view) . wp_kses_post($shortcode) . wp__kses_post($group) .'>'. esc_attr( $sub['title'] ) .'</option>';
+                      echo '<option value="'. esc_attr( $tab_key ) .'"'. wp_kses_post($view) . wp_kses_post($shortcode) . wp_kses_post($group) .'>'. esc_attr( $sub['title'] ) .'</option>';
 
                       $tab_key++;
 
@@ -135,7 +135,7 @@ if ( ! class_exists( 'DRK_LITE_Shortcoder' ) ) {
                       $shortcode = ( ! empty( $tab['shortcode'] ) ) ? ' data-shortcode="'. esc_attr( $tab['shortcode'] ) .'"' : '';
                       $group     = ( ! empty( $tab['group_shortcode'] ) ) ? ' data-group="'. esc_attr( $tab['group_shortcode'] ) .'"' : '';
 
-                      echo '<option value="'. esc_attr( $tab_key ) .'"'. $view . $shortcode . $group .'>'. esc_attr( $tab['title'] ) .'</option>';
+                      echo '<option value="'. esc_attr( $tab_key ) .'"'. wp_kses_post($view) . wp_kses_post($shortcode) . wp_kses_post($group) .'>'. esc_attr( $tab['title'] ) .'</option>';
 
                     $tab_key++;
 

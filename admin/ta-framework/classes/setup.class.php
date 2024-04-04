@@ -683,7 +683,7 @@ if ( ! class_exists( 'DRK_LITE_Setup' ) ) {
     public static function add_custom_css() {
 
       if ( ! empty( self::$css ) ) {
-        echo '<style type="text/css">'. wp_strip_all_tags( self::$css ) .'</style>';
+        echo '<style type="text/css">'. esc_html(wp_strip_all_tags( self::$css )) .'</style>';
       }
 
     }
@@ -743,14 +743,14 @@ if ( ! class_exists( 'DRK_LITE_Setup' ) ) {
       }
 
       // These attributes has been sanitized above.
-      echo '<div class="drk_lite-field drk_lite-field-'. $field_type . $is_pseudo . $class . $visible .'"'. $depend .'>';
+      echo '<div class="drk_lite-field drk_lite-field-'. esc_attr($field_type) . esc_attr($is_pseudo) . esc_attr($class) . esc_attr($visible) .'"'. wp_kses_post($depend) .'>';
 
       if ( ! empty( $field_type ) ) {
 
         if ( ! empty( $field['title'] ) ) {
           echo '<div class="drk_lite-title">';
-          echo '<h4>'. $field['title'] .'</h4>';
-          echo ( ! empty( $field['subtitle'] ) ) ? '<div class="drk_lite-subtitle-text">'. $field['subtitle'] .'</div>' : '';
+          echo '<h4>'. esc_html($field['title']) .'</h4>';
+          echo ( ! empty( $field['subtitle'] ) ) ? '<div class="drk_lite-subtitle-text">'. wp_kses_post($field['subtitle']) .'</div>' : '';
           echo '</div>';
         }
 

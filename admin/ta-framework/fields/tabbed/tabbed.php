@@ -26,7 +26,7 @@ if ( ! class_exists( 'DRK_LITE_Field_tabbed' ) ) {
 				$tabbed_icon   = ( ! empty( $tab['icon'] ) ) ? '<i class="drk_lite--icon ' . esc_attr( $tab['icon'] ) . '"></i>' : '';
 				$tabbed_active = ( empty( $key ) ) ? 'drk_lite-tabbed-active' : '';
 
-				echo '<a href="#" class="' . esc_attr( $tabbed_active ) . '"">' . $tabbed_icon . esc_attr( $tab['title'] ) . '</a>';
+				echo '<a href="#" class="' . esc_attr( $tabbed_active ) . '"">' . wp_kses_post($tabbed_icon) . esc_attr( $tab['title'] ) . '</a>';
 
 			}
 			echo '</div>';

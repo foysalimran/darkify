@@ -484,7 +484,7 @@ if (!class_exists('DRK_LITE_Options')) {
       echo '<div class="drk_lite-header-inner">';
 
       echo '<div class="drk_lite-header-left">';
-      echo '<h1>' . $this->args['framework_title'] . '</h1>';
+      echo '<h1>' . esc_html($this->args['framework_title']) . '</h1>';
       echo '</div>';
 
       echo '<div class="drk_lite-header-right">';

@@ -17,7 +17,9 @@ class Darkify_Admin
 
 		$this->utils = new DarkifyUtils($this);
 		$this->external_support = new DarkifyExternalSupport($this);
-		$this->unique_id = rand();
+		if ( function_exists( 'wp_rand' ) ) {
+			$this->unique_id = wp_rand();
+		}
 		$options = get_option('darkify');
 		$enable_admin_panel_dark_mode = isset($options['enable_admin_panel_dark_mode']) ? $options['enable_admin_panel_dark_mode'] : false;
 

@@ -30,7 +30,9 @@ if (!class_exists('DarkifyShortcodeParser')) {
         }
         public function darkify_client_view_maker($atts)
         {
-            $unique_id = rand() . "_shortcode";
+            if ( function_exists( 'wp_rand' ) ) {
+                $unique_id = wp_rand() . "_shortcode";
+            }
             $switch_styles = $this->base_client->utils->generateSwitchStylesForShortcode($atts);
             ob_start(); ?>
 
