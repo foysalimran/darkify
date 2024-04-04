@@ -19,8 +19,8 @@ if ( ! class_exists( 'DRK_LITE_Field_icon' ) ) {
 			$args = wp_parse_args(
 				$this->field,
 				array(
-					'button_title' => esc_html__( 'Add Icon', 'ta-framework' ),
-					'remove_title' => esc_html__( 'Remove Icon', 'ta-framework' ),
+					'button_title' => esc_html__( 'Add Icon', 'darkify' ),
+					'remove_title' => esc_html__( 'Remove Icon', 'darkify' ),
 				)
 			);
 
@@ -52,11 +52,11 @@ if ( ! class_exists( 'DRK_LITE_Field_icon' ) ) {
 			<div class="drk_lite-modal-overlay"></div>
 			<div class="drk_lite-modal-inner">
 				<div class="drk_lite-modal-title">
-				<?php esc_html_e( 'Add Icon', 'ta-framework' ); ?>
+				<?php esc_html_e( 'Add Icon', 'darkify' ); ?>
 				<div class="drk_lite-modal-close drk_lite-icon-close"></div>
 				</div>
 				<div class="drk_lite-modal-header">
-				<input type="text" placeholder="<?php esc_html_e( 'Search...', 'ta-framework' ); ?>" class="drk_lite-icon-search" />
+				<input type="text" placeholder="<?php esc_html_e( 'Search...', 'darkify' ); ?>" class="drk_lite-icon-search" />
 				</div>
 				<div class="drk_lite-modal-content">
 				<div class="drk_lite-modal-loading"><div class="drk_lite-loading"></div></div>

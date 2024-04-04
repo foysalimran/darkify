@@ -258,7 +258,7 @@ if ( ! class_exists( 'DRK_LITE_Metabox' ) ) {
 
               } else {
 
-                echo '<div class="drk_lite-no-option">'. esc_html__( 'No data available.', 'ta-framework' ) .'</div>';
+                echo '<div class="drk_lite-no-option">'. esc_html__( 'No data available.', 'darkify' ) .'</div>';
 
               }
 
@@ -275,8 +275,8 @@ if ( ! class_exists( 'DRK_LITE_Metabox' ) ) {
               echo '<div class="drk_lite-sections-reset">';
               echo '<label>';
               echo '<input type="checkbox" name="'. esc_attr( $this->unique ) .'[_reset]" />';
-              echo '<span class="button drk_lite-button-reset">'. esc_html__( 'Reset', 'ta-framework' ) .'</span>';
-              echo '<span class="button drk_lite-button-cancel">'. sprintf( '<small>( %s )</small> %s', esc_html__( 'update post', 'ta-framework' ), esc_html__( 'Cancel', 'ta-framework' ) ) .'</span>';
+              echo '<span class="button drk_lite-button-reset">'. esc_html__( 'Reset', 'darkify' ) .'</span>';
+              echo '<span class="button drk_lite-button-cancel">'. sprintf( '<small>( %s )</small> %s', esc_html__( 'update post', 'darkify' ), esc_html__( 'Cancel', 'darkify' ) ) .'</span>';
               echo '</label>';
               echo '</div>';
 

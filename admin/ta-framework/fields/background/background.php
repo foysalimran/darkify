@@ -35,7 +35,7 @@ if ( ! class_exists( 'DRK_LITE_Field_background' ) ) {
 					'background_auto_attributes'    => false,
 					'compact'                       => false,
 					'background_image_library'      => 'image',
-					'background_image_placeholder'  => esc_html__( 'Not selected', 'ta-framework' ),
+					'background_image_placeholder'  => esc_html__( 'Not selected', 'darkify' ),
 				)
 			);
 
@@ -72,7 +72,7 @@ if ( ! class_exists( 'DRK_LITE_Field_background' ) ) {
 
 				echo '<div class="drk_lite--color">';
 
-				echo ( ! empty( $args['background_gradient'] ) ) ? '<div class="drk_lite--title">' . esc_html__( 'From', 'ta-framework' ) . '</div>' : '';
+				echo ( ! empty( $args['background_gradient'] ) ) ? '<div class="drk_lite--title">' . esc_html__( 'From', 'darkify' ) . '</div>' : '';
 
 				DRK_LITE::field(
 					array(
@@ -95,7 +95,7 @@ if ( ! class_exists( 'DRK_LITE_Field_background' ) ) {
 
 				echo '<div class="drk_lite--color">';
 
-				echo ( ! empty( $args['background_gradient'] ) ) ? '<div class="drk_lite--title">' . esc_html__( 'To', 'ta-framework' ) . '</div>' : '';
+				echo ( ! empty( $args['background_gradient'] ) ) ? '<div class="drk_lite--title">' . esc_html__( 'To', 'darkify' ) . '</div>' : '';
 
 				DRK_LITE::field(
 					array(
@@ -118,18 +118,18 @@ if ( ! class_exists( 'DRK_LITE_Field_background' ) ) {
 
 				echo '<div class="drk_lite--color">';
 
-				echo ( ! empty( $args['background_gradient'] ) ) ? '<div class="drk_lite---title">' . esc_html__( 'Direction', 'ta-framework' ) . '</div>' : '';
+				echo ( ! empty( $args['background_gradient'] ) ) ? '<div class="drk_lite---title">' . esc_html__( 'Direction', 'darkify' ) . '</div>' : '';
 
 				DRK_LITE::field(
 					array(
 						'id'      => 'background-gradient-direction',
 						'type'    => 'select',
 						'options' => array(
-							''          => esc_html__( 'Gradient Direction', 'ta-framework' ),
-							'to bottom' => esc_html__( '&#8659; top to bottom', 'ta-framework' ),
-							'to right'  => esc_html__( '&#8658; left to right', 'ta-framework' ),
-							'135deg'    => esc_html__( '&#8664; corner top to right', 'ta-framework' ),
-							'-135deg'   => esc_html__( '&#8665; corner top to left', 'ta-framework' ),
+							''          => esc_html__( 'Gradient Direction', 'darkify' ),
+							'to bottom' => esc_html__( '&#8659; top to bottom', 'darkify' ),
+							'to right'  => esc_html__( '&#8658; left to right', 'darkify' ),
+							'135deg'    => esc_html__( '&#8664; corner top to right', 'darkify' ),
+							'-135deg'   => esc_html__( '&#8665; corner top to left', 'darkify' ),
 						),
 					),
 					$this->value['background-gradient-direction'],
@@ -182,16 +182,16 @@ if ( ! class_exists( 'DRK_LITE_Field_background' ) ) {
 						'id'      => 'background-position',
 						'type'    => 'select',
 						'options' => array(
-							''              => esc_html__( 'Background Position', 'ta-framework' ),
-							'left top'      => esc_html__( 'Left Top', 'ta-framework' ),
-							'left center'   => esc_html__( 'Left Center', 'ta-framework' ),
-							'left bottom'   => esc_html__( 'Left Bottom', 'ta-framework' ),
-							'center top'    => esc_html__( 'Center Top', 'ta-framework' ),
-							'center center' => esc_html__( 'Center Center', 'ta-framework' ),
-							'center bottom' => esc_html__( 'Center Bottom', 'ta-framework' ),
-							'right top'     => esc_html__( 'Right Top', 'ta-framework' ),
-							'right center'  => esc_html__( 'Right Center', 'ta-framework' ),
-							'right bottom'  => esc_html__( 'Right Bottom', 'ta-framework' ),
+							''              => esc_html__( 'Background Position', 'darkify' ),
+							'left top'      => esc_html__( 'Left Top', 'darkify' ),
+							'left center'   => esc_html__( 'Left Center', 'darkify' ),
+							'left bottom'   => esc_html__( 'Left Bottom', 'darkify' ),
+							'center top'    => esc_html__( 'Center Top', 'darkify' ),
+							'center center' => esc_html__( 'Center Center', 'darkify' ),
+							'center bottom' => esc_html__( 'Center Bottom', 'darkify' ),
+							'right top'     => esc_html__( 'Right Top', 'darkify' ),
+							'right center'  => esc_html__( 'Right Center', 'darkify' ),
+							'right bottom'  => esc_html__( 'Right Bottom', 'darkify' ),
 						),
 					),
 					$this->value['background-position'],
@@ -210,11 +210,11 @@ if ( ! class_exists( 'DRK_LITE_Field_background' ) ) {
 						'id'      => 'background-repeat',
 						'type'    => 'select',
 						'options' => array(
-							''          => esc_html__( 'Background Repeat', 'ta-framework' ),
-							'repeat'    => esc_html__( 'Repeat', 'ta-framework' ),
-							'no-repeat' => esc_html__( 'No Repeat', 'ta-framework' ),
-							'repeat-x'  => esc_html__( 'Repeat Horizontally', 'ta-framework' ),
-							'repeat-y'  => esc_html__( 'Repeat Vertically', 'ta-framework' ),
+							''          => esc_html__( 'Background Repeat', 'darkify' ),
+							'repeat'    => esc_html__( 'Repeat', 'darkify' ),
+							'no-repeat' => esc_html__( 'No Repeat', 'darkify' ),
+							'repeat-x'  => esc_html__( 'Repeat Horizontally', 'darkify' ),
+							'repeat-y'  => esc_html__( 'Repeat Vertically', 'darkify' ),
 						),
 					),
 					$this->value['background-repeat'],
@@ -233,9 +233,9 @@ if ( ! class_exists( 'DRK_LITE_Field_background' ) ) {
 						'id'      => 'background-attachment',
 						'type'    => 'select',
 						'options' => array(
-							''       => esc_html__( 'Background Attachment', 'ta-framework' ),
-							'scroll' => esc_html__( 'Scroll', 'ta-framework' ),
-							'fixed'  => esc_html__( 'Fixed', 'ta-framework' ),
+							''       => esc_html__( 'Background Attachment', 'darkify' ),
+							'scroll' => esc_html__( 'Scroll', 'darkify' ),
+							'fixed'  => esc_html__( 'Fixed', 'darkify' ),
 						),
 					),
 					$this->value['background-attachment'],
@@ -254,10 +254,10 @@ if ( ! class_exists( 'DRK_LITE_Field_background' ) ) {
 						'id'      => 'background-size',
 						'type'    => 'select',
 						'options' => array(
-							''        => esc_html__( 'Background Size', 'ta-framework' ),
-							'cover'   => esc_html__( 'Cover', 'ta-framework' ),
-							'contain' => esc_html__( 'Contain', 'ta-framework' ),
-							'auto'    => esc_html__( 'Auto', 'ta-framework' ),
+							''        => esc_html__( 'Background Size', 'darkify' ),
+							'cover'   => esc_html__( 'Cover', 'darkify' ),
+							'contain' => esc_html__( 'Contain', 'darkify' ),
+							'auto'    => esc_html__( 'Auto', 'darkify' ),
 						),
 					),
 					$this->value['background-size'],
@@ -276,10 +276,10 @@ if ( ! class_exists( 'DRK_LITE_Field_background' ) ) {
 						'id'      => 'background-origin',
 						'type'    => 'select',
 						'options' => array(
-							''            => esc_html__( 'Background Origin', 'ta-framework' ),
-							'padding-box' => esc_html__( 'Padding Box', 'ta-framework' ),
-							'border-box'  => esc_html__( 'Border Box', 'ta-framework' ),
-							'content-box' => esc_html__( 'Content Box', 'ta-framework' ),
+							''            => esc_html__( 'Background Origin', 'darkify' ),
+							'padding-box' => esc_html__( 'Padding Box', 'darkify' ),
+							'border-box'  => esc_html__( 'Border Box', 'darkify' ),
+							'content-box' => esc_html__( 'Content Box', 'darkify' ),
 						),
 					),
 					$this->value['background-origin'],
@@ -298,10 +298,10 @@ if ( ! class_exists( 'DRK_LITE_Field_background' ) ) {
 						'id'      => 'background-clip',
 						'type'    => 'select',
 						'options' => array(
-							''            => esc_html__( 'Background Clip', 'ta-framework' ),
-							'border-box'  => esc_html__( 'Border Box', 'ta-framework' ),
-							'padding-box' => esc_html__( 'Padding Box', 'ta-framework' ),
-							'content-box' => esc_html__( 'Content Box', 'ta-framework' ),
+							''            => esc_html__( 'Background Clip', 'darkify' ),
+							'border-box'  => esc_html__( 'Border Box', 'darkify' ),
+							'padding-box' => esc_html__( 'Padding Box', 'darkify' ),
+							'content-box' => esc_html__( 'Content Box', 'darkify' ),
 						),
 					),
 					$this->value['background-clip'],
@@ -320,17 +320,17 @@ if ( ! class_exists( 'DRK_LITE_Field_background' ) ) {
 						'id'      => 'background-blend-mode',
 						'type'    => 'select',
 						'options' => array(
-							''            => esc_html__( 'Background Blend Mode', 'ta-framework' ),
-							'normal'      => esc_html__( 'Normal', 'ta-framework' ),
-							'multiply'    => esc_html__( 'Multiply', 'ta-framework' ),
-							'screen'      => esc_html__( 'Screen', 'ta-framework' ),
-							'overlay'     => esc_html__( 'Overlay', 'ta-framework' ),
-							'darken'      => esc_html__( 'Darken', 'ta-framework' ),
-							'lighten'     => esc_html__( 'Lighten', 'ta-framework' ),
-							'color-dodge' => esc_html__( 'Color Dodge', 'ta-framework' ),
-							'saturation'  => esc_html__( 'Saturation', 'ta-framework' ),
-							'color'       => esc_html__( 'Color', 'ta-framework' ),
-							'luminosity'  => esc_html__( 'Luminosity', 'ta-framework' ),
+							''            => esc_html__( 'Background Blend Mode', 'darkify' ),
+							'normal'      => esc_html__( 'Normal', 'darkify' ),
+							'multiply'    => esc_html__( 'Multiply', 'darkify' ),
+							'screen'      => esc_html__( 'Screen', 'darkify' ),
+							'overlay'     => esc_html__( 'Overlay', 'darkify' ),
+							'darken'      => esc_html__( 'Darken', 'darkify' ),
+							'lighten'     => esc_html__( 'Lighten', 'darkify' ),
+							'color-dodge' => esc_html__( 'Color Dodge', 'darkify' ),
+							'saturation'  => esc_html__( 'Saturation', 'darkify' ),
+							'color'       => esc_html__( 'Color', 'darkify' ),
+							'luminosity'  => esc_html__( 'Luminosity', 'darkify' ),
 						),
 					),
 					$this->value['background-blend-mode'],

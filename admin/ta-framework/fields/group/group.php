@@ -22,7 +22,7 @@ if ( ! class_exists( 'DRK_LITE_Field_group' ) ) {
 					'max'                       => 0,
 					'min'                       => 0,
 					'fields'                    => array(),
-					'button_title'              => esc_html__( 'Add New', 'ta-framework' ),
+					'button_title'              => esc_html__( 'Add New', 'darkify' ),
 					'accordion_title_prefix'    => '',
 					'accordion_title_number'    => false,
 					'accordion_title_auto'      => true,
@@ -41,7 +41,7 @@ if ( ! class_exists( 'DRK_LITE_Field_group' ) ) {
 
 			if ( preg_match( '/' . preg_quote( '[' . $this->field['id'] . ']' ) . '/', $this->unique ) ) {
 
-				echo '<div class="drk_lite-notice drk_lite-notice-danger">' . esc_html__( 'Error: Field ID conflict.', 'ta-framework' ) . '</div>';
+				echo '<div class="drk_lite-notice drk_lite-notice-danger">' . esc_html__( 'Error: Field ID conflict.', 'darkify' ) . '</div>';
 
 			} else {
 
@@ -52,7 +52,7 @@ if ( ! class_exists( 'DRK_LITE_Field_group' ) ) {
 				echo '<div class="drk_lite-cloneable-helper">';
 				echo '<i class="drk_lite-cloneable-sort fas fa-arrows-alt"></i>';
 				echo '<i class="drk_lite-cloneable-clone far fa-clone"></i>';
-				echo '<i class="drk_lite-cloneable-remove drk_lite-confirm fas fa-times" data-confirm="' . esc_html__( 'Are you sure to delete this item?', 'ta-framework' ) . '"></i>';
+				echo '<i class="drk_lite-cloneable-remove drk_lite-confirm fas fa-times" data-confirm="' . esc_html__( 'Are you sure to delete this item?', 'darkify' ) . '"></i>';
 				echo '</div>';
 
 				echo '<h4 class="drk_lite-cloneable-title">';
@@ -107,7 +107,7 @@ if ( ! class_exists( 'DRK_LITE_Field_group' ) ) {
 						echo '<div class="drk_lite-cloneable-helper">';
 						echo '<i class="drk_lite-cloneable-sort fas fa-arrows-alt"></i>';
 						echo '<i class="drk_lite-cloneable-clone far fa-clone"></i>';
-						echo '<i class="drk_lite-cloneable-remove drk_lite-confirm fas fa-times" data-confirm="' . esc_html__( 'Are you sure to delete this item?', 'ta-framework' ) . '"></i>';
+						echo '<i class="drk_lite-cloneable-remove drk_lite-confirm fas fa-times" data-confirm="' . esc_html__( 'Are you sure to delete this item?', 'darkify' ) . '"></i>';
 						echo '</div>';
 
 						echo '<h4 class="drk_lite-cloneable-title">';
@@ -140,8 +140,8 @@ if ( ! class_exists( 'DRK_LITE_Field_group' ) ) {
 
 				echo '</div>';
 
-				echo '<div class="drk_lite-cloneable-alert drk_lite-cloneable-max">' . esc_html__( 'You cannot add more.', 'ta-framework' ) . '</div>';
-				echo '<div class="drk_lite-cloneable-alert drk_lite-cloneable-min">' . esc_html__( 'You cannot remove more.', 'ta-framework' ) . '</div>';
+				echo '<div class="drk_lite-cloneable-alert drk_lite-cloneable-max">' . esc_html__( 'You cannot add more.', 'darkify' ) . '</div>';
+				echo '<div class="drk_lite-cloneable-alert drk_lite-cloneable-min">' . esc_html__( 'You cannot remove more.', 'darkify' ) . '</div>';
 				echo '<a href="#" class="button button-primary drk_lite-cloneable-add">' . esc_html( $args['button_title'] ) . '</a>';
 
 				echo wp_kses_post( $this->field_after() );

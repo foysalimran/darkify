@@ -21,8 +21,8 @@ if ( ! class_exists( 'DRK_LITE_Field_dimensions' ) ) {
 				array(
 					'width_icon'         => '<i class="fas fa-arrows-alt-h"></i>',
 					'height_icon'        => '<i class="fas fa-arrows-alt-v"></i>',
-					'width_placeholder'  => esc_html__( 'width', 'ta-framework' ),
-					'height_placeholder' => esc_html__( 'height', 'ta-framework' ),
+					'width_placeholder'  => esc_html__( 'width', 'darkify' ),
+					'height_placeholder' => esc_html__( 'height', 'darkify' ),
 					'width'              => true,
 					'height'             => true,
 					'unit'               => true,

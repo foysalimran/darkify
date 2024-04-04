@@ -21,9 +21,9 @@ if ( ! class_exists( 'DRK_LITE_Field_map' ) ) {
 			$args = wp_parse_args(
 				$this->field,
 				array(
-					'placeholder'    => esc_html__( 'Search...', 'ta-framework' ),
-					'latitude_text'  => esc_html__( 'Latitude', 'ta-framework' ),
-					'longitude_text' => esc_html__( 'Longitude', 'ta-framework' ),
+					'placeholder'    => esc_html__( 'Search...', 'darkify' ),
+					'latitude_text'  => esc_html__( 'Latitude', 'darkify' ),
+					'longitude_text' => esc_html__( 'Longitude', 'darkify' ),
 					'address_field'  => '',
 					'height'         => '',
 				)

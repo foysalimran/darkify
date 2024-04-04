@@ -74,7 +74,7 @@ if ( ! class_exists( 'DRK_LITE_Field_radio' ) ) {
 
 				} else {
 
-					echo ( ! empty( $this->field['empty_message'] ) ) ? esc_attr( $this->field['empty_message'] ) : esc_html__( 'No data available.', 'ta-framework' );
+					echo ( ! empty( $this->field['empty_message'] ) ) ? esc_attr( $this->field['empty_message'] ) : esc_html__( 'No data available.', 'darkify' );
 
 				}
 			} else {

@@ -17,8 +17,8 @@ if ( ! class_exists( 'DRK_LITE_Field_switcher' ) ) {
 		public function render() {
 
 			$active     = ( ! empty( $this->value ) ) ? ' drk_lite--active' : '';
-			$text_on    = ( ! empty( $this->field['text_on'] ) ) ? $this->field['text_on'] : esc_html__( 'On', 'ta-framework' );
-			$text_off   = ( ! empty( $this->field['text_off'] ) ) ? $this->field['text_off'] : esc_html__( 'Off', 'ta-framework' );
+			$text_on    = ( ! empty( $this->field['text_on'] ) ) ? $this->field['text_on'] : esc_html__( 'On', 'darkify' );
+			$text_off   = ( ! empty( $this->field['text_off'] ) ) ? $this->field['text_off'] : esc_html__( 'Off', 'darkify' );
 			$text_width = ( ! empty( $this->field['text_width'] ) ) ? ' style="width: ' . esc_attr( $this->field['text_width'] ) . 'px;"' : '';
 
 			echo wp_kses_post( $this->field_before() );

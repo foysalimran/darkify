@@ -24,11 +24,11 @@ if ( ! class_exists( 'DRK_LITE_Field_border' ) ) {
 					'bottom_icon'        => '<i class="fas fa-long-arrow-alt-down"></i>',
 					'right_icon'         => '<i class="fas fa-long-arrow-alt-right"></i>',
 					'all_icon'           => '<i class="fas fa-arrows-alt"></i>',
-					'top_placeholder'    => esc_html__( 'top', 'ta-framework' ),
-					'right_placeholder'  => esc_html__( 'right', 'ta-framework' ),
-					'bottom_placeholder' => esc_html__( 'bottom', 'ta-framework' ),
-					'left_placeholder'   => esc_html__( 'left', 'ta-framework' ),
-					'all_placeholder'    => esc_html__( 'all', 'ta-framework' ),
+					'top_placeholder'    => esc_html__( 'top', 'darkify' ),
+					'right_placeholder'  => esc_html__( 'right', 'darkify' ),
+					'bottom_placeholder' => esc_html__( 'bottom', 'darkify' ),
+					'left_placeholder'   => esc_html__( 'left', 'darkify' ),
+					'all_placeholder'    => esc_html__( 'all', 'darkify' ),
 					'top'                => true,
 					'left'               => true,
 					'bottom'             => true,
@@ -51,15 +51,15 @@ if ( ! class_exists( 'DRK_LITE_Field_border' ) ) {
 			);
 
 			$border_props = array(
-				'solid'  => esc_html__( 'Solid', 'ta-framework' ),
-				'dashed' => esc_html__( 'Dashed', 'ta-framework' ),
-				'dotted' => esc_html__( 'Dotted', 'ta-framework' ),
-				'double' => esc_html__( 'Double', 'ta-framework' ),
-				'inset'  => esc_html__( 'Inset', 'ta-framework' ),
-				'outset' => esc_html__( 'Outset', 'ta-framework' ),
-				'groove' => esc_html__( 'Groove', 'ta-framework' ),
-				'ridge'  => esc_html__( 'ridge', 'ta-framework' ),
-				'none'   => esc_html__( 'None', 'ta-framework' ),
+				'solid'  => esc_html__( 'Solid', 'darkify' ),
+				'dashed' => esc_html__( 'Dashed', 'darkify' ),
+				'dotted' => esc_html__( 'Dotted', 'darkify' ),
+				'double' => esc_html__( 'Double', 'darkify' ),
+				'inset'  => esc_html__( 'Inset', 'darkify' ),
+				'outset' => esc_html__( 'Outset', 'darkify' ),
+				'groove' => esc_html__( 'Groove', 'darkify' ),
+				'ridge'  => esc_html__( 'ridge', 'darkify' ),
+				'none'   => esc_html__( 'None', 'darkify' ),
 			);
 
 			$default_value = ( ! empty( $this->field['default'] ) ) ? wp_parse_args( $this->field['default'], $default_value ) : $default_value;

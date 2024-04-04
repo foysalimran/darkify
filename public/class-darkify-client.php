@@ -25,7 +25,7 @@ if (!class_exists('DarkifyClient')) {
             $this->unique_id = rand();
 
             $options = get_option('darkify');
-            $show_in_menu = $options['show_in_menu'];
+            $show_in_menu = isset($options['show_in_menu']) ? $options['show_in_menu'] : "";
             $enable_switcher_in_menu = isset($show_in_menu["enable_switch_in_menu"]) ? $show_in_menu["enable_switch_in_menu"] : false;
     
             if($enable_switcher_in_menu){

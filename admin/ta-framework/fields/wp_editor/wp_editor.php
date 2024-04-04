@@ -82,9 +82,11 @@ if ( ! class_exists( 'DRK_LITE_Field_wp_editor' ) ) {
 			echo '</div>';
 			$media_buttons = ob_get_clean();
 
-			echo '<script type="text/javascript">';
-			echo 'var drk_lite_media_buttons = ' . esc_js(json_encode( $media_buttons )) . ';';
-			echo '</script>';
+			// Enqueue the script instead of echoing it
+			wp_enqueue_script( 'drk-lite-media-buttons', plugin_dir_url( __FILE__ ) . 'your-script.js', array( 'jquery' ), null, true );
+
+			// Pass data to the script using wp_localize_script
+			wp_localize_script( 'drk-lite-media-buttons', 'drk_lite_media_buttons', $media_buttons );
 		}
 
 		// Setup wp editor settings

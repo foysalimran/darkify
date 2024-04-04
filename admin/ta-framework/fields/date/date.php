@@ -30,8 +30,8 @@ if ( ! class_exists( 'DRK_LITE_Field_date' ) ) {
 				$args = wp_parse_args(
 					$this->field,
 					array(
-						'text_from' => esc_html__( 'From', 'ta-framework' ),
-						'text_to'   => esc_html__( 'To', 'ta-framework' ),
+						'text_from' => esc_html__( 'From', 'darkify' ),
+						'text_to'   => esc_html__( 'To', 'darkify' ),
 					)
 				);
 

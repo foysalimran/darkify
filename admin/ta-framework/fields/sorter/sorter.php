@@ -20,8 +20,8 @@ if ( ! class_exists( 'DRK_LITE_Field_sorter' ) ) {
 				$this->field,
 				array(
 					'disabled'       => true,
-					'enabled_title'  => esc_html__( 'Enabled', 'ta-framework' ),
-					'disabled_title' => esc_html__( 'Disabled', 'ta-framework' ),
+					'enabled_title'  => esc_html__( 'Enabled', 'darkify' ),
+					'disabled_title' => esc_html__( 'Disabled', 'darkify' ),
 				)
 			);
 

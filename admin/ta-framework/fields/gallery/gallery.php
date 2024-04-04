@@ -19,9 +19,9 @@ if ( ! class_exists( 'DRK_LITE_Field_gallery' ) ) {
 			$args = wp_parse_args(
 				$this->field,
 				array(
-					'add_title'   => esc_html__( 'Add Gallery', 'ta-framework' ),
-					'edit_title'  => esc_html__( 'Edit Gallery', 'ta-framework' ),
-					'clear_title' => esc_html__( 'Clear', 'ta-framework' ),
+					'add_title'   => esc_html__( 'Add Gallery', 'darkify' ),
+					'edit_title'  => esc_html__( 'Edit Gallery', 'darkify' ),
+					'clear_title' => esc_html__( 'Clear', 'darkify' ),
 				)
 			);
 

@@ -17,48 +17,24 @@ $type_of_hide_by = isset($hide_on_mobile["type_of_hide_by"]) ? $hide_on_mobile["
 <?php } ?>
 
 
-<?php if (!is_admin()) { ?>
-    <script type="text/javascript" class="darkify_inline_js">
-        document.addEventListener("DOMContentLoaded", function(event) {
-            darkify_init_alternative_dark_mode_switch();
-        });
-    </script>
-<?php } ?>
+<?php if (!is_admin()) {
+    wp_enqueue_script('darkify-script', plugin_dir_url(__FILE__) . 'darkify-script.js', array('jquery'), null, true);
+
+    // Localize script to pass data to JavaScript
+    wp_localize_script('darkify-script', 'darkify_inline_js', array(
+        'init_function' => 'darkify_init_alternative_dark_mode_switch'
+    ));
+} ?>
 
 <?php if (is_admin()) { ?>
     <?php /* Check if block editor is on, then add the dark mode button there */ ?>
-    <?php if ($options["enable_admin_panel_dark_mode"]) { ?>
-        <?php if (class_exists('WP_Block_Type_Registry')) { ?>
-            <?php if (get_current_screen() && 'post' === get_current_screen()->base && ('post' === get_current_screen()->post_type || 'page' === get_current_screen()->post_type)) { ?>
-                <script type="text/javascript" class="darkify_inline_js">
-                    wp.domReady(function() {
-                        const observer = new MutationObserver(function(mutations) {
-                            mutations.forEach(function(mutation) {
-                                if (mutation.addedNodes && mutation.addedNodes.length) {
-                                    for (let i = 0; i < mutation.addedNodes.length; i++) {
-                                        const node = mutation.addedNodes[i];
-                                        if (node.classList && node.classList.contains('edit-post-header-toolbar')) {
-                                            const button = document.createElement('button');
-                                            button.className = 'darkify_block_editor_switch darkify_ignore';
-                                            button.innerHTML = '<div class="icon"></div>';
-                                            button.onclick = function() {
-                                                darkify_switch_trigger();
-                                            };
-                                            node.appendChild(button);
-                                            observer.disconnect();
-                                            return;
-                                        }
-                                    }
-                                }
-                            });
-                        });
-                        observer.observe(document.body, {
-                            childList: true,
-                            subtree: true
-                        });
-                    });
-                </script>
-            <?php } ?>
-        <?php } ?>
-    <?php } ?>
+    <?php if ($options["enable_admin_panel_dark_mode"]) { 
+        if (class_exists('WP_Block_Type_Registry')) {
+        $current_screen = get_current_screen();
+        if ($current_screen && 'post' === $current_screen->base && ('post' === $current_screen->post_type || 'page' === $current_screen->post_type)) {
+            // Enqueue the script
+            wp_enqueue_script( 'darkify-editor-script', plugin_dir_url( __FILE__ ) . 'darkify-editor-script.js', array( 'wp-dom-ready', 'wp-edit-post' ), null, true );
+        }
+    }
+    } ?>
 <?php } ?>

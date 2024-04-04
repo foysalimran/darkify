@@ -27,7 +27,7 @@ if ( ! class_exists( 'DRK_LITE_Field_repeater' ) ) {
 
 			if ( preg_match( '/' . preg_quote( '[' . $this->field['id'] . ']' ) . '/', $this->unique ) ) {
 
-				echo '<div class="drk_lite-notice drk_lite-notice-danger">' . esc_html__( 'Error: Field ID conflict.', 'ta-framework' ) . '</div>';
+				echo '<div class="drk_lite-notice drk_lite-notice-danger">' . esc_html__( 'Error: Field ID conflict.', 'darkify' ) . '</div>';
 
 			} else {
 
@@ -48,7 +48,7 @@ if ( ! class_exists( 'DRK_LITE_Field_repeater' ) ) {
 				echo '<div class="drk_lite-repeater-helper-inner">';
 				echo '<i class="drk_lite-repeater-sort fas fa-arrows-alt"></i>';
 				echo '<i class="drk_lite-repeater-clone far fa-clone"></i>';
-				echo '<i class="drk_lite-repeater-remove drk_lite-confirm fas fa-times" data-confirm="' . esc_html__( 'Are you sure to delete this item?', 'ta-framework' ) . '"></i>';
+				echo '<i class="drk_lite-repeater-remove drk_lite-confirm fas fa-times" data-confirm="' . esc_html__( 'Are you sure to delete this item?', 'darkify' ) . '"></i>';
 				echo '</div>';
 				echo '</div>';
 				echo '</div>';
@@ -76,7 +76,7 @@ if ( ! class_exists( 'DRK_LITE_Field_repeater' ) ) {
 						echo '<div class="drk_lite-repeater-helper-inner">';
 						echo '<i class="drk_lite-repeater-sort fas fa-arrows-alt"></i>';
 						echo '<i class="drk_lite-repeater-clone far fa-clone"></i>';
-						echo '<i class="drk_lite-repeater-remove drk_lite-confirm fas fa-times" data-confirm="' . esc_html__( 'Are you sure to delete this item?', 'ta-framework' ) . '"></i>';
+						echo '<i class="drk_lite-repeater-remove drk_lite-confirm fas fa-times" data-confirm="' . esc_html__( 'Are you sure to delete this item?', 'darkify' ) . '"></i>';
 						echo '</div>';
 						echo '</div>';
 						echo '</div>';
@@ -88,8 +88,8 @@ if ( ! class_exists( 'DRK_LITE_Field_repeater' ) ) {
 
 				echo '</div>';
 
-				echo '<div class="drk_lite-repeater-alert drk_lite-repeater-max">' . esc_html__( 'You cannot add more.', 'ta-framework' ) . '</div>';
-				echo '<div class="drk_lite-repeater-alert drk_lite-repeater-min">' . esc_html__( 'You cannot remove more.', 'ta-framework' ) . '</div>';
+				echo '<div class="drk_lite-repeater-alert drk_lite-repeater-max">' . esc_html__( 'You cannot add more.', 'darkify' ) . '</div>';
+				echo '<div class="drk_lite-repeater-alert drk_lite-repeater-min">' . esc_html__( 'You cannot remove more.', 'darkify' ) . '</div>';
 				echo '<a href="#" class="button button-primary drk_lite-repeater-add">' . esc_html( $args['button_title'] ) . '</a>';
 
 				echo wp_kses_post( $this->field_after() );

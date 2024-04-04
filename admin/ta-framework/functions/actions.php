@@ -13,7 +13,7 @@ if ( ! function_exists( 'drk_lite_get_icons' ) ) {
 		$nonce = ( ! empty( $_POST['nonce'] ) ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
 
 		if ( ! wp_verify_nonce( $nonce, 'drk_lite_icon_nonce' ) ) {
-			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'ta-framework' ) ) );
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'darkify' ) ) );
 		}
 
 		ob_start();
@@ -36,7 +36,7 @@ if ( ! function_exists( 'drk_lite_get_icons' ) ) {
 			}
 		} else {
 
-				echo '<div class="drk_lite-error-text">' . esc_html__( 'No data available.', 'ta-framework' ) . '</div>';
+				echo '<div class="drk_lite-error-text">' . esc_html__( 'No data available.', 'darkify' ) . '</div>';
 
 		}
 
@@ -61,11 +61,11 @@ if ( ! function_exists( 'drk_lite_export' ) ) {
 		$unique = ( ! empty( $_GET['unique'] ) ) ? sanitize_text_field( wp_unslash( $_GET['unique'] ) ) : '';
 
 		if ( ! wp_verify_nonce( $nonce, 'drk_lite_backup_nonce' ) ) {
-			die( esc_html__( 'Error: Invalid nonce verification.', 'ta-framework' ) );
+			die( esc_html__( 'Error: Invalid nonce verification.', 'darkify' ) );
 		}
 
 		if ( empty( $unique ) ) {
-			die( esc_html__( 'Error: Invalid key.', 'ta-framework' ) );
+			die( esc_html__( 'Error: Invalid key.', 'darkify' ) );
 		}
 
 		// Export
@@ -91,21 +91,24 @@ if ( ! function_exists( 'drk_lite_export' ) ) {
  */
 if ( ! function_exists( 'drk_lite_import_ajax' ) ) {
 	function drk_lite_import_ajax() {
+		if(!current_user_can('manage_options')){
+			return;
+		}
 
 		$nonce  = ( ! empty( $_POST['nonce'] ) ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
 		$unique = ( ! empty( $_POST['unique'] ) ) ? sanitize_text_field( wp_unslash( $_POST['unique'] ) ) : '';
 		$data   = ( ! empty( $_POST['data'] ) ) ? wp_kses_post_deep( json_decode( wp_unslash( trim( wp_kses_post($_POST['data']) ) ), true ) ) : wp_kses_post_deep(array());
 
 		if ( ! wp_verify_nonce( $nonce, 'drk_lite_backup_nonce' ) ) {
-			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'ta-framework' ) ) );
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'darkify' ) ) );
 		}
 
 		if ( empty( $unique ) ) {
-			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid key.', 'ta-framework' ) ) );
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid key.', 'darkify' ) ) );
 		}
 
 		if ( empty( $data ) || ! is_array( $data ) ) {
-			wp_send_json_error( array( 'error' => esc_html__( 'Error: The response is not a valid JSON response.', 'ta-framework' ) ) );
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: The response is not a valid JSON response.', 'darkify' ) ) );
 		}
 
 		// Success
@@ -130,7 +133,7 @@ if ( ! function_exists( 'drk_lite_reset_ajax' ) ) {
 		$unique = ( ! empty( $_POST['unique'] ) ) ? sanitize_text_field( wp_unslash( $_POST['unique'] ) ) : '';
 
 		if ( ! wp_verify_nonce( $nonce, 'drk_lite_backup_nonce' ) ) {
-			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'ta-framework' ) ) );
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'darkify' ) ) );
 		}
 
 		// Success
@@ -151,23 +154,27 @@ if ( ! function_exists( 'drk_lite_reset_ajax' ) ) {
 if ( ! function_exists( 'drk_lite_chosen_ajax' ) ) {
 	function drk_lite_chosen_ajax() {
 
+		if(!current_user_can('manage_options')){
+			return;
+		}
+
 		$nonce = ( ! empty( $_POST['nonce'] ) ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
 		$type  = ( ! empty( $_POST['type'] ) ) ? sanitize_text_field( wp_unslash( $_POST['type'] ) ) : '';
 		$term  = ( ! empty( $_POST['term'] ) ) ? sanitize_text_field( wp_unslash( $_POST['term'] ) ) : '';
 		$query = ( ! empty( $_POST['query_args'] ) ) ? wp_kses_post_deep( $_POST['query_args'] ) : wp_kses_post_deep(array());
 
 		if ( ! wp_verify_nonce( $nonce, 'drk_lite_chosen_ajax_nonce' ) ) {
-			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'ta-framework' ) ) );
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid nonce verification.', 'darkify' ) ) );
 		}
 
 		if ( empty( $type ) || empty( $term ) ) {
-			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid term ID.', 'ta-framework' ) ) );
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: Invalid term ID.', 'darkify' ) ) );
 		}
 
 		$capability = apply_filters( 'drk_lite_chosen_ajax_capability', 'manage_options' );
 
 		if ( ! current_user_can( $capability ) ) {
-			wp_send_json_error( array( 'error' => esc_html__( 'Error: You do not have permission to do that.', 'ta-framework' ) ) );
+			wp_send_json_error( array( 'error' => esc_html__( 'Error: You do not have permission to do that.', 'darkify' ) ) );
 		}
 
 		// Success

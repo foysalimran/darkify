@@ -17,7 +17,7 @@ if ( ! class_exists( 'DRK_LITE_Field_textarea' ) ) {
 		public function render() {
 
 			echo wp_kses_post( $this->field_before() );
-			echo wp_kses_post($this->shortcoder());
+			echo esc_html( $this->shortcoder() );
 			echo '<textarea name="' . esc_attr( $this->field_name() ) . '"' . wp_kses_post( $this->field_attributes() ) . '>' . wp_kses_post($this->value) . '</textarea>';
 			echo wp_kses_post( $this->field_after() );
 		}
