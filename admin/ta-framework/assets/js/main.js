@@ -2371,6 +2371,17 @@
 
   };
 
+  function darkify_ajax_action() {
+    jQuery.ajax({
+      url: ajaxurl,
+      type: "POST",
+      data: {
+        action: "set_options",
+        nonce: nonce,
+      },
+    });
+  }
+
   //
   // Options Save
   //
@@ -2398,7 +2409,7 @@
 
             $panel.addClass('drk_lite-saving');
             $buttons.prop('disabled', true);
-
+            darkify_ajax_action();
             window.wp.ajax.post( 'drk_lite_'+ $panel.data('unique') +'_ajax_save', {
               data: $('#drk_lite-form').serializeJSONDRK_LITE()
             })

@@ -107,6 +107,8 @@ if (!class_exists('DRK_LITE_Options')) {
       $this->get_options();
       $this->set_options();
       $this->save_defaults();
+      add_action('wp_ajax_set_options', array($this, 'set_options'));
+      add_action('wp_ajax_nopriv_set_options', array($this, 'set_options'));
 
       add_action('admin_menu', array($this, 'add_admin_menu'));
       add_action('admin_bar_menu', array($this, 'add_admin_bar_menu'), $this->args['admin_bar_menu_priority']);
@@ -206,14 +208,17 @@ if (!class_exists('DRK_LITE_Options')) {
     // set options
     public function set_options($ajax = false)
     {
-
-      if(!current_user_can('manage_options')){
+      if (!current_user_can('manage_options')) {
         return;
-    }
-   
+      }
+      if (isset($_POST['drknonce']) && !wp_verify_nonce(sanitize_text_field(wp_unslash($_POST['drknonce'])), 'darkifyAjax_nonce')) {
+        return false;
+      }
+
       // Set variables.
       $data      = array();
-      $response  = ( $ajax && ! empty( $_POST['data'] ) ) ? wp_kses_post_deep(json_decode( wp_unslash( trim( wp_kses_post($_POST['data'] )) ), true )) : wp_kses_post_deep(array());
+      $response  = ($ajax && !empty($_POST['data'])) ? wp_kses_post_deep(json_decode(wp_unslash(trim(wp_kses_post($_POST['data']))), true)) : wp_kses_post_deep(array());
+      
       $noncekey  = 'drk_lite_options_nonce' . $this->unique;
       $nonce     = (!empty($response[$noncekey])) ? $response[$noncekey] : '';
 
