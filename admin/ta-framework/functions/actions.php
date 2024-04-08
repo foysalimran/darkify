@@ -94,6 +94,9 @@ if ( ! function_exists( 'drk_lite_import_ajax' ) ) {
 		if(!current_user_can('manage_options')){
 			return;
 		}
+		if(isset($_POST['_ajax_nonce']) && !wp_verify_nonce($_POST['_ajax_nonce'], 'save_options')){
+			return wp_send_json(['error' => 'Nonce is invalid']);
+		}
 
 		$nonce  = ( ! empty( $_POST['nonce'] ) ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';
 		$unique = ( ! empty( $_POST['unique'] ) ) ? sanitize_text_field( wp_unslash( $_POST['unique'] ) ) : '';
@@ -156,6 +159,10 @@ if ( ! function_exists( 'drk_lite_chosen_ajax' ) ) {
 
 		if(!current_user_can('manage_options')){
 			return;
+		}
+
+		if(isset($_POST['_ajax_nonce']) && !wp_verify_nonce($_POST['_ajax_nonce'], 'save_options')){
+			return wp_send_json(['error' => 'Nonce is invalid']);
 		}
 
 		$nonce = ( ! empty( $_POST['nonce'] ) ) ? sanitize_text_field( wp_unslash( $_POST['nonce'] ) ) : '';

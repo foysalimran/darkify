@@ -2371,13 +2371,14 @@
 
   };
 
+
   function darkify_ajax_action() {
     jQuery.ajax({
-      url: ajaxurl,
+      url: drk_lite_vars.ajaxurl,
       type: "POST",
       data: {
         action: "set_options",
-        nonce: nonce,
+        nonce: drk_lite_vars.nonce,
       },
     });
   }
