@@ -36,7 +36,7 @@ DRK_LITE::createSection($prefix, array(
 
  DRK_LITE::createSection( $prefix, array(
   'parent'      => 'control_fields',
-  'title'       => 'Basic Control',
+  'title'       => esc_html__('Basic Control', 'darkify'),
   'icon'        => 'fas fa-cog',
   'fields'      => array(
     array(
@@ -76,7 +76,7 @@ DRK_LITE::createSection($prefix, array(
   
   DRK_LITE::createSection( $prefix, array(
     'parent'      => 'control_fields',
-    'title'       => 'Advanced Control',
+    'title'       => esc_html__('Advanced Control', 'darkify'),
     'icon'        => 'fas fa-cogs',
     'fields'      => array(
     array(
@@ -191,15 +191,6 @@ DRK_LITE::createSection($prefix, array(
       'desc'    => esc_html__('Switch to show the Dark Mode Floating Switch in your Websites frontend.', 'darkify'),
       'default' => false,
     ),
-
-    // array(
-    //   'id'          => 'disallowed_admin_pages',
-    //   'type'        => 'textarea',
-    //   'title'       => esc_html__('Disallowed Pages', 'darkify'),
-    //   'desc'        => esc_html__('Dark mode will not be applied to these admin pages.', 'darkify'),
-    //   'placeholder' => esc_html__('Enter comma separated page slugs. Example: darkify-dashboard, elementor', 'darkify'),
-    //   'dependency'  => array('enable_admin_panel_dark_mode', '==', 'true'),
-    // ),
   )
 ));
 DRK_LITE::createSection($prefix, array(
@@ -685,8 +676,8 @@ DRK_LITE::createSection( $prefix, array(
       'dependency' => array('color_pallets', '==', 'set2', 'all'),
       'options'   => array(
         'color' => esc_html__('Input Text', 'darkify'),
-        'placeholder' => esc_html('Input Placeholder', 'darkify'),
-        'background' => esc_html('Input Background', 'darkify'),
+        'placeholder' => esc_html__('Input Placeholder', 'darkify'),
+        'background' => esc_html__('Input Background', 'darkify'),
       ),
       'default' => array(
         'color' => '#092635',
@@ -711,7 +702,7 @@ DRK_LITE::createSection( $prefix, array(
       'dependency' => array('color_pallets', '==', 'set2', 'all'),
       'options'   => array(
         'color' => esc_html__('Button Text', 'darkify'),
-        'background' => esc_html('Button Background', 'darkify'),
+        'background' => esc_html__('Button Background', 'darkify'),
       ),
       'default' => array(
         'color' => '#1B4242',
@@ -763,8 +754,8 @@ DRK_LITE::createSection( $prefix, array(
       'dependency' => array('color_pallets', '==', 'set4', 'all'),
       'options'   => array(
         'color' => esc_html__('Input Text', 'darkify'),
-        'placeholder' => esc_html('Input Placeholder', 'darkify'),
-        'background' => esc_html('Input Background', 'darkify'),
+        'placeholder' => esc_html__('Input Placeholder', 'darkify'),
+        'background' => esc_html__('Input Background', 'darkify'),
       ),
       'default' => array(
         'color' => '#363062',
@@ -789,7 +780,7 @@ DRK_LITE::createSection( $prefix, array(
       'dependency' => array('color_pallets', '==', 'set4', 'all'),
       'options'   => array(
         'color' => esc_html__('Button Text', 'darkify'),
-        'background' => esc_html('Button Background', 'darkify'),
+        'background' => esc_html__('Button Background', 'darkify'),
       ),
       'default' => array(
         'color' => '#435585',
@@ -840,8 +831,8 @@ DRK_LITE::createSection( $prefix, array(
       'dependency' => array('color_pallets', '==', 'set5', 'all'),
       'options'   => array(
         'color' => esc_html__('Input Text', 'darkify'),
-        'placeholder' => esc_html('Input Placeholder', 'darkify'),
-        'background' => esc_html('Input Background', 'darkify'),
+        'placeholder' => esc_html__('Input Placeholder', 'darkify'),
+        'background' => esc_html__('Input Background', 'darkify'),
       ),
       'default' => array(
         'color' => '#22092C',
@@ -866,7 +857,7 @@ DRK_LITE::createSection( $prefix, array(
       'dependency' => array('color_pallets', '==', 'set5', 'all'),
       'options'   => array(
         'color' => esc_html__('Button Text', 'darkify'),
-        'background' => esc_html('Button Background', 'darkify'),
+        'background' => esc_html__('Button Background', 'darkify'),
       ),
       'default' => array(
         'color' => '#435585',
@@ -917,8 +908,8 @@ DRK_LITE::createSection( $prefix, array(
       'dependency' => array('color_pallets', '==', 'set6', 'all'),
       'options'   => array(
         'color' => esc_html__('Input Text', 'darkify'),
-        'placeholder' => esc_html('Input Placeholder', 'darkify'),
-        'background' => esc_html('Input Background', 'darkify'),
+        'placeholder' => esc_html__('Input Placeholder', 'darkify'),
+        'background' => esc_html__('Input Background', 'darkify'),
       ),
       'default' => array(
         'color' => '#352F44',
@@ -943,7 +934,7 @@ DRK_LITE::createSection( $prefix, array(
       'dependency' => array('color_pallets', '==', 'set6', 'all'),
       'options'   => array(
         'color' => esc_html__('Button Text', 'darkify'),
-        'background' => esc_html('Button Background', 'darkify'),
+        'background' => esc_html__('Button Background', 'darkify'),
       ),
       'default' => array(
         'color' => '#5C5470',
@@ -996,8 +987,8 @@ DRK_LITE::createSection( $prefix, array(
       'dependency' => array('color_pallets', '==', 'set9', 'all'),
       'options'   => array(
         'color' => esc_html__('Input Text', 'darkify'),
-        'placeholder' => esc_html('Input Placeholder', 'darkify'),
-        'background' => esc_html('Input Background', 'darkify'),
+        'placeholder' => esc_html__('Input Placeholder', 'darkify'),
+        'background' => esc_html__('Input Background', 'darkify'),
       ),
       'default' => array(
         'color' => '#334756',
@@ -1022,7 +1013,7 @@ DRK_LITE::createSection( $prefix, array(
       'dependency' => array('color_pallets', '==', 'set9', 'all'),
       'options'   => array(
         'color' => esc_html__('Button Text', 'darkify'),
-        'background' => esc_html('Button Background', 'darkify'),
+        'background' => esc_html__('Button Background', 'darkify'),
       ),
       'default' => array(
         'color' => '#2C394B',
@@ -1073,8 +1064,8 @@ DRK_LITE::createSection( $prefix, array(
       'dependency' => array('color_pallets', '==', 'set10', 'all'),
       'options'   => array(
         'color' => esc_html__('Input Text', 'darkify'),
-        'placeholder' => esc_html('Input Placeholder', 'darkify'),
-        'background' => esc_html('Input Background', 'darkify'),
+        'placeholder' => esc_html__('Input Placeholder', 'darkify'),
+        'background' => esc_html__('Input Background', 'darkify'),
       ),
       'default' => array(
         'color' => '#1E5F74',
@@ -1099,7 +1090,7 @@ DRK_LITE::createSection( $prefix, array(
       'dependency' => array('color_pallets', '==', 'set10', 'all'),
       'options'   => array(
         'color' => esc_html__('Button Text', 'darkify'),
-        'background' => esc_html('Button Background', 'darkify'),
+        'background' => esc_html__('Button Background', 'darkify'),
       ),
       'default' => array(
         'color' => '#133B5C',
@@ -1150,8 +1141,8 @@ DRK_LITE::createSection( $prefix, array(
       'dependency' => array('color_pallets', '==', 'set11', 'all'),
       'options'   => array(
         'color' => esc_html__('Input Text', 'darkify'),
-        'placeholder' => esc_html('Input Placeholder', 'darkify'),
-        'background' => esc_html('Input Background', 'darkify'),
+        'placeholder' => esc_html__('Input Placeholder', 'darkify'),
+        'background' => esc_html__('Input Background', 'darkify'),
       ),
       'default' => array(
         'color' => '#0C7B93',
@@ -1176,7 +1167,7 @@ DRK_LITE::createSection( $prefix, array(
       'dependency' => array('color_pallets', '==', 'set11', 'all'),
       'options'   => array(
         'color' => esc_html__('Button Text', 'darkify'),
-        'background' => esc_html('Button Background', 'darkify'),
+        'background' => esc_html__('Button Background', 'darkify'),
       ),
       'default' => array(
         'color' => '#27496D',
@@ -1238,17 +1229,17 @@ DRK_LITE::createSection($prefix, array(
           'type'  => 'select',
           'title' => esc_html__('Brightness Label', 'darkify'),
           'options' => array(
-            '0' => esc_html('0% Brightness', 'darkify'),
-            '10' => esc_html('10% Brightness', 'darkify'),
-            '20' => esc_html('20% Brightness', 'darkify'),
-            '30' => esc_html('30% Brightness', 'darkify'),
-            '40' => esc_html('40% Brightness', 'darkify'),
-            '50' => esc_html('50% Brightness', 'darkify'),
-            '60' => esc_html('60% Brightness', 'darkify'),
-            '70' => esc_html('70% Brightness', 'darkify'),
-            '80' => esc_html('80% Brightness', 'darkify'),
-            '90' => esc_html('90% Brightness', 'darkify'),
-            '100' => esc_html('100% Brightness', 'darkify'),
+            '0' => esc_html__('0% Brightness', 'darkify'),
+            '10' => esc_html__('10% Brightness', 'darkify'),
+            '20' => esc_html__('20% Brightness', 'darkify'),
+            '30' => esc_html__('30% Brightness', 'darkify'),
+            '40' => esc_html__('40% Brightness', 'darkify'),
+            '50' => esc_html__('50% Brightness', 'darkify'),
+            '60' => esc_html__('60% Brightness', 'darkify'),
+            '70' => esc_html__('70% Brightness', 'darkify'),
+            '80' => esc_html__('80% Brightness', 'darkify'),
+            '90' => esc_html__('90% Brightness', 'darkify'),
+            '100' => esc_html__('100% Brightness', 'darkify'),
           ),
           'default'     => '80',
           'dependency' => array('enable_low_image_brightness', '==', 'true', 'all'),
@@ -1275,17 +1266,17 @@ DRK_LITE::createSection($prefix, array(
           'type'  => 'select',
           'title' => esc_html__('Grayscale Label', 'darkify'),
           'options' => array(
-            '0' => esc_html('0% Brightness', 'darkify'),
-            '10' => esc_html('10% Grayscale', 'darkify'),
-            '20' => esc_html('20% Grayscale', 'darkify'),
-            '30' => esc_html('30% Grayscale', 'darkify'),
-            '40' => esc_html('40% Grayscale', 'darkify'),
-            '50' => esc_html('50% Grayscale', 'darkify'),
-            '60' => esc_html('60% Grayscale', 'darkify'),
-            '70' => esc_html('70% Grayscale', 'darkify'),
-            '80' => esc_html('80% Grayscale', 'darkify'),
-            '90' => esc_html('90% Grayscale', 'darkify'),
-            '100' => esc_html('100% Grayscale', 'darkify'),
+            '0' => esc_html__('0% Brightness', 'darkify'),
+            '10' => esc_html__('10% Grayscale', 'darkify'),
+            '20' => esc_html__('20% Grayscale', 'darkify'),
+            '30' => esc_html__('30% Grayscale', 'darkify'),
+            '40' => esc_html__('40% Grayscale', 'darkify'),
+            '50' => esc_html__('50% Grayscale', 'darkify'),
+            '60' => esc_html__('60% Grayscale', 'darkify'),
+            '70' => esc_html__('70% Grayscale', 'darkify'),
+            '80' => esc_html__('80% Grayscale', 'darkify'),
+            '90' => esc_html__('90% Grayscale', 'darkify'),
+            '100' => esc_html__('100% Grayscale', 'darkify'),
           ),
           'default'     => '80',
           'dependency' => array('enable_image_grayscale', '==', 'true', 'all'),
@@ -1322,17 +1313,17 @@ DRK_LITE::createSection($prefix, array(
           'type'  => 'select',
           'title' => esc_html__('Darken Label', 'darkify'),
           'options' => array(
-            '0' => esc_html('0% Darken', 'darkify'),
-            '10' => esc_html('10% Darken', 'darkify'),
-            '20' => esc_html('20% Darken', 'darkify'),
-            '30' => esc_html('30% Darken', 'darkify'),
-            '40' => esc_html('40% Darken', 'darkify'),
-            '50' => esc_html('50% Darken', 'darkify'),
-            '60' => esc_html('60% Darken', 'darkify'),
-            '70' => esc_html('70% Darken', 'darkify'),
-            '80' => esc_html('80% Darken', 'darkify'),
-            '90' => esc_html('90% Darken', 'darkify'),
-            '100' => esc_html('100% Darken', 'darkify'),
+            '0' => esc_html__('0% Darken', 'darkify'),
+            '10' => esc_html__('10% Darken', 'darkify'),
+            '20' => esc_html__('20% Darken', 'darkify'),
+            '30' => esc_html__('30% Darken', 'darkify'),
+            '40' => esc_html__('40% Darken', 'darkify'),
+            '50' => esc_html__('50% Darken', 'darkify'),
+            '60' => esc_html__('60% Darken', 'darkify'),
+            '70' => esc_html__('70% Darken', 'darkify'),
+            '80' => esc_html__('80% Darken', 'darkify'),
+            '90' => esc_html__('90% Darken', 'darkify'),
+            '100' => esc_html__('100% Darken', 'darkify'),
           ),
           'default'     => '80',
           'dependency' => array('enable_low_image_darken', '==', 'true', 'all'),
@@ -1381,17 +1372,17 @@ DRK_LITE::createSection($prefix, array(
           'type'  => 'select',
           'title' => esc_html__('Brightness Label', 'darkify'),
           'options' => array(
-            '0' => esc_html('0% Brightness', 'darkify'),
-            '10' => esc_html('10% Brightness', 'darkify'),
-            '20' => esc_html('20% Brightness', 'darkify'),
-            '30' => esc_html('30% Brightness', 'darkify'),
-            '40' => esc_html('40% Brightness', 'darkify'),
-            '50' => esc_html('50% Brightness', 'darkify'),
-            '60' => esc_html('60% Brightness', 'darkify'),
-            '70' => esc_html('70% Brightness', 'darkify'),
-            '80' => esc_html('80% Brightness', 'darkify'),
-            '90' => esc_html('90% Brightness', 'darkify'),
-            '100' => esc_html('100% Brightness', 'darkify'),
+            '0' => esc_html__('0% Brightness', 'darkify'),
+            '10' => esc_html__('10% Brightness', 'darkify'),
+            '20' => esc_html__('20% Brightness', 'darkify'),
+            '30' => esc_html__('30% Brightness', 'darkify'),
+            '40' => esc_html__('40% Brightness', 'darkify'),
+            '50' => esc_html__('50% Brightness', 'darkify'),
+            '60' => esc_html__('60% Brightness', 'darkify'),
+            '70' => esc_html__('70% Brightness', 'darkify'),
+            '80' => esc_html__('80% Brightness', 'darkify'),
+            '90' => esc_html__('90% Brightness', 'darkify'),
+            '100' => esc_html__('100% Brightness', 'darkify'),
           ),
           'default'     => '80',
           'dependency' => array('enable_low_video_brightness', '==', 'true', 'all'),
@@ -1419,17 +1410,17 @@ DRK_LITE::createSection($prefix, array(
           'type'  => 'select',
           'title' => esc_html__('Grayscale Label', 'darkify'),
           'options' => array(
-            '0' => esc_html('0% Brightness', 'darkify'),
-            '10' => esc_html('10% Grayscale', 'darkify'),
-            '20' => esc_html('20% Grayscale', 'darkify'),
-            '30' => esc_html('30% Grayscale', 'darkify'),
-            '40' => esc_html('40% Grayscale', 'darkify'),
-            '50' => esc_html('50% Grayscale', 'darkify'),
-            '60' => esc_html('60% Grayscale', 'darkify'),
-            '70' => esc_html('70% Grayscale', 'darkify'),
-            '80' => esc_html('80% Grayscale', 'darkify'),
-            '90' => esc_html('90% Grayscale', 'darkify'),
-            '100' => esc_html('100% Grayscale', 'darkify'),
+            '0' => esc_html__('0% Brightness', 'darkify'),
+            '10' => esc_html__('10% Grayscale', 'darkify'),
+            '20' => esc_html__('20% Grayscale', 'darkify'),
+            '30' => esc_html__('30% Grayscale', 'darkify'),
+            '40' => esc_html__('40% Grayscale', 'darkify'),
+            '50' => esc_html__('50% Grayscale', 'darkify'),
+            '60' => esc_html__('60% Grayscale', 'darkify'),
+            '70' => esc_html__('70% Grayscale', 'darkify'),
+            '80' => esc_html__('80% Grayscale', 'darkify'),
+            '90' => esc_html__('90% Grayscale', 'darkify'),
+            '100' => esc_html__('100% Grayscale', 'darkify'),
           ),
           'default'     => '80',
           'dependency' => array('enable_video_grayscale', '==', 'true', 'all'),

@@ -21,7 +21,7 @@ if (!class_exists('DarkifyUtils')) {
             if (function_exists("wp_is_mobile")) {
                 return wp_is_mobile();
             } else {
-                $user_agent = $_SERVER["HTTP_USER_AGENT"];
+                $user_agent = isset( $_SERVER["HTTP_USER_AGENT"] ) ? sanitize_text_field( wp_unslash( $_SERVER["HTTP_USER_AGENT"] ) ) : '';
                 $pattern = "/(android|avantgo|blackberry|bolt|boost|cricket|docomo|fone|hiptop|mini|mobi|palm|phone|pie|tablet|up\.browser|up\.link|webos|wos)/i";
                 $escaped_pattern = preg_quote($pattern, '/');
                 return preg_match(esc_attr($escaped_pattern), esc_attr($user_agent));

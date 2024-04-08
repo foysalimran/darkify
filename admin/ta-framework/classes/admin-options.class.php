@@ -95,6 +95,11 @@ if (!class_exists('DRK_LITE_Options')) {
     public function __construct($key, $params = array())
     {
 
+      add_action('wp_ajax_set_options', array($this, 'set_options'));
+      add_action('wp_ajax_nopriv_set_options', array($this, 'set_options'));
+
+      
+
       $this->unique   = $key;
       $this->args     = apply_filters("drk_lite_{$this->unique}_args", wp_parse_args($params['args'], $this->args), $this);
       $this->sections = apply_filters("drk_lite_{$this->unique}_sections", $params['sections'], $this);
@@ -104,9 +109,12 @@ if (!class_exists('DRK_LITE_Options')) {
       $this->pre_fields   = $this->pre_fields($this->sections);
       $this->pre_sections = $this->pre_sections($this->sections);
 
+
       $this->get_options();
       $this->set_options();
       $this->save_defaults();
+
+
 
       add_action('admin_menu', array($this, 'add_admin_menu'));
       add_action('admin_bar_menu', array($this, 'add_admin_bar_menu'), $this->args['admin_bar_menu_priority']);
@@ -118,7 +126,13 @@ if (!class_exists('DRK_LITE_Options')) {
 
       // wp enqeueu for typography and output css
       parent::__construct();
+
     }
+
+
+
+  
+
 
     // instance
     public static function instance($key, $params = array())
@@ -190,6 +204,7 @@ if (!class_exists('DRK_LITE_Options')) {
     public function save_defaults()
     {
 
+
       $tmp_options = $this->options;
 
       foreach ($this->pre_fields as $field) {
@@ -206,14 +221,15 @@ if (!class_exists('DRK_LITE_Options')) {
     // set options
     public function set_options($ajax = false)
     {
+      
+      if(isset($_POST['_ajax_nonce']) && !wp_verify_nonce($_POST['_ajax_nonce'], 'save_options')){
+          return wp_send_json(['error' => 'Nonce is invalid']);
+      }
 
-      if(!current_user_can('manage_options')){
-        return;
-    }
-   
       // Set variables.
       $data      = array();
-      $response  = ( $ajax && ! empty( $_POST['data'] ) ) ? wp_kses_post_deep(json_decode( wp_unslash( trim( wp_kses_post($_POST['data'] )) ), true )) : wp_kses_post_deep(array());
+      $response  = ($ajax && !empty($_POST['data'])) ? wp_kses_post_deep(json_decode(wp_unslash(trim(wp_kses_post($_POST['data']))), true)) : wp_kses_post_deep(array());
+      
       $noncekey  = 'drk_lite_options_nonce' . $this->unique;
       $nonce     = (!empty($response[$noncekey])) ? $response[$noncekey] : '';
 
@@ -324,6 +340,8 @@ if (!class_exists('DRK_LITE_Options')) {
       }
 
       return false;
+
+      wp_die();
     }
 
     // save options database
@@ -346,6 +364,7 @@ if (!class_exists('DRK_LITE_Options')) {
     // get options from database
     public function get_options()
     {
+
 
       if ($this->args['database'] === 'transient') {
         $this->options = get_transient($this->unique);

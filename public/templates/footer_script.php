@@ -16,16 +16,6 @@ $type_of_hide_by = isset($hide_on_mobile["type_of_hide_by"]) ? $hide_on_mobile["
     <?php } ?>
 <?php } ?>
 
-
-<?php if (!is_admin()) {
-    wp_enqueue_script('darkify-script', plugin_dir_url(__FILE__) . 'darkify-script.js', array('jquery'), null, true);
-
-    // Localize script to pass data to JavaScript
-    wp_localize_script('darkify-script', 'darkify_inline_js', array(
-        'init_function' => 'darkify_init_alternative_dark_mode_switch'
-    ));
-} ?>
-
 <?php if (is_admin()) { ?>
     <?php /* Check if block editor is on, then add the dark mode button there */ ?>
     <?php if ($options["enable_admin_panel_dark_mode"]) { 

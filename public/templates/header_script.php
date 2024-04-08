@@ -145,32 +145,8 @@ $video_grayscale_label =  isset($video_grayscale['video_grayscale_label']) ? $vi
 
 <?php if ($options["enable_scrollbar_dark"]) { ?>
     <?php include DRK_LITE_PATH . "public/templates/views/scrollbar.php"; ?>
-<?php } ?>
+<?php }
 
-<script type="text/javascript" class="darkify_inline_js">
-    var darkify_switch_unique_id = "<?php echo esc_attr($this->unique_id); ?>";
-    var darkify_is_this_admin_panel = "<?php echo esc_attr(is_admin() ? "1" : "0"); ?>";
-    var darkify_enable_default_dark_mode = "<?php echo esc_attr($enable_default_dark_mode); ?>";
-    var darkify_enable_os_aware = "<?php echo esc_attr($options["enable_os_aware"]); ?>";
-    var darkify_enable_keyboard_shortcut = "<?php echo esc_attr($options["enable_keyboard_shortcut"]); ?>";
-    var darkify_enable_time_based_dark = "<?php echo esc_attr($enable_time_based_dark); ?>";
-    var darkify_time_based_dark_start = "<?php echo esc_attr($time_based_dark_start ? $time_based_dark_start : "19:00"); ?>";
-    var darkify_time_based_dark_stop = "<?php echo esc_attr($time_based_dark_stop ? $time_based_dark_stop : "07:00"); ?>";
-    var darkify_alternative_dark_mode_switch = "<?php echo esc_attr($options["alternative_dark_mode_switcher"]); ?>";
-    var darkify_enable_low_image_brightness = "<?php echo esc_attr($enable_low_image_brightness); ?>";
-    var darkify_image_brightness_to = "<?php echo esc_attr($low_image_brightness_label); ?>";
-    var darkify_enable_image_grayscale = "<?php echo esc_attr($enable_image_grayscale); ?>";
-    var darkify_image_grayscale_to = "<?php echo esc_attr($image_grayscale_label); ?>";
-    var darkify_disallowed_grayscale_images = "<?php echo esc_attr($disallowed_low_grayscale_images); ?>";
-    var darkify_enable_bg_image_darken = "<?php echo esc_attr($enable_low_image_darken); ?>";
-    var darkify_bg_image_darken_to = "<?php echo esc_attr($low_image_darken_label); ?>";
-    var darkify_enable_invert_inline_svg = "<?php echo esc_attr($options["enable_invert_inline_svg"]); ?>";
-    var darkify_enable_low_video_brightness = "<?php echo esc_attr($enable_low_video_brightness); ?>";
-    var darkify_video_brightness_to = "<?php echo esc_attr($low_video_brightness_label); ?>";
-    var darkify_enable_video_grayscale = "<?php echo esc_attr($enable_video_grayscale); ?>";
-    var darkify_video_grayscale_to = "<?php echo esc_attr($video_grayscale_label); ?>";
-</script>
-<?php
 $output = ob_get_clean();
 $tags_allowed_in_output = array(
     'style' => array('type' => array(), 'class' => array()),

@@ -600,6 +600,8 @@ if ( ! class_exists( 'DRK_LITE_Setup' ) ) {
           'searching_text'  => esc_html__( 'Searching...', 'darkify' ),
           'no_results_text' => esc_html__( 'No results found.', 'darkify' ),
         ),
+        'ajaxurl' => admin_url('admin-ajax.php'),
+        'nonce'   => wp_create_nonce('save_options'),
       ) );
 
       // Enqueue fields scripts and styles
