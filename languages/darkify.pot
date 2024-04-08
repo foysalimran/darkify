@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Darkify\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-12-14 09:43+0000\n"
+"POT-Creation-Date: 2024-04-08 01:32+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -13,47 +13,199 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Generator: Loco https://localise.biz/\n"
-"X-Loco-Version: 2.6.6; wp-6.4.2\n"
+"X-Loco-Version: 2.6.7; wp-6.5\n"
 "X-Domain: darkify"
 
-#: admin/ta-framework/fields/background/background.php:116
+#: admin/ta-framework/fields/background/background.php:130
 msgid "&#8658; left to right"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:115
+#: admin/ta-framework/fields/background/background.php:129
 msgid "&#8659; top to bottom"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:117
+#: admin/ta-framework/fields/background/background.php:131
 msgid "&#8664; corner top to right"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:118
+#: admin/ta-framework/fields/background/background.php:132
 msgid "&#8665; corner top to left"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:475
+#: admin/ta-framework/config/admin-options.php:1232
+#: admin/ta-framework/config/admin-options.php:1269
+#: admin/ta-framework/config/admin-options.php:1375
+#: admin/ta-framework/config/admin-options.php:1413
+msgid "0% Brightness"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1316
+msgid "0% Darken"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1233
+#: admin/ta-framework/config/admin-options.php:1376
+msgid "10% Brightness"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1317
+msgid "10% Darken"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1270
+#: admin/ta-framework/config/admin-options.php:1414
+msgid "10% Grayscale"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1242
+#: admin/ta-framework/config/admin-options.php:1385
+msgid "100% Brightness"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1326
+msgid "100% Darken"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1279
+#: admin/ta-framework/config/admin-options.php:1423
+msgid "100% Grayscale"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1234
+#: admin/ta-framework/config/admin-options.php:1377
+msgid "20% Brightness"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1318
+msgid "20% Darken"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1271
+#: admin/ta-framework/config/admin-options.php:1415
+msgid "20% Grayscale"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1235
+#: admin/ta-framework/config/admin-options.php:1378
+msgid "30% Brightness"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1319
+msgid "30% Darken"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1272
+#: admin/ta-framework/config/admin-options.php:1416
+msgid "30% Grayscale"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1236
+#: admin/ta-framework/config/admin-options.php:1379
+msgid "40% Brightness"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1320
+msgid "40% Darken"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1273
+#: admin/ta-framework/config/admin-options.php:1417
+msgid "40% Grayscale"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1237
+#: admin/ta-framework/config/admin-options.php:1380
+msgid "50% Brightness"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1321
+msgid "50% Darken"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1274
+#: admin/ta-framework/config/admin-options.php:1418
+msgid "50% Grayscale"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1238
+#: admin/ta-framework/config/admin-options.php:1381
+msgid "60% Brightness"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1322
+msgid "60% Darken"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1275
+#: admin/ta-framework/config/admin-options.php:1419
+msgid "60% Grayscale"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1239
+#: admin/ta-framework/config/admin-options.php:1382
+msgid "70% Brightness"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1323
+msgid "70% Darken"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1276
+#: admin/ta-framework/config/admin-options.php:1420
+msgid "70% Grayscale"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1240
+#: admin/ta-framework/config/admin-options.php:1383
+msgid "80% Brightness"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1324
+msgid "80% Darken"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1277
+#: admin/ta-framework/config/admin-options.php:1421
+msgid "80% Grayscale"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1241
+#: admin/ta-framework/config/admin-options.php:1384
+msgid "90% Brightness"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1325
+msgid "90% Darken"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:1278
+#: admin/ta-framework/config/admin-options.php:1422
+msgid "90% Grayscale"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:458
 msgid "Absolute Switch Position"
 msgstr ""
 
-#: admin/ta-framework/fields/link_color/link_color.php:38
+#: admin/ta-framework/fields/link_color/link_color.php:41
 msgid "Active"
 msgstr ""
 
-#: admin/ta-framework/fields/gallery/gallery.php:20
+#: admin/ta-framework/fields/gallery/gallery.php:22
 msgid "Add Gallery"
 msgstr ""
 
-#: admin/ta-framework/fields/icon/icon.php:20
-#: admin/ta-framework/fields/icon/icon.php:53
+#: admin/ta-framework/fields/icon/icon.php:22
+#: admin/ta-framework/fields/icon/icon.php:55
 msgid "Add Icon"
 msgstr ""
 
-#: admin/ta-framework/fields/link/link.php:20
+#: admin/ta-framework/fields/link/link.php:22
 msgid "Add Link"
 msgstr ""
 
-#: admin/ta-framework/fields/group/group.php:23
+#: admin/ta-framework/classes/shortcode-options.class.php:210
+#: admin/ta-framework/fields/group/group.php:25
 msgid "Add New"
 msgstr ""
 
@@ -65,51 +217,48 @@ msgstr ""
 msgid "Admin Panel Dark Control"
 msgstr ""
 
+#: admin/ta-framework/config/admin-options.php:79
 #: admin/ta-framework/config/admin-options.php:84
 msgid "Advanced Control"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:494
-#: admin/ta-framework/config/admin-options.php:499
+#: admin/ta-framework/config/admin-options.php:468
+#: admin/ta-framework/config/admin-options.php:473
 msgid "Advanced Customization"
 msgstr ""
 
-#: admin/ta-framework/fields/border/border.php:29
-#: admin/ta-framework/fields/spacing/spacing.php:29
+#: admin/ta-framework/fields/border/border.php:31
+#: admin/ta-framework/fields/spacing/spacing.php:31
 msgid "all"
 msgstr ""
 
-#: admin/ta-framework/fields/typography/typography.php:188
-msgid "All Small Caps"
-msgstr ""
-
-#: admin/ta-framework/config/admin-options.php:1294
-#: admin/ta-framework/config/admin-options.php:1514
+#: admin/ta-framework/config/admin-options.php:1209
+#: admin/ta-framework/config/admin-options.php:1351
 msgid "Appearance Control"
 msgstr ""
 
-#: admin/ta-framework/fields/group/group.php:52
-#: admin/ta-framework/fields/group/group.php:107
-#: admin/ta-framework/fields/repeater/repeater.php:48
-#: admin/ta-framework/fields/repeater/repeater.php:76
+#: admin/ta-framework/fields/group/group.php:55
+#: admin/ta-framework/fields/group/group.php:110
+#: admin/ta-framework/fields/repeater/repeater.php:51
+#: admin/ta-framework/fields/repeater/repeater.php:79
 msgid "Are you sure to delete this item?"
 msgstr ""
 
-#: admin/ta-framework/classes/admin-options.class.php:517
-#: admin/ta-framework/classes/admin-options.class.php:640
+#: admin/ta-framework/classes/admin-options.class.php:524
+#: admin/ta-framework/classes/admin-options.class.php:638
 msgid "Are you sure to reset this section options?"
 msgstr ""
 
-#: admin/ta-framework/classes/admin-options.class.php:518
-#: admin/ta-framework/classes/admin-options.class.php:641
+#: admin/ta-framework/classes/admin-options.class.php:525
+#: admin/ta-framework/classes/admin-options.class.php:639
 msgid "Are you sure you want to reset all settings to default values?"
 msgstr ""
 
-#: admin/ta-framework/classes/setup.class.php:599
+#: admin/ta-framework/classes/setup.class.php:598
 msgid "Are you sure?"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:221
+#: admin/ta-framework/fields/background/background.php:260
 msgid "Auto"
 msgstr ""
 
@@ -117,212 +266,220 @@ msgstr ""
 msgid "Automatically turn dark mode ON based on users’ localtime."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:634
-#: admin/ta-framework/config/admin-options.php:710
-#: admin/ta-framework/config/admin-options.php:788
-#: admin/ta-framework/config/admin-options.php:865
-#: admin/ta-framework/config/admin-options.php:942
-#: admin/ta-framework/config/admin-options.php:1021
-#: admin/ta-framework/config/admin-options.php:1098
-#: admin/ta-framework/config/admin-options.php:1175
+#: admin/ta-framework/config/admin-options.php:608
+#: admin/ta-framework/config/admin-options.php:641
+#: admin/ta-framework/config/admin-options.php:719
+#: admin/ta-framework/config/admin-options.php:796
+#: admin/ta-framework/config/admin-options.php:873
+#: admin/ta-framework/config/admin-options.php:952
+#: admin/ta-framework/config/admin-options.php:1029
+#: admin/ta-framework/config/admin-options.php:1106
 msgid "Background"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:202
+#: admin/ta-framework/fields/background/background.php:236
 msgid "Background Attachment"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:269
+#: admin/ta-framework/fields/background/background.php:323
 msgid "Background Blend Mode"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:252
+#: admin/ta-framework/fields/background/background.php:301
 msgid "Background Clip"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:638
-#: admin/ta-framework/config/admin-options.php:714
-#: admin/ta-framework/config/admin-options.php:792
-#: admin/ta-framework/config/admin-options.php:869
-#: admin/ta-framework/config/admin-options.php:946
-#: admin/ta-framework/config/admin-options.php:1025
-#: admin/ta-framework/config/admin-options.php:1102
-#: admin/ta-framework/config/admin-options.php:1179
+#: admin/ta-framework/config/admin-options.php:612
+#: admin/ta-framework/config/admin-options.php:645
+#: admin/ta-framework/config/admin-options.php:723
+#: admin/ta-framework/config/admin-options.php:800
+#: admin/ta-framework/config/admin-options.php:877
+#: admin/ta-framework/config/admin-options.php:956
+#: admin/ta-framework/config/admin-options.php:1033
+#: admin/ta-framework/config/admin-options.php:1110
 msgid "Background Color"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:235
+#: admin/ta-framework/fields/background/background.php:279
 msgid "Background Origin"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:161
+#: admin/ta-framework/fields/background/background.php:185
 msgid "Background Position"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:184
+#: admin/ta-framework/fields/background/background.php:213
 msgid "Background Repeat"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:218
+#: admin/ta-framework/fields/background/background.php:257
 msgid "Background Size"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1808
+#: admin/ta-framework/config/admin-options.php:1434
 msgid "BACKUP"
 msgstr ""
 
-#: admin/ta-framework/fields/typography/typography.php:105
-msgid "Backup Font Family"
-msgstr ""
-
+#: admin/ta-framework/config/admin-options.php:39
 #: admin/ta-framework/config/admin-options.php:44
 msgid "Basic Control"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:761
-#: admin/ta-framework/config/admin-options.php:839
-#: admin/ta-framework/config/admin-options.php:916
-#: admin/ta-framework/config/admin-options.php:993
-#: admin/ta-framework/config/admin-options.php:1072
-#: admin/ta-framework/config/admin-options.php:1149
-#: admin/ta-framework/config/admin-options.php:1226
+#: admin/ta-framework/config/admin-options.php:692
+#: admin/ta-framework/config/admin-options.php:770
+#: admin/ta-framework/config/admin-options.php:847
+#: admin/ta-framework/config/admin-options.php:924
+#: admin/ta-framework/config/admin-options.php:1003
+#: admin/ta-framework/config/admin-options.php:1080
+#: admin/ta-framework/config/admin-options.php:1157
 msgid "Border"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:237
-#: admin/ta-framework/fields/background/background.php:253
+#: admin/ta-framework/fields/background/background.php:281
+#: admin/ta-framework/fields/background/background.php:302
 msgid "Border Box"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:525
+#: admin/ta-framework/config/admin-options.php:499
 msgid "Border Radius"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:263
+#: admin/ta-framework/config/admin-options.php:246
 msgid "Bottom"
 msgstr ""
 
-#: admin/ta-framework/fields/border/border.php:27
-#: admin/ta-framework/fields/spacing/spacing.php:27
+#: admin/ta-framework/fields/border/border.php:29
+#: admin/ta-framework/fields/spacing/spacing.php:29
 msgid "bottom"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:325
-#: admin/ta-framework/config/admin-options.php:410
+#: admin/ta-framework/config/admin-options.php:308
+#: admin/ta-framework/config/admin-options.php:393
 msgid "Bottom Left"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:324
-#: admin/ta-framework/config/admin-options.php:409
+#: admin/ta-framework/config/admin-options.php:307
+#: admin/ta-framework/config/admin-options.php:392
 msgid "Bottom Right"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1301
-#: admin/ta-framework/config/admin-options.php:1522
+#: admin/ta-framework/config/admin-options.php:1216
+#: admin/ta-framework/config/admin-options.php:1359
 msgid "Brightness"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1315
-#: admin/ta-framework/config/admin-options.php:1536
+#: admin/ta-framework/config/admin-options.php:1230
+#: admin/ta-framework/config/admin-options.php:1373
 msgid "Brightness Label"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:769
-#: admin/ta-framework/config/admin-options.php:847
-#: admin/ta-framework/config/admin-options.php:924
-#: admin/ta-framework/config/admin-options.php:1001
-#: admin/ta-framework/config/admin-options.php:1080
-#: admin/ta-framework/config/admin-options.php:1157
-#: admin/ta-framework/config/admin-options.php:1234
+#: admin/ta-framework/config/admin-options.php:700
+#: admin/ta-framework/config/admin-options.php:778
+#: admin/ta-framework/config/admin-options.php:855
+#: admin/ta-framework/config/admin-options.php:932
+#: admin/ta-framework/config/admin-options.php:1011
+#: admin/ta-framework/config/admin-options.php:1088
+#: admin/ta-framework/config/admin-options.php:1165
 msgid "Button"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:773
-#: admin/ta-framework/config/admin-options.php:851
-#: admin/ta-framework/config/admin-options.php:928
-#: admin/ta-framework/config/admin-options.php:1005
-#: admin/ta-framework/config/admin-options.php:1084
-#: admin/ta-framework/config/admin-options.php:1161
-#: admin/ta-framework/config/admin-options.php:1238
+#: admin/ta-framework/config/admin-options.php:705
+#: admin/ta-framework/config/admin-options.php:783
+#: admin/ta-framework/config/admin-options.php:860
+#: admin/ta-framework/config/admin-options.php:937
+#: admin/ta-framework/config/admin-options.php:1016
+#: admin/ta-framework/config/admin-options.php:1093
+#: admin/ta-framework/config/admin-options.php:1170
+msgid "Button Background"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:704
+#: admin/ta-framework/config/admin-options.php:782
+#: admin/ta-framework/config/admin-options.php:859
+#: admin/ta-framework/config/admin-options.php:936
+#: admin/ta-framework/config/admin-options.php:1015
+#: admin/ta-framework/config/admin-options.php:1092
+#: admin/ta-framework/config/admin-options.php:1169
 msgid "Button Text"
 msgstr ""
 
-#: admin/ta-framework/fields/typography/typography.php:200
-msgid "Capitalize"
+#: admin/ta-framework/classes/comment-options.class.php:202
+#: admin/ta-framework/classes/metabox-options.class.php:279
+msgid "Cancel"
 msgstr ""
 
-#: admin/ta-framework/fields/typography/typography.php:172
-msgid "Center"
-msgstr ""
-
-#: admin/ta-framework/fields/background/background.php:167
+#: admin/ta-framework/fields/background/background.php:191
 msgid "Center Bottom"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:166
+#: admin/ta-framework/fields/background/background.php:190
 msgid "Center Center"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:165
+#: admin/ta-framework/fields/background/background.php:189
 msgid "Center Top"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:610
+#: admin/ta-framework/fields/checkbox/checkbox.php:25
+msgid "Check/Uncheck All"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:584
 msgid "Choose a preset"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:224
+#: admin/ta-framework/config/admin-options.php:215
 msgid "Choose default floating switch"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:260
+#: admin/ta-framework/config/admin-options.php:243
 msgid ""
 "Choose the position where the tooltip should be displaed relative to the "
 "floating switch."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:405
+#: admin/ta-framework/config/admin-options.php:388
 msgid ""
 "Choose the screen position where the Floating Switch should be displayed in "
 "mobile."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:320
+#: admin/ta-framework/config/admin-options.php:303
 msgid ""
 "Choose the screen position where the Floating Switch should be displayed."
 msgstr ""
 
-#: admin/ta-framework/fields/gallery/gallery.php:22
+#: admin/ta-framework/fields/gallery/gallery.php:24
 msgid "Clear"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:278
+#: admin/ta-framework/fields/background/background.php:332
 msgid "Color"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:595
+#: admin/ta-framework/config/admin-options.php:569
 msgid "COLOR CONTROL"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:600
-#: admin/ta-framework/config/admin-options.php:628
+#: admin/ta-framework/config/admin-options.php:574
+#: admin/ta-framework/config/admin-options.php:602
 msgid "Color Customization"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:276
+#: admin/ta-framework/fields/background/background.php:330
 msgid "Color Dodge"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:605
+#: admin/ta-framework/config/admin-options.php:579
 msgid "Color Preset"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:220
+#: admin/ta-framework/fields/background/background.php:259
 msgid "Contain"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:238
-#: admin/ta-framework/fields/background/background.php:255
+#: admin/ta-framework/fields/background/background.php:282
+#: admin/ta-framework/fields/background/background.php:304
 msgid "Content Box"
 msgstr ""
 
@@ -330,79 +487,71 @@ msgstr ""
 msgid "CONTROL"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:586
+#: admin/ta-framework/config/admin-options.php:560
 msgid ""
 "Copy this shortcode and put any page or post to show switcher. You will able "
 "to customize all value including swtich 1-12 currently available in this "
 "version of plugin."
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:219
+#: admin/ta-framework/fields/background/background.php:258
 msgid "Cover"
 msgstr ""
 
-#: admin/ta-framework/fields/typography/typography.php:295
-msgid "Custom Style"
-msgstr ""
-
-#: admin/ta-framework/fields/typography/typography.php:362
-msgid "Custom Web Fonts"
-msgstr ""
-
-#: admin/ta-framework/config/admin-options.php:375
-#: admin/ta-framework/config/admin-options.php:460
+#: admin/ta-framework/config/admin-options.php:358
+#: admin/ta-framework/config/admin-options.php:443
 msgid "Customize default margin from the bottom left of the Floating Switch."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:361
-#: admin/ta-framework/config/admin-options.php:446
+#: admin/ta-framework/config/admin-options.php:344
+#: admin/ta-framework/config/admin-options.php:429
 msgid "Customize default margin from the bottom right of the Floating Switch."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:290
+#: admin/ta-framework/config/admin-options.php:273
 msgid ""
 "Customize default margin from the left of the Floating Switch in Mobile."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:347
-#: admin/ta-framework/config/admin-options.php:432
+#: admin/ta-framework/config/admin-options.php:330
+#: admin/ta-framework/config/admin-options.php:415
 msgid "Customize default margin from the top left of the Floating Switch."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:333
-#: admin/ta-framework/config/admin-options.php:418
+#: admin/ta-framework/config/admin-options.php:316
+#: admin/ta-framework/config/admin-options.php:401
 msgid "Customize default margin from the top right of the Floating Switch."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:274
+#: admin/ta-framework/config/admin-options.php:257
 msgid "Customize text to be displayed on the tooltip."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:282
+#: admin/ta-framework/config/admin-options.php:265
 msgid "Customize the background color of the floating switch tooltip."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:506
+#: admin/ta-framework/config/admin-options.php:480
 msgid "Customize the Selected Switch Design in Your Way."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:516
+#: admin/ta-framework/config/admin-options.php:490
 msgid "Customize the Selected Switch Icon Size."
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:274
+#: admin/ta-framework/fields/background/background.php:328
 msgid "Darken"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1394
+#: admin/ta-framework/config/admin-options.php:1300
 msgid "Darken Background"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1399
+#: admin/ta-framework/config/admin-options.php:1305
 msgid "Darken Background Image"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1408
+#: admin/ta-framework/config/admin-options.php:1314
 msgid "Darken Label"
 msgstr ""
 
@@ -419,59 +568,45 @@ msgstr ""
 msgid "Darkify is for a stylish, modern darkmode look that people love."
 msgstr ""
 
-#: admin/ta-framework/fields/border/border.php:52
-#: admin/ta-framework/fields/typography/typography.php:217
+#: admin/ta-framework/fields/border/border.php:55
 msgid "Dashed"
 msgstr ""
 
-#: admin/ta-framework/fields/typography/typography.php:119
-#: admin/ta-framework/fields/typography/typography.php:132
-#: admin/ta-framework/fields/typography/typography.php:145
-#: admin/ta-framework/fields/typography/typography.php:160
-#: admin/ta-framework/fields/typography/typography.php:176
-#: admin/ta-framework/fields/typography/typography.php:189
-#: admin/ta-framework/fields/typography/typography.php:203
-#: admin/ta-framework/fields/typography/typography.php:221
-msgid "Default"
-msgstr ""
-
-#: admin/ta-framework/classes/admin-options.class.php:241
-#: admin/ta-framework/classes/admin-options.class.php:257
+#: admin/ta-framework/classes/admin-options.class.php:262
+#: admin/ta-framework/classes/admin-options.class.php:276
 msgid "Default settings restored."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:392
+#: admin/ta-framework/config/admin-options.php:375
 msgid "Different Switch in Mobile"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:397
+#: admin/ta-framework/config/admin-options.php:380
 msgid "Different Switch Position in Mobile"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:108
+#: admin/ta-framework/fields/background/background.php:121
 msgid "Direction"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:477
-#: admin/ta-framework/fields/sorter/sorter.php:22
+#: admin/ta-framework/config/admin-options.php:460
+#: admin/ta-framework/fields/sorter/sorter.php:24
 msgid "Disabled"
 msgstr ""
 
-#: admin/ta-framework/fields/border/border.php:53
-#: admin/ta-framework/fields/typography/typography.php:216
+#: admin/ta-framework/fields/border/border.php:56
 msgid "Dotted"
 msgstr ""
 
-#: admin/ta-framework/fields/border/border.php:54
-#: admin/ta-framework/fields/typography/typography.php:215
+#: admin/ta-framework/fields/border/border.php:57
 msgid "Double"
 msgstr ""
 
-#: admin/ta-framework/fields/gallery/gallery.php:21
+#: admin/ta-framework/fields/gallery/gallery.php:23
 msgid "Edit Gallery"
 msgstr ""
 
-#: admin/ta-framework/fields/link/link.php:21
+#: admin/ta-framework/fields/link/link.php:23
 msgid "Edit Link"
 msgstr ""
 
@@ -479,7 +614,7 @@ msgstr ""
 msgid "Enable Admin Panel Dark Mode"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1264
+#: admin/ta-framework/config/admin-options.php:1195
 msgid "Enable Dark Mode on Scrollbar"
 msgstr ""
 
@@ -507,54 +642,55 @@ msgstr ""
 msgid "Enable Time Based Auto Dark Mode"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:479
+#: admin/ta-framework/config/admin-options.php:462
 msgid ""
 "Enable to make the floating switch scroll from its position with page "
 "scrolling."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:252
+#: admin/ta-framework/config/admin-options.php:235
 msgid "Enable Tooltip on Floating Switch"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:476
-#: admin/ta-framework/fields/sorter/sorter.php:21
+#: admin/ta-framework/config/admin-options.php:459
+#: admin/ta-framework/fields/sorter/sorter.php:23
 msgid "Enabled"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:578
+#: admin/ta-framework/config/admin-options.php:552
 msgid ""
 "Enter comma-separated CSS class or ID selectors to treat them as dark mode "
 "switch."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1383
+#: admin/ta-framework/config/admin-options.php:1289
 msgid "Enter comma-separated image URLs where grayscale will be normal."
 msgstr ""
 
-#: admin/ta-framework/classes/admin-options.class.php:169
+#: admin/ta-framework/classes/admin-options.class.php:187
 msgid "Error while saving the changes."
 msgstr ""
 
-#: admin/ta-framework/fields/group/group.php:41
-#: admin/ta-framework/fields/repeater/repeater.php:27
+#: admin/ta-framework/fields/group/group.php:44
+#: admin/ta-framework/fields/repeater/repeater.php:30
 msgid "Error: Field ID conflict."
 msgstr ""
 
-#: admin/ta-framework/functions/actions.php:72
+#: admin/ta-framework/functions/actions.php:68
 #: admin/ta-framework/functions/actions.php:110
 msgid "Error: Invalid key."
 msgstr ""
 
+#: admin/ta-framework/classes/shortcode-options.class.php:247
 #: admin/ta-framework/functions/actions.php:16
-#: admin/ta-framework/functions/actions.php:68
+#: admin/ta-framework/functions/actions.php:64
 #: admin/ta-framework/functions/actions.php:106
-#: admin/ta-framework/functions/actions.php:141
-#: admin/ta-framework/functions/actions.php:170
+#: admin/ta-framework/functions/actions.php:139
+#: admin/ta-framework/functions/actions.php:174
 msgid "Error: Invalid nonce verification."
 msgstr ""
 
-#: admin/ta-framework/functions/actions.php:174
+#: admin/ta-framework/functions/actions.php:178
 msgid "Error: Invalid term ID."
 msgstr ""
 
@@ -562,108 +698,84 @@ msgstr ""
 msgid "Error: The response is not a valid JSON response."
 msgstr ""
 
-#: admin/ta-framework/functions/actions.php:180
+#: admin/ta-framework/functions/actions.php:184
 msgid "Error: You do not have permission to do that."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1382
+#: admin/ta-framework/config/admin-options.php:1288
 msgid "Exclude images"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1384
+#: admin/ta-framework/config/admin-options.php:1290
 msgid "Exclude low grayscale on specific images."
 msgstr ""
 
-#: admin/ta-framework/fields/backup/backup.php:29
+#: admin/ta-framework/fields/backup/backup.php:36
 msgid "Export & Download"
 msgstr ""
 
-#: admin/ta-framework/classes/setup.class.php:771
-#: admin/ta-framework/classes/setup.class.php:775
+#: admin/ta-framework/classes/setup.class.php:770
+#: admin/ta-framework/classes/setup.class.php:774
 msgid "Field not found!"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:204
+#: admin/ta-framework/fields/background/background.php:238
 msgid "Fixed"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:223
+#: admin/ta-framework/config/admin-options.php:214
 msgid "Floating Switch"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:515
+#: admin/ta-framework/config/admin-options.php:489
 msgid "Floating Switch Icon Size"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:505
+#: admin/ta-framework/config/admin-options.php:479
 msgid "Floating Switch Size"
 msgstr ""
 
-#: admin/ta-framework/fields/link_color/link_color.php:40
+#: admin/ta-framework/fields/link_color/link_color.php:43
 msgid "Focus"
-msgstr ""
-
-#: admin/ta-framework/fields/typography/typography.php:284
-msgid "Font Color"
-msgstr ""
-
-#: admin/ta-framework/fields/typography/typography.php:96
-msgid "Font Family"
-msgstr ""
-
-#: admin/ta-framework/fields/typography/typography.php:233
-msgid "Font Size"
-msgstr ""
-
-#: admin/ta-framework/fields/typography/typography.php:130
-msgid "Font Style"
-msgstr ""
-
-#: admin/ta-framework/fields/typography/typography.php:184
-msgid "Font Variant"
 msgstr ""
 
 #: admin/ta-framework/config/admin-options.php:104
 msgid "Form"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:72
-#: admin/ta-framework/fields/date/date.php:31
-#: admin/ta-framework/fields/datetime/datetime.php:36
+#: admin/ta-framework/fields/background/background.php:75
+#: admin/ta-framework/fields/date/date.php:33
+#: admin/ta-framework/fields/datetime/datetime.php:38
 msgid "From"
 msgstr ""
 
-#: admin/ta-framework/fields/typography/typography.php:388
-msgid "Google Web Fonts"
-msgstr ""
-
-#: admin/ta-framework/fields/background/background.php:114
+#: admin/ta-framework/fields/background/background.php:128
 msgid "Gradient Direction"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1347
-#: admin/ta-framework/config/admin-options.php:1560
+#: admin/ta-framework/config/admin-options.php:1253
+#: admin/ta-framework/config/admin-options.php:1397
 msgid "Grayscale"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1352
+#: admin/ta-framework/config/admin-options.php:1258
 msgid "Grayscale Image"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1361
-#: admin/ta-framework/config/admin-options.php:1574
+#: admin/ta-framework/config/admin-options.php:1267
+#: admin/ta-framework/config/admin-options.php:1411
 msgid "Grayscale Label"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1565
+#: admin/ta-framework/config/admin-options.php:1402
 msgid "Grayscale Video"
 msgstr ""
 
-#: admin/ta-framework/fields/border/border.php:57
+#: admin/ta-framework/fields/border/border.php:60
 msgid "Groove"
 msgstr ""
 
-#: admin/ta-framework/fields/dimensions/dimensions.php:23
+#: admin/ta-framework/fields/dimensions/dimensions.php:25
 msgid "height"
 msgstr ""
 
@@ -691,225 +803,210 @@ msgstr ""
 msgid "Hide On Mobile"
 msgstr ""
 
-#: admin/ta-framework/fields/link_color/link_color.php:37
+#: admin/ta-framework/fields/link_color/link_color.php:40
 msgid "Hover"
 msgstr ""
 
 #. Author URI of the plugin
-msgid "https://https://themeatelier.net//"
+msgid "https://https://themeatelier.net/"
 msgstr ""
 
 #. URI of the plugin
-msgid "https://https://wp-plugins.themeatelier.net/darkify"
+msgid "https://https://wp-plugins.themeatelier.net/"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1288
+#: admin/ta-framework/config/admin-options.php:1203
 msgid "IMAGE STYLE"
 msgstr ""
 
-#: admin/ta-framework/fields/backup/backup.php:26
+#: admin/ta-framework/fields/backup/backup.php:33
 msgid "Import"
 msgstr ""
 
-#: admin/ta-framework/fields/typography/typography.php:170
-msgid "Inherit"
-msgstr ""
-
-#: admin/ta-framework/fields/typography/typography.php:175
-msgid "Initial"
-msgstr ""
-
-#: admin/ta-framework/config/admin-options.php:743
-#: admin/ta-framework/config/admin-options.php:821
-#: admin/ta-framework/config/admin-options.php:898
-#: admin/ta-framework/config/admin-options.php:975
-#: admin/ta-framework/config/admin-options.php:1054
-#: admin/ta-framework/config/admin-options.php:1131
-#: admin/ta-framework/config/admin-options.php:1208
+#: admin/ta-framework/config/admin-options.php:674
+#: admin/ta-framework/config/admin-options.php:752
+#: admin/ta-framework/config/admin-options.php:829
+#: admin/ta-framework/config/admin-options.php:906
+#: admin/ta-framework/config/admin-options.php:985
+#: admin/ta-framework/config/admin-options.php:1062
+#: admin/ta-framework/config/admin-options.php:1139
 msgid "Input"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:747
-#: admin/ta-framework/config/admin-options.php:825
-#: admin/ta-framework/config/admin-options.php:902
-#: admin/ta-framework/config/admin-options.php:979
-#: admin/ta-framework/config/admin-options.php:1058
-#: admin/ta-framework/config/admin-options.php:1135
-#: admin/ta-framework/config/admin-options.php:1212
+#: admin/ta-framework/config/admin-options.php:680
+#: admin/ta-framework/config/admin-options.php:758
+#: admin/ta-framework/config/admin-options.php:835
+#: admin/ta-framework/config/admin-options.php:912
+#: admin/ta-framework/config/admin-options.php:991
+#: admin/ta-framework/config/admin-options.php:1068
+#: admin/ta-framework/config/admin-options.php:1145
+msgid "Input Background"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:679
+#: admin/ta-framework/config/admin-options.php:757
+#: admin/ta-framework/config/admin-options.php:834
+#: admin/ta-framework/config/admin-options.php:911
+#: admin/ta-framework/config/admin-options.php:990
+#: admin/ta-framework/config/admin-options.php:1067
+#: admin/ta-framework/config/admin-options.php:1144
+msgid "Input Placeholder"
+msgstr ""
+
+#: admin/ta-framework/config/admin-options.php:678
+#: admin/ta-framework/config/admin-options.php:756
+#: admin/ta-framework/config/admin-options.php:833
+#: admin/ta-framework/config/admin-options.php:910
+#: admin/ta-framework/config/admin-options.php:989
+#: admin/ta-framework/config/admin-options.php:1066
+#: admin/ta-framework/config/admin-options.php:1143
 msgid "Input Text"
 msgstr ""
 
-#: admin/ta-framework/fields/border/border.php:55
+#: admin/ta-framework/fields/border/border.php:58
 msgid "Inset"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1431
+#: admin/ta-framework/config/admin-options.php:1337
 msgid "Invert Inline SVG"
 msgstr ""
 
-#: admin/ta-framework/fields/typography/typography.php:174
-msgid "Justify"
-msgstr ""
-
-#: admin/ta-framework/fields/map/map.php:24
+#: admin/ta-framework/fields/map/map.php:25
 msgid "Latitude"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:264
-#: admin/ta-framework/fields/typography/typography.php:171
+#: admin/ta-framework/config/admin-options.php:247
 msgid "Left"
 msgstr ""
 
-#: admin/ta-framework/fields/border/border.php:28
-#: admin/ta-framework/fields/spacing/spacing.php:28
+#: admin/ta-framework/fields/border/border.php:30
+#: admin/ta-framework/fields/spacing/spacing.php:30
 msgid "left"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:164
+#: admin/ta-framework/fields/background/background.php:188
 msgid "Left Bottom"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:163
+#: admin/ta-framework/fields/background/background.php:187
 msgid "Left Center"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:162
+#: admin/ta-framework/fields/background/background.php:186
 msgid "Left Top"
 msgstr ""
 
-#: admin/ta-framework/fields/typography/typography.php:257
-msgid "Letter Spacing"
-msgstr ""
-
-#: admin/ta-framework/fields/background/background.php:275
+#: admin/ta-framework/fields/background/background.php:329
 msgid "Lighten"
 msgstr ""
 
-#: admin/ta-framework/fields/typography/typography.php:245
-msgid "Line Height"
-msgstr ""
-
-#: admin/ta-framework/fields/typography/typography.php:220
-msgid "Line-through"
-msgstr ""
-
-#: admin/ta-framework/config/admin-options.php:730
-#: admin/ta-framework/config/admin-options.php:808
-#: admin/ta-framework/config/admin-options.php:885
-#: admin/ta-framework/config/admin-options.php:962
-#: admin/ta-framework/config/admin-options.php:1041
-#: admin/ta-framework/config/admin-options.php:1118
-#: admin/ta-framework/config/admin-options.php:1195
+#: admin/ta-framework/config/admin-options.php:661
+#: admin/ta-framework/config/admin-options.php:739
+#: admin/ta-framework/config/admin-options.php:816
+#: admin/ta-framework/config/admin-options.php:893
+#: admin/ta-framework/config/admin-options.php:972
+#: admin/ta-framework/config/admin-options.php:1049
+#: admin/ta-framework/config/admin-options.php:1126
 msgid "Link Color"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:731
-#: admin/ta-framework/config/admin-options.php:809
-#: admin/ta-framework/config/admin-options.php:886
-#: admin/ta-framework/config/admin-options.php:963
-#: admin/ta-framework/config/admin-options.php:1042
-#: admin/ta-framework/config/admin-options.php:1119
-#: admin/ta-framework/config/admin-options.php:1196
+#: admin/ta-framework/config/admin-options.php:662
+#: admin/ta-framework/config/admin-options.php:740
+#: admin/ta-framework/config/admin-options.php:817
+#: admin/ta-framework/config/admin-options.php:894
+#: admin/ta-framework/config/admin-options.php:973
+#: admin/ta-framework/config/admin-options.php:1050
+#: admin/ta-framework/config/admin-options.php:1127
 msgid "Link Hover Color"
 msgstr ""
 
-#: admin/ta-framework/fields/typography/typography.php:144
-#: admin/ta-framework/fields/typography/typography.php:145
-msgid "Load Extra Styles"
-msgstr ""
-
-#: admin/ta-framework/fields/map/map.php:25
+#: admin/ta-framework/fields/map/map.php:26
 msgid "Longitude"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1306
-#: admin/ta-framework/config/admin-options.php:1527
+#: admin/ta-framework/config/admin-options.php:1221
+#: admin/ta-framework/config/admin-options.php:1364
 msgid "Low Brightness"
 msgstr ""
 
-#: admin/ta-framework/fields/typography/typography.php:202
-msgid "Lowercase"
-msgstr ""
-
-#: admin/ta-framework/fields/background/background.php:279
+#: admin/ta-framework/fields/background/background.php:333
 msgid "Luminosity"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:374
+#: admin/ta-framework/config/admin-options.php:357
 msgid "Margin from bottom left"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:459
+#: admin/ta-framework/config/admin-options.php:442
 msgid "Margin From Bottom Left in Mobile"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:360
+#: admin/ta-framework/config/admin-options.php:343
 msgid "Margin From Bottom Right"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:445
+#: admin/ta-framework/config/admin-options.php:428
 msgid "Margin From Bottom Right in Mobile"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:346
+#: admin/ta-framework/config/admin-options.php:329
 msgid "Margin From Top Left"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:431
+#: admin/ta-framework/config/admin-options.php:414
 msgid "Margin From Top Left in Mobile"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:332
+#: admin/ta-framework/config/admin-options.php:315
 msgid "Margin From Top Right"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:417
+#: admin/ta-framework/config/admin-options.php:400
 msgid "Margin From Top Right in Mobile"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:271
+#: admin/ta-framework/fields/background/background.php:325
 msgid "Multiply"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1309
-#: admin/ta-framework/config/admin-options.php:1355
-#: admin/ta-framework/config/admin-options.php:1402
-#: admin/ta-framework/config/admin-options.php:1530
-#: admin/ta-framework/config/admin-options.php:1568
+#: admin/ta-framework/config/admin-options.php:1224
+#: admin/ta-framework/config/admin-options.php:1261
+#: admin/ta-framework/config/admin-options.php:1308
+#: admin/ta-framework/config/admin-options.php:1367
+#: admin/ta-framework/config/admin-options.php:1405
 msgid "No"
 msgstr ""
 
 #: admin/ta-framework/classes/admin-options.class.php:616
-#: admin/ta-framework/functions/actions.php:41
-#: admin/ta-framework/fields/button_set/button_set.php:56
-#: admin/ta-framework/fields/checkbox/checkbox.php:82
-#: admin/ta-framework/fields/radio/radio.php:75
-#: admin/ta-framework/fields/select/select.php:118
+#: admin/ta-framework/classes/comment-options.class.php:184
+#: admin/ta-framework/classes/metabox-options.class.php:261
+#: admin/ta-framework/functions/actions.php:39
+#: admin/ta-framework/fields/button_set/button_set.php:59
+#: admin/ta-framework/fields/checkbox/checkbox.php:83
+#: admin/ta-framework/fields/radio/radio.php:77
+#: admin/ta-framework/fields/select/select.php:115
 msgid "No data available."
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:186
+#: admin/ta-framework/fields/background/background.php:215
 msgid "No Repeat"
 msgstr ""
 
-#: admin/ta-framework/classes/setup.class.php:602
+#: admin/ta-framework/classes/setup.class.php:601
 msgid "No results found."
 msgstr ""
 
-#: admin/ta-framework/fields/border/border.php:59
-#: admin/ta-framework/fields/typography/typography.php:199
-#: admin/ta-framework/fields/typography/typography.php:213
+#: admin/ta-framework/fields/border/border.php:62
 msgid "None"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:270
-#: admin/ta-framework/fields/link_color/link_color.php:36
-#: admin/ta-framework/fields/typography/typography.php:186
+#: admin/ta-framework/fields/background/background.php:324
+#: admin/ta-framework/fields/link_color/link_color.php:39
 msgid "Normal"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:36
-#: admin/ta-framework/fields/media/media.php:59
+#: admin/ta-framework/fields/background/background.php:38
+#: admin/ta-framework/fields/media/media.php:62
 msgid "Not selected"
 msgstr ""
 
@@ -921,24 +1018,20 @@ msgstr ""
 msgid "On"
 msgstr ""
 
-#: admin/ta-framework/classes/setup.class.php:703
+#: admin/ta-framework/classes/setup.class.php:702
 msgid "Oops! Not allowed."
 msgstr ""
 
-#: admin/ta-framework/fields/border/border.php:56
+#: admin/ta-framework/fields/border/border.php:59
 msgid "Outset"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:273
+#: admin/ta-framework/fields/background/background.php:327
 msgid "Overlay"
 msgstr ""
 
-#: admin/ta-framework/fields/typography/typography.php:219
-msgid "Overline"
-msgstr ""
-
-#: admin/ta-framework/fields/background/background.php:236
-#: admin/ta-framework/fields/background/background.php:254
+#: admin/ta-framework/fields/background/background.php:280
+#: admin/ta-framework/fields/background/background.php:303
 msgid "Padding Box"
 msgstr ""
 
@@ -946,242 +1039,235 @@ msgstr ""
 msgid "Pick a Time"
 msgstr ""
 
-#: admin/ta-framework/classes/setup.class.php:600
+#: admin/ta-framework/classes/setup.class.php:599
 #, php-format
 msgid "Please enter %s or more characters"
 msgstr ""
 
 #: admin/ta-framework/functions/validate.php:14
-#: admin/ta-framework/functions/validate.php:86
+#: admin/ta-framework/functions/validate.php:78
 msgid "Please enter a valid email address."
 msgstr ""
 
-#: admin/ta-framework/functions/validate.php:32
-#: admin/ta-framework/functions/validate.php:106
+#: admin/ta-framework/functions/validate.php:30
+#: admin/ta-framework/functions/validate.php:96
 msgid "Please enter a valid number."
 msgstr ""
 
-#: admin/ta-framework/functions/validate.php:68
-#: admin/ta-framework/functions/validate.php:146
+#: admin/ta-framework/functions/validate.php:62
+#: admin/ta-framework/functions/validate.php:132
 msgid "Please enter a valid URL."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:307
+#: admin/ta-framework/config/admin-options.php:290
 msgid "Position Customization"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:302
+#: admin/ta-framework/config/admin-options.php:285
 msgid "Postition Customization"
 msgstr ""
 
-#: admin/ta-framework/fields/media/media.php:26
-#: admin/ta-framework/fields/upload/upload.php:25
+#: admin/ta-framework/fields/media/media.php:28
+#: admin/ta-framework/fields/upload/upload.php:27
 msgid "Remove"
 msgstr ""
 
-#: admin/ta-framework/fields/icon/icon.php:21
+#: admin/ta-framework/fields/icon/icon.php:23
 msgid "Remove Icon"
 msgstr ""
 
-#: admin/ta-framework/fields/link/link.php:22
+#: admin/ta-framework/fields/link/link.php:24
 msgid "Remove Link"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:185
+#: admin/ta-framework/fields/background/background.php:214
 msgid "Repeat"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:187
+#: admin/ta-framework/fields/background/background.php:216
 msgid "Repeat Horizontally"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:188
+#: admin/ta-framework/fields/background/background.php:217
 msgid "Repeat Vertically"
 msgstr ""
 
-#: admin/ta-framework/classes/admin-options.class.php:518
-#: admin/ta-framework/classes/admin-options.class.php:641
-#: admin/ta-framework/fields/backup/backup.php:31
+#: admin/ta-framework/classes/admin-options.class.php:525
+#: admin/ta-framework/classes/admin-options.class.php:639
+#: admin/ta-framework/classes/comment-options.class.php:201
+#: admin/ta-framework/classes/metabox-options.class.php:278
+#: admin/ta-framework/fields/backup/backup.php:38
 msgid "Reset"
 msgstr ""
 
-#: admin/ta-framework/classes/admin-options.class.php:518
-#: admin/ta-framework/classes/admin-options.class.php:641
+#: admin/ta-framework/classes/admin-options.class.php:525
+#: admin/ta-framework/classes/admin-options.class.php:639
 msgid "Reset All"
 msgstr ""
 
-#: admin/ta-framework/classes/admin-options.class.php:517
-#: admin/ta-framework/classes/admin-options.class.php:640
+#: admin/ta-framework/classes/admin-options.class.php:524
+#: admin/ta-framework/classes/admin-options.class.php:638
 msgid "Reset Section"
 msgstr ""
 
-#: admin/ta-framework/fields/border/border.php:58
+#: admin/ta-framework/fields/border/border.php:61
 msgid "ridge"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:265
-#: admin/ta-framework/fields/typography/typography.php:173
+#: admin/ta-framework/config/admin-options.php:248
 msgid "Right"
 msgstr ""
 
-#: admin/ta-framework/fields/border/border.php:26
-#: admin/ta-framework/fields/spacing/spacing.php:26
+#: admin/ta-framework/fields/border/border.php:28
+#: admin/ta-framework/fields/spacing/spacing.php:28
 msgid "right"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:170
+#: admin/ta-framework/fields/background/background.php:194
 msgid "Right Bottom"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:169
+#: admin/ta-framework/fields/background/background.php:193
 msgid "Right Center"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:168
+#: admin/ta-framework/fields/background/background.php:192
 msgid "Right Top"
 msgstr ""
 
-#: admin/ta-framework/fields/typography/typography.php:368
-msgid "Safe Web Fonts"
-msgstr ""
-
-#: admin/ta-framework/fields/background/background.php:277
+#: admin/ta-framework/fields/background/background.php:331
 msgid "Saturation"
 msgstr ""
 
-#: admin/ta-framework/classes/admin-options.class.php:516
-#: admin/ta-framework/classes/admin-options.class.php:639
+#: admin/ta-framework/classes/admin-options.class.php:523
+#: admin/ta-framework/classes/admin-options.class.php:637
 msgid "Save"
 msgstr ""
 
-#: admin/ta-framework/classes/admin-options.class.php:516
-#: admin/ta-framework/classes/admin-options.class.php:639
+#: admin/ta-framework/classes/admin-options.class.php:523
+#: admin/ta-framework/classes/admin-options.class.php:637
 msgid "Saving..."
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:272
+#: admin/ta-framework/fields/background/background.php:326
 msgid "Screen"
 msgstr ""
 
-#: admin/ta-framework/fields/background/background.php:203
+#: admin/ta-framework/fields/background/background.php:237
 msgid "Scroll"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1254
-#: admin/ta-framework/config/admin-options.php:1259
+#: admin/ta-framework/config/admin-options.php:1185
+#: admin/ta-framework/config/admin-options.php:1190
 msgid "Scrollbar Customization"
 msgstr ""
 
-#: admin/ta-framework/classes/admin-options.class.php:513
-#: admin/ta-framework/fields/icon/icon.php:57
-#: admin/ta-framework/fields/map/map.php:23
+#: admin/ta-framework/classes/admin-options.class.php:520
+#: admin/ta-framework/fields/icon/icon.php:59
+#: admin/ta-framework/fields/map/map.php:24
 msgid "Search..."
 msgstr ""
 
-#: admin/ta-framework/classes/setup.class.php:601
+#: admin/ta-framework/classes/setup.class.php:600
 msgid "Searching..."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:639
-#: admin/ta-framework/config/admin-options.php:715
-#: admin/ta-framework/config/admin-options.php:793
-#: admin/ta-framework/config/admin-options.php:870
-#: admin/ta-framework/config/admin-options.php:947
-#: admin/ta-framework/config/admin-options.php:1026
-#: admin/ta-framework/config/admin-options.php:1103
-#: admin/ta-framework/config/admin-options.php:1180
+#: admin/ta-framework/config/admin-options.php:613
+#: admin/ta-framework/config/admin-options.php:646
+#: admin/ta-framework/config/admin-options.php:724
+#: admin/ta-framework/config/admin-options.php:801
+#: admin/ta-framework/config/admin-options.php:878
+#: admin/ta-framework/config/admin-options.php:957
+#: admin/ta-framework/config/admin-options.php:1034
+#: admin/ta-framework/config/admin-options.php:1111
 msgid "Secondary Background"
-msgstr ""
-
-#: admin/ta-framework/fields/typography/typography.php:97
-msgid "Select a font"
 msgstr ""
 
 #: admin/ta-framework/config/admin-options.php:162
 msgid "Select Menu"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:544
+#: admin/ta-framework/config/admin-options.php:518
 msgid "Set the background color of the Floating Switch in dark mode."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:537
+#: admin/ta-framework/config/admin-options.php:511
 msgid "Set the background color of the Floating Switch in light mode."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:635
-#: admin/ta-framework/config/admin-options.php:711
-#: admin/ta-framework/config/admin-options.php:789
-#: admin/ta-framework/config/admin-options.php:866
-#: admin/ta-framework/config/admin-options.php:943
-#: admin/ta-framework/config/admin-options.php:1022
-#: admin/ta-framework/config/admin-options.php:1099
-#: admin/ta-framework/config/admin-options.php:1176
+#: admin/ta-framework/config/admin-options.php:609
+#: admin/ta-framework/config/admin-options.php:642
+#: admin/ta-framework/config/admin-options.php:720
+#: admin/ta-framework/config/admin-options.php:797
+#: admin/ta-framework/config/admin-options.php:874
+#: admin/ta-framework/config/admin-options.php:953
+#: admin/ta-framework/config/admin-options.php:1030
+#: admin/ta-framework/config/admin-options.php:1107
 msgid "Set the background color of your website when dark mode is enabled."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:762
-#: admin/ta-framework/config/admin-options.php:840
-#: admin/ta-framework/config/admin-options.php:917
-#: admin/ta-framework/config/admin-options.php:994
-#: admin/ta-framework/config/admin-options.php:1073
-#: admin/ta-framework/config/admin-options.php:1150
-#: admin/ta-framework/config/admin-options.php:1227
+#: admin/ta-framework/config/admin-options.php:693
+#: admin/ta-framework/config/admin-options.php:771
+#: admin/ta-framework/config/admin-options.php:848
+#: admin/ta-framework/config/admin-options.php:925
+#: admin/ta-framework/config/admin-options.php:1004
+#: admin/ta-framework/config/admin-options.php:1081
+#: admin/ta-framework/config/admin-options.php:1158
 msgid "Set the border color of your website when dark mode is enabled."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:526
+#: admin/ta-framework/config/admin-options.php:500
 msgid "Set the border radius of the Floating Switch in pixel."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:558
+#: admin/ta-framework/config/admin-options.php:532
 msgid "Set the color color of the Floating Switch in dark mode."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:551
+#: admin/ta-framework/config/admin-options.php:525
 msgid "Set the color color of the Floating Switch in light mode."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:770
-#: admin/ta-framework/config/admin-options.php:848
-#: admin/ta-framework/config/admin-options.php:925
-#: admin/ta-framework/config/admin-options.php:1002
-#: admin/ta-framework/config/admin-options.php:1081
-#: admin/ta-framework/config/admin-options.php:1158
-#: admin/ta-framework/config/admin-options.php:1235
+#: admin/ta-framework/config/admin-options.php:701
+#: admin/ta-framework/config/admin-options.php:779
+#: admin/ta-framework/config/admin-options.php:856
+#: admin/ta-framework/config/admin-options.php:933
+#: admin/ta-framework/config/admin-options.php:1012
+#: admin/ta-framework/config/admin-options.php:1089
+#: admin/ta-framework/config/admin-options.php:1166
 msgid "Set the color of buttons of your website when dark mode is enabled."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:744
-#: admin/ta-framework/config/admin-options.php:822
-#: admin/ta-framework/config/admin-options.php:899
-#: admin/ta-framework/config/admin-options.php:976
-#: admin/ta-framework/config/admin-options.php:1055
-#: admin/ta-framework/config/admin-options.php:1132
-#: admin/ta-framework/config/admin-options.php:1209
+#: admin/ta-framework/config/admin-options.php:675
+#: admin/ta-framework/config/admin-options.php:753
+#: admin/ta-framework/config/admin-options.php:830
+#: admin/ta-framework/config/admin-options.php:907
+#: admin/ta-framework/config/admin-options.php:986
+#: admin/ta-framework/config/admin-options.php:1063
+#: admin/ta-framework/config/admin-options.php:1140
 msgid "Set the input field color of your website when dark mode is enabled."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:650
-#: admin/ta-framework/config/admin-options.php:726
-#: admin/ta-framework/config/admin-options.php:804
-#: admin/ta-framework/config/admin-options.php:881
-#: admin/ta-framework/config/admin-options.php:958
-#: admin/ta-framework/config/admin-options.php:1037
-#: admin/ta-framework/config/admin-options.php:1114
-#: admin/ta-framework/config/admin-options.php:1191
+#: admin/ta-framework/config/admin-options.php:624
+#: admin/ta-framework/config/admin-options.php:657
+#: admin/ta-framework/config/admin-options.php:735
+#: admin/ta-framework/config/admin-options.php:812
+#: admin/ta-framework/config/admin-options.php:889
+#: admin/ta-framework/config/admin-options.php:968
+#: admin/ta-framework/config/admin-options.php:1045
+#: admin/ta-framework/config/admin-options.php:1122
 msgid "Set the text color of your website when dark mode is enabled."
 msgstr ""
 
-#: admin/class-darkify-admin.php:51
+#: admin/class-darkify-admin.php:53
 msgid "Settings"
 msgstr ""
 
-#: admin/ta-framework/classes/admin-options.class.php:328
+#: admin/ta-framework/classes/admin-options.class.php:336
 msgid "Settings saved."
 msgstr ""
 
-#: admin/ta-framework/classes/admin-options.class.php:229
+#: admin/ta-framework/classes/admin-options.class.php:251
 msgid "Settings successfully imported."
 msgstr ""
 
@@ -1189,12 +1275,12 @@ msgstr ""
 msgid "Short Code menu"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:398
+#: admin/ta-framework/config/admin-options.php:381
 msgid ""
 "Should the Floating Switch be displayed on different position in mobile?"
 msgstr ""
 
-#: admin/ta-framework/classes/admin-options.class.php:511
+#: admin/ta-framework/classes/admin-options.class.php:518
 msgid "show all settings"
 msgstr ""
 
@@ -1210,70 +1296,61 @@ msgstr ""
 msgid "Show the dark mode toggle switch in specific menu."
 msgstr ""
 
-#: admin/ta-framework/fields/typography/typography.php:187
-msgid "Small Caps"
-msgstr ""
-
-#: admin/ta-framework/fields/border/border.php:51
-#: admin/ta-framework/fields/typography/typography.php:214
+#: admin/ta-framework/fields/border/border.php:54
 msgid "Solid"
 msgstr ""
 
-#: admin/ta-framework/fields/typography/typography.php:158
-msgid "Subset"
-msgstr ""
-
-#: admin/ta-framework/config/admin-options.php:1307
+#: admin/ta-framework/config/admin-options.php:1222
 msgid "Switch and select the brightness level of images on dark mode."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1528
+#: admin/ta-framework/config/admin-options.php:1365
 msgid "Switch and select the brightness level of videos on dark mode."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1353
+#: admin/ta-framework/config/admin-options.php:1259
 msgid "Switch and select the grayscale level of images on dark mode."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1566
+#: admin/ta-framework/config/admin-options.php:1403
 msgid "Switch and select the grayscale level of videos on dark mode."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1400
+#: admin/ta-framework/config/admin-options.php:1306
 msgid ""
 "Switch and select the level of darkness of background images on dark mode."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:543
+#: admin/ta-framework/config/admin-options.php:517
 msgid "Switch Background on Dark Mode"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:536
+#: admin/ta-framework/config/admin-options.php:510
 msgid "Switch Background on Light Mode"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:314
+#: admin/ta-framework/config/admin-options.php:297
 msgid "Switch Button Position"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:566
-#: admin/ta-framework/config/admin-options.php:571
+#: admin/ta-framework/config/admin-options.php:540
+#: admin/ta-framework/config/admin-options.php:545
 msgid "Switch Extras"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:557
+#: admin/ta-framework/config/admin-options.php:531
 msgid "Switch Icon Color on Dark Mode"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:550
+#: admin/ta-framework/config/admin-options.php:524
 msgid "Switch Icon Color on Light Mode"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:319
+#: admin/ta-framework/config/admin-options.php:302
 msgid "Switch Position"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:404
+#: admin/ta-framework/config/admin-options.php:387
 msgid "Switch Position in Mobile"
 msgstr ""
 
@@ -1307,54 +1384,42 @@ msgstr ""
 msgid "Switch to turn ON or OFF dark mode by pressing Ctrl+Alt+D on keyboard."
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:218
+#: admin/ta-framework/config/admin-options.php:209
 msgid "Switch Version"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:585
+#: admin/ta-framework/config/admin-options.php:559
 msgid "Switcher Shortcode"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:207
+#: admin/ta-framework/config/admin-options.php:198
 msgid "SWITCHER STYLE"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:213
+#: admin/ta-framework/config/admin-options.php:204
 msgid "Switcher Version"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:649
-#: admin/ta-framework/config/admin-options.php:725
-#: admin/ta-framework/config/admin-options.php:803
-#: admin/ta-framework/config/admin-options.php:880
-#: admin/ta-framework/config/admin-options.php:957
-#: admin/ta-framework/config/admin-options.php:1036
-#: admin/ta-framework/config/admin-options.php:1113
-#: admin/ta-framework/config/admin-options.php:1190
+#: admin/ta-framework/config/admin-options.php:623
+#: admin/ta-framework/config/admin-options.php:656
+#: admin/ta-framework/config/admin-options.php:734
+#: admin/ta-framework/config/admin-options.php:811
+#: admin/ta-framework/config/admin-options.php:888
+#: admin/ta-framework/config/admin-options.php:967
+#: admin/ta-framework/config/admin-options.php:1044
+#: admin/ta-framework/config/admin-options.php:1121
 msgid "Text"
 msgstr ""
 
-#: admin/ta-framework/fields/typography/typography.php:168
-msgid "Text Align"
-msgstr ""
-
-#: admin/ta-framework/config/admin-options.php:653
-#: admin/ta-framework/config/admin-options.php:729
-#: admin/ta-framework/config/admin-options.php:807
-#: admin/ta-framework/config/admin-options.php:884
-#: admin/ta-framework/config/admin-options.php:961
-#: admin/ta-framework/config/admin-options.php:1040
-#: admin/ta-framework/config/admin-options.php:1117
-#: admin/ta-framework/config/admin-options.php:1194
+#: admin/ta-framework/config/admin-options.php:627
+#: admin/ta-framework/config/admin-options.php:660
+#: admin/ta-framework/config/admin-options.php:738
+#: admin/ta-framework/config/admin-options.php:815
+#: admin/ta-framework/config/admin-options.php:892
+#: admin/ta-framework/config/admin-options.php:971
+#: admin/ta-framework/config/admin-options.php:1048
+#: admin/ta-framework/config/admin-options.php:1125
 msgid "Text Color"
-msgstr ""
-
-#: admin/ta-framework/fields/typography/typography.php:211
-msgid "Text Decoration"
-msgstr ""
-
-#: admin/ta-framework/fields/typography/typography.php:197
-msgid "Text Transform"
 msgstr ""
 
 #: admin/ta-framework/config/admin-options.php:18
@@ -1365,63 +1430,63 @@ msgstr ""
 msgid "ThemeAtelier"
 msgstr ""
 
-#: admin/ta-framework/functions/validate.php:50
-#: admin/ta-framework/functions/validate.php:126
+#: admin/ta-framework/functions/validate.php:46
+#: admin/ta-framework/functions/validate.php:114
 msgid "This field is required."
 msgstr ""
 
 #: admin/ta-framework/config/admin-options.php:105
-#: admin/ta-framework/fields/background/background.php:90
-#: admin/ta-framework/fields/date/date.php:32
-#: admin/ta-framework/fields/datetime/datetime.php:37
+#: admin/ta-framework/fields/background/background.php:98
+#: admin/ta-framework/fields/date/date.php:34
+#: admin/ta-framework/fields/datetime/datetime.php:39
 msgid "To"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:281
+#: admin/ta-framework/config/admin-options.php:264
 msgid "Tooltip Background Color"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:247
+#: admin/ta-framework/config/admin-options.php:230
 msgid "Tooltip on Floating Switch"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:259
+#: admin/ta-framework/config/admin-options.php:242
 msgid "Tooltip Position"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:273
-#: admin/ta-framework/config/admin-options.php:275
+#: admin/ta-framework/config/admin-options.php:256
+#: admin/ta-framework/config/admin-options.php:258
 msgid "Tooltip Text"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:289
+#: admin/ta-framework/config/admin-options.php:272
 msgid "Tooltip Text Color"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:262
+#: admin/ta-framework/config/admin-options.php:245
 msgid "Top"
 msgstr ""
 
-#: admin/ta-framework/fields/border/border.php:25
-#: admin/ta-framework/fields/spacing/spacing.php:25
+#: admin/ta-framework/fields/border/border.php:27
+#: admin/ta-framework/fields/spacing/spacing.php:27
 msgid "top"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:323
-#: admin/ta-framework/config/admin-options.php:408
+#: admin/ta-framework/config/admin-options.php:306
+#: admin/ta-framework/config/admin-options.php:391
 msgid "Top Left"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:322
-#: admin/ta-framework/config/admin-options.php:407
+#: admin/ta-framework/config/admin-options.php:305
+#: admin/ta-framework/config/admin-options.php:390
 msgid "Top Right"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:577
+#: admin/ta-framework/config/admin-options.php:551
 msgid "Treat an element as switch"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1432
+#: admin/ta-framework/config/admin-options.php:1338
 msgid "Turn On to automatically invert all inline SVG images in dark mode."
 msgstr ""
 
@@ -1429,48 +1494,41 @@ msgstr ""
 msgid "Type of Hide By"
 msgstr ""
 
-#: admin/ta-framework/fields/media/media.php:25
-#: admin/ta-framework/fields/upload/upload.php:24
+#: admin/ta-framework/classes/comment-options.class.php:202
+#: admin/ta-framework/classes/metabox-options.class.php:279
+msgid "update post"
+msgstr ""
+
+#: admin/ta-framework/fields/media/media.php:27
+#: admin/ta-framework/fields/upload/upload.php:26
 msgid "Upload"
 msgstr ""
 
-#: admin/ta-framework/fields/typography/typography.php:201
-msgid "Uppercase"
-msgstr ""
-
-#: admin/ta-framework/config/admin-options.php:1507
+#: admin/ta-framework/config/admin-options.php:1344
 msgid "VIDEO STYLE"
 msgstr ""
 
-#: admin/ta-framework/fields/link_color/link_color.php:39
+#: admin/ta-framework/fields/link_color/link_color.php:42
 msgid "Visited"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:1265
+#: admin/ta-framework/config/admin-options.php:1196
 msgid "Want to enable dark mode on the scrollbar of the website?"
 msgstr ""
 
-#: admin/ta-framework/config/admin-options.php:253
+#: admin/ta-framework/config/admin-options.php:236
 msgid "Want to show a hint on dark mode floating switch as tooltip?"
 msgstr ""
 
-#: admin/ta-framework/fields/typography/typography.php:218
-msgid "Wavy"
-msgstr ""
-
-#: admin/ta-framework/fields/dimensions/dimensions.php:22
+#: admin/ta-framework/fields/dimensions/dimensions.php:24
 msgid "width"
 msgstr ""
 
-#: admin/ta-framework/fields/typography/typography.php:269
-msgid "Word Spacing"
-msgstr ""
-
-#: admin/ta-framework/config/admin-options.php:1308
-#: admin/ta-framework/config/admin-options.php:1354
-#: admin/ta-framework/config/admin-options.php:1401
-#: admin/ta-framework/config/admin-options.php:1529
-#: admin/ta-framework/config/admin-options.php:1567
+#: admin/ta-framework/config/admin-options.php:1223
+#: admin/ta-framework/config/admin-options.php:1260
+#: admin/ta-framework/config/admin-options.php:1307
+#: admin/ta-framework/config/admin-options.php:1366
+#: admin/ta-framework/config/admin-options.php:1404
 msgid "Yes"
 msgstr ""
 
@@ -1480,16 +1538,16 @@ msgid ""
 "Customization."
 msgstr ""
 
-#: admin/ta-framework/fields/group/group.php:141
-#: admin/ta-framework/fields/repeater/repeater.php:89
+#: admin/ta-framework/fields/group/group.php:143
+#: admin/ta-framework/fields/repeater/repeater.php:91
 msgid "You cannot add more."
 msgstr ""
 
-#: admin/ta-framework/fields/group/group.php:142
-#: admin/ta-framework/fields/repeater/repeater.php:90
+#: admin/ta-framework/fields/group/group.php:144
+#: admin/ta-framework/fields/repeater/repeater.php:92
 msgid "You cannot remove more."
 msgstr ""
 
-#: admin/ta-framework/classes/admin-options.class.php:509
+#: admin/ta-framework/classes/admin-options.class.php:516
 msgid "You have unsaved changes, save your changes!"
 msgstr ""
