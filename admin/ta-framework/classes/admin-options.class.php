@@ -222,7 +222,7 @@ if (!class_exists('DRK_LITE_Options')) {
     public function set_options($ajax = false)
     {
       
-      if(isset($_POST['_ajax_nonce']) && !wp_verify_nonce( sanitize_text_field( wp_unslash ( $_POST['prefix_nonce'] ) ) , 'save_options')){
+      if(isset($_POST['_ajax_nonce']) && !wp_verify_nonce( sanitize_text_field( wp_unslash ( $_POST['_ajax_nonce'] ) ) , 'save_options')){
           return wp_send_json(['error' => 'Nonce is invalid']);
       }
 

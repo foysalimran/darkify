@@ -94,7 +94,7 @@ if ( ! function_exists( 'drk_lite_import_ajax' ) ) {
 		if(!current_user_can('manage_options')){
 			return;
 		}
-		if(isset($_POST['_ajax_nonce']) && !wp_verify_nonce(sanitize_text_field( wp_unslash ( $_POST['prefix_nonce'] ) ), 'save_options')){
+		if(isset($_POST['_ajax_nonce']) && !wp_verify_nonce(sanitize_text_field( wp_unslash ( $_POST['_ajax_nonce'] ) ), 'save_options')){
 			return wp_send_json(['error' => 'Nonce is invalid']);
 		}
 
@@ -161,7 +161,7 @@ if ( ! function_exists( 'drk_lite_chosen_ajax' ) ) {
 			return;
 		}
 
-		if(isset($_POST['_ajax_nonce']) && !wp_verify_nonce(sanitize_text_field( wp_unslash ( $_POST['prefix_nonce'] ) ), 'save_options')){
+		if(isset($_POST['_ajax_nonce']) && !wp_verify_nonce(sanitize_text_field( wp_unslash ( $_POST['_ajax_nonce'] ) ), 'save_options')){
 			return wp_send_json(['error' => 'Nonce is invalid']);
 		}
 
