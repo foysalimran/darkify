@@ -439,6 +439,7 @@ if ( ! class_exists( 'DRK_LITE_Setup' ) ) {
         'spinner',
         'subheading',
         'submessage',
+        'switcher_shortcode',
         'switcher',
         'tabbed',
         'text',

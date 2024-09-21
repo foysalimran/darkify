@@ -1,10 +1,10 @@
-=== Darkify ===
-Contributors: faysal61
-Donate link: https://wp-plugins.themeatelier.net/
-Tags: dark mode, dark website, darkify, night mode, wp dark mode
+=== Darkify: WordPress Dark Mode Plugin - Enhance Your Website's Visibility in Low Light ===
+Contributors: themeatelier
+Donate link: https://themeatelier.net/
+Tags: Dark mode, Night Mode, Dark website, Night mode, WP dark mode
 Requires at least: 5.3
 Tested up to: 6.4
-Stable tag: 1.0.0
+Stable tag: 1.2.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,6 +43,14 @@ e.g.
 
 
 == Changelog ==
+
+= 1.1.0 =
+* Added switcher shortcode copy option on admin panel.
+* Added pro version link on plugin list page
+
+
+= 1.0.1 =
+* Fixed plugin URL
 
 = 1.0.0 =
 * Initial release.

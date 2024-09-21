@@ -808,11 +808,11 @@ msgid "Hover"
 msgstr ""
 
 #. Author URI of the plugin
-msgid "https://https://themeatelier.net/"
+msgid "https://themeatelier.net/"
 msgstr ""
 
 #. URI of the plugin
-msgid "https://https://wp-plugins.themeatelier.net/"
+msgid "https://wp-plugins.themeatelier.net/"
 msgstr ""
 
 #: admin/ta-framework/config/admin-options.php:1203

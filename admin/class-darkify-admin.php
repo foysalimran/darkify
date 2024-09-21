@@ -42,8 +42,12 @@ class Darkify_Admin
 		wp_enqueue_style($this->plugin_name, DRK_LITE_DIR_URL . 'admin/css/darkify-admin.css', array(), $this->version, 'all');
 	}
 
-	public function enqueue_scripts()
+	public function enqueue_scripts($hook)
 	{
+		if($hook !== 'toplevel_page_darkify'){
+			return;
+		}
+		wp_enqueue_script($this->plugin_name, DRK_LITE_DIR_URL . 'admin/js/darkify-admin.js', array(), $this->version, 'all');
 	}
 
 	public function add_plugin_action_links($links, $file)
