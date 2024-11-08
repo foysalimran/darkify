@@ -625,6 +625,8 @@ DRK_LITE::createSection( $prefix, array(
       'dependency' => array('color_pallets', '==', 'set1', 'all'),
       'options'   => array(
         'text' => esc_html__('Text Color', 'darkify'),
+        'color' => esc_html__('Link Color', 'darkify'),
+        'hover' => esc_html__('Link Hover Color', 'darkify'),
       ),
       'default' => array(
         'text' => '#BEBEBE',

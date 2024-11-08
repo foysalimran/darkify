@@ -16,7 +16,7 @@
  * Plugin Name:       Darkify
  * Plugin URI:        https://wp-plugins.themeatelier.net/
  * Description:       Darkify is for a stylish, modern darkmode look that people love.
- * Version:           1.2.0
+ * Version:           1.2.1
  * Author:            ThemeAtelier
  * Author URI:        https://themeatelier.net/
  * License:           GPL-2.0+
@@ -35,7 +35,7 @@ if (!defined('WPINC')) {
  * Start at version 1.0.0 and use SemVer - https://semver.org
  * Rename this for your plugin and update it as you release new versions.
  */
-define('DRK_LITE_VERSION', '1.2.0');
+define('DRK_LITE_VERSION', '1.2.1');
 define('DRK_LITE_DIR_URL', plugin_dir_url(__FILE__));
 define('DRK_LITE_BASENAME', plugin_basename(__FILE__));
 define('DRK_LITE_PATH', plugin_dir_path(__FILE__));

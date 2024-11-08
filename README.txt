@@ -4,7 +4,7 @@ Donate link: https://themeatelier.net/
 Tags: Dark mode, Night Mode, Dark website, Night mode, WP dark mode
 Requires at least: 5.3
 Tested up to: 6.4
-Stable tag: 1.2.0
+Stable tag: 1.2.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -43,11 +43,14 @@ e.g.
 
 
 == Changelog ==
+= 1.2.1 =
+* Improvement: Enhanced `DRK_Fields` class structure for better readability and maintainability.
+* Update: Code adjustments for full compatibility with the latest WordPress version.
+* Update: Improved code compatibility with the latest PHP versions.
 
 = 1.1.0 =
 * Added switcher shortcode copy option on admin panel.
 * Added pro version link on plugin list page
-
 
 = 1.0.1 =
 * Fixed plugin URL
